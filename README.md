@@ -1,9 +1,10 @@
-### 一个导航
+# 我的导航
 
-![](https://img.shields.io/badge/version-4.1.2-red)
+![](https://img.shields.io/badge/release-1.0.2-green)
+![](https://img.shields.io/badge/version-1.0.2-red)
 
 ------------
-#### 这是什么
+## 原作者说：
 
 市面上有很多知名的导航，但是我都不太喜欢。不是铺满广告，就是信息太杂。所以尝试自己写了个导航页，支持响应式。绝对无添加无防腐剂！太低版本的浏览器（比如IE8以下）显示可能有问题，不过也没打算适配。
 
@@ -52,3 +53,6 @@ slideout：[https://slideout.js.org](https://slideout.js.org "https://slideout.j
 font-awesome：[https://fontawesome.com](https://fontawesome.com "https://fontawesome.com")
 
 知心天气：[https://www.seniverse.com/](https://www.seniverse.com/ "https://www.seniverse.com/")
+
+## 我的内容
+本导航中有部分私人内容，请注意隐私保护
