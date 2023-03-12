@@ -90,8 +90,8 @@ $(function () {
         }, {
             name: '雀魂麻将',
             link: 'https://www.maj-soul.com/',
-            box_shadow: '#af564e',
-            icon: 'img/headline.png',
+            box_shadow: '#f3cafc',
+            icon: 'img/maj-soul.png',
         }, {
             name: '知乎',
             link: 'https://www.zhihu.com/',
