@@ -88,14 +88,9 @@ $(function () {
             box_shadow: '#3680dd',
             icon: 'img/bigdata.png',
         }, {
-            name: 'Via插件',
-            link: 'http://via-app.cn',
-            box_shadow: '#FA7199',
-            icon: 'img/via.png',
-        }, {
-            name: '今日热榜',
-            link: 'https://tophub.today/',
-            box_shadow: '#F2584A',
+            name: '雀魂麻将',
+            link: 'https://www.maj-soul.com/',
+            box_shadow: '#af564e',
             icon: 'img/headline.png',
         }, {
             name: '知乎',
@@ -153,15 +148,10 @@ $(function () {
             box_shadow: '#62677b',
             icon: 'img/shuziweiba.png',
         }, {
-            name: '疫情跟踪',
-            link: 'https://app.21jingji.com/html/2020yiqing/',
-            box_shadow: '#7C5DC7',
-            icon: 'img/ding.png',
-        }, {
-            name: '疫情辟谣',
-            link: 'https://vp.fact.qq.com/home',
-            box_shadow: '#00A0E9',
-            icon: 'img/true.png',
+            name: 'Via插件',
+            link: 'http://via-app.cn',
+            box_shadow: '#FA7199',
+            icon: 'img/via.png',
         }]
     }
     for (var i = 0; i < bookmark.data.length; i++) {
@@ -261,7 +251,7 @@ $(function () {
             searchlink: 'https://github.com/search',
             searchname: 'q',
             color: '#24292e',
-            placeholder: '全球最大程序员骗局'
+            placeholder: '全球最大男性交友网站'
         }, {
             name: 'toutiao',
             icon: 'img/toutiao-xs.png',
