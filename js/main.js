@@ -83,7 +83,7 @@ $(function () {
             box_shadow: '#F18033',
             icon: 'img/duckduckgo-xs.png',
         }, {
-            name: '人工智能平台',
+            name: 'AI平台',
             link: 'https://labs.nbut.dolphin-labs.com/user-center/login/index',
             box_shadow: '#3680dd',
             icon: 'img/bigdata.png',
