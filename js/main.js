@@ -83,8 +83,8 @@ $(function () {
             box_shadow: '#F18033',
             icon: 'img/duckduckgo-xs.png',
         }, {
-            name: '大数据',
-            link: 'http://10.26.229.10/',
+            name: '人工智能平台',
+            link: 'https://labs.nbut.dolphin-labs.com/user-center/login/index',
             box_shadow: '#3680dd',
             icon: 'img/bigdata.png',
         }, {
@@ -92,6 +92,11 @@ $(function () {
             link: 'https://www.maj-soul.com/',
             box_shadow: '#f3cafc',
             icon: 'img/maj-soul.png',
+        }, {
+            name: '百度翻译',
+            link: 'https://fanyi.baidu.com',
+            box_shadow: '#a0d0ea',
+            icon: 'img/zhihulogo.png',//@TODO 图标待补全
         }, {
             name: '知乎',
             link: 'https://www.zhihu.com/',
