@@ -96,7 +96,7 @@ $(function () {
             name: '百度翻译',
             link: 'https://fanyi.baidu.com',
             box_shadow: '#a0d0ea',
-            icon: 'img/zhihulogo.png',//@TODO 图标待补全
+            icon: 'img/fanyi_baidu.png',
         }, {
             name: '知乎',
             link: 'https://www.zhihu.com/',
