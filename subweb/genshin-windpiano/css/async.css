@@ -1,0 +1,11 @@
+@font-face {
+    font-family:'genshin impact';
+    src: url('zh-cn.woff2') format('truetype');
+}
+
+body {
+    background: url('../img/bg.jpg') no-repeat center fixed;
+    background-color: #1a2f51;
+    user-select: none;
+    background-size: cover;
+}
