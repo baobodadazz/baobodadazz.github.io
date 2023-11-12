@@ -143,15 +143,20 @@ $(function () {
             box_shadow: '#D7191A',
             icon: 'img/sspai.png',
         }, {
-            name: '小众软件',
-            link: 'https://www.appinn.com/',
-            box_shadow: '#3279ea',
-            icon: 'img/xiaozhong.png',
+            name: '加密猫',
+            link: 'subweb/electron/index.html',
+            box_shadow: '#ffffff',
+            icon: 'img/electron.png',
         }, {
-            name: '数字尾巴',
-            link: 'https://www.dgtle.com/',
-            box_shadow: '#62677b',
-            icon: 'img/shuziweiba.png',
+            name: '电子木鱼',
+            link: 'subweb/woodfish/index.html',
+            box_shadow: '#000000',
+            icon: 'img/woodfish.png',
+        },  {
+            name: '风物之琴',
+            link: 'subweb/genshin-windpiano/index.html',
+            box_shadow: '#ffffff',
+            icon: 'img/windpiano.png',
         }, {
             name: 'Via插件',
             link: 'http://via-app.cn',
