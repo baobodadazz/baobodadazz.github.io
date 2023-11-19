@@ -1,14 +1,23 @@
 $(".woodfish .click").click(function (e) {
     run()
 });
-
+var is = false;
+var interval;
 $(".list").click(function (e) { 
     var data = $(this).attr("data");
     if (data == "reset") {
         Merit = 0;
         $(".text .text_1").text("当前功德：" + Merit);
     } else if (data == "about") {
-        alert("作者：b站可莉酱呀")
+        alert("原作者：b站可莉酱呀\n爆脖大大Zz修改")
+    } else if (data == "autorun"){
+
+        is = !is;
+        if(is){
+            interval = setInterval("run()","500");
+        } else {
+            clearInterval(interval);
+        }
     } else if (data == "hide") {
         
     }
