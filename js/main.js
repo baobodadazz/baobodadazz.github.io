@@ -138,10 +138,10 @@ $(function () {
             box_shadow: '#AC6E2F',
             icon: 'img/xda.png',
         }, {
-            name: '少数派',
-            link: 'https://sspai.com/',
+            name: 'XP测试',
+            link: 'subweb/xpcheck/index.html',
             box_shadow: '#D7191A',
-            icon: 'img/sspai.png',
+            icon: 'img/xpcheck.png',
         }, {
             name: '加密猫',
             link: 'subweb/electron/index.html',
