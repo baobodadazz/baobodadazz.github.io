@@ -158,8 +158,8 @@ $(function () {
             box_shadow: '#ffffff',
             icon: 'img/windpiano.png',
         }, {
-            name: 'Via插件',
-            link: 'http://via-app.cn',
+            name: 'QR文件传输',
+            link: 'subweb/qrcode-file-transfer-main/encode.html',
             box_shadow: '#FA7199',
             icon: 'img/via.png',
         }]
