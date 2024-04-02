@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="zh">
+    <head>
+  <!-- 元数据 -->
+  <meta charset="utf-8">
+  
+  
+  <title>【大模型问答】vulkan，openGL，DX等图形接口-GPT3.5 | 爆脖の奇妙生活</title>
+  
+  <meta name="author" content="爆脖大大Zz" />
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="robots" content="index,follow" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <meta name="format-detection" content="telphone=no, email=no" />
+  
+    <meta name="keywords" content="GPT, 图形接口, 编程" />
+  
+  <meta name="description" content="Vulkan,OpenGL,DirectX对比Vulkan，OpenGL和DirectX（DX）是常用的图形接口，被广泛用于游戏和图形应用开发。它们都有各自的特点和优势，因此很难一概而论哪个接口性能更强。 下面是对每个接口的简要介绍：  Vulkan：Vulkan是一个跨平台的低级别图形和计算API。它提供了更直接的硬件访问和更多的控制权，允许开发人员更好地利用GPU的性能。Vulkan使用异步、">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【大模型问答】vulkan，openGL，DX等图形接口-GPT3.5">
+<meta property="og:url" content="https://nav.baobodadazz.top/subweb/blog/2023/04/03/0010.vulkan%EF%BC%8CopenGL%EF%BC%8CDX%E7%AD%89%E5%9B%BE%E5%BD%A2%E6%8E%A5%E5%8F%A3/index.html">
+<meta property="og:site_name" content="爆脖の奇妙生活">
+<meta property="og:description" content="Vulkan,OpenGL,DirectX对比Vulkan，OpenGL和DirectX（DX）是常用的图形接口，被广泛用于游戏和图形应用开发。它们都有各自的特点和优势，因此很难一概而论哪个接口性能更强。 下面是对每个接口的简要介绍：  Vulkan：Vulkan是一个跨平台的低级别图形和计算API。它提供了更直接的硬件访问和更多的控制权，允许开发人员更好地利用GPU的性能。Vulkan使用异步、">
+<meta property="og:locale">
+<meta property="article:published_time" content="2023-04-03T07:31:36.000Z">
+<meta property="article:modified_time" content="2024-04-02T09:39:02.605Z">
+<meta property="article:author" content="爆脖大大Zz">
+<meta property="article:tag" content="GPT">
+<meta property="article:tag" content="编程">
+<meta property="article:tag" content="图形接口">
+<meta name="twitter:card" content="summary">
+  
+  <!-- 站点验证相关 -->
+  
+    
+    
+    
+  
+  <!-- 样式表文件 -->
+  <link rel="stylesheet" id="kratos-css" href="/subweb/blog/css/kratosr.min.css" media="all"></script>
+  
+    <link rel="stylesheet" id="darkmode-css" href="/subweb/blog/css/kr-color-dark.min.css" media="(prefers-color-scheme: dark)"></script>
+    <script src="/subweb/blog/js/kr-dark.min.js"></script>
+  
+  
+    <link rel="stylesheet" id="highlight-css" href="/subweb/blog/css/highlight/night-bright.min.css" media="all"></script>
+  
+  <link rel="stylesheet" id="fontawe-css" href="/subweb/blog/vendors/font-awesome@4.7.0/css/font-awesome.min.css" media="all"></script>
+  <link rel="stylesheet" id="nprogress-css" href="/subweb/blog/vendors/nprogress@0.2.0/nprogress.css" media="all"></script>
+  
+  
+    <link rel="stylesheet" href="/subweb/blog/vendors/aplayer@1.10.1/dist/APlayer.min.css"></script>
+  
+  
+    <link rel="stylesheet" href="/subweb/blog/vendors/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css"></script>
+  
+  <!-- 不得不预先加载的一些JS文件 -->
+  <script src="/subweb/blog/vendors/jquery@3.6.0/dist/jquery.min.js"></script>
+  
+    <script src="/subweb/blog/vendors/qrcode_js@1.0.0/qrcode.min.js"></script>
+  
+  
+  <style>
+    
+    
+  </style>
+  
+<meta name="generator" content="Hexo 7.1.1"></head>
+
+
+    <body class="custom-background">
+        <div id="kratos-wrapper">
+    <div id="kratos-page">
+        <div id="kratos-header">
+            <header id="kratos-desktop-topnav" class="kratos-topnav">
+                <div class="container">
+                    <div class="nav-header">
+                        <nav id="kratos-menu-wrap">
+                            <ul id="kratos-primary-menu" class="sf-menu">
+                                
+                                    
+                                    
+                                
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </header>
+            <header id="kratos-mobile-topnav" class="kratos-topnav">
+                <div class="container">
+                    <div class="color-logo"><a href="/subweb/blog/">爆脖の奇妙生活</a></div>
+                    <div class="nav-toggle">
+                        <a class="kratos-nav-toggle js-kratos-nav-toggle">
+                            <i></i>
+                        </a>
+                    </div>
+                </div>
+            </header>
+        </div>
+        <div class="kratos-start kratos-hero-2">
+            <!-- <div class="kratos-overlay"></div> -->
+            <div class="kratos-cover kratos-cover-2 text-center">
+                <div class="desc desc2 animate-box">
+                    <a href="/subweb/blog/">
+                        <h2>爆脖の奇妙生活</h2> <br />
+                        <span>さあ，私たちのデートを始めましょう</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div id="kratos-blog-post">
+            <div class="container">
+                <div id="main" class="row">
+                    
+
+        
+
+            <section class="col-md-8">
+
+        
+
+            <article itemscope itemtype="https://schema.org/Article">
+    
+    <link itemprop="mainEntityOfPage" href="https://nav.baobodadazz.top/subweb/blog/2023/04/03/0010.vulkan%EF%BC%8CopenGL%EF%BC%8CDX%E7%AD%89%E5%9B%BE%E5%BD%A2%E6%8E%A5%E5%8F%A3/">
+    <div class="kratos-hentry kratos-post-inner clearfix">
+        <header class="kratos-entry-header">
+            
+                <h1 class="kratos-entry-title text-center" itemprop="name headline">【大模型问答】vulkan，openGL，DX等图形接口-GPT3.5</h1>
+            
+            
+            <ul class="kratos-post-meta text-center">
+                <li><time datetime="2023-04-03T07:31:36.000Z" itemprop="datePublished"><i class="fa fa-calendar"></i> 2023-04-03</time></li>
+                <li itemprop="author" itemscope itemtype="https://schema.org/Person">
+                    <i class="fa fa-user"></i> 作者 <span itemprop="name">爆脖大大Zz</span>
+                </li>
+                
+                    <li>
+                        <i class="fa fa-edit"></i> 
+                        
+                        
+                            ~2.11K
+                        
+                        字
+                    </li>
+                
+                
+            </ul>
+        </header>
+        <div class="kratos-post-content">
+            
+            <div id="expire-alert" class="alert alert-warning hidden" role="alert">
+                <div class="icon"><i class="fa fa-warning"></i></div>
+                <div class="text"><p>本文最后编辑于 <time datetime="1712050742605"></time> 前，其中的内容可能需要更新。</p></div>
+            </div>
+            
+            
+            
+            <hr />
+            <div itemprop="articleBody"><h1 id="Vulkan-OpenGL-DirectX对比"><a href="#Vulkan-OpenGL-DirectX对比" class="headerlink" title="Vulkan,OpenGL,DirectX对比"></a>Vulkan,OpenGL,DirectX对比</h1><p>Vulkan，OpenGL和DirectX（DX）是常用的图形接口，被广泛用于游戏和图形应用开发。它们都有各自的特点和优势，因此很难一概而论哪个接口性能更强。</p>
+<p>下面是对每个接口的简要介绍：</p>
+<ol>
+<li><p>Vulkan：Vulkan是一个跨平台的低级别图形和计算API。它提供了更直接的硬件访问和更多的控制权，允许开发人员更好地利用GPU的性能。Vulkan使用异步、并行的方式工作，并且对多线程处理有很好的支持。由于其底层性质，Vulkan通常在需要高度优化和对设备资源需求较大的场景下表现出色，例如使用大规模渲染技术或进行复杂的计算。</p>
+</li>
+<li><p>OpenGL：OpenGL是一个跨平台的图形API，广泛用于实时渲染和图形应用程序开发。它具有较高的稳定性和兼容性，并且易于学习和使用。然而，由于OpenGL的设计较早，它在性能方面可能不如Vulkan或DirectX。尽管如此，许多游戏和应用程序仍然使用OpenGL，并且在某些情况下，它可以提供足够的性能来满足需求。</p>
+</li>
+<li><p>DirectX（包括DirectX 11和DirectX 12）：DirectX是由Microsoft开发的一组技术，用于Windows平台上的多媒体和游戏开发。DirectX在Windows系统上提供了广泛的功能和工具，可以方便地进行图形和多媒体编程。DirectX 12是最新版本，引入了更低级别的API设计，类似于Vulkan，并且对多线程和并行处理有更好的支持。DirectX通常在Windows平台上具有较好的性能，尤其是在与硬件紧密合作并使用专门优化的驱动程序时。</p>
+</li>
+</ol>
+<p>要确定哪个接口具有更强大的性能，需要考虑许多因素，如应用程序的性质、目标平台、硬件配置以及开发人员的熟练程度。在实际应用中，根据具体需求选择适合的接口和技术是很重要的。</p>
+<h1 id="除了vulkan，openGL，DX以外，还有哪些高性能的图形接口"><a href="#除了vulkan，openGL，DX以外，还有哪些高性能的图形接口" class="headerlink" title="除了vulkan，openGL，DX以外，还有哪些高性能的图形接口"></a>除了vulkan，openGL，DX以外，还有哪些高性能的图形接口</h1><p>除了Vulkan、OpenGL和DirectX，还有一些其他高性能的图形接口可供选择。以下是其中几个常用的选项：</p>
+<ol>
+<li><p>Metal：由苹果公司开发的图形接口，专为iOS和macOS系统设计，具有低延迟和高效能的特点。</p>
+</li>
+<li><p>WebGPU：Web浏览器中的图形编程接口，旨在提供与现代图形硬件更直接的交互，实现高性能的Web图形渲染。</p>
+</li>
+<li><p>DirectX 12 Ultimate：微软最新版本的图形API，提供对Windows平台上最新的图形硬件特性的支持，具有高度优化的性能和功能。</p>
+</li>
+<li><p>CUDA：由NVIDIA开发的并行计算平台和编程模型，主要用于利用NVIDIA GPU进行高性能计算和图形处理。</p>
+</li>
+<li><p>OpenCL：跨平台的并行计算框架，支持多种处理器架构，包括CPU、GPU和FPGA等，用于实现高性能通用计算任务。</p>
+</li>
+<li><p>WebGL：基于Web标准的图形接口，允许在Web浏览器中使用JavaScript进行硬件加速的3D图形渲染。</p>
+</li>
+</ol>
+<p>这些接口都具有不同的特点和适用范围，开发者可以根据具体需求选择最适合自己项目的图形接口。</p>
+<h1 id="QT是否属于图形接口"><a href="#QT是否属于图形接口" class="headerlink" title="QT是否属于图形接口"></a>QT是否属于图形接口</h1><p>是的，QT（跨平台应用程序和用户界面开发框架）是一种图形接口。它提供了一套功能强大的工具和库，用于创建各种类型的图形用户界面（GUI）应用程序。QT具有丰富的图形控件、布局管理器、绘图功能以及事件处理等特性，使开发人员能够轻松构建现代化、可交互的应用程序界面。同时，QT也提供了对不同操作系统的支持，包括Windows、macOS、Linux等，使开发者能够编写一次代码，然后在多个平台上运行其应用程序。</p>
+<h1 id="除了QT外，还有哪些高性能图形接口适合制作图形化界面"><a href="#除了QT外，还有哪些高性能图形接口适合制作图形化界面" class="headerlink" title="除了QT外，还有哪些高性能图形接口适合制作图形化界面"></a>除了QT外，还有哪些高性能图形接口适合制作图形化界面</h1><p>除了QT外，还有一些其他高性能图形接口适合制作图形化界面的选择。以下是几个常用的选项：</p>
+<ol>
+<li><p><strong>WxWidgets</strong>：WxWidgets 是一个跨平台的 C++ 图形用户界面库，它提供了类似于QT的开发体验。它支持多种操作系统，包括Windows、macOS和Linux等。WxWidgets具有良好的性能和丰富的控件库，可以用于开发图形化界面应用程序。</p>
+</li>
+<li><p>**GTK+**：GTK+ 是一个跨平台的图形用户界面工具包，使用C语言编写，但也支持其他编程语言如C++、Python等。它是GNOME桌面环境的标准工具包，支持多种操作系统。GTK+有很好的性能和可扩展性，并提供了丰富的控件库和主题支持。</p>
+</li>
+<li><p><strong>JavaFX</strong>：JavaFX 是Java平台上专为创建富客户端应用程序设计的图形库。它提供了丰富的控件库、动画效果和多媒体功能。JavaFX的性能良好，并且与Java紧密集成，适用于开发Java应用程序的图形界面。</p>
+</li>
+<li><p><strong>Electron</strong>：Electron 是一个基于Web技术（HTML、CSS、JavaScript）的桌面应用程序开发框架。使用Electron，您可以使用Web技术开发跨平台的图形界面应用程序。它支持Windows、macOS和Linux等操作系统，并具有灵活的界面设计和良好的性能。</p>
+</li>
+</ol>
+<p>这些选项都是经过广泛使用和测试的，适用于制作高性能图形化界面应用程序。您可以根据自己的需求和偏好选择合适的工具。</p>
+</div>
+        </div>
+        
+            <div class="kratos-copyright text-center clearfix">
+                <h5 itemprop="copyrightNotice">本作品采用 <a rel="license nofollow" target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/">知识共享署名-相同方式共享 4.0 国际许可协议</a> 进行许可</h5>
+            </div>
+        
+        <footer class="kratos-entry-footer clearfix">
+            
+                <div class="post-like-donate text-center clearfix" id="post-like-donate">
+                
+                    <a class="donate" href="javascript:;"><i class="fa fa-bitcoin"></i> 打赏</a>
+                
+                
+                    <a class="share" href="javascript:;"><i class="fa fa-share-alt"></i> 分享</a>
+                    <div class="share-wrap" style="display: none;">
+    <div class="share-group">
+        <a href="javascript:;" class="share-plain qq" onclick="share('qq');" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-qq"></i>
+            </div>
+        </a>
+        <a href="javascript:;" class="share-plain qzone" onclick="share('qzone');" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-star"></i>
+            </div>
+        </a>
+        <a href="javascript:;" class="share-plain weixin pop style-plain" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-weixin"></i>
+            </div>
+            <div class="share-int">
+                <div class="qrcode" id="wechat-qr"></div>
+                <p>打开微信“扫一扫”，打开网页后点击屏幕右上角分享按钮</p>
+            </div>
+        </a>
+        <a href="javascript:;" class="share-plain weibo" onclick="share('weibo');" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-weibo"></i>
+            </div>
+        </a>
+        <a href="javascript:;" class="share-plain facebook style-plain" onclick="share('facebook');" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-facebook"></i>
+            </div>
+        </a>
+        <a href="javascript:;" class="share-plain twitter style-plain" onclick="share('twitter');" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-twitter"></i>
+            </div>
+        </a>
+    </div>
+    <script type="text/javascript">
+        $(()=>{
+            new QRCode("wechat-qr", {
+                text: "https://nav.baobodadazz.top/subweb/blog/2023/04/03/0010.vulkan%EF%BC%8CopenGL%EF%BC%8CDX%E7%AD%89%E5%9B%BE%E5%BD%A2%E6%8E%A5%E5%8F%A3/",
+                width: 150,
+                height: 150,
+                correctLevel : QRCode.CorrectLevel.H
+            });
+        });
+        function share(dest) {
+            const qqBase        = "https://connect.qq.com/widget/shareqq/index.html?";
+            const weiboBase     = "https://service.weibo.com/share/share.php?";
+            const qzoneBase     = "https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?";
+            const facebookBase  = "https://www.facebook.com/sharer/sharer.php?";
+            const twitterBase   = "https://twitter.com/intent/tweet?";
+            const hostUrl       = "https://nav.baobodadazz.top/subweb/blog/2023/04/03/0010.vulkan%EF%BC%8CopenGL%EF%BC%8CDX%E7%AD%89%E5%9B%BE%E5%BD%A2%E6%8E%A5%E5%8F%A3/";
+            const title         = "「【大模型问答】vulkan，openGL，DX等图形接口-GPT3.5」";
+            const excerpt       = `Vulkan,OpenGL,DirectX对比Vulkan，OpenGL和DirectX（DX）是常用的图形接口，被广泛用于游戏和图形应用开发。它们都有各自的特点和优势，因此很难一概而论哪个接口性能更强。
+下面是对每个接口的简要介绍：...`;
+            let _URL;
+            switch (dest) {
+                case "qq"       : _URL = qqBase+"url="+hostUrl+"&title="+title+"&desc=&summary="+excerpt+"&site=cxpy";     break;
+                case "weibo"    : _URL = weiboBase+"url="+hostUrl+"&title="+title+excerpt;                                 break;
+                case "qzone"    : _URL = qzoneBase+"url="+hostUrl+"&title="+title+"&desc=&summary="+excerpt+"&site=cxpy";  break;
+                case "facebook" : _URL = facebookBase+"u="+hostUrl;                                                        break;
+                case "twitter"  : _URL = twitterBase+"text="+title+excerpt+"&url="+hostUrl;                                break;
+            }
+            window.open(_URL);
+        };
+    </script>
+</div>
+                
+                </div>
+            
+            <div class="footer-tag clearfix">
+                <div class="pull-left">
+                <i class="fa fa-tags"></i>
+                    <a class="tag-none-link" href="/subweb/blog/tags/GPT/" rel="tag">GPT</a>, <a class="tag-none-link" href="/subweb/blog/tags/%E5%9B%BE%E5%BD%A2%E6%8E%A5%E5%8F%A3/" rel="tag">图形接口</a>, <a class="tag-none-link" href="/subweb/blog/tags/%E7%BC%96%E7%A8%8B/" rel="tag">编程</a>
+                </div>
+                <div class="pull-date">
+                    <time datetime="2024-04-02T09:39:02.605Z" itemprop="dateModified">最后编辑：2024-04-02</time>
+                </div>
+            </div>
+        </footer>
+    </div>
+    
+        <nav class="navigation post-navigation clearfix" role="navigation">
+            
+            <div class="nav-previous clearfix">
+                <a title=" 【大模型问答】流行音视频编码对比？-GPT3.5" href="/subweb/blog/2023/04/02/0009.流行音视频编码对比/">&lt; 上一篇</a>
+            </div>
+            
+            
+            <div class="nav-next clearfix">
+                <a title=" 【大模型问答】蓝光光盘中的PV,Teaser,Menu,IV,CM,Character PV分别指什么？-GPT3.5" href="/subweb/blog/2023/04/04/0011.蓝光光盘中的PV,Teaser,Menu,IV,CM,Character PV分别指什么/">下一篇 &gt;</a>
+            </div>
+            
+        </nav>
+    
+    
+</article>
+
+        
+
+            </section>
+
+        
+
+                
+            
+
+<section id="kratos-widget-area" class="col-md-4 hidden-xs hidden-sm">
+    <!-- 文章和页面根据splitter来分割，没有的话就从头开始设置为sticky -->
+    
+    
+                <aside id="krw-about" class="widget widget-kratos-about clearfix">
+    <div class="photo-background"></div>
+    <div class="photo-wrapper clearfix">
+        <div class="photo-wrapper-tip text-center">
+            <img class="about-photo" src="/subweb/blog/images/avatar.webp" loading="lazy" decoding="auto" />
+        </div>
+    </div>
+    <div class="textwidget">
+        <p class="text-center">爆脖大大Zz</p>
+    </div>
+    <div class="site-meta">
+        <a class="meta-item" href="/subweb/blog/archives/">
+            <span class="title">
+                文章
+            </span>
+            <span class="count">
+                12
+            </span>
+        </a>
+        <a class="meta-item" href="/subweb/blog/categories/">
+            <span class="title">
+                分类
+            </span>
+            <span class="count">
+                2
+            </span>
+        </a>
+        <a class="meta-item" href="/subweb/blog/tags/">
+            <span class="title">
+                标签
+            </span>
+            <span class="count">
+                25
+            </span>
+        </a>
+    </div>
+</aside>
+            
+                    <div class="sticky-area">
+                
+                
+  <aside id="krw-categories" class="widget widget-kratos-categories clearfix">
+    <h4 class="widget-title"><i class="fa fa-folder"></i>分类目录</h4>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/subweb/blog/categories/%E5%8A%A8%E6%BC%AB/">动漫</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/subweb/blog/categories/%E9%97%AE%E7%AD%94%E7%95%99%E6%A1%A3/">问答留档</a><span class="category-list-count">11</span></li></ul>
+  </aside>
+
+
+            
+                
+  <aside id="krw-tags" class="widget widget-kratos-tags clearfix">
+    <h4 class="widget-title"><i class="fa fa-tags"></i>标签聚合</h4>
+      <div class="tag-clouds">
+        <a href="/subweb/blog/tags/C/" style="font-size: 0.6em;">C++</a> <a href="/subweb/blog/tags/GPT/" style="font-size: 0.8em;">GPT</a> <a href="/subweb/blog/tags/IP/" style="font-size: 0.6em;">IP</a> <a href="/subweb/blog/tags/USD/" style="font-size: 0.6em;">USD</a> <a href="/subweb/blog/tags/openMVG/" style="font-size: 0.6em;">openMVG</a> <a href="/subweb/blog/tags/%E4%B8%89%E7%BB%B4%E9%87%8D%E5%BB%BA/" style="font-size: 0.6em;">三维重建</a> <a href="/subweb/blog/tags/%E5%8A%A8%E6%BC%AB/" style="font-size: 0.6em;">动漫</a> <a href="/subweb/blog/tags/%E5%8E%9F%E7%9B%98/" style="font-size: 0.6em;">原盘</a> <a href="/subweb/blog/tags/%E5%9B%BE%E5%BD%A2%E6%8E%A5%E5%8F%A3/" style="font-size: 0.6em;">图形接口</a> <a href="/subweb/blog/tags/%E5%A4%84%E7%90%86%E5%99%A8%E6%9E%B6%E6%9E%84/" style="font-size: 0.6em;">处理器架构</a> <a href="/subweb/blog/tags/%E5%A4%9A%E5%AA%92%E4%BD%93/" style="font-size: 0.6em;">多媒体</a> <a href="/subweb/blog/tags/%E5%AE%89%E5%85%A8/" style="font-size: 0.6em;">安全</a> <a href="/subweb/blog/tags/%E5%B7%A5%E4%BD%9C%E4%BB%8B%E7%BB%8D/" style="font-size: 0.6em;">工作介绍</a> <a href="/subweb/blog/tags/%E5%BD%B1%E8%A7%86/" style="font-size: 0.6em;">影视</a> <a href="/subweb/blog/tags/%E6%8C%87%E4%BB%A4%E9%9B%86/" style="font-size: 0.6em;">指令集</a> <a href="/subweb/blog/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" style="font-size: 0.6em;">操作系统</a> <a href="/subweb/blog/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" style="font-size: 0.6em;">数据库</a> <a href="/subweb/blog/tags/%E6%97%A5%E6%BC%AB/" style="font-size: 0.6em;">日漫</a>
+      </div>
+  </aside>
+
+            
+                
+  <aside id="krw-posts" class="widget widget-kratos-posts">
+  <h4 class="widget-title"><i class="fa fa-file"></i>最新文章</h4>
+  <div class="tab-content">
+      <ul class="list-group">
+        
+        
+          
+          
+            <a class="list-group-item" href="/subweb/blog/2024/04/02/0012.%E5%8A%A8%E6%BC%AB%E5%88%97%E8%A1%A8-%E9%95%BF%E6%9C%9F%E6%9B%B4%E6%96%B0/"><i class="fa  fa-book"></i> 【动漫】动漫列表-长期更新</a>
+            
+          
+        
+          
+          
+            <a class="list-group-item" href="/subweb/blog/2023/04/04/0011.%E8%93%9D%E5%85%89%E5%85%89%E7%9B%98%E4%B8%AD%E7%9A%84PV,Teaser,Menu,IV,CM,Character%20PV%E5%88%86%E5%88%AB%E6%8C%87%E4%BB%80%E4%B9%88/"><i class="fa  fa-book"></i> 【大模型问答】蓝光光盘中的PV,Teaser,Menu,IV,CM,Character PV分别指什么？-GPT3.5</a>
+            
+          
+        
+          
+          
+            <a class="list-group-item" href="/subweb/blog/2023/04/03/0010.vulkan%EF%BC%8CopenGL%EF%BC%8CDX%E7%AD%89%E5%9B%BE%E5%BD%A2%E6%8E%A5%E5%8F%A3/"><i class="fa  fa-book"></i> 【大模型问答】vulkan，openGL，DX等图形接口-GPT3.5</a>
+            
+          
+        
+          
+          
+            <a class="list-group-item" href="/subweb/blog/2023/04/02/0009.%E6%B5%81%E8%A1%8C%E9%9F%B3%E8%A7%86%E9%A2%91%E7%BC%96%E7%A0%81%E5%AF%B9%E6%AF%94/"><i class="fa  fa-book"></i> 【大模型问答】流行音视频编码对比？-GPT3.5</a>
+            
+          
+        
+          
+          
+            <a class="list-group-item" href="/subweb/blog/2023/04/01/0008.USD%E5%BC%80%E5%8F%91%E5%B7%A5%E7%A8%8B%E5%B8%88/"><i class="fa  fa-book"></i> 【大模型问答】USD开发工程师-GPT3.5</a>
+            
+          
+        
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+      </ul>
+  </div>
+  </aside>
+
+            
+    </div>
+</section>
+        
+        </div>
+    </div>
+</div>
+<footer>
+    <div id="footer"  class="ap-lrc"  >
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3 footer-list text-center">
+                    <ul class="kratos-social-icons">
+                        <!-- Keep for compatibility -->
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <!-- New links -->
+                        
+                    </ul>
+                    <ul class="kratos-copyright">
+                        <div>
+                            <li>&copy; 2024 爆脖の奇妙生活 版权所有.</li>
+                            <li>本站已运行<span id="span_dt">Loading...</span></li>
+                        </div>
+                        <div>
+                            <li>Theme <a href="https://github.com/Candinya/Kratos-Rebirth" target="_blank">Kratos:Rebirth</a></li>
+                            <li>Site built with&nbsp;<i class="fa fa-heart throb" style="color:#d43f57"></i>&nbsp;by 爆脖大大Zz.</li>
+                        </div>
+                        <div>
+                            <li>Powered by <a href="https://hexo.io" target="_blank" rel="nofollow">Hexo</a></li>
+                            <li>Hosted on <a href="https://github.io" target="_blank">Github Pages</a></li>
+                        </div>
+                        <div>
+                            
+                            
+                        </div>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="kr-tool text-center">
+            <div class="tool">
+                
+                    <div class="box search-box">
+                        <a href="/subweb/blog/search/">
+                            <span class="fa fa-search"></span>
+                        </a>
+                    </div>
+                
+                
+                    <div class="box theme-box" id="darkmode-switch">
+                        <span class="fa fa-adjust"></span>
+                    </div>
+                
+                
+                
+            </div>
+            <div class="box gotop-box">
+                <span class="fa fa-chevron-up"></span>
+            </div>
+        </div>
+    </div>
+</footer>
+</div>
+</div>
+
+        <script defer src="/subweb/blog/vendors/bootstrap@3.3.4/dist/js/bootstrap.min.js"></script>
+<script defer src="/subweb/blog/vendors/nprogress@0.2.0/nprogress.js"></script>
+<script>
+    if (!window.kr) {
+        window.kr = {};
+    }
+    window.kr.notMobile = (!(navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i)));
+    window.kr.siteRoot = "/subweb/blog/";
+</script>
+
+
+    <script async src="/subweb/blog/js/candy.min.js"></script>
+
+
+
+    <script defer src="/subweb/blog/vendors/aplayer@1.10.1/dist/APlayer.min.js"></script>
+    
+    <script defer src="/subweb/blog/vendors/meting@2.0.1/dist/Meting.min.js"></script>
+    <meting-js
+        server="netease"
+        type="playlist"
+        id="9650496682"
+        order="random"
+        fixed="true"
+    >
+    </meting-js>
+
+
+
+    <script defer src="/subweb/blog/vendors/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+
+<script defer src="/subweb/blog/js/kratosr.min.js"></script>
+<script defer src="/subweb/blog/js/pjax.min.js"></script>
+
+    <script defer src="/subweb/blog/vendors/layui-src@2.5.5/dist/layui.all.js"></script>
+
+
+
+<!-- Extra support for third-party plguins  -->
+
+
+    </body>
+</html>
