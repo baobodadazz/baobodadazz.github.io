@@ -1,0 +1,916 @@
+<!DOCTYPE html>
+<html lang="zh">
+    <head>
+  <!-- 元数据 -->
+  <meta charset="utf-8">
+  
+  
+  <title>【错题本】考研-2024-计组错题本 | 爆脖の奇妙生活</title>
+  
+  <meta name="author" content="爆脖大大Zz" />
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="robots" content="index,follow" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <meta name="format-detection" content="telphone=no, email=no" />
+  
+    <meta name="keywords" content="408, 学习, 研究生考试, 计算机, 计算机组成原理, 错题本" />
+  
+  <meta name="description" content="计算机组成原理错题本王道考研-2024-计算机组成原理考研复习指导第一章 计算机系统概述p008-1.2.6 冯诺伊曼机的基本工作方式是控制流驱动方式 多处理机的工作方式是多指令多数据流 相联存储器的特点：存储器按内容选择地址。相联存储器既可以按地址寻址，又可以按内容寻址，又称按内容寻址的存储器。 冯诺伊曼机的根本特征“存储程序”原理，微程序控制方式     CPU存取速度比较：寄存器&gt;Ca">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【错题本】考研-2024-计组错题本">
+<meta property="og:url" content="https://nav.baobodadazz.top/subweb/blog/2023/12/23/0014.%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E9%94%99%E9%A2%98%E6%9C%AC/index.html">
+<meta property="og:site_name" content="爆脖の奇妙生活">
+<meta property="og:description" content="计算机组成原理错题本王道考研-2024-计算机组成原理考研复习指导第一章 计算机系统概述p008-1.2.6 冯诺伊曼机的基本工作方式是控制流驱动方式 多处理机的工作方式是多指令多数据流 相联存储器的特点：存储器按内容选择地址。相联存储器既可以按地址寻址，又可以按内容寻址，又称按内容寻址的存储器。 冯诺伊曼机的根本特征“存储程序”原理，微程序控制方式     CPU存取速度比较：寄存器&gt;Ca">
+<meta property="og:locale">
+<meta property="og:image" content="https://nav.baobodadazz.top/subweb/blog/images/posts/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E9%94%99%E9%A2%98%E6%9C%AC/image-20230805155811443.png">
+<meta property="og:image" content="https://nav.baobodadazz.top/subweb/blog/images/posts/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E9%94%99%E9%A2%98%E6%9C%AC/image-20230805155851302.png">
+<meta property="og:image" content="https://nav.baobodadazz.top/subweb/blog/images/posts/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E9%94%99%E9%A2%98%E6%9C%AC/image-20230805155903314.png">
+<meta property="og:image" content="https://nav.baobodadazz.top/subweb/blog/images/posts/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E9%94%99%E9%A2%98%E6%9C%AC/image-20230805155947110.png">
+<meta property="og:image" content="https://nav.baobodadazz.top/subweb/blog/images/posts/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E9%94%99%E9%A2%98%E6%9C%AC/image-20230805155957867.png">
+<meta property="og:image" content="https://nav.baobodadazz.top/subweb/blog/images/posts/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E9%94%99%E9%A2%98%E6%9C%AC/image-20230805160625387.png">
+<meta property="og:image" content="https://nav.baobodadazz.top/subweb/blog/images/posts/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E9%94%99%E9%A2%98%E6%9C%AC/image-20230805165455778.png">
+<meta property="og:image" content="https://nav.baobodadazz.top/subweb/blog/images/posts/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E9%94%99%E9%A2%98%E6%9C%AC/image-20230805171632861.png">
+<meta property="og:image" content="https://nav.baobodadazz.top/subweb/blog/images/posts/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E9%94%99%E9%A2%98%E6%9C%AC/image-20230806100133493.png">
+<meta property="og:image" content="https://nav.baobodadazz.top/subweb/blog/images/posts/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E9%94%99%E9%A2%98%E6%9C%AC/image-20230806101638127.png">
+<meta property="og:image" content="https://nav.baobodadazz.top/subweb/blog/images/posts/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E9%94%99%E9%A2%98%E6%9C%AC/image-20230806102551764.png">
+<meta property="og:image" content="https://nav.baobodadazz.top/subweb/blog/images/posts/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E9%94%99%E9%A2%98%E6%9C%AC/image-20230806104612374.png">
+<meta property="og:image" content="https://nav.baobodadazz.top/subweb/blog/images/posts/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E9%94%99%E9%A2%98%E6%9C%AC/image-20230806104633448.png">
+<meta property="og:image" content="https://nav.baobodadazz.top/subweb/blog/images/posts/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E9%94%99%E9%A2%98%E6%9C%AC/image-20230809105512978.png">
+<meta property="og:image" content="https://nav.baobodadazz.top/subweb/blog/images/posts/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E9%94%99%E9%A2%98%E6%9C%AC/image-20230809105541817.png">
+<meta property="og:image" content="https://nav.baobodadazz.top/subweb/blog/images/posts/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E9%94%99%E9%A2%98%E6%9C%AC/image-20230809105624476.png">
+<meta property="og:image" content="https://nav.baobodadazz.top/subweb/blog/images/posts/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E9%94%99%E9%A2%98%E6%9C%AC/image-20230809144806065.png">
+<meta property="og:image" content="https://nav.baobodadazz.top/subweb/blog/images/posts/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E9%94%99%E9%A2%98%E6%9C%AC/image-20230809145433948.png">
+<meta property="og:image" content="https://nav.baobodadazz.top/subweb/blog/images/posts/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E9%94%99%E9%A2%98%E6%9C%AC/image-20230809150613519.png">
+<meta property="og:image" content="https://nav.baobodadazz.top/subweb/blog/images/posts/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E9%94%99%E9%A2%98%E6%9C%AC/image-20230809150807349.png">
+<meta property="og:image" content="https://nav.baobodadazz.top/subweb/blog/images/posts/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E9%94%99%E9%A2%98%E6%9C%AC/image-20230809150945885.png">
+<meta property="og:image" content="https://nav.baobodadazz.top/subweb/blog/images/posts/image-20230810172146115.png">
+<meta property="og:image" content="https://nav.baobodadazz.top/subweb/blog/images/posts/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E9%94%99%E9%A2%98%E6%9C%AC/image-20230810173104496.png">
+<meta property="og:image" content="https://nav.baobodadazz.top/subweb/blog/images/posts/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E9%94%99%E9%A2%98%E6%9C%AC/image-20230810174837221.png">
+<meta property="og:image" content="https://nav.baobodadazz.top/subweb/blog/images/posts/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E9%94%99%E9%A2%98%E6%9C%AC/image-20230810174917239.png">
+<meta property="og:image" content="https://nav.baobodadazz.top/subweb/blog/images/posts/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E9%94%99%E9%A2%98%E6%9C%AC/image-20230810174952129.png">
+<meta property="og:image" content="https://nav.baobodadazz.top/subweb/blog/images/posts/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E9%94%99%E9%A2%98%E6%9C%AC/image-20230810175007578.png">
+<meta property="og:image" content="https://nav.baobodadazz.top/subweb/blog/images/posts/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E9%94%99%E9%A2%98%E6%9C%AC/image-20230811161658165.png">
+<meta property="og:image" content="https://nav.baobodadazz.top/subweb/blog/images/posts/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E9%94%99%E9%A2%98%E6%9C%AC/image-20230814151813308.png">
+<meta property="og:image" content="https://nav.baobodadazz.top/subweb/blog/images/posts/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E9%94%99%E9%A2%98%E6%9C%AC/image-20230815100402435.png">
+<meta property="og:image" content="https://nav.baobodadazz.top/subweb/blog/images/posts/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E9%94%99%E9%A2%98%E6%9C%AC/image-20230815101905036.png">
+<meta property="og:image" content="https://nav.baobodadazz.top/subweb/blog/images/posts/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E9%94%99%E9%A2%98%E6%9C%AC/image-20230815103703057.png">
+<meta property="og:image" content="https://nav.baobodadazz.top/subweb/blog/images/posts/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E9%94%99%E9%A2%98%E6%9C%AC/image-20230815103634376.png">
+<meta property="og:image" content="https://nav.baobodadazz.top/subweb/blog/images/posts/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E9%94%99%E9%A2%98%E6%9C%AC/image-20230821103558196.png">
+<meta property="og:image" content="https://nav.baobodadazz.top/subweb/blog/images/posts/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E9%94%99%E9%A2%98%E6%9C%AC/image-20230821103520338.png">
+<meta property="og:image" content="https://nav.baobodadazz.top/subweb/blog/images/posts/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E9%94%99%E9%A2%98%E6%9C%AC/image-20230822131048839.png">
+<meta property="og:image" content="https://nav.baobodadazz.top/subweb/blog/images/posts/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E9%94%99%E9%A2%98%E6%9C%AC/image-20230822131123851.png">
+<meta property="article:published_time" content="2023-12-23T06:32:25.000Z">
+<meta property="article:modified_time" content="2024-04-03T04:51:38.095Z">
+<meta property="article:author" content="爆脖大大Zz">
+<meta property="article:tag" content="研究生考试">
+<meta property="article:tag" content="计算机">
+<meta property="article:tag" content="学习">
+<meta property="article:tag" content="408">
+<meta property="article:tag" content="错题本">
+<meta property="article:tag" content="计算机组成原理">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://nav.baobodadazz.top/subweb/blog/images/posts/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E9%94%99%E9%A2%98%E6%9C%AC/image-20230805155811443.png">
+  
+  <!-- 站点验证相关 -->
+  
+    
+    
+    
+  
+  <!-- 样式表文件 -->
+  <link rel="stylesheet" id="kratos-css" href="/subweb/blog/css/kratosr.min.css" media="all"></script>
+  
+    <link rel="stylesheet" id="darkmode-css" href="/subweb/blog/css/kr-color-dark.min.css" media="(prefers-color-scheme: dark)"></script>
+    <script src="/subweb/blog/js/kr-dark.min.js"></script>
+  
+  
+    <link rel="stylesheet" id="highlight-css" href="/subweb/blog/css/highlight/night-bright.min.css" media="all"></script>
+  
+  <link rel="stylesheet" id="fontawe-css" href="/subweb/blog/vendors/font-awesome@4.7.0/css/font-awesome.min.css" media="all"></script>
+  <link rel="stylesheet" id="nprogress-css" href="/subweb/blog/vendors/nprogress@0.2.0/nprogress.css" media="all"></script>
+  
+  
+    <link rel="stylesheet" href="/subweb/blog/vendors/aplayer@1.10.1/dist/APlayer.min.css"></script>
+  
+  
+    <link rel="stylesheet" href="/subweb/blog/vendors/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css"></script>
+  
+  <!-- 不得不预先加载的一些JS文件 -->
+  <script src="/subweb/blog/vendors/jquery@3.6.0/dist/jquery.min.js"></script>
+  
+    <script src="/subweb/blog/vendors/qrcode_js@1.0.0/qrcode.min.js"></script>
+  
+  
+  <style>
+    
+      .kratos-cover.kratos-cover-2 {
+        background-image: url('/subweb/blog/images/banner.webp');
+      }
+    
+    
+      @media(min-width:768px) {
+        body.custom-background {
+          background-image: url('/subweb/blog/images/bg4.webp');
+        }
+      }
+    
+  </style>
+  
+<meta name="generator" content="Hexo 7.1.1"></head>
+
+
+    <body class="custom-background">
+        <div id="kratos-wrapper">
+    <div id="kratos-page">
+        <div id="kratos-header">
+            <header id="kratos-desktop-topnav" class="kratos-topnav">
+                <div class="container">
+                    <div class="nav-header">
+                        <nav id="kratos-menu-wrap">
+                            <ul id="kratos-primary-menu" class="sf-menu">
+                                
+                                    
+                                    
+                                
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </header>
+            <header id="kratos-mobile-topnav" class="kratos-topnav">
+                <div class="container">
+                    <div class="color-logo"><a href="/subweb/blog/">爆脖の奇妙生活</a></div>
+                    <div class="nav-toggle">
+                        <a class="kratos-nav-toggle js-kratos-nav-toggle">
+                            <i></i>
+                        </a>
+                    </div>
+                </div>
+            </header>
+        </div>
+        <div class="kratos-start kratos-hero-2">
+            <!-- <div class="kratos-overlay"></div> -->
+            <div class="kratos-cover kratos-cover-2 text-center">
+                <div class="desc desc2 animate-box">
+                    <a href="/subweb/blog/">
+                        <h2>爆脖の奇妙生活</h2> <br />
+                        <span>さあ，私たちのデートを始めましょう</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div id="kratos-blog-post">
+            <div class="container">
+                <div id="main" class="row">
+                    
+
+        
+
+            <section class="col-md-8">
+
+        
+
+            <article itemscope itemtype="https://schema.org/Article">
+    
+    <link itemprop="mainEntityOfPage" href="https://nav.baobodadazz.top/subweb/blog/2023/12/23/0014.%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E9%94%99%E9%A2%98%E6%9C%AC/">
+    <div class="kratos-hentry kratos-post-inner clearfix">
+        <header class="kratos-entry-header">
+            
+                <h1 class="kratos-entry-title text-center" itemprop="name headline">【错题本】考研-2024-计组错题本</h1>
+            
+            
+            <ul class="kratos-post-meta text-center">
+                <li><time datetime="2023-12-23T06:32:25.000Z" itemprop="datePublished"><i class="fa fa-calendar"></i> 2023-12-23</time></li>
+                <li itemprop="author" itemscope itemtype="https://schema.org/Person">
+                    <i class="fa fa-user"></i> 作者 <span itemprop="name">爆脖大大Zz</span>
+                </li>
+                
+                    <li>
+                        <i class="fa fa-edit"></i> 
+                        
+                        
+                            ~11.48K
+                        
+                        字
+                    </li>
+                
+                
+            </ul>
+        </header>
+        <div class="kratos-post-content">
+            
+            <div id="expire-alert" class="alert alert-warning hidden" role="alert">
+                <div class="icon"><i class="fa fa-warning"></i></div>
+                <div class="text"><p>本文最后编辑于 <time datetime="1712119898095"></time> 前，其中的内容可能需要更新。</p></div>
+            </div>
+            
+            
+            
+                <div class="kratos-post-inner-toc toc-div-class" >
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E9%94%99%E9%A2%98%E6%9C%AC"><span class="toc-number">1.</span> <span class="toc-text">计算机组成原理错题本</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%8E%8B%E9%81%93%E8%80%83%E7%A0%94-2024-%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E8%80%83%E7%A0%94%E5%A4%8D%E4%B9%A0%E6%8C%87%E5%AF%BC"><span class="toc-number">1.1.</span> <span class="toc-text">王道考研-2024-计算机组成原理考研复习指导</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E7%AB%A0-%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%BF%B0"><span class="toc-number">1.1.1.</span> <span class="toc-text">第一章 计算机系统概述</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#p008-1-2-6"><span class="toc-number">1.1.1.1.</span> <span class="toc-text">p008-1.2.6</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#p015-1-3-3"><span class="toc-number">1.1.1.2.</span> <span class="toc-text">p015-1.3.3</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E4%BA%8C%E7%AB%A0-%E6%95%B0%E6%8D%AE%E7%9A%84%E8%A1%A8%E7%A4%BA%E5%92%8C%E8%BF%90%E7%AE%97"><span class="toc-number">1.1.2.</span> <span class="toc-text">第二章 数据的表示和运算</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#p030-2-1-5"><span class="toc-number">1.1.2.1.</span> <span class="toc-text">p030-2.1.5</span></a></li><li class="toc-item toc-level-4"><a class="toc-link"><span class="toc-number">1.1.2.2.</span> <span class="toc-text">&lt;–未总结完部分–&gt;</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E4%B8%89%E7%AB%A0-%E5%AD%98%E5%82%A8%E7%B3%BB%E7%BB%9F"><span class="toc-number">1.1.3.</span> <span class="toc-text">第三章 存储系统</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#p081-3-1-4"><span class="toc-number">1.1.3.1.</span> <span class="toc-text">p081-3.1.4</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#p89-3-2-5"><span class="toc-number">1.1.3.2.</span> <span class="toc-text">p89-3.2.5</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#p101-3-3-5"><span class="toc-number">1.1.3.3.</span> <span class="toc-text">p101-3.3.5</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#p109-3-4-3"><span class="toc-number">1.1.3.4.</span> <span class="toc-text">p109-3.4.3</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#p119-3-5-6"><span class="toc-number">1.1.3.5.</span> <span class="toc-text">p119-3.5.6</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#-1"><span class="toc-number">1.1.3.5.1.</span> <span class="toc-text">&lt;–8,9两题存在超纲内容，一轮复习结束后写–&gt;</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#-2"><span class="toc-number">1.1.3.6.</span> <span class="toc-text">&lt;–虚拟内存需学完操作系统后可做–&gt;</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E5%9B%9B%E7%AB%A0-%E6%8C%87%E4%BB%A4%E7%B3%BB%E7%BB%9F"><span class="toc-number">1.1.4.</span> <span class="toc-text">第四章 指令系统</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#p149-4-1-4"><span class="toc-number">1.1.4.1.</span> <span class="toc-text">p149-4.1.4</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#p159-4-2-3"><span class="toc-number">1.1.4.2.</span> <span class="toc-text">p159-4.2.3</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#-3"><span class="toc-number">1.1.4.2.1.</span> <span class="toc-text">&lt;–9,10两题存在超纲内容，一轮复习结束后写–&gt;</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#p182-4-3-5"><span class="toc-number">1.1.4.3.</span> <span class="toc-text">p182-4.3.5</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#p188-4-4-4"><span class="toc-number">1.1.4.4.</span> <span class="toc-text">p188-4.4.4</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E4%BA%94%E7%AB%A0-%E4%B8%AD%E5%A4%AE%E5%A4%84%E7%90%86%E5%99%A8"><span class="toc-number">1.1.5.</span> <span class="toc-text">第五章 中央处理器</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#p193-5-1-3"><span class="toc-number">1.1.5.1.</span> <span class="toc-text">p193-5.1.3</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#p200-5-2-4"><span class="toc-number">1.1.5.2.</span> <span class="toc-text">p200-5.2.4</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#p205-5-3-3"><span class="toc-number">1.1.5.3.</span> <span class="toc-text">p205-5.3.3</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#-4"><span class="toc-number">1.1.5.3.1.</span> <span class="toc-text">&lt;–大题部分有时间再写–&gt;</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#p226-5-4-4"><span class="toc-number">1.1.5.4.</span> <span class="toc-text">p226-5.4.4</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#-5"><span class="toc-number">1.1.5.5.</span> <span class="toc-text">&lt;–5.5节暂未讲解不知道傻逼王道搞什么–&gt;</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#p244-5-6-6"><span class="toc-number">1.1.5.6.</span> <span class="toc-text">p244-5.6.6</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#p258-5-7-4"><span class="toc-number">1.1.5.7.</span> <span class="toc-text">p258-5.7.4</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E5%85%AD%E7%AB%A0-%E6%80%BB%E7%BA%BF"><span class="toc-number">1.1.6.</span> <span class="toc-text">第六章 总线</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#p267-6-1-6"><span class="toc-number">1.1.6.1.</span> <span class="toc-text">p267-6.1.6</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#p274-6-2-4"><span class="toc-number">1.1.6.2.</span> <span class="toc-text">p274-6.2.4</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E4%B8%83%E7%AB%A0-%E8%BE%93%E5%85%A5-%E8%BE%93%E5%87%BA%E7%B3%BB%E7%BB%9F"><span class="toc-number">1.1.7.</span> <span class="toc-text">第七章 输入&#x2F;输出系统</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#p280-7-1-4"><span class="toc-number">1.1.7.1.</span> <span class="toc-text">p280-7.1.4</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#p284-7-2-5"><span class="toc-number">1.1.7.2.</span> <span class="toc-text">p284-7.2.5</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#p293-7-3-4"><span class="toc-number">1.1.7.3.</span> <span class="toc-text">p293-7.3.4</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2017-43"><span class="toc-number">2.</span> <span class="toc-text">2017.43</span></a></li></ol>
+                </div>
+            
+            <hr />
+            <div itemprop="articleBody"><h1 id="计算机组成原理错题本"><a href="#计算机组成原理错题本" class="headerlink" title="计算机组成原理错题本"></a>计算机组成原理错题本</h1><h2 id="王道考研-2024-计算机组成原理考研复习指导"><a href="#王道考研-2024-计算机组成原理考研复习指导" class="headerlink" title="王道考研-2024-计算机组成原理考研复习指导"></a>王道考研-2024-计算机组成原理考研复习指导</h2><h3 id="第一章-计算机系统概述"><a href="#第一章-计算机系统概述" class="headerlink" title="第一章 计算机系统概述"></a>第一章 计算机系统概述</h3><h4 id="p008-1-2-6"><a href="#p008-1-2-6" class="headerlink" title="p008-1.2.6"></a>p008-1.2.6</h4><ul>
+<li>冯诺伊曼机的基本工作方式是<strong>控制流驱动方式</strong></li>
+<li>多处理机的工作方式是<strong>多指令多数据流</strong></li>
+<li><strong>相联存储器</strong>的特点：存储器按内容选择地址。相联存储器既可以按地址寻址，又可以按内容寻址，又称按内容寻址的存储器。</li>
+<li>冯诺伊曼机的根本特征“存储程序”原理，<strong>微程序控制方式</strong></li>
+<li><img src="/subweb/blog/images/posts/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E9%94%99%E9%A2%98%E6%9C%AC/image-20230805155811443.png" alt="image-20230805155811443"></li>
+<li><img src="/subweb/blog/images/posts/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E9%94%99%E9%A2%98%E6%9C%AC/image-20230805155851302.png" alt="image-20230805155851302"></li>
+<li><img src="/subweb/blog/images/posts/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E9%94%99%E9%A2%98%E6%9C%AC/image-20230805155903314.png" alt="image-20230805155903314"></li>
+<li><img src="/subweb/blog/images/posts/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E9%94%99%E9%A2%98%E6%9C%AC/image-20230805155947110.png" alt="image-20230805155947110"><img src="/subweb/blog/images/posts/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E9%94%99%E9%A2%98%E6%9C%AC/image-20230805155957867.png" alt="image-20230805155957867"></li>
+<li>CPU存取速度比较：<strong>寄存器&gt;Cache&gt;内存</strong></li>
+<li><img src="/subweb/blog/images/posts/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E9%94%99%E9%A2%98%E6%9C%AC/image-20230805160625387.png" alt="image-20230805160625387"></li>
+<li><strong>系列机</strong>的基本特性是指令系统向后兼容</li>
+<li><strong>数据库系统</strong>不属于系统软件！数据库系统是在计算机系统种引入数据库后的系统，一般由数据库、数据库管理系统、应用系统、数据库管理员构成。其中数据库管理系统是系统程序。<font color="red">[坑]</font></li>
+<li>虽然指令和数据都以二进制形式存放在存储器中，但CPU可以<strong>根据指令周期的不同阶段来区分是指令还是数据</strong>，通常在取指阶段取出的是指令，在执行阶段取出的数据。CPU只有在确定取出的是指令后才会将其操作码送去译码，因此<em>不能根据译码结果来区分指令和数据</em>。</li>
+</ul>
+<h4 id="p015-1-3-3"><a href="#p015-1-3-3" class="headerlink" title="p015-1.3.3"></a>p015-1.3.3</h4><ul>
+<li><strong>存储体</strong>由许多<strong>存储单元</strong>组成，每个<strong>存储单元</strong>又包含若干<strong>存储元件</strong>，每个<em>存储元件能寄存一位二进制代码“0”或“1”</em>。可见，一个存储单元可存储一串二进制代码，称这串二进制代码为一个存储字，称<strong>这串二进制代码的位数为存储字长</strong>。</li>
+<li>计算机的机器字长是指数据运算的基本单位长度</li>
+<li>寄存器由D触发器构成</li>
+<li>磁盘可以永久性存放数据和程序（仅408）</li>
+<li>机器字长，指令字长，存储字长三者在数值上可能不等</li>
+<li><img src="/subweb/blog/images/posts/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E9%94%99%E9%A2%98%E6%9C%AC/image-20230805165455778.png" alt="image-20230805165455778"></li>
+<li><strong>数据字长</strong>：数据总线一次可以并行传输的位数，不一定等于MDR</li>
+<li><strong>机器字长</strong>是机器一次可以处理的二进制数据位数，因此决定着可处理二进制代码的位数</li>
+<li>一台计算机的字长为n，则计算结果最大应为$2^n-1$，因为要将0算在内。</li>
+<li>汇编程序员可以通过JMP指令来设置 <strong>PC（程序计数器）</strong> 的值。<strong>状态寄存器</strong>、<strong>通用寄存器</strong>只有为汇编程序员可见，才能实现编程，而<strong>IR（指令寄存器）</strong>、<strong>MAR（地址寄存器）</strong>、<strong>MDR（数据寄存器）</strong>是CPU的内部工作寄存器，对程序员均不可见。</li>
+<li>CPI是&#x3D;&#x3D;执行一条指令所需的时钟周期数&#x3D;&#x3D;，<strong>系统结构、指令集、计算机组织</strong>都会影响CPI，<u>但时钟频率不会影响CPI</u></li>
+<li><strong>兼容</strong>指计算机软件或硬件的通用性，通常在同一系列不同型号的计算机间通用。</li>
+<li>计算机不同方面的应用<img src="/subweb/blog/images/posts/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E9%94%99%E9%A2%98%E6%9C%AC/image-20230805171632861.png" alt="image-20230805171632861"></li>
+<li>命令包括操作系统的命令（管态），应用程序的命令（目态），所以评价运算速度时不能只对一种进行评价。</li>
+<li><img src="/subweb/blog/images/posts/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E9%94%99%E9%A2%98%E6%9C%AC/image-20230806100133493.png" alt="image-20230806100133493"></li>
+<li><strong>机器字长</strong>是指CPU内部用于整数运算的数据通路的宽度。主要是CPU内部进行数据运算，存储和传送的不见，这些部件的宽度基本上要保持一致，因此，&#x3D;&#x3D;机器字长等于CPU内部用于整数运算的运算器（ALU）位数和通用寄存器宽度&#x3D;&#x3D;。</li>
+<li><img src="/subweb/blog/images/posts/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E9%94%99%E9%A2%98%E6%9C%AC/image-20230806101638127.png" alt="image-20230806101638127"></li>
+<li>若给出主存容量为64K*32位：该主存有64K个存储单元，每个存储单元有32位。得出以下结论：（假设指令字长&#x3D;存储字长&#x3D;机器字长）<ul>
+<li>地址位数：$64K&#x3D;2^6*2^{10}&#x3D;2^{16}$，故<strong>地址位数16位</strong>。</li>
+<li><strong>存储字长：32位</strong>。</li>
+<li><strong>ACC，X，MDR，MQ：存储数据</strong>，且<em>指令字长&#x3D;存储字长&#x3D;机器字长</em>，故均为32位。</li>
+<li><strong>IR为指令寄存器</strong>且<em>指令字长&#x3D;存储字长&#x3D;机器字长</em>，故为32位。</li>
+<li><strong>MAR，PC用于存放地址</strong>，故为16位</li>
+<li>数据通路：<img src="/subweb/blog/images/posts/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E9%94%99%E9%A2%98%E6%9C%AC/image-20230806102551764.png" alt="image-20230806102551764"></li>
+</ul>
+</li>
+<li>p018-03：<ul>
+<li><img src="/subweb/blog/images/posts/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E9%94%99%E9%A2%98%E6%9C%AC/image-20230806104612374.png" alt="image-20230806104612374"></li>
+<li><img src="/subweb/blog/images/posts/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E9%94%99%E9%A2%98%E6%9C%AC/image-20230806104633448.png" alt="image-20230806104633448"></li>
+<li>&#x3D;&#x3D;总结&#x3D;&#x3D;：<font color="purple">修改指令集后，可以先计算修改后程序的指令总数再算出比例，列出表格更直观</font></li>
+</ul>
+</li>
+</ul>
+<h3 id="第二章-数据的表示和运算"><a href="#第二章-数据的表示和运算" class="headerlink" title="第二章 数据的表示和运算"></a>第二章 数据的表示和运算</h3><h4 id="p030-2-1-5"><a href="#p030-2-1-5" class="headerlink" title="p030-2.1.5"></a>p030-2.1.5</h4><h4 id=""><a href="#" class="headerlink" title="&lt;–未总结完部分–&gt;"></a>&lt;–未总结完部分–&gt;</h4><h3 id="第三章-存储系统"><a href="#第三章-存储系统" class="headerlink" title="第三章 存储系统"></a>第三章 存储系统</h3><h4 id="p081-3-1-4"><a href="#p081-3-1-4" class="headerlink" title="p081-3.1.4"></a>p081-3.1.4</h4><ul>
+<li><strong>相联存储器</strong>是按照<strong>内容指定方式和地址指定方式</strong>相结合的方式寻址的。</li>
+<li>Cache命中率计算中，若要求存取时间不超过某时间时，计算结果应向上取。</li>
+<li>能看到虚拟存储器中主存和辅存之间的数据调动。只对应用级程序员透明。</li>
+<li>EPROM（可编程可擦除只读存储器），RAM类的ROM类的基本都能随机读写，CD-ROM是例外。</li>
+<li>主存系统效率：$$主存系统效率&#x3D;\frac{访问Cache的时间}{平均访问时间}$$</li>
+</ul>
+<h4 id="p89-3-2-5"><a href="#p89-3-2-5" class="headerlink" title="p89-3.2.5"></a>p89-3.2.5</h4><ul>
+<li><p>SRAM芯片引脚除了<u>地址线，数据线，电源和接地</u>外，还需要<strong>1</strong>根<strong>RD（读控制线）</strong>和<strong>2</strong>根<strong>WE（写控制线）</strong>。</p>
+</li>
+<li><p>DRAM的刷新是以行为单位的</p>
+</li>
+<li><p>若一DRAM芯片采用地址复用技术，地址线减半，数据线不变，同时，<strong>需要两套读写控制线</strong>。<font color="red">[坑]</font></p>
+</li>
+<li><p>动态半导体存储器利用电容储存电荷记录信息，需要刷新，但刷新是在RAM上进行的，只进行了一次访存，因此完整的刷新过程只需要一个存储周期。</p>
+</li>
+<li><p>注意在体数的非整数倍的连续内存上读取数据时，多次读写的等待时间。可能未必需要一个存储周期就可以进行访问。如下题（ps:遇到该类型题目可参考下题答案画图解决）</p>
+<p><img src="/subweb/blog/images/posts/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E9%94%99%E9%A2%98%E6%9C%AC/image-20230809105512978.png" alt="image-20230809105512978"></p>
+<p><img src="/subweb/blog/images/posts/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E9%94%99%E9%A2%98%E6%9C%AC/image-20230809105541817.png" alt="image-20230809105541817"></p>
+<p><img src="/subweb/blog/images/posts/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E9%94%99%E9%A2%98%E6%9C%AC/image-20230809105624476.png" alt="image-20230809105624476"></p>
+</li>
+<li><p><strong>程序的局部性原理：</strong>是指程序在执行时呈现出局部性规律，即在一段时间内，整个程序的执行仅限于程序中的某一部分。相应地，执行访问的存储空间也局限于某个内存区域，具体来说，局部性通常有两种形式：<u>时间局部性</u>和<u>空间局部性</u></p>
+<ul>
+<li><strong>时间局部性：</strong>被引用过一次的存储器位置会在未来被多次引用（通常在循环中）。</li>
+<li><strong>空间局部性：</strong>如果一个存储器的位置被引用，那么将来他附近的位置也会被引用。</li>
+</ul>
+</li>
+<li><p>由上条内容知：由于高位交叉存储器在单个存储器中的字时连续存放的，不满足程序的局部性原理；儿地位交叉存储器时交叉存放的，很好的满足了程序的局部性原理。</p>
+</li>
+<li><p>高位交叉存储器虽然不能满足程序的连续读取，但仍<strong>可能一次连续读出</strong>彼此地址相差一个存储体容量的几个字，只是这么读的概率较小</p>
+</li>
+<li><p>DRAM默认采用地址线复用技术，地址线为所得值的一半</p>
+</li>
+<li><p>SDRAM是现在常用的DRAM，也需要刷新才能保留数据，若题目中问到，则它被包含于DRAM，应当选DRAM。</p>
+</li>
+<li><p>DRAM缓冲大小为单个芯片一行的总位数。即8192*8192*8的DRAM芯片缓冲大小为8192*8位。</p>
+</li>
+<li><p>在显示器中，用于存放显示信息的存储器称为刷新存储器，要<strong>提高刷新存储器带宽</strong>，可采用以下技术：①采用告诉DRAM芯片；②采用多体交叉存储结构；③刷新存储器至显示器的内部总线宽度加倍；④采用双端口存储器将刷新端口和更新端口分开。</p>
+</li>
+<li><p><strong>不一定</strong>在同一模块内访问间隔小于体数就会冲突，如果中间存在访问冲突，造成的延迟可能会使其不再发生冲突。</p>
+</li>
+<li><p><img src="/subweb/blog/images/posts/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E9%94%99%E9%A2%98%E6%9C%AC/image-20230809144806065.png" alt="image-20230809144806065"></p>
+</li>
+<li><p>同时启动按顺序访问时，需要访问地址高位相同（每一轮启动的单元地址高位相同），如图：<img src="/subweb/blog/images/posts/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E9%94%99%E9%A2%98%E6%9C%AC/image-20230809145433948.png" alt="image-20230809145433948"></p>
+<p>访问途中阴影部分，需要三个周期，一次只能读同一行的内容。</p>
+</li>
+<li><p><img src="/subweb/blog/images/posts/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E9%94%99%E9%A2%98%E6%9C%AC/image-20230809150613519.png" alt="image-20230809150613519"></p>
+</li>
+<li><p><strong>若把存储器改成单体4字宽度带来的好处和问题？</strong></p>
+</li>
+</ul>
+<p><img src="/subweb/blog/images/posts/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E9%94%99%E9%A2%98%E6%9C%AC/image-20230809150807349.png" alt="image-20230809150807349"></p>
+<ul>
+<li><strong>比较多体存储器和多端口存储器的优缺点？</strong></li>
+</ul>
+<p><img src="/subweb/blog/images/posts/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E9%94%99%E9%A2%98%E6%9C%AC/image-20230809150945885.png" alt="image-20230809150945885"></p>
+<h4 id="p101-3-3-5"><a href="#p101-3-3-5" class="headerlink" title="p101-3.3.5"></a>p101-3.3.5</h4><ul>
+<li>地址总线低位接入地址端，高位用于选片。</li>
+<li>编址时，应当<strong>按照地址空间大小来计算MAR的位数</strong>，<u>实际容量可能比地址空间大小更小，但它不能代表MAR的位数</u>，因为考虑到存储器扩展的需要，MAR应保证能访问到整个主存空间。反过来，<strong>MAR的位数决定了主存地址空间的大小</strong>。</li>
+<li>DRAM采用地址复用技术，只有行列相同时地址线才为原来的$\frac{1}{2}$，且地址分行列两次传送。若DRAM有<strong>r</strong>行，<strong>c</strong>列，则地址引脚的个数为：$log_2(max{r,c})$。</li>
+<li>DRAM刷新是按行刷新的，若需要减少刷新开销，应当减少行数。</li>
+<li>说明地址线作用时，应具体指明那些地址线的工作和原因，如下例是由32个512K*8位的芯片组成的4M*32位的存储器的22根地址线的作用：</li>
+</ul>
+<p><img src="/subweb/blog/images/posts/image-20230810172146115.png" alt="image-20230810172146115"></p>
+<ul>
+<li>DRAM刷新时按行刷新，刷新间隔内只需要考虑单个芯片的刷新即可，如一个DRAM芯片（64*64）刷新间隔不超过2ms，则刷新信号周期为：$\frac{2ms}{64}&#x3D;0.03125ms$。无需考虑整个内存中的所有芯片。</li>
+<li>画出CPU存储器连接结构图，CPU的接口有地址信号，数据信号和控制信号。</li>
+</ul>
+<p><img src="/subweb/blog/images/posts/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E9%94%99%E9%A2%98%E6%9C%AC/image-20230810173104496.png" alt="image-20230810173104496"></p>
+<ul>
+<li>分配非2的整次方大小的存储时选择多种芯片，应当从大的选起，使所选芯片尽可能少。</li>
+<li><img src="/subweb/blog/images/posts/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E9%94%99%E9%A2%98%E6%9C%AC/image-20230810174837221.png" alt="image-20230810174837221"></li>
+</ul>
+<p><img src="/subweb/blog/images/posts/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E9%94%99%E9%A2%98%E6%9C%AC/image-20230810174917239.png" alt="image-20230810174917239"></p>
+<p><img src="/subweb/blog/images/posts/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E9%94%99%E9%A2%98%E6%9C%AC/image-20230810174952129.png" alt="image-20230810174952129"></p>
+<p><img src="/subweb/blog/images/posts/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E9%94%99%E9%A2%98%E6%9C%AC/image-20230810175007578.png" alt="image-20230810175007578"></p>
+<h4 id="p109-3-4-3"><a href="#p109-3-4-3" class="headerlink" title="p109-3.4.3"></a>p109-3.4.3</h4><ul>
+<li>计算机械硬盘的读取所需时间种，其寻址时间是<strong>寻道时间加上旋转延迟</strong>（未指明则为硬盘转半圈的时长）。<font color="red">易错！</font>。</li>
+<li><strong>磁盘条带化</strong>：指将一块连续的数据分成很多小部分，并把它们分别存储到不同磁盘上。这样进程在访问数据的时候，可以同时向多个不同部分同时发出I&#x2F;O请求，由于这些数据存放在不同的磁盘上，因而不会造成磁盘冲突，而且在需要对这种数据进行顺序访问的时候可以获得最大程度上的I&#x2F;O并行能力，从而获得非常好的性能。（RAID0）。</li>
+<li>磁盘存储器的最小读写单位为一个扇区，即磁盘按块存取。</li>
+<li>磁盘扇区种包含数据、地址和校验等信息。</li>
+<li><img src="/subweb/blog/images/posts/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E9%94%99%E9%A2%98%E6%9C%AC/image-20230811161658165.png" alt="image-20230811161658165"></li>
+<li>在磁盘中，若长度超过一个磁道容量的文件，将它记录在同一个柱面上是比较合理的，因为不需要重新寻找磁道，这样数据读写速度快。</li>
+</ul>
+<h4 id="p119-3-5-6"><a href="#p119-3-5-6" class="headerlink" title="p119-3.5.6"></a>p119-3.5.6</h4><ul>
+<li>各层次的存储系统不是孤立工作的，三级结构的存储系统是围绕主存储器来组织、管理和调度的从存储器系统，它们既<u>是一个整体</u>，又<u>要遵循系统的运行原理</u>，其中包括包含性原则。由于Cache种存放的是主存种某一部分信息的副本，所以<strong>不能认为总容量为两个层次容量的简单相加</strong>！！！<font color="red">[易错+重点]</font></li>
+<li>一个块通常由若干字组成，<strong>CPU与Cache (或主存)<strong>间信息交互的单位是</strong>字</strong>，而<strong>Cache 与主存</strong>间信息交互的单位是<strong>块</strong>。</li>
+<li>Cache为空时同样不可能命中，应计入失效率种</li>
+<li>各种映射中，地址映射表的单个大小除了一致维护和替换算法位外，还需考虑一位的有效位。</li>
+<li>**<u>直接映射</u>**中主存地址结构：<font color="red">（注意这是主存地址！不是Cache前面的标记）</font></li>
+</ul>
+<p><img src="/subweb/blog/images/posts/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E9%94%99%E9%A2%98%E6%9C%AC/image-20230814151813308.png" alt="image-20230814151813308"></p>
+<p>​		<strong>主存字块标记（标记）</strong>：$主存地址位数-Cache内地址位数$，表示主存大小是Cache大小的多少倍，倍数的二进制表示的位数。用于存储该可表示该块Cache是主存上哪一大块的。可以看作将主存分为和Cache相等的n大块，这是第几大块上的数据。</p>
+<p>​		<strong>Cache字块地址（Cache行号）</strong>：$Cache地址位数-每块块内地址位数$。非标记部分，仅用于查找。他能表明当前主存块应当存在Cache的哪一个块上。</p>
+<p>​		<strong>字块内地址（块内地址）</strong>：对应的大小是主存的字长，所以一般用块的总大小（bit）除以主存的字长得到的值位数。</p>
+<ul>
+<li>**<u>全相联映射</u>**中主存地址结构：<font color="red">（注意这是主存地址！不是Cache前面的标记）</font></li>
+</ul>
+<p><img src="/subweb/blog/images/posts/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E9%94%99%E9%A2%98%E6%9C%AC/image-20230815100402435.png" alt="image-20230815100402435"></p>
+<p>​		<strong>标记</strong>：用于标记该块在主存的具体位置，因为全相联并不具有位置规律，所以除了块内地址外全部都是标识。其中末尾n位可作为块号，n是Cache块的个数所占位数。块号和后面的块内地址连起来（相连接，不是相加）是对应Cache的字地址（按字编址的地址）。</p>
+<p>​		<strong>块内地址</strong>：块内地址记录要查的内存在Cache块内的位置。$块内地址总数&#x3D;块内数据宽度（bit）&#x2F;主存字长（bit）$,由此可得出对应宽度。需要注意，主存字长和Cache字长未必相等，因此这里比较的是数据宽度。</p>
+<ul>
+<li>**<u>组相联映射</u>**中主存地址结构：<font color="red">（注意这是主存地址！不是Cache前面的标记）（n路组相联是指一组由n个块，不是有n个组）</font></li>
+</ul>
+<p><img src="/subweb/blog/images/posts/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E9%94%99%E9%A2%98%E6%9C%AC/image-20230815101905036.png" alt="image-20230815101905036"></p>
+<p>​		<strong>标记</strong>：实际作用同直接映射，位数可以通过公式算出，也可用总位数减去Cache组号位数和块内地址位数算出。</p>
+<p>​		<strong>Cache组号</strong>：$Cache组号&#x3D;主存块号 mod Cache组数$，该部分位数位组数的二进制位数。</p>
+<p>​		<strong>块内地址</strong>：块内地址记录要查的内存在Cache块内的位置。$块内地址总数&#x3D;块内数据宽度（bit）&#x2F;主存字长（bit）$,由此可得出对应宽度。需要注意，主存字长和Cache字长未必相等，因此这里比较的是数据宽度。</p>
+<p>​		<strong>标记和Cache组成主存块号</strong>：一同组成了主存块号，该地址指定Cache上数据是主存中哪一大块的相同位置的数据。</p>
+<ul>
+<li>CPU访问存储体系（Cache+内存+硬盘）时，发送的地址一定是主存物理地址。不会发送Cache地址，因为主存地址可以直接用于匹配Cache块。</li>
+<li>逻辑地址、逻辑空间，即虚拟地址，虚拟空间。</li>
+<li>对于虚拟存储器，一般主存的页（块）和虚拟存储的页一样大。</li>
+<li>无论是物理地址还是虚拟地址，都有$物理&#x2F;虚拟地址&#x3D;物理&#x2F;虚拟页号+页内地址$。</li>
+<li>【题目：p120.14】<font color="green">难度：⭐⭐⭐</font></li>
+</ul>
+<p><img src="/subweb/blog/images/posts/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E9%94%99%E9%A2%98%E6%9C%AC/image-20230815103703057.png" alt="image-20230815103703057"></p>
+<p><img src="/subweb/blog/images/posts/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E9%94%99%E9%A2%98%E6%9C%AC/image-20230815103634376.png" alt="image-20230815103634376"></p>
+<p><font color="#a52a2a">总结：一个数据指总线宽度的字长，每次读取对应字长的数据都需要发送地址和读命令，存储器也是每次都需要准备数据。</font></p>
+<p><font color="purple">补充：由下面15题知道：部分存储器支持突发传送，可以连续的传输n个数据，因此n个数据传输需要n个总线传输市场，但仅需要1个发送地址和读命令的时长和1个准备数据的时长即可</font></p>
+<ul>
+<li>第多少号储存单元就是第多少个地址，看清编址大小。由此可以推出对应的内存地址。</li>
+<li>把<strong>指令Cache</strong>与<strong>数据Cache</strong>分离后，取指和取数分别<strong>到不同的Cache中寻找</strong>，则流水线中取指令部分和取数部分就可以很好的避免冲突，即<strong>减少了流水线的冲突</strong>。</li>
+<li><code>a = a + 1;</code>中，对<code>a</code>访问了2次，而不是一次，第一次访问若未命中则调入Cache中，第二次访问就会命中。<font color="red">[坑]</font></li>
+<li><strong>时间局部性</strong>：一旦一条指令执行，它就可能在不久的将来再被执行。<strong>空间局部性</strong>：一旦一个存储单元被访问，它附近的存储单月也很快被访问。</li>
+<li>组相联映射CPU访存，先根据地址中间的<strong>组号</strong>找到对应的组，然后将对应Cache组中的每个行的标记与主存地址的<strong>高位（标记位）</strong>进行比较，若有一个相等且有效位为1则命中，否则不命中。</li>
+<li>由上得知：组相联映射Cache中比较器有以下特点：<ul>
+<li>Cache块内有m个主存字长的数据段，则需要m个比较器（一块能存几个内存字长的数据）。</li>
+<li>标志位的宽度为n，则需要n位比较器。</li>
+</ul>
+</li>
+</ul>
+<h5 id="-1"><a href="#-1" class="headerlink" title="&lt;–8,9两题存在超纲内容，一轮复习结束后写–&gt;"></a>&lt;–8,9两题存在超纲内容，一轮复习结束后写–&gt;</h5><h4 id="-2"><a href="#-2" class="headerlink" title="&lt;–虚拟内存需学完操作系统后可做–&gt;"></a>&lt;–虚拟内存需学完操作系统后可做–&gt;</h4><h3 id="第四章-指令系统"><a href="#第四章-指令系统" class="headerlink" title="第四章 指令系统"></a>第四章 指令系统</h3><h4 id="p149-4-1-4"><a href="#p149-4-1-4" class="headerlink" title="p149-4.1.4"></a>p149-4.1.4</h4><ul>
+<li><p><strong>PC存放当前欲执行指令的地址</strong>，而<strong>指令的地址码字段保存操作数的地址</strong>，易混淆，<u>CPU在执行指令的过程中指令的地址由PC给出</u></p>
+</li>
+<li><p><font color="green">Tips</font>：堆栈指令的访存次数，取决于采用的是软堆栈还是硬堆栈。若是软堆栈（对栈区由内存实现），则对于双目运算需要访问4次内存：取指、取原数1、取原数2、存结果。若是硬堆栈（堆栈区由寄存器实现），则只需在取指令时访问一次内存。</p>
+</li>
+<li><p>单字长的指令可以加快读取指令的速度。</p>
+</li>
+<li><p>但地址指令中只有一个地址码，在完成两个操作数的算数运算时，一个操作数由地址码指出，另一个操作数通常存放在累加寄存器（ACC）中，属于隐含寻址。</p>
+</li>
+<li><p><strong>来看看GPT对寻址的介绍</strong></p>
+<ol>
+<li><strong>直接寻址（Direct Addressing）</strong>：直接寻址是一种常见的寻址模式，其中指令中包含了要访问的操作数的内存地址。指令直接指定了要读取或写入数据的存储器位置。</li>
+<li><strong>立即寻址（Immediate Addressing）</strong>：立即寻址是一种寻址模式，其中指令本身包含了要使用的立即值（常量）。这个立即值通常被用作算术运算、逻辑运算或条件判断的操作数，而不需要从内存中加载。</li>
+<li><strong>隐含寻址（Implied Addressing）</strong>：隐含寻址是一种简化的寻址模式，其中指令没有显式指定操作数的位置或地址。相反，该指令已经约定好了要操作的特定寄存器或内存位置。这种寻址模式通常用于某些特定的操作或指令，例如清除寄存器或跳转指令。</li>
+<li><strong>间接寻址（Indirect Addressing）</strong>：间接寻址是一种寻址模式，其中指令中给出了一个内存地址，该地址指向另一个内存位置，而实际的数据则存储在这个间接指向的位置中。通过间接寻址，可以通过在内存中使用指针或索引来访问数据。</li>
+<li><strong>基址寻址（Base Addressing）</strong>：基址寻址是一种寻址模式，其中指令中给出了一个基址寄存器和一个偏移量。基址寄存器包含着一个内存地址，而偏移量表示相对于该基址的位移量。通过将基址和偏移量相加，可以计算出实际的内存地址，并从该地址读取或写入数据。</li>
+</ol>
+<p>  每种寻址模式都有其适用的场景和优势，编程语言和计算机架构通常支持多种寻址模式，以提供更灵活和高效的编程方式。
+  </p>
+</li>
+<li><p>在指令格式中，采用扩展操作码设计方案的目的时：保持指令长度不变而增加指令的数量。</p>
+</li>
+<li><p>计算指令最短长度时，记得按字节编址。如计算出最短23位，则实际指令字长需要24位。需要为字的整数倍。</p>
+</li>
+<li><p>若题目未说明采用扩展操作码指令格式，则不使用。如下题所示</p>
+</li>
+<li><p>【题目：p151.1】<font color="green">难度：⭐⭐</font></p>
+</li>
+</ul>
+<p><img src="/subweb/blog/images/posts/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E9%94%99%E9%A2%98%E6%9C%AC/image-20230821103558196.png" alt="image-20230821103558196"></p>
+<p><img src="/subweb/blog/images/posts/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E9%94%99%E9%A2%98%E6%9C%AC/image-20230821103520338.png" alt="image-20230821103520338"></p>
+<p><font color="#a52a2a">总结：对于这种题，尝试变长指令，所有指令的占位数都由操作码位数和地址位数组成，应将其相加。</font></p>
+<ul>
+<li>采用扩展操作码，若n地址的指令数小于等于n+1地址指令所留下的可分配指令数，则分配到该空间，剩余操作数位置补0。</li>
+</ul>
+<h4 id="p159-4-2-3"><a href="#p159-4-2-3" class="headerlink" title="p159-4.2.3"></a>p159-4.2.3</h4><ul>
+<li>采用不同寻址方式的目的是为了<strong>缩短指令字长</strong>，<strong>扩大寻址空间</strong>，<strong>提高编程的灵活性</strong>。但这也提高了指令译码的复杂度。</li>
+<li>程序控制是靠转移指令而非寻址方式实现的。</li>
+<li>为了<strong>缩短指令中某个地址段的位数</strong>，有效的方法是<strong>采用寄存器寻址</strong>：因为CPU中寄存器的数量通常不会太多，用很短的编码就能指定寄存器。</li>
+<li><strong>简化地址结构</strong>的基本方法是尽量采用<strong>隐地址</strong>：隐地址不给出明显的操作数地址，而是在指令中隐含 操作数的地址，因此可以简化地址结构，如零地址指令。</li>
+<li>指令寻址的各种方式中，**<u>立即寻址最快</u><strong>，指令直接给出操作数；<u>寄存器寻址次之</u>，只需要访问一次寄存器；<u>直接寻址再次之</u>，访问一次内存；</strong><u>间接寻址最慢</u>**，要访问内存两次以上。</li>
+<li>多道程序设计中，相对寻址尤为重要。相对寻址编址的程序无须指定绝对地址，只需确定程序内部的相对距离，从而可实现浮动地址，给程序的重定位带来了方便。便于实现多道程序。</li>
+<li>跳跃寻址通过转移类指令（如相对寻址）来实现，可用来实现程序的条件或无条件转移。</li>
+<li>转移指令、子程序与返回指令用于解决变动程序中指令执行次序的需求，而不是数据调用次序的需求。</li>
+<li>寻址方式中，寄存器寻址的地址码最短，立即寻址的地址码最长。</li>
+<li>采用寄存器寻址时执行速度最快，因为寄存器位于CPU内部，无需到内存读取操作数。立即寻址虽然无需读取操作数，但因取指令访问花费的时间较多，故没有寄存器寻址块。</li>
+<li><strong>编址寻址的寻址范围</strong>应该是Rx寄存器的寻址范围+形式地址（偏移量的寻址范围）。可以省略小的一部分。</li>
+<li>无符号整数比较大小的判断不需要OF位，因此表达式中是<strong>否有OF</strong>可作为判断是否为有符号整数比较的依据。</li>
+<li>仔细阅读题目，题目可能修改了寻址方式的部分细节。</li>
+<li><img src="/subweb/blog/images/posts/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E9%94%99%E9%A2%98%E6%9C%AC/image-20230822131048839.png" alt="image-20230822131048839"></li>
+</ul>
+<p>​	<img src="/subweb/blog/images/posts/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E9%94%99%E9%A2%98%E6%9C%AC/image-20230822131123851.png" alt="image-20230822131123851"></p>
+<h5 id="-3"><a href="#-3" class="headerlink" title="&lt;–9,10两题存在超纲内容，一轮复习结束后写–&gt;"></a>&lt;–9,10两题存在超纲内容，一轮复习结束后写–&gt;</h5><h4 id="p182-4-3-5"><a href="#p182-4-3-5" class="headerlink" title="p182-4.3.5"></a>p182-4.3.5</h4><ul>
+<li><strong>P为调用过程，Q为被调用过程</strong>，在32位x86处理器上执行，过程调用所涉及的操作：<ol>
+<li>过程P将实参存放到Q能访问到的地方。</li>
+<li>过程P将返回地址存放到待定处，并跳到Q执行。</li>
+<li>过程Q保存P的现场，并为非静态局部变量分配空间。</li>
+<li>执行过程Q的函数体。</li>
+<li>过程Q回复P的现场，并释放局部变量所占空间。</li>
+<li>过程Q取出返回地址，并跳转到过程P执行。</li>
+</ol>
+</li>
+<li><strong>判断指令集是CISC或RISC</strong>，可优先从指令长度入手，若指令长度不同，则为CISC，其次，可以从寻址方式入手，RISC只允许load和store指令读写内存。</li>
+<li>整数类型只要机器数不包含最高有效位则可通过整体左移（右移）的方式实现乘2（除以2）。而浮点数类型不可以，因为浮点数的数据中包含了阶码部分，不能通过整体移动实现。因此，浮点数的乘2（除以2）不能使用<code>shl</code>指令实现，其运算比整型运算要复杂，耗时也更长。</li>
+<li><code>ret</code>指令是程序的返回指令，也会使程序跳转执行，是无条件跳转指令中容易忽略的一种。<font color="red">[易错]</font></li>
+<li>若整型计算结果数值已经超过计算机字长能表示的最大值，可以使用浮点型损失部分精度以获得正确结果。<font color="green">也可转换为long long??</font></li>
+<li>在整数乘法指令<code>imul</code>中，若乘积的高33位为非全0或非全1，则OF&#x3D;1。编译器应在<code>imul</code>指令后加一条“溢出自陷”指令，使CPU自动查询溢出标志OF，当OF&#x3D;1时，调出”溢出异常处理程序“。</li>
+</ul>
+<h4 id="p188-4-4-4"><a href="#p188-4-4-4" class="headerlink" title="p188-4.4.4"></a>p188-4.4.4</h4><ul>
+<li>RISC一定采用流水技术，CISC可以使用流水技术。</li>
+<li>CISC兼容性上比RISC好，CISC可以兼容很多老机器。</li>
+<li>RISC选择一些常用的寄存器型指令，并不是为了兼容CISC，RISC也不可能加绒CISC。</li>
+<li>RISC只是CPU结构发生变化，基本不影响整个计算机的结构，并且即使采用RISC的CPU，其架构也不可能像早期一样简单。</li>
+<li>RISC的指令功能简单，通过简单指令的组合来实现复杂的指令的功能，并没有怎加每条指令的功能。</li>
+<li>RISC指令长度一致、按边界对齐存放、仅Load&#x2F;Store指令访存，它们使取指令、取操作数的操作简化且时间长度固定，能够有效地简化流水线的复杂度。</li>
+</ul>
+<h3 id="第五章-中央处理器"><a href="#第五章-中央处理器" class="headerlink" title="第五章 中央处理器"></a>第五章 中央处理器</h3><h4 id="p193-5-1-3"><a href="#p193-5-1-3" class="headerlink" title="p193-5.1.3"></a>p193-5.1.3</h4><ul>
+<li>数据总线的位数与处理器的位数相同，它表示CPU一次能处理的数据的位数，即CPU的位数。</li>
+<li>转移指令时，不能说PC的值总修改为转移指令的目的地址，因为有可能使条件转移，只有在条件成立的情况下才修改PC寄存器的值。</li>
+<li><strong>程序计数器的位数</strong>取决于<strong>存储器的容量</strong>：因为内容为指令在主存中的地址，所以应与存储器地址的位数相等。</li>
+<li><strong>指令寄存器的位数</strong>取决于<strong>指令字长</strong>：指令寄存器保存当前正在执行的指令，所以其位数取决于指令字长。</li>
+<li><strong>CPU中通用寄存器的位数</strong>取决于<strong>机器字长</strong>：通用寄存器用于存放操作数和各种地址信息等，其位数与机器字长相等，便于操作控制。</li>
+<li>通用寄存器供用户自由编程，可以存放数据和地址。而指令寄存器是专门用于存放指令的专用寄存器，不能由通用寄存器代替。</li>
+<li>程序状态字寄存器用于保留算数、逻辑运算及测试指令的结果状态。</li>
+<li>地址译码器是主存等存储器的组成部分，不是CPU的组成部分。</li>
+<li>间址周期的作用是取操作数的有效地址，因此间址周期结束后，MDR中的内容为操作数地址。</li>
+<li>CPU中的<u>专用</u>寄存器有：<strong>程序计数器</strong>(PC)、<strong>指令寄存器</strong>(IR)、<strong>存储器数据寄存器</strong>(MDR)、<strong>存储器地址寄存器</strong>(MAR)和<strong>程序状态字寄存器</strong>(PSW)。</li>
+</ul>
+<h4 id="p200-5-2-4"><a href="#p200-5-2-4" class="headerlink" title="p200-5.2.4"></a>p200-5.2.4</h4><ul>
+<li>CPU从主存中每取出并执行一条指令所需的全部时间成为指令周期。</li>
+<li>时钟周期通常成为节拍或T周期，它是CPU操作的最基本单位。</li>
+<li>CPU周期也称机器周期，一个机器周期包含若干个时钟周期。</li>
+<li>存取周期是指存储器进行两次独立的存储器操作（连续两次读或写操作）所需的最小间隔时间。</li>
+<li>取指操作是自动进行的，控制器不需要得到相应的指令。</li>
+<li>取指周期是取指令字。</li>
+<li>由于CPU内部操作速度较快，而CPU访问一次存储器的时间较长，因此机器周期通常由存取周期来确定。</li>
+<li>通常把通过一次总线事务访问一次主存或I&#x2F;O的时间定位一个机器周期。</li>
+<li><strong>执行各条指令的机器周期数可变，各机器周期的长度可变</strong>：机器周期是指令执行中每步操作(如取指令、存储器读、存储器写等) 所需要的时间，每个机器周期内的节拍数可以不等，因此其长度可变。因为各种指令的功能不同，所以各指令执行时所需的机器周期数是可变的。</li>
+<li>CPU相应中断的时间是：一条指令执行结束，而不是指令周期结束，因为终端周期也属于指令周期。</li>
+<li>存储器本身无法区分存储单元中存放的是指令还是数据。而是在控制单元的控制下，计算机在不同的阶段对存储器进行读写操作时去除的代码有不同的用处。在取指阶段读出的为指令，执行阶段读出的则可能为数据。其它部件均不能区分。</li>
+<li>指令字长一般都取存储字长的整数倍，若指令字长等于存储字长的 2 倍，则需要两次访存取指周期等于机器周期的 2 倍:若指令字长等于存储字长，则取指周期等于机器周期。</li>
+<li>指令字长一般取字节或存储字长的整数倍，而不一定都和存储字长一样大。</li>
+</ul>
+<h4 id="p205-5-3-3"><a href="#p205-5-3-3" class="headerlink" title="p205-5.3.3"></a>p205-5.3.3</h4><ul>
+<li>在单总线CPU中，ALU只有一个输入端与总线连接，另一输入端和输出端需要通过寄存器与总线连接。</li>
+<li>是否采用<strong>CPU内部总线的数据通路</strong>的特点：<ul>
+<li><strong>采用CPU内部总线方式的数据通路的特点</strong>：结构简单、实现容易、性能较低、存在较多的冲突现象；</li>
+<li><strong>不采用CPU内部总线方式的数据通路的特点</strong>：结构复杂、硬件量大、不易实现、性能高、基本不存在数据冲突现象。</li>
+</ul>
+</li>
+<li>单周期处理器是指所有指令的<strong>指令周期为一个时钟周期的处理器</strong>，故：<ul>
+<li>每条指令的 CPI为1，</li>
+<li>要考虑比较慢的指令，所以处理器的时钟频率较低。</li>
+<li>单总线数据通路将所有寄存器的输入输出端都连接在一条公共通路上，一个时钟内只允许一次操作，无法完成指令的所有操作。</li>
+<li>控制信号是 CU 根据指操作码发出的信号，对于单周期处理器来说，每条指令的执行只有一个时钟周期，而<strong>在一个时钟周期内控制信号并不会变化</strong>。若是多周期处理器，则指令的执行需要多个时钟周期，在每个时钟周期控制器会发出不同信号。</li>
+</ul>
+</li>
+<li>指令执行过程中数据所经过的路径，包括路径上的部件，称为数据通路。ALU、通用寄存器状态寄存器、Cache、MMU、浮点运算逻辑、异常和中断处理逻辑等，都是指令执行过程中数据流经的部件，都属于数据通路的一部分。数据通路中的数据流动路径由控制部件控制，控制部件根据每条指令功能的不同，生成对数据通路的控制信号。</li>
+</ul>
+<h5 id="-4"><a href="#-4" class="headerlink" title="&lt;–大题部分有时间再写–&gt;"></a>&lt;–大题部分有时间再写–&gt;</h5><h4 id="p226-5-4-4"><a href="#p226-5-4-4" class="headerlink" title="p226-5.4.4"></a>p226-5.4.4</h4><ul>
+<li>CU 的输入信号来源如下: ①经指令译码器译码产生的指令信息; ②时序系统产生的机器周期信号和节拍信号;③来自执行单元的反馈信息即标志。前两者是主要因素。</li>
+<li>微指令计数器决定的是微指令的执行顺序，而不是指令的执行顺序。</li>
+<li>一条微指令存放在控制器的一个控制存储单元中。</li>
+<li><strong>微程序控制器的时序系统比较简单</strong>，因为它只需按照节拍的安排，顺序执行微指令。而硬件布线控制器需要结合各微操作的节拍安排，综合分析，写出逻辑表达式，再设计成逻辑电路图。因此时序系统比较复杂。</li>
+<li>在微程序控制器中，控制部件向执行部件发出的控制信号称为<strong>微命令</strong>，微命令执行的操作称为<strong>微操作</strong>。<strong>微指令</strong>则是若干微命令的集合，若干微指令的有序集合称为<strong>微程序</strong>。</li>
+<li>一组实现一定功能的微命令的组合构成一条微指令，有序的微指令序列构成一段微程序，微程序的作用是实现一条对应的机器指令。</li>
+<li>兼容性微命令是指那些可以同时产生、共同完成某些微操作的微命令。</li>
+<li>指令周期是从一条指令启动到下一条指令启动的间隔时间，而 CPU 周期是机器周期，是指令执行中每步操作所需的时间。</li>
+<li>在采用微程序控制器的 CPU 中，一条指令对应一个微程序，一个微程序由许多微指令构成，一条微指令会发出很多不同的微命令。故<strong>一个微程序的周期对应一个指令周期</strong>。</li>
+<li>CPU 控制器主要由三个部件组成: <strong>指令寄存器</strong>、<strong>程序计数器</strong>和<strong>操作控制器</strong>。</li>
+<li>状态条件寄存器通常属于运算器的部件，保存由算术指令和逻辑指令运行或测试的结果建立的各种条件码内容，如运算结果进位标志(C)、运算结果溢出标志 (V) 等。</li>
+<li><strong>运算器</strong>、<strong>存储器</strong>、<strong>外围设备</strong>相对控制器来说就是执行部件。</li>
+<li>不论主存储器（MM）或控制存储器（CS）都按地址访问。MM存储指令和数据，CS存储微指令，MM在CPU外，CS在CPU内。MM用RAM和ROM实现，CS用ROM实现。</li>
+<li>CPU时钟脉冲信号以相邻状态单元间组合逻辑电路的最大延迟为基准确定。</li>
+<li>只有在理想情况下的流水线 CPU 中，才可能实现每个时钟周期开始执行一条新指令，<strong>故不能说总是开始执行一条新的指令</strong>。</li>
+<li>汇编程序员可见的寄存器有<strong>基址寄存器</strong>(用于实现多道程序设计或者编制浮动程序)和<strong>状态标志寄存器</strong>、<strong>程序计数器PC</strong>及<strong>通用寄存器组</strong>；而<strong>MAR</strong>、<strong>MDR</strong>、<strong>IR</strong>是CPU的内部工作寄存器对汇编程序员不可见。微指令寄存器属于微程序控制器的组成部分，它是硬件设计者的任务，对汇编程序员是透明的(不可见的)。</li>
+<li>即使是控制存储器（CM）的容量也要求是2的整数次幂，如计算得出241条指令，那么CM容量应该为 $256*指令字长$。</li>
+<li></li>
+</ul>
+<h4 id="-5"><a href="#-5" class="headerlink" title="&lt;–5.5节暂未讲解不知道傻逼王道搞什么–&gt;"></a>&lt;–5.5节暂未讲解不知道傻逼王道搞什么–&gt;</h4><h4 id="p244-5-6-6"><a href="#p244-5-6-6" class="headerlink" title="p244-5.6.6"></a>p244-5.6.6</h4><h4 id="p258-5-7-4"><a href="#p258-5-7-4" class="headerlink" title="p258-5.7.4"></a>p258-5.7.4</h4><h3 id="第六章-总线"><a href="#第六章-总线" class="headerlink" title="第六章 总线"></a>第六章 总线</h3><h4 id="p267-6-1-6"><a href="#p267-6-1-6" class="headerlink" title="p267-6.1.6"></a>p267-6.1.6</h4><h4 id="p274-6-2-4"><a href="#p274-6-2-4" class="headerlink" title="p274-6.2.4"></a>p274-6.2.4</h4><h3 id="第七章-输入-输出系统"><a href="#第七章-输入-输出系统" class="headerlink" title="第七章 输入&#x2F;输出系统"></a>第七章 输入&#x2F;输出系统</h3><h4 id="p280-7-1-4"><a href="#p280-7-1-4" class="headerlink" title="p280-7.1.4"></a>p280-7.1.4</h4><h4 id="p284-7-2-5"><a href="#p284-7-2-5" class="headerlink" title="p284-7.2.5"></a>p284-7.2.5</h4><h4 id="p293-7-3-4"><a href="#p293-7-3-4" class="headerlink" title="p293-7.3.4"></a>p293-7.3.4</h4><h1 id="2017-43"><a href="#2017-43" class="headerlink" title="2017.43"></a>2017.43</h1><ul>
+<li>IEEE754浮点数阶码全1，位数全0表示无穷</li>
+</ul>
+</div>
+        </div>
+        
+            <div class="kratos-copyright text-center clearfix">
+                <h5 itemprop="copyrightNotice">本作品采用 <a rel="license nofollow" target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/">知识共享署名-相同方式共享 4.0 国际许可协议</a> 进行许可</h5>
+            </div>
+        
+        <footer class="kratos-entry-footer clearfix">
+            
+                <div class="post-like-donate text-center clearfix" id="post-like-donate">
+                
+                    <a class="donate" href="javascript:;"><i class="fa fa-bitcoin"></i> 打赏</a>
+                
+                
+                    <a class="share" href="javascript:;"><i class="fa fa-share-alt"></i> 分享</a>
+                    <div class="share-wrap" style="display: none;">
+    <div class="share-group">
+        <a href="javascript:;" class="share-plain qq" onclick="share('qq');" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-qq"></i>
+            </div>
+        </a>
+        <a href="javascript:;" class="share-plain qzone" onclick="share('qzone');" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-star"></i>
+            </div>
+        </a>
+        <a href="javascript:;" class="share-plain weixin pop style-plain" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-weixin"></i>
+            </div>
+            <div class="share-int">
+                <div class="qrcode" id="wechat-qr"></div>
+                <p>打开微信“扫一扫”，打开网页后点击屏幕右上角分享按钮</p>
+            </div>
+        </a>
+        <a href="javascript:;" class="share-plain weibo" onclick="share('weibo');" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-weibo"></i>
+            </div>
+        </a>
+        <a href="javascript:;" class="share-plain facebook style-plain" onclick="share('facebook');" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-facebook"></i>
+            </div>
+        </a>
+        <a href="javascript:;" class="share-plain twitter style-plain" onclick="share('twitter');" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-twitter"></i>
+            </div>
+        </a>
+    </div>
+    <script type="text/javascript">
+        $(()=>{
+            new QRCode("wechat-qr", {
+                text: "https://nav.baobodadazz.top/subweb/blog/2023/12/23/0014.%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E9%94%99%E9%A2%98%E6%9C%AC/",
+                width: 150,
+                height: 150,
+                correctLevel : QRCode.CorrectLevel.H
+            });
+        });
+        function share(dest) {
+            const qqBase        = "https://connect.qq.com/widget/shareqq/index.html?";
+            const weiboBase     = "https://service.weibo.com/share/share.php?";
+            const qzoneBase     = "https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?";
+            const facebookBase  = "https://www.facebook.com/sharer/sharer.php?";
+            const twitterBase   = "https://twitter.com/intent/tweet?";
+            const hostUrl       = "https://nav.baobodadazz.top/subweb/blog/2023/12/23/0014.%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E9%94%99%E9%A2%98%E6%9C%AC/";
+            const title         = "「【错题本】考研-2024-计组错题本」";
+            const excerpt       = `计算机组成原理错题本王道考研-2024-计算机组成原理考研复习指导第一章 计算机系统概述p008-1.2.6
+冯诺伊曼机的基本工作方式是控制流驱动方式
+多处理机的工作方式是多指令多数据流
+相联存储器的特点：存储器按内容选择地址。相联存...`;
+            let _URL;
+            switch (dest) {
+                case "qq"       : _URL = qqBase+"url="+hostUrl+"&title="+title+"&desc=&summary="+excerpt+"&site=cxpy";     break;
+                case "weibo"    : _URL = weiboBase+"url="+hostUrl+"&title="+title+excerpt;                                 break;
+                case "qzone"    : _URL = qzoneBase+"url="+hostUrl+"&title="+title+"&desc=&summary="+excerpt+"&site=cxpy";  break;
+                case "facebook" : _URL = facebookBase+"u="+hostUrl;                                                        break;
+                case "twitter"  : _URL = twitterBase+"text="+title+excerpt+"&url="+hostUrl;                                break;
+            }
+            window.open(_URL);
+        };
+    </script>
+</div>
+                
+                </div>
+            
+            <div class="footer-tag clearfix">
+                <div class="pull-left">
+                <i class="fa fa-tags"></i>
+                    <a class="tag-none-link" href="/subweb/blog/tags/408/" rel="tag">408</a>, <a class="tag-none-link" href="/subweb/blog/tags/%E5%AD%A6%E4%B9%A0/" rel="tag">学习</a>, <a class="tag-none-link" href="/subweb/blog/tags/%E7%A0%94%E7%A9%B6%E7%94%9F%E8%80%83%E8%AF%95/" rel="tag">研究生考试</a>, <a class="tag-none-link" href="/subweb/blog/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/" rel="tag">计算机</a>, <a class="tag-none-link" href="/subweb/blog/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/" rel="tag">计算机组成原理</a>, <a class="tag-none-link" href="/subweb/blog/tags/%E9%94%99%E9%A2%98%E6%9C%AC/" rel="tag">错题本</a>
+                </div>
+                <div class="pull-date">
+                    <time datetime="2024-04-03T04:51:38.095Z" itemprop="dateModified">最后编辑：2024-04-03</time>
+                </div>
+            </div>
+        </footer>
+    </div>
+    
+        <nav class="navigation post-navigation clearfix" role="navigation">
+            
+            <div class="nav-previous clearfix">
+                <a title=" 【错题本】考研-2024-数据结构错题本" href="/subweb/blog/2023/12/23/0013.数据结构错题本/">&lt; 上一篇</a>
+            </div>
+            
+            
+            <div class="nav-next clearfix">
+                <a title=" 【错题本】考研-2024-操作系统错题本" href="/subweb/blog/2023/12/23/0015.操作系统错题本/">下一篇 &gt;</a>
+            </div>
+            
+        </nav>
+    
+    
+</article>
+
+        
+
+            </section>
+
+        
+
+                
+            
+
+<section id="kratos-widget-area" class="col-md-4 hidden-xs hidden-sm">
+    <!-- 文章和页面根据splitter来分割，没有的话就从头开始设置为sticky -->
+    
+    
+                <aside id="krw-about" class="widget widget-kratos-about clearfix">
+    <div class="photo-background"></div>
+    <div class="photo-wrapper clearfix">
+        <div class="photo-wrapper-tip text-center">
+            <img class="about-photo" src="/subweb/blog/images/avatar.webp" loading="lazy" decoding="auto" />
+        </div>
+    </div>
+    <div class="textwidget">
+        <p class="text-center">爆脖大大Zz</p>
+    </div>
+    <div class="site-meta">
+        <a class="meta-item" href="/subweb/blog/archives/">
+            <span class="title">
+                文章
+            </span>
+            <span class="count">
+                16
+            </span>
+        </a>
+        <a class="meta-item" href="/subweb/blog/categories/">
+            <span class="title">
+                分类
+            </span>
+            <span class="count">
+                3
+            </span>
+        </a>
+        <a class="meta-item" href="/subweb/blog/tags/">
+            <span class="title">
+                标签
+            </span>
+            <span class="count">
+                33
+            </span>
+        </a>
+    </div>
+</aside>
+            
+                    <div class="sticky-area">
+                
+                    <aside id="krw-toc" class="widget widget-kratos-toc clearfix toc-div-class" >
+    <div class="photo-background"></div>
+    <h4 class="widget-title no-after">
+        <i class="fa fa-compass"></i>
+        文章目录
+        <span class="toc-progress-bar" role="progressbar" aria-label="阅读进度："></span>
+    </h4>
+    <div class="textwidget">
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E9%94%99%E9%A2%98%E6%9C%AC"><span class="toc-text">计算机组成原理错题本</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%8E%8B%E9%81%93%E8%80%83%E7%A0%94-2024-%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E8%80%83%E7%A0%94%E5%A4%8D%E4%B9%A0%E6%8C%87%E5%AF%BC"><span class="toc-text">王道考研-2024-计算机组成原理考研复习指导</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E7%AB%A0-%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%BF%B0"><span class="toc-text">第一章 计算机系统概述</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#p008-1-2-6"><span class="toc-text">p008-1.2.6</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#p015-1-3-3"><span class="toc-text">p015-1.3.3</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E4%BA%8C%E7%AB%A0-%E6%95%B0%E6%8D%AE%E7%9A%84%E8%A1%A8%E7%A4%BA%E5%92%8C%E8%BF%90%E7%AE%97"><span class="toc-text">第二章 数据的表示和运算</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#p030-2-1-5"><span class="toc-text">p030-2.1.5</span></a></li><li class="toc-item toc-level-4"><a class="toc-link"><span class="toc-text">&lt;–未总结完部分–&gt;</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E4%B8%89%E7%AB%A0-%E5%AD%98%E5%82%A8%E7%B3%BB%E7%BB%9F"><span class="toc-text">第三章 存储系统</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#p081-3-1-4"><span class="toc-text">p081-3.1.4</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#p89-3-2-5"><span class="toc-text">p89-3.2.5</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#p101-3-3-5"><span class="toc-text">p101-3.3.5</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#p109-3-4-3"><span class="toc-text">p109-3.4.3</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#p119-3-5-6"><span class="toc-text">p119-3.5.6</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#-1"><span class="toc-text">&lt;–8,9两题存在超纲内容，一轮复习结束后写–&gt;</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#-2"><span class="toc-text">&lt;–虚拟内存需学完操作系统后可做–&gt;</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E5%9B%9B%E7%AB%A0-%E6%8C%87%E4%BB%A4%E7%B3%BB%E7%BB%9F"><span class="toc-text">第四章 指令系统</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#p149-4-1-4"><span class="toc-text">p149-4.1.4</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#p159-4-2-3"><span class="toc-text">p159-4.2.3</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#-3"><span class="toc-text">&lt;–9,10两题存在超纲内容，一轮复习结束后写–&gt;</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#p182-4-3-5"><span class="toc-text">p182-4.3.5</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#p188-4-4-4"><span class="toc-text">p188-4.4.4</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E4%BA%94%E7%AB%A0-%E4%B8%AD%E5%A4%AE%E5%A4%84%E7%90%86%E5%99%A8"><span class="toc-text">第五章 中央处理器</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#p193-5-1-3"><span class="toc-text">p193-5.1.3</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#p200-5-2-4"><span class="toc-text">p200-5.2.4</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#p205-5-3-3"><span class="toc-text">p205-5.3.3</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#-4"><span class="toc-text">&lt;–大题部分有时间再写–&gt;</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#p226-5-4-4"><span class="toc-text">p226-5.4.4</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#-5"><span class="toc-text">&lt;–5.5节暂未讲解不知道傻逼王道搞什么–&gt;</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#p244-5-6-6"><span class="toc-text">p244-5.6.6</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#p258-5-7-4"><span class="toc-text">p258-5.7.4</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E5%85%AD%E7%AB%A0-%E6%80%BB%E7%BA%BF"><span class="toc-text">第六章 总线</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#p267-6-1-6"><span class="toc-text">p267-6.1.6</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#p274-6-2-4"><span class="toc-text">p274-6.2.4</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E4%B8%83%E7%AB%A0-%E8%BE%93%E5%85%A5-%E8%BE%93%E5%87%BA%E7%B3%BB%E7%BB%9F"><span class="toc-text">第七章 输入&#x2F;输出系统</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#p280-7-1-4"><span class="toc-text">p280-7.1.4</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#p284-7-2-5"><span class="toc-text">p284-7.2.5</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#p293-7-3-4"><span class="toc-text">p293-7.3.4</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2017-43"><span class="toc-text">2017.43</span></a></li></ol>
+    </div>
+</aside>
+                
+                
+  <aside id="krw-categories" class="widget widget-kratos-categories clearfix">
+    <h4 class="widget-title"><i class="fa fa-folder"></i>分类目录</h4>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/subweb/blog/categories/%E5%8A%A8%E6%BC%AB/">动漫</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/subweb/blog/categories/%E5%AD%A6%E4%B9%A0/">学习</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/subweb/blog/categories/%E9%97%AE%E7%AD%94%E7%95%99%E6%A1%A3/">问答留档</a><span class="category-list-count">11</span></li></ul>
+  </aside>
+
+
+            
+                
+  <aside id="krw-tags" class="widget widget-kratos-tags clearfix">
+    <h4 class="widget-title"><i class="fa fa-tags"></i>标签聚合</h4>
+      <div class="tag-clouds">
+        <a href="/subweb/blog/tags/408/" style="font-size: 0.73em;">408</a> <a href="/subweb/blog/tags/C/" style="font-size: 0.6em;">C++</a> <a href="/subweb/blog/tags/GPT/" style="font-size: 0.8em;">GPT</a> <a href="/subweb/blog/tags/IP/" style="font-size: 0.6em;">IP</a> <a href="/subweb/blog/tags/USD/" style="font-size: 0.6em;">USD</a> <a href="/subweb/blog/tags/openMVG/" style="font-size: 0.6em;">openMVG</a> <a href="/subweb/blog/tags/%E4%B8%89%E7%BB%B4%E9%87%8D%E5%BB%BA/" style="font-size: 0.6em;">三维重建</a> <a href="/subweb/blog/tags/%E5%8A%A8%E6%BC%AB/" style="font-size: 0.6em;">动漫</a> <a href="/subweb/blog/tags/%E5%8E%9F%E7%9B%98/" style="font-size: 0.6em;">原盘</a> <a href="/subweb/blog/tags/%E5%9B%BE%E5%BD%A2%E6%8E%A5%E5%8F%A3/" style="font-size: 0.6em;">图形接口</a> <a href="/subweb/blog/tags/%E5%A4%84%E7%90%86%E5%99%A8%E6%9E%B6%E6%9E%84/" style="font-size: 0.6em;">处理器架构</a> <a href="/subweb/blog/tags/%E5%A4%9A%E5%AA%92%E4%BD%93/" style="font-size: 0.6em;">多媒体</a> <a href="/subweb/blog/tags/%E5%AD%A6%E4%B9%A0/" style="font-size: 0.73em;">学习</a> <a href="/subweb/blog/tags/%E5%AE%89%E5%85%A8/" style="font-size: 0.6em;">安全</a> <a href="/subweb/blog/tags/%E5%B7%A5%E4%BD%9C%E4%BB%8B%E7%BB%8D/" style="font-size: 0.6em;">工作介绍</a> <a href="/subweb/blog/tags/%E5%BD%B1%E8%A7%86/" style="font-size: 0.6em;">影视</a> <a href="/subweb/blog/tags/%E6%8C%87%E4%BB%A4%E9%9B%86/" style="font-size: 0.6em;">指令集</a> <a href="/subweb/blog/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" style="font-size: 0.67em;">操作系统</a>
+      </div>
+  </aside>
+
+            
+                
+  <aside id="krw-posts" class="widget widget-kratos-posts">
+  <h4 class="widget-title"><i class="fa fa-file"></i>最新文章</h4>
+  <div class="tab-content">
+      <ul class="list-group">
+        
+        
+          
+          
+            <a class="list-group-item" href="/subweb/blog/2024/04/02/0012.%E5%8A%A8%E6%BC%AB%E5%88%97%E8%A1%A8-%E9%95%BF%E6%9C%9F%E6%9B%B4%E6%96%B0/"><i class="fa  fa-book"></i> 【动漫】动漫列表-长期更新</a>
+            
+          
+        
+          
+          
+            <a class="list-group-item" href="/subweb/blog/2023/12/23/0016.%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E9%94%99%E9%A2%98%E6%9C%AC/"><i class="fa  fa-book"></i> 【错题本】考研-2024-计算机网络错题本</a>
+            
+          
+        
+          
+          
+            <a class="list-group-item" href="/subweb/blog/2023/12/23/0015.%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E9%94%99%E9%A2%98%E6%9C%AC/"><i class="fa  fa-book"></i> 【错题本】考研-2024-操作系统错题本</a>
+            
+          
+        
+          
+          
+            <a class="list-group-item" href="/subweb/blog/2023/12/23/0014.%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E9%94%99%E9%A2%98%E6%9C%AC/"><i class="fa  fa-book"></i> 【错题本】考研-2024-计组错题本</a>
+            
+          
+        
+          
+          
+            <a class="list-group-item" href="/subweb/blog/2023/12/23/0013.%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E9%94%99%E9%A2%98%E6%9C%AC/"><i class="fa  fa-book"></i> 【错题本】考研-2024-数据结构错题本</a>
+            
+          
+        
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+      </ul>
+  </div>
+  </aside>
+
+            
+    </div>
+</section>
+        
+        </div>
+    </div>
+</div>
+<footer>
+    <div id="footer"  class="ap-lrc"  >
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3 footer-list text-center">
+                    <ul class="kratos-social-icons">
+                        <!-- Keep for compatibility -->
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <!-- New links -->
+                        
+                    </ul>
+                    <ul class="kratos-copyright">
+                        <div>
+                            <li>&copy; 2024 爆脖の奇妙生活 版权所有.</li>
+                            <li>本站已运行<span id="span_dt">Loading...</span></li>
+                        </div>
+                        <div>
+                            <li>Theme <a href="https://github.com/Candinya/Kratos-Rebirth" target="_blank">Kratos:Rebirth</a></li>
+                            <li>Site built with&nbsp;<i class="fa fa-heart throb" style="color:#d43f57"></i>&nbsp;by 爆脖大大Zz.</li>
+                        </div>
+                        <div>
+                            <li>Powered by <a href="https://hexo.io" target="_blank" rel="nofollow">Hexo</a></li>
+                            <li>Hosted on <a href="https://github.io" target="_blank">Github Pages</a></li>
+                        </div>
+                        <div>
+                            
+                            
+                        </div>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="kr-tool text-center">
+            <div class="tool">
+                
+                    <div class="box search-box">
+                        <a href="/subweb/blog/search/">
+                            <span class="fa fa-search"></span>
+                        </a>
+                    </div>
+                
+                
+                    <div class="box theme-box" id="darkmode-switch">
+                        <span class="fa fa-adjust"></span>
+                    </div>
+                
+                
+                
+            </div>
+            <div class="box gotop-box">
+                <span class="fa fa-chevron-up"></span>
+            </div>
+        </div>
+    </div>
+</footer>
+</div>
+</div>
+
+        <script defer src="/subweb/blog/vendors/bootstrap@3.3.4/dist/js/bootstrap.min.js"></script>
+<script defer src="/subweb/blog/vendors/nprogress@0.2.0/nprogress.js"></script>
+<script>
+    if (!window.kr) {
+        window.kr = {};
+    }
+    window.kr.notMobile = (!(navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i)));
+    window.kr.siteRoot = "/subweb/blog/";
+</script>
+
+
+    <script async src="/subweb/blog/js/candy.min.js"></script>
+
+
+
+    <script defer src="/subweb/blog/vendors/aplayer@1.10.1/dist/APlayer.min.js"></script>
+    
+    <script defer src="/subweb/blog/vendors/meting@2.0.1/dist/Meting.min.js"></script>
+    <meting-js
+        server="netease"
+        type="playlist"
+        id="9650496682"
+        order="random"
+        fixed="true"
+    >
+    </meting-js>
+
+
+
+    <script defer src="/subweb/blog/vendors/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+
+<script defer src="/subweb/blog/js/kratosr.min.js"></script>
+<script defer src="/subweb/blog/js/pjax.min.js"></script>
+
+    <script defer src="/subweb/blog/vendors/layui-src@2.5.5/dist/layui.all.js"></script>
+
+
+
+<!-- Extra support for third-party plguins  -->
+
+
+    </body>
+</html>

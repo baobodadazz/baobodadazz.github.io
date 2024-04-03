@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+<html lang="zh">
+    <head>
+  <!-- 元数据 -->
+  <meta charset="utf-8">
+  
+  
+  <title>【错题本】考研-2024-计算机网络错题本 | 爆脖の奇妙生活</title>
+  
+  <meta name="author" content="爆脖大大Zz" />
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="robots" content="index,follow" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <meta name="format-detection" content="telphone=no, email=no" />
+  
+    <meta name="keywords" content="408, 学习, 研究生考试, 计算机, 计算机网络, 错题本" />
+  
+  <meta name="description" content="计算机网络错题本王道考研-2024-计算机网络考研复习指导第一章 计算机网络体系结构p007-1.1.7 计算机网络的三大主要功能是数据通信、资源共享及分布式处理。计算机网络使各计算机之间的联系更加紧密。因此在一定程度上，计算网络能提高系统可靠性。 计算机网络系统的基本组成，即从逻辑功能上可分为：通信子网和资源子网。 从物理组成来看，计算机网络由硬件、软件和协议组成，客户机是客户访问网络的出入口，">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【错题本】考研-2024-计算机网络错题本">
+<meta property="og:url" content="https://nav.baobodadazz.top/subweb/blog/2023/12/23/0016.%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E9%94%99%E9%A2%98%E6%9C%AC/index.html">
+<meta property="og:site_name" content="爆脖の奇妙生活">
+<meta property="og:description" content="计算机网络错题本王道考研-2024-计算机网络考研复习指导第一章 计算机网络体系结构p007-1.1.7 计算机网络的三大主要功能是数据通信、资源共享及分布式处理。计算机网络使各计算机之间的联系更加紧密。因此在一定程度上，计算网络能提高系统可靠性。 计算机网络系统的基本组成，即从逻辑功能上可分为：通信子网和资源子网。 从物理组成来看，计算机网络由硬件、软件和协议组成，客户机是客户访问网络的出入口，">
+<meta property="og:locale">
+<meta property="og:image" content="https://nav.baobodadazz.top/subweb/blog/images/posts/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E9%94%99%E9%A2%98%E6%9C%AC/image-20230814000705405.png">
+<meta property="og:image" content="https://nav.baobodadazz.top/subweb/blog/images/posts/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E9%94%99%E9%A2%98%E6%9C%AC/image-20230829004152439.png">
+<meta property="og:image" content="https://nav.baobodadazz.top/subweb/blog/images/posts/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E9%94%99%E9%A2%98%E6%9C%AC/image-20230924233126717.png">
+<meta property="og:image" content="https://nav.baobodadazz.top/subweb/blog/images/posts/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E9%94%99%E9%A2%98%E6%9C%AC/image-20230924233143571.png">
+<meta property="og:image" content="https://nav.baobodadazz.top/subweb/blog/images/posts/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E9%94%99%E9%A2%98%E6%9C%AC/image-20230924233204002.png">
+<meta property="og:image" content="https://nav.baobodadazz.top/subweb/blog/images/posts/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E9%94%99%E9%A2%98%E6%9C%AC/image-20230925231625003.png">
+<meta property="og:image" content="https://nav.baobodadazz.top/subweb/blog/images/posts/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E9%94%99%E9%A2%98%E6%9C%AC/image-20230925231543640.png">
+<meta property="og:image" content="https://nav.baobodadazz.top/subweb/blog/images/posts/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E9%94%99%E9%A2%98%E6%9C%AC/image-20231022093938120.png">
+<meta property="og:image" content="https://nav.baobodadazz.top/subweb/blog/images/posts/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E9%94%99%E9%A2%98%E6%9C%AC/image-20231022103550319.png">
+<meta property="og:image" content="https://nav.baobodadazz.top/subweb/blog/images/posts/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E9%94%99%E9%A2%98%E6%9C%AC/image-20231022110121603.png">
+<meta property="article:published_time" content="2023-12-23T06:51:25.000Z">
+<meta property="article:modified_time" content="2024-04-03T04:51:27.001Z">
+<meta property="article:author" content="爆脖大大Zz">
+<meta property="article:tag" content="研究生考试">
+<meta property="article:tag" content="计算机">
+<meta property="article:tag" content="学习">
+<meta property="article:tag" content="408">
+<meta property="article:tag" content="错题本">
+<meta property="article:tag" content="计算机网络">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://nav.baobodadazz.top/subweb/blog/images/posts/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E9%94%99%E9%A2%98%E6%9C%AC/image-20230814000705405.png">
+  
+  <!-- 站点验证相关 -->
+  
+    
+    
+    
+  
+  <!-- 样式表文件 -->
+  <link rel="stylesheet" id="kratos-css" href="/subweb/blog/css/kratosr.min.css" media="all"></script>
+  
+    <link rel="stylesheet" id="darkmode-css" href="/subweb/blog/css/kr-color-dark.min.css" media="(prefers-color-scheme: dark)"></script>
+    <script src="/subweb/blog/js/kr-dark.min.js"></script>
+  
+  
+    <link rel="stylesheet" id="highlight-css" href="/subweb/blog/css/highlight/night-bright.min.css" media="all"></script>
+  
+  <link rel="stylesheet" id="fontawe-css" href="/subweb/blog/vendors/font-awesome@4.7.0/css/font-awesome.min.css" media="all"></script>
+  <link rel="stylesheet" id="nprogress-css" href="/subweb/blog/vendors/nprogress@0.2.0/nprogress.css" media="all"></script>
+  
+  
+    <link rel="stylesheet" href="/subweb/blog/vendors/aplayer@1.10.1/dist/APlayer.min.css"></script>
+  
+  
+    <link rel="stylesheet" href="/subweb/blog/vendors/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css"></script>
+  
+  <!-- 不得不预先加载的一些JS文件 -->
+  <script src="/subweb/blog/vendors/jquery@3.6.0/dist/jquery.min.js"></script>
+  
+    <script src="/subweb/blog/vendors/qrcode_js@1.0.0/qrcode.min.js"></script>
+  
+  
+  <style>
+    
+      .kratos-cover.kratos-cover-2 {
+        background-image: url('/subweb/blog/images/banner.webp');
+      }
+    
+    
+      @media(min-width:768px) {
+        body.custom-background {
+          background-image: url('/subweb/blog/images/bg4.webp');
+        }
+      }
+    
+  </style>
+  
+<meta name="generator" content="Hexo 7.1.1"></head>
+
+
+    <body class="custom-background">
+        <div id="kratos-wrapper">
+    <div id="kratos-page">
+        <div id="kratos-header">
+            <header id="kratos-desktop-topnav" class="kratos-topnav">
+                <div class="container">
+                    <div class="nav-header">
+                        <nav id="kratos-menu-wrap">
+                            <ul id="kratos-primary-menu" class="sf-menu">
+                                
+                                    
+                                    
+                                
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </header>
+            <header id="kratos-mobile-topnav" class="kratos-topnav">
+                <div class="container">
+                    <div class="color-logo"><a href="/subweb/blog/">爆脖の奇妙生活</a></div>
+                    <div class="nav-toggle">
+                        <a class="kratos-nav-toggle js-kratos-nav-toggle">
+                            <i></i>
+                        </a>
+                    </div>
+                </div>
+            </header>
+        </div>
+        <div class="kratos-start kratos-hero-2">
+            <!-- <div class="kratos-overlay"></div> -->
+            <div class="kratos-cover kratos-cover-2 text-center">
+                <div class="desc desc2 animate-box">
+                    <a href="/subweb/blog/">
+                        <h2>爆脖の奇妙生活</h2> <br />
+                        <span>さあ，私たちのデートを始めましょう</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div id="kratos-blog-post">
+            <div class="container">
+                <div id="main" class="row">
+                    
+
+        
+
+            <section class="col-md-8">
+
+        
+
+            <article itemscope itemtype="https://schema.org/Article">
+    
+    <link itemprop="mainEntityOfPage" href="https://nav.baobodadazz.top/subweb/blog/2023/12/23/0016.%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E9%94%99%E9%A2%98%E6%9C%AC/">
+    <div class="kratos-hentry kratos-post-inner clearfix">
+        <header class="kratos-entry-header">
+            
+                <h1 class="kratos-entry-title text-center" itemprop="name headline">【错题本】考研-2024-计算机网络错题本</h1>
+            
+            
+            <ul class="kratos-post-meta text-center">
+                <li><time datetime="2023-12-23T06:51:25.000Z" itemprop="datePublished"><i class="fa fa-calendar"></i> 2023-12-23</time></li>
+                <li itemprop="author" itemscope itemtype="https://schema.org/Person">
+                    <i class="fa fa-user"></i> 作者 <span itemprop="name">爆脖大大Zz</span>
+                </li>
+                
+                    <li>
+                        <i class="fa fa-edit"></i> 
+                        
+                        
+                            ~6.81K
+                        
+                        字
+                    </li>
+                
+                
+            </ul>
+        </header>
+        <div class="kratos-post-content">
+            
+            <div id="expire-alert" class="alert alert-warning hidden" role="alert">
+                <div class="icon"><i class="fa fa-warning"></i></div>
+                <div class="text"><p>本文最后编辑于 <time datetime="1712119887001"></time> 前，其中的内容可能需要更新。</p></div>
+            </div>
+            
+            
+            
+                <div class="kratos-post-inner-toc toc-div-class" >
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E9%94%99%E9%A2%98%E6%9C%AC"><span class="toc-number">1.</span> <span class="toc-text">计算机网络错题本</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%8E%8B%E9%81%93%E8%80%83%E7%A0%94-2024-%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E8%80%83%E7%A0%94%E5%A4%8D%E4%B9%A0%E6%8C%87%E5%AF%BC"><span class="toc-number">1.1.</span> <span class="toc-text">王道考研-2024-计算机网络考研复习指导</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E7%AB%A0-%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84"><span class="toc-number">1.1.1.</span> <span class="toc-text">第一章 计算机网络体系结构</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#p007-1-1-7"><span class="toc-number">1.1.1.1.</span> <span class="toc-text">p007-1.1.7</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#p021-1-2-4"><span class="toc-number">1.1.1.2.</span> <span class="toc-text">p021-1.2.4</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E4%BA%8C%E7%AB%A0-%E7%89%A9%E7%90%86%E5%B1%82"><span class="toc-number">1.1.2.</span> <span class="toc-text">第二章 物理层</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#p040-2-1-6"><span class="toc-number">1.1.2.1.</span> <span class="toc-text">p040-2.1.6</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#p054-2-2-3"><span class="toc-number">1.1.2.2.</span> <span class="toc-text">p054-2.2.3</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E4%B8%89%E7%AB%A0-%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82"><span class="toc-number">1.1.3.</span> <span class="toc-text">第三章 数据链路层</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#p064-3-1-6"><span class="toc-number">1.1.3.1.</span> <span class="toc-text">p064-3.1.6</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#p68-3-2-5"><span class="toc-number">1.1.3.2.</span> <span class="toc-text">p68-3.2.5</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#p70-3-3-3"><span class="toc-number">1.1.3.3.</span> <span class="toc-text">p70-3.3.3</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#p077-3-4-5"><span class="toc-number">1.1.3.4.</span> <span class="toc-text">p077-3.4.5</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#p095-3-5-4"><span class="toc-number">1.1.3.5.</span> <span class="toc-text">p095-3.5.4</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#p111-3-6-5"><span class="toc-number">1.1.3.6.</span> <span class="toc-text">p111-3.6.5</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#p119-3-7-4"><span class="toc-number">1.1.3.7.</span> <span class="toc-text">p119-3.7.4</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#p124-3-8-3"><span class="toc-number">1.1.3.8.</span> <span class="toc-text">p124-3.8.3</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E5%9B%9B%E7%AB%A0-%E7%BD%91%E7%BB%9C%E5%B1%82"><span class="toc-number">1.1.4.</span> <span class="toc-text">第四章 网络层</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E4%BA%94%E7%AB%A0-%E4%BC%A0%E8%BE%93%E5%B1%82"><span class="toc-number">1.1.5.</span> <span class="toc-text">第五章 传输层</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E5%85%AD%E7%AB%A0-%E5%BA%94%E7%94%A8%E5%B1%82"><span class="toc-number">1.1.6.</span> <span class="toc-text">第六章 应用层</span></a></li></ol></li></ol></li></ol>
+                </div>
+            
+            <hr />
+            <div itemprop="articleBody"><h1 id="计算机网络错题本"><a href="#计算机网络错题本" class="headerlink" title="计算机网络错题本"></a>计算机网络错题本</h1><h2 id="王道考研-2024-计算机网络考研复习指导"><a href="#王道考研-2024-计算机网络考研复习指导" class="headerlink" title="王道考研-2024-计算机网络考研复习指导"></a>王道考研-2024-计算机网络考研复习指导</h2><h3 id="第一章-计算机网络体系结构"><a href="#第一章-计算机网络体系结构" class="headerlink" title="第一章 计算机网络体系结构"></a>第一章 计算机网络体系结构</h3><h4 id="p007-1-1-7"><a href="#p007-1-1-7" class="headerlink" title="p007-1.1.7"></a>p007-1.1.7</h4><ul>
+<li>计算机网络的三大主要功能是数据通信、资源共享及分布式处理。计算机网络使各计算机之间的联系更加紧密。因此在一定程度上，计算网络能<u>提高系统可靠性</u>。</li>
+<li>计算机网络系统的基本组成，即从逻辑功能上可分为：<strong>通信子网</strong>和<strong>资源子网</strong>。</li>
+<li>从物理组成来看，计算机网络由<u>硬件</u>、<u>软件</u>和<u>协议</u>组成，<u>客户机是客户访问网络的出入口</u>，<u>服务器是提供访问、存储信息的设备</u>，是计算机网络中必不可少的。<u>操作系统是最基本的软件</u>，因此也是必不可少的。诸如数据库管理系统等软件，由于一个网络上可以没有数据库系统，所以数据库管理系统可能没有。</li>
+<li>广域网和局域网之间的差异不仅在于它们所<strong>覆盖范围</strong>的不同，还在于它们所采用的<strong>协议和网络技术</strong>的不同，广域网使用点对点等技术，局域网使用广播技术。<font color="#ccc">（仅在远远落后于时代的大学教材）</font></li>
+<li>区别广域网和局域网的<font color="puple">关键</font>在于其<u>所用协议，而非覆盖范围</u>。</li>
+<li>城域网可视为为了满足一定的区域需求，而将多个局域网互连的局域网，因此它仍属于以太网范畴。</li>
+<li>最初的<strong>局域网采用广播技术</strong>，且一直被沿用，最初的<strong>广域网使用是交换技术</strong>，也一直被沿用。<font color="#ccc">（仅在远远落后于时代的大学教材）</font></li>
+<li>目前局域网接入广域网主要是通过<u>路由器</u>实现的。</li>
+<li>中继器和桥接器通常是指用于<u>局域网的物理层和数据链路层</u>的联网设备。</li>
+<li>广播式网络共享广播信道（如总线），通常是局域网的一种通信方式（局域网工作在数据链路层），因此<u>不需要网络层</u>。因此也<u>不存在路由选择问题</u>。但数据链路层使用**物理层的服务<u>必须通过服务访问点实现</u>**。</li>
+<li>分组交换要求把数据分成大小相当的小数据片，每片都要加上控制信息（如目的地址等），因而传输数据的总开销较多，相比其它交换方式，分组交换信道利用率高。传播时延取决于传播介质及收发双方的距离。</li>
+<li>对各种交换方式，不同规格的终端都很难相互通信。</li>
+<li>对于分组发送文件中对分组确认和接收完全部分组对文件确认两种策略的对比<img src="/subweb/blog/images/posts/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E9%94%99%E9%A2%98%E6%9C%AC/image-20230814000705405.png" alt="image-20230814000705405"></li>
+<li>电路交换和报文交换：<strong>电路交换中</strong>，只要建立好通信信道，就可以连续不断的一直发送数据，可以不考虑中间的站点。<strong>报文交换</strong>需要将一个报文全部接收后，才能发给下一个站点，与此同时，上一个站点开始发送下一个包。因此对于时延的计算，电路交换的时延为$电路交换时延&#x3D;连接时延+发送时延+传播时延$，分组交换的时延为$分组交换时延&#x3D;发送时延+传播时延$，但在实际计算中，分组交换的时延可以看作$第一个报文发送到终点的时延+每个包从倒数第二个站点发送到最后一个站点的时延$。</li>
+</ul>
+<h4 id="p021-1-2-4"><a href="#p021-1-2-4" class="headerlink" title="p021-1.2.4"></a>p021-1.2.4</h4><ul>
+<li><p>网络模型进行分层的目标：提供标准语言，定义标准界面，增加功能之间的独立性。</p>
+</li>
+<li><p>将用户数据分成一个个数据块传输的优点：减少延迟时间，提高错误控制效率，使多个应用公平的使用共享通信介质。</p>
+</li>
+<li><table>
+<thead>
+<tr>
+<th align="center">OSI&#x2F;ISO参考模型</th>
+<th align="center">主要功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">物理层（比特）</td>
+<td align="center"><strong>在物理媒体上为数据端设备透明地传输原始比特流</strong><br />①定义数据终端设备和数据通信设备的物理与逻辑连接方法<br />②定义传输模式    ③定义传输速率<br />④比特同步       ⑤比特编码</td>
+</tr>
+<tr>
+<td align="center">数据链路层（帧）</td>
+<td align="center"><strong>将网络层传来的IP数据报封装成帧</strong><br />①成帧     ②差错控制     ③流量控制     ④传输管理     ⑤访问接入控制</td>
+</tr>
+<tr>
+<td align="center">网络层（数据报）</td>
+<td align="center"><strong>把网络层的协议数据单元（分组）从源端传到目的端</strong><br />①路由选择     ②流量控制     ③拥塞控制     ④差错控制    ⑤网际互连</td>
+</tr>
+<tr>
+<td align="center">传输层<br />（报文段(TCP)或用户数据报(UDP)）</td>
+<td align="center"><strong>利用通信子网为端到端连接提供可靠服务</strong><br />①可靠服务    ②端到端流量控制    ③差错控制    ④服务质量、数据传输管理<br />⑤服用分用    ⑥分组排序</td>
+</tr>
+<tr>
+<td align="center">会话层</td>
+<td align="center"><strong>允许不同主机上的两个进程之间进行会话</strong><br />①建立、管理及终止进程间的会话    <br />②使用校验点使通信会话在失效时从校验点继续恢复通信，实现数据同步</td>
+</tr>
+<tr>
+<td align="center">表示层</td>
+<td align="center"><strong>处理在两个通信系统中交换信息的表示方式（语法语义）</strong><br />①采用标准的编码格式（格式变换）    ②数据压缩<br />③加密和解密</td>
+</tr>
+<tr>
+<td align="center">应用层</td>
+<td align="center"><strong>为特定类型的网络应用提供访问OSI参考模型环境的手段</strong><br />①文件传输协议FTP    ②电子邮件协议SMTP    ③万维网HTTP</td>
+</tr>
+</tbody></table>
+</li>
+<li><p>OSI&#x2F;ISO中可同时提供无连接服务和面向连接服务的是<strong>网络层</strong>。TCP&#x2F;IP中则是<strong>传输层</strong>。</p>
+</li>
+<li><p>集线器工作在<strong>物理层</strong>，交换机和网桥在<strong>数据链路层</strong>，易错。<font color="red">[坑]</font></p>
+</li>
+<li><p>协议和服务的区别和联系：</p>
+<p><img src="/subweb/blog/images/posts/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E9%94%99%E9%A2%98%E6%9C%AC/image-20230829004152439.png" alt="image-20230829004152439"></p>
+</li>
+<li><p>一个分组被送到错误的目的站：网络层出现问题——网络层的PDU称为分组，分组转发是网络层的功能。</p>
+</li>
+<li><p>一个半双工的会话中，正在发送数据的用户突然接收到对方用户发来的数据：会话层出现错误——会话层允许不同主机上的进程进行会话。</p>
+</li>
+</ul>
+<h3 id="第二章-物理层"><a href="#第二章-物理层" class="headerlink" title="第二章 物理层"></a>第二章 物理层</h3><h4 id="p040-2-1-6"><a href="#p040-2-1-6" class="headerlink" title="p040-2.1.6"></a>p040-2.1.6</h4><ul>
+<li><p>根据香农公式可得出，<strong>影响信道最大传输速率的因素主要有</strong>：<u>信道带宽和信噪比</u>。</p>
+</li>
+<li><p><strong>并行传输</strong>：距离短，速度快；<strong>串行传输</strong>：距离长，速度慢。因此计算机内部的数据传输主要是并行传输，外部主要是串行传输。</p>
+</li>
+<li><p><strong>以太网默认采用曼彻斯特编码</strong>，2个码元编码一个bit，<strong>故波特率是数据率的两倍</strong>。</p>
+</li>
+<li><p>TDM（时分复用）的复用线路最小通信能力要满足最大通信速度的那一路的n倍（n为通信路数）。</p>
+</li>
+<li><p>报文交换由于大小不固定，在交换节点中需要较大的存储空间，另外报文经过中间节点的接收、存储和转发时间较长而且不固定，因此<strong>报文交换不适合于实时通信应用环境</strong>（音视频）。</p>
+</li>
+<li><p>三种数据交换方式优缺点</p>
+<ul>
+<li><img src="/subweb/blog/images/posts/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E9%94%99%E9%A2%98%E6%9C%AC/image-20230924233126717.png" alt="image-20230924233126717"></li>
+<li><img src="/subweb/blog/images/posts/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E9%94%99%E9%A2%98%E6%9C%AC/image-20230924233143571.png" alt="image-20230924233143571"></li>
+<li><img src="/subweb/blog/images/posts/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E9%94%99%E9%A2%98%E6%9C%AC/image-20230924233204002.png" alt="image-20230924233204002"></li>
+</ul>
+</li>
+<li><p>虚电路<strong>不只是临时性的</strong>，它提供的服务包括**永久性虚电路(PVC)和交换型虚电路(SVC)**，其中前者是一种提前定义好的、基本上不需要任何建立时间的端点之间的连接，而后者是端点之间的一种临时性连接，这些连接只持续所需的时间，并且在会话结束时就取消这种连接。</p>
+</li>
+<li><p>数据报服务中，每个分组在传输中都必须携带源地址和目的地址。</p>
+</li>
+<li><p>在数据进行分组转发的过程中，要接收完一整个分组才会转发该分组，第一个分组在发送时会产生转发时延，后面虽然也有转发时延，但基本上与前一个分组的转发时延相连，故计算时延时，可以计算源主机发送时延+转发次数*单次转发的时延（分组大小&#x2F;数据传输速率）。</p>
+</li>
+<li><p>信道数据传输速率于信号传播速度无关。</p>
+</li>
+<li><p>虚电路传输不需要预分配带宽。</p>
+</li>
+<li><p>时延带宽积的含义是：发送方收到一个响应之前能发送的数据量。</p>
+</li>
+<li><p>计算发出请求到接收完数据时，应考虑开始受到第一个位时，已经过了一个RTT。</p>
+</li>
+<li><p>下题作为积累</p>
+</li>
+</ul>
+<p>​	<img src="/subweb/blog/images/posts/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E9%94%99%E9%A2%98%E6%9C%AC/image-20230925231625003.png" alt="image-20230925231625003"></p>
+<p>​	<img src="/subweb/blog/images/posts/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E9%94%99%E9%A2%98%E6%9C%AC/image-20230925231543640.png" alt="image-20230925231543640"></p>
+<h4 id="p054-2-2-3"><a href="#p054-2-2-3" class="headerlink" title="p054-2.2.3"></a>p054-2.2.3</h4><ul>
+<li>同轴线缆的通信方式位<strong>半双工</strong>。</li>
+<li>同轴线缆传输速率更快得益于其有更好的抗噪声性。</li>
+<li><strong>单模光纤</strong>的<u>光源</u>为定向性很好的半导体激光器，衰减很小，<u>适合远距离传输</u>，若光纤直径小到只有光的一个波长，则光沿直线传播。</li>
+<li><strong>多模光纤</strong>的<u>光源</u>为发光二极管，光脉冲在多模光纤中传输会逐渐展宽，造成失真，<u>只适合近距离传输</u>。</li>
+<li>物理层的<strong>机械特性</strong>：引脚，形状；<strong>电器特性</strong>：电压范围，速率，距离；<strong>功能特性</strong>：不同电平的含义；<strong>规程特性（过程特性）</strong>：规程和时序。</li>
+<li>集线器的一个端口接收到数据后，会从<strong>除了接受的端口外的其它所有端口广播出去</strong>，而不是直接所有。</li>
+</ul>
+<h3 id="第三章-数据链路层"><a href="#第三章-数据链路层" class="headerlink" title="第三章 数据链路层"></a>第三章 数据链路层</h3><h4 id="p064-3-1-6"><a href="#p064-3-1-6" class="headerlink" title="p064-3.1.6"></a>p064-3.1.6</h4><ul>
+<li>数据链路层的<strong>主要功能包括组帧（定义数据格式）</strong>；数据链路层在<strong>物理层提供的不可靠物理连接上实现节点到节点的可靠性传输</strong>；控<u>制物理传输介质的访问由数据链路层的介质访问控制（MAC）子层完成</u>。</li>
+<li>为终端隐藏物理传输细节的是物理层的功能，<strong>数据链路层无需考虑如何实现无差别的比特传输</strong>。</li>
+<li>ICMP是网络层协议。</li>
+</ul>
+<h4 id="p68-3-2-5"><a href="#p68-3-2-5" class="headerlink" title="p68-3.2.5"></a>p68-3.2.5</h4><h4 id="p70-3-3-3"><a href="#p70-3-3-3" class="headerlink" title="p70-3.3.3"></a>p70-3.3.3</h4><ul>
+<li>一般来说，数据的传输差错是由噪声引起的。通信信道的噪声可以分为两类，<strong>热噪声</strong>和<strong>冲击噪声</strong>。<strong>热噪声</strong>一般是<u>信道固有的，引起的差错是<strong>随机差错</strong>，可以<strong>通过提高信噪比来降低</strong>它对数据传输的影响</u>。<strong>冲击噪声</strong>一般是<u>由外界电磁干扰引起的，引起的差错是<strong>突发差错</strong>，它是引起传输差错的主要原因，<strong>无法通过提高信噪比来避免</strong></u>。</li>
+<li>CRC校验码可以检测出所有单比特错误</li>
+<li>海明码可以纠正一位差错。（发现双比特，纠正单比特）</li>
+<li>海明码“纠错” $d$ 位，需要码距为 $2d+1$ ;“检错” $d$ 位，需要码距 $d+1$ </li>
+<li>对于 $k$ 位数据，如果使用海明码，需要增加的冗余信息位数 $r$ 满足： $2^r\ge k+r+1$ 。（在 $k$ 比特信息位上附加 $r$ 比特冗余信息，构成 $k+r$ 比特的码字，再加一位成功位）</li>
+<li>CRC循环冗余校验，带 $r$ 个校验位的多项式编码可以检测到所有长度小于或等于 $r$ 的突发性错误。</li>
+<li>CRC校验生成时，不要忘记在多项式后补零再做除法运算，且除法运算是每位异或。</li>
+</ul>
+<h4 id="p077-3-4-5"><a href="#p077-3-4-5" class="headerlink" title="p077-3.4.5"></a>p077-3.4.5</h4><ul>
+<li>后退N帧协议（ARQ）的GBN协议要求：窗口大小比<strong>序列号的个数</strong>小1。</li>
+<li>选择重传协议采用 $n$ 比特对帧编号，则需要满足 $W_{Tmax}&#x3D;W_{Rmax}&#x3D;2^{n-1}$ ，其中$W_{Tmax}$ 为发送窗口的最大尺寸 $W_{Rmax}$ 为接收窗口的最大尺寸。</li>
+<li>GBN协议中，窗口总数为 $n$ ，发送窗口的大小最大为 $W_{Tmax}$ ，则：$W_{Tmax}\le n-1$ ，接收窗口大小至少为1.</li>
+<li>窗口大小是窗口总数，包含了发送窗口和接收窗口。</li>
+<li>由上两条知：对于窗口大小为 $n$ 的滑动窗口，最多可以有 $n-1$  帧已经发送但没有确认。</li>
+<li>对于SR协议传输，题目没说就是没超时。</li>
+<li>从滑动窗口的概念来看，停止等待协议：发送窗口大小&#x3D;1，接收窗口大小&#x3D;1；后退N帧协议：发送窗口大小&gt;1，接收窗口大小&#x3D;1；选择重传协议：发送窗口大小&gt;1，接收窗口大小&gt;1。在选择重传协议中，还需要满足:发送窗口大小+接收窗口大小&lt;序号数量。且接收窗口不大于发送窗口（无意义）。</li>
+</ul>
+<h4 id="p095-3-5-4"><a href="#p095-3-5-4" class="headerlink" title="p095-3.5.4"></a>p095-3.5.4</h4><ul>
+<li><img src="/subweb/blog/images/posts/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E9%94%99%E9%A2%98%E6%9C%AC/image-20231022093938120.png" alt="image-20231022093938120"></li>
+<li>无线局域网不能简单地使用 CSMA&#x2F;CD 协议，特别是碰撞检测部分，原因如下：第一，在无线局域网的适配器上，接收信号的强度往往远小于发送信号的强度，因此若要实现碰撞检测，那么硬件上的花费就会过大；第二，在无线局域网中，并非所有站点都能听见对方，由此引发了隐蔽站和暴露站问题，而“所有站点都能够听见对方”正是实现 CSMA&#x2F;CD 协议必备的基础。因此无线局域网不适用 CSMA&#x2F;CD 而是 CSMA&#x2F;CA 的原因可以是：<strong>不需要在发送过程中进行冲突检测</strong>。</li>
+<li><strong>多路复用器</strong>的主要功能是<strong>结合来自两条或多条线路的传输</strong>，以充分利用信道。</li>
+<li>令牌环网络的特点：<ul>
+<li>不存在冲突</li>
+<li>同一时刻只有一个数据在传输</li>
+<li>重负载下信道利用率高</li>
+<li>媒体的利用率比较公平</li>
+<li>网上所有节点共享网络带宽</li>
+<li>数据从一个结点到另一个结点的时间可以计算。</li>
+</ul>
+</li>
+<li>令牌环网络中，当所有站点都有数据帧要发送时，一个站点在最坏情况下等待获得令牌和发送数据帧的时间等于<strong>所有站点传送令牌和发送帧的时间的一半</strong></li>
+<li>对正确接收到的数据帧进行确认的MAC协议是：<strong>CSMA&#x2F;CA</strong>，正确接收后会发送ACK帧，是CSMA&#x2F;CA避免冲突的机制之一。</li>
+<li>在计算题中，若给出是在以太网条件下，或计算时需要使用帧长的，影响到以太网的最短帧长为64B，尤其是计算以太网两台设备的最远距离时十分有用。</li>
+<li>关于CSMA&#x2F;CA：<ul>
+<li><img src="/subweb/blog/images/posts/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E9%94%99%E9%A2%98%E6%9C%AC/image-20231022103550319.png" alt="image-20231022103550319"></li>
+<li>站A和B都在 AP 的覆盖范围内，但A和B 相距较远，彼此都听不见对方。当A 和B 检测到信道空闲时，都向 AP 发送数据，导致碰撞的发生，这就是隐蔽站问题。为了避免该问题，802.11 允许发送站对信道进行预约。</li>
+<li>CSMA&#x2F;CA算法的归纳如下：<ul>
+<li>①若站点最初有数据要发送(而不是发送不成功再进行重传)，且检测到信道空闲，在等待时间 DIFS 后，就发送整个数据帧。</li>
+<li>②否则，站点执行 CSMA&#x2F;CA 退避算法，选取一个随机回退值。一旦检测到信道忙，退避计时器就保持不变。只要信道空闲，退避计时器就进行倒计时。</li>
+<li>③当退避计时器减到0时(这时信道只可能是空闲的)，站点就发送整个并等待确认。</li>
+<li>④发送站若收到确认，就知道已发送的帧被目的站正确接收。这时如果要发送第二帧，就要从<strong>步骤②</strong>开始，执行 CSMA&#x2F;CA 退避算法，随机选定一段退避时间。</li>
+<li>若发送站在规定时间(由重传计时器控制) 内没有收到确认 ACK，就必须重传该，再次使用 CSMA&#x2F;CA 协议争用该信道，直到收到确认，或经过若干次重传失败后放弃发送。</li>
+</ul>
+</li>
+<li>源站要发送数据帧之前先广播一个很短的请求发送 RTS (Request To Send) 控制，它包括源地址、目的地址和这次通信 (含相应的确认帧) 所持续的时间，该顿能被其范围内包括 AP 在内的所有站点听到。若信道空闲，则AP广播一个允许发送 CTS (Cear To Send) 控制，它包括这次通信所需的持续时间 (从RTS 帧复制),该帧也能被其范围内包括 A 和 B 在内的所有站点听到。B 和其他站听到 CTS 后在CTS 帧中指明的时间内将抑制发送。</li>
+<li>CTS 有两个目的：<ul>
+<li>给源站明确的发送许可</li>
+<li>指示其他站点在预约期内不要发送。</li>
+</ul>
+</li>
+<li>集中帧间间隔（InterFrame Space，IFS）<ul>
+<li>**SIFS(短IFS)**：最短的 IFS，用来分隔属于一次对话的各，使用 SIFS 的类型有 ACK帧、CTS 帧、分片后的数据帧，以及所有回答 AP 探询的等。</li>
+<li>**PIFS (点协调IFS)**：中等长度的IFS，在PCF 操作中使用。</li>
+<li>**DIFS(分布式协调IFS)**：最长的IFS，用于异步竞争访问的时延。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="p111-3-6-5"><a href="#p111-3-6-5" class="headerlink" title="p111-3.6.5"></a>p111-3.6.5</h4><ul>
+<li>以太网<strong>逻辑上</strong>是总线型拓扑结构，<strong>物理拓扑</strong>是星型拓扑或扩展星型拓扑。</li>
+<li>以太网采用以下措施简化通信：<ul>
+<li>采用无连接的工作方式</li>
+<li>不对发送的数据帧编号，也不要求接收方发送确认</li>
+</ul>
+</li>
+<li>在以太网中，大量的广播信息会降低整个网络性能的原因是：<strong>网络中的每台计算机都必须处理每个广播信息</strong>。</li>
+<li>在使用静态地址的系统中，<strong>如果有重复的硬件地址（MAC），那么这两个设备都不能正常通信</strong>，原因是：①目的 MAC 地址等于本机 MAC 地址的是不会被发送到网络上去的；②其他设备的用户发送给一个设备的帧也会被另一个设备接收，其中必有一个设备必须处理不属于本设备的帧，浪费了资源；③正确实现的ARP 软件都会禁止把同一个MAC地址绑定到两个不同的IP 地址，这就使得具有相同MAC 地址的设备上的用户在会话时都发生时断时续的现象。</li>
+<li><img src="/subweb/blog/images/posts/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E9%94%99%E9%A2%98%E6%9C%AC/image-20231022110121603.png" alt="image-20231022110121603"></li>
+<li>10BASE-T 以太网、100BASE-T 以太网、吉比特以太网都使用了 CSMA&#x2F;CD 协议，因此<strong>可以工作在半双工模式下</strong>。<strong>10 吉比特以太网只工作在全双工方式下</strong>，因此没有争用问题，也不使用CSMA&#x2F;CD 协议，且它<strong>只使用光纤作为传输介质</strong>。</li>
+<li>快速以太网使用的方法是<strong>保持最短帧长不变，将一个网段的最大长度减少到 100m</strong>，以提高以太网的数据传输速率。</li>
+</ul>
+<h4 id="p119-3-7-4"><a href="#p119-3-7-4" class="headerlink" title="p119-3.7.4"></a>p119-3.7.4</h4><ul>
+<li>尽管广域网的覆盖范围较大，但从互联网的角度看，广域网和局域网之间并非包含关系，而是平等的关系。</li>
+<li>以太网是局域网的一种实现形式，其他实现形式还有令牌环网、FDDI(光纤分布数字接口IEEE 802.8)等。其中以太网的逻辑拓扑是总线形结构，物理拓扑是星形或拓展星形结构。令牌环网的逻辑拓扑是环形结构，物理拓扑是尾形结构。FDDI 逻辑拓扑是环形结构，物理拓扑是双环结构。</li>
+<li>PPP 是一种面向字节的协议，所有的帧长度都是整数个字节，使用一种特殊的<strong>字符填充法</strong>完成数据的填充。</li>
+<li>PPP两端的网络层可以运行不同的网络层协议，但仍然能使用同一个 PPP 进行通信，因此PPP协议可以支持除IP以外的其它协议。</li>
+</ul>
+<h4 id="p124-3-8-3"><a href="#p124-3-8-3" class="headerlink" title="p124-3.8.3"></a>p124-3.8.3</h4><ul>
+<li>网桥可以互联不同的物理层、不同的MAC子层及不同速率的以太网。</li>
+<li>由于网桥可以使各网段相互独立，因此可以说在一定条件下增加了网络的带宽。</li>
+<li>路由器的传输延时交大，它需要根据IP来决定是否转发分组，一般由软件完成，将带来较长的处理时间。</li>
+<li>中继器和集线器是物理层设备，既不能隔离广播域也不能隔离冲突域。</li>
+<li>交换机总容量为 $N*S$ ，N在全双工交换机上等于$交换机端口数$，在半双工交换机上等于 $端口数÷2$ ，S为端口带宽。</li>
+<li>数据链路层使用物理地址进行转发。</li>
+<li>直通交换只检查帧的目的地址，共 6B，计算传输时延只看这6B。<font color="purple"><strong>[[]感觉有大毛病[]]</strong></font></li>
+<li>以太网交换机工作在数据链路层(因此不能实现不同网络层协议的网络互连</li>
+<li></li>
+</ul>
+<h3 id="第四章-网络层"><a href="#第四章-网络层" class="headerlink" title="第四章 网络层"></a>第四章 网络层</h3><h3 id="第五章-传输层"><a href="#第五章-传输层" class="headerlink" title="第五章 传输层"></a>第五章 传输层</h3><h3 id="第六章-应用层"><a href="#第六章-应用层" class="headerlink" title="第六章 应用层"></a>第六章 应用层</h3></div>
+        </div>
+        
+            <div class="kratos-copyright text-center clearfix">
+                <h5 itemprop="copyrightNotice">本作品采用 <a rel="license nofollow" target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/">知识共享署名-相同方式共享 4.0 国际许可协议</a> 进行许可</h5>
+            </div>
+        
+        <footer class="kratos-entry-footer clearfix">
+            
+                <div class="post-like-donate text-center clearfix" id="post-like-donate">
+                
+                    <a class="donate" href="javascript:;"><i class="fa fa-bitcoin"></i> 打赏</a>
+                
+                
+                    <a class="share" href="javascript:;"><i class="fa fa-share-alt"></i> 分享</a>
+                    <div class="share-wrap" style="display: none;">
+    <div class="share-group">
+        <a href="javascript:;" class="share-plain qq" onclick="share('qq');" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-qq"></i>
+            </div>
+        </a>
+        <a href="javascript:;" class="share-plain qzone" onclick="share('qzone');" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-star"></i>
+            </div>
+        </a>
+        <a href="javascript:;" class="share-plain weixin pop style-plain" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-weixin"></i>
+            </div>
+            <div class="share-int">
+                <div class="qrcode" id="wechat-qr"></div>
+                <p>打开微信“扫一扫”，打开网页后点击屏幕右上角分享按钮</p>
+            </div>
+        </a>
+        <a href="javascript:;" class="share-plain weibo" onclick="share('weibo');" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-weibo"></i>
+            </div>
+        </a>
+        <a href="javascript:;" class="share-plain facebook style-plain" onclick="share('facebook');" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-facebook"></i>
+            </div>
+        </a>
+        <a href="javascript:;" class="share-plain twitter style-plain" onclick="share('twitter');" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-twitter"></i>
+            </div>
+        </a>
+    </div>
+    <script type="text/javascript">
+        $(()=>{
+            new QRCode("wechat-qr", {
+                text: "https://nav.baobodadazz.top/subweb/blog/2023/12/23/0016.%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E9%94%99%E9%A2%98%E6%9C%AC/",
+                width: 150,
+                height: 150,
+                correctLevel : QRCode.CorrectLevel.H
+            });
+        });
+        function share(dest) {
+            const qqBase        = "https://connect.qq.com/widget/shareqq/index.html?";
+            const weiboBase     = "https://service.weibo.com/share/share.php?";
+            const qzoneBase     = "https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?";
+            const facebookBase  = "https://www.facebook.com/sharer/sharer.php?";
+            const twitterBase   = "https://twitter.com/intent/tweet?";
+            const hostUrl       = "https://nav.baobodadazz.top/subweb/blog/2023/12/23/0016.%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E9%94%99%E9%A2%98%E6%9C%AC/";
+            const title         = "「【错题本】考研-2024-计算机网络错题本」";
+            const excerpt       = `计算机网络错题本王道考研-2024-计算机网络考研复习指导第一章 计算机网络体系结构p007-1.1.7
+计算机网络的三大主要功能是数据通信、资源共享及分布式处理。计算机网络使各计算机之间的联系更加紧密。因此在一定程度上，计算网络能提...`;
+            let _URL;
+            switch (dest) {
+                case "qq"       : _URL = qqBase+"url="+hostUrl+"&title="+title+"&desc=&summary="+excerpt+"&site=cxpy";     break;
+                case "weibo"    : _URL = weiboBase+"url="+hostUrl+"&title="+title+excerpt;                                 break;
+                case "qzone"    : _URL = qzoneBase+"url="+hostUrl+"&title="+title+"&desc=&summary="+excerpt+"&site=cxpy";  break;
+                case "facebook" : _URL = facebookBase+"u="+hostUrl;                                                        break;
+                case "twitter"  : _URL = twitterBase+"text="+title+excerpt+"&url="+hostUrl;                                break;
+            }
+            window.open(_URL);
+        };
+    </script>
+</div>
+                
+                </div>
+            
+            <div class="footer-tag clearfix">
+                <div class="pull-left">
+                <i class="fa fa-tags"></i>
+                    <a class="tag-none-link" href="/subweb/blog/tags/408/" rel="tag">408</a>, <a class="tag-none-link" href="/subweb/blog/tags/%E5%AD%A6%E4%B9%A0/" rel="tag">学习</a>, <a class="tag-none-link" href="/subweb/blog/tags/%E7%A0%94%E7%A9%B6%E7%94%9F%E8%80%83%E8%AF%95/" rel="tag">研究生考试</a>, <a class="tag-none-link" href="/subweb/blog/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/" rel="tag">计算机</a>, <a class="tag-none-link" href="/subweb/blog/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" rel="tag">计算机网络</a>, <a class="tag-none-link" href="/subweb/blog/tags/%E9%94%99%E9%A2%98%E6%9C%AC/" rel="tag">错题本</a>
+                </div>
+                <div class="pull-date">
+                    <time datetime="2024-04-03T04:51:27.001Z" itemprop="dateModified">最后编辑：2024-04-03</time>
+                </div>
+            </div>
+        </footer>
+    </div>
+    
+        <nav class="navigation post-navigation clearfix" role="navigation">
+            
+            <div class="nav-previous clearfix">
+                <a title=" 【错题本】考研-2024-操作系统错题本" href="/subweb/blog/2023/12/23/0015.操作系统错题本/">&lt; 上一篇</a>
+            </div>
+            
+            
+            <div class="nav-next clearfix">
+                <a title=" 【动漫】动漫列表-长期更新" href="/subweb/blog/2024/04/02/0012.动漫列表-长期更新/">下一篇 &gt;</a>
+            </div>
+            
+        </nav>
+    
+    
+</article>
+
+        
+
+            </section>
+
+        
+
+                
+            
+
+<section id="kratos-widget-area" class="col-md-4 hidden-xs hidden-sm">
+    <!-- 文章和页面根据splitter来分割，没有的话就从头开始设置为sticky -->
+    
+    
+                <aside id="krw-about" class="widget widget-kratos-about clearfix">
+    <div class="photo-background"></div>
+    <div class="photo-wrapper clearfix">
+        <div class="photo-wrapper-tip text-center">
+            <img class="about-photo" src="/subweb/blog/images/avatar.webp" loading="lazy" decoding="auto" />
+        </div>
+    </div>
+    <div class="textwidget">
+        <p class="text-center">爆脖大大Zz</p>
+    </div>
+    <div class="site-meta">
+        <a class="meta-item" href="/subweb/blog/archives/">
+            <span class="title">
+                文章
+            </span>
+            <span class="count">
+                16
+            </span>
+        </a>
+        <a class="meta-item" href="/subweb/blog/categories/">
+            <span class="title">
+                分类
+            </span>
+            <span class="count">
+                3
+            </span>
+        </a>
+        <a class="meta-item" href="/subweb/blog/tags/">
+            <span class="title">
+                标签
+            </span>
+            <span class="count">
+                33
+            </span>
+        </a>
+    </div>
+</aside>
+            
+                    <div class="sticky-area">
+                
+                    <aside id="krw-toc" class="widget widget-kratos-toc clearfix toc-div-class" >
+    <div class="photo-background"></div>
+    <h4 class="widget-title no-after">
+        <i class="fa fa-compass"></i>
+        文章目录
+        <span class="toc-progress-bar" role="progressbar" aria-label="阅读进度："></span>
+    </h4>
+    <div class="textwidget">
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E9%94%99%E9%A2%98%E6%9C%AC"><span class="toc-text">计算机网络错题本</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%8E%8B%E9%81%93%E8%80%83%E7%A0%94-2024-%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E8%80%83%E7%A0%94%E5%A4%8D%E4%B9%A0%E6%8C%87%E5%AF%BC"><span class="toc-text">王道考研-2024-计算机网络考研复习指导</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E7%AB%A0-%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84"><span class="toc-text">第一章 计算机网络体系结构</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#p007-1-1-7"><span class="toc-text">p007-1.1.7</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#p021-1-2-4"><span class="toc-text">p021-1.2.4</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E4%BA%8C%E7%AB%A0-%E7%89%A9%E7%90%86%E5%B1%82"><span class="toc-text">第二章 物理层</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#p040-2-1-6"><span class="toc-text">p040-2.1.6</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#p054-2-2-3"><span class="toc-text">p054-2.2.3</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E4%B8%89%E7%AB%A0-%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82"><span class="toc-text">第三章 数据链路层</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#p064-3-1-6"><span class="toc-text">p064-3.1.6</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#p68-3-2-5"><span class="toc-text">p68-3.2.5</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#p70-3-3-3"><span class="toc-text">p70-3.3.3</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#p077-3-4-5"><span class="toc-text">p077-3.4.5</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#p095-3-5-4"><span class="toc-text">p095-3.5.4</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#p111-3-6-5"><span class="toc-text">p111-3.6.5</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#p119-3-7-4"><span class="toc-text">p119-3.7.4</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#p124-3-8-3"><span class="toc-text">p124-3.8.3</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E5%9B%9B%E7%AB%A0-%E7%BD%91%E7%BB%9C%E5%B1%82"><span class="toc-text">第四章 网络层</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E4%BA%94%E7%AB%A0-%E4%BC%A0%E8%BE%93%E5%B1%82"><span class="toc-text">第五章 传输层</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E5%85%AD%E7%AB%A0-%E5%BA%94%E7%94%A8%E5%B1%82"><span class="toc-text">第六章 应用层</span></a></li></ol></li></ol></li></ol>
+    </div>
+</aside>
+                
+                
+  <aside id="krw-categories" class="widget widget-kratos-categories clearfix">
+    <h4 class="widget-title"><i class="fa fa-folder"></i>分类目录</h4>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/subweb/blog/categories/%E5%8A%A8%E6%BC%AB/">动漫</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/subweb/blog/categories/%E5%AD%A6%E4%B9%A0/">学习</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/subweb/blog/categories/%E9%97%AE%E7%AD%94%E7%95%99%E6%A1%A3/">问答留档</a><span class="category-list-count">11</span></li></ul>
+  </aside>
+
+
+            
+                
+  <aside id="krw-tags" class="widget widget-kratos-tags clearfix">
+    <h4 class="widget-title"><i class="fa fa-tags"></i>标签聚合</h4>
+      <div class="tag-clouds">
+        <a href="/subweb/blog/tags/408/" style="font-size: 0.73em;">408</a> <a href="/subweb/blog/tags/C/" style="font-size: 0.6em;">C++</a> <a href="/subweb/blog/tags/GPT/" style="font-size: 0.8em;">GPT</a> <a href="/subweb/blog/tags/IP/" style="font-size: 0.6em;">IP</a> <a href="/subweb/blog/tags/USD/" style="font-size: 0.6em;">USD</a> <a href="/subweb/blog/tags/openMVG/" style="font-size: 0.6em;">openMVG</a> <a href="/subweb/blog/tags/%E4%B8%89%E7%BB%B4%E9%87%8D%E5%BB%BA/" style="font-size: 0.6em;">三维重建</a> <a href="/subweb/blog/tags/%E5%8A%A8%E6%BC%AB/" style="font-size: 0.6em;">动漫</a> <a href="/subweb/blog/tags/%E5%8E%9F%E7%9B%98/" style="font-size: 0.6em;">原盘</a> <a href="/subweb/blog/tags/%E5%9B%BE%E5%BD%A2%E6%8E%A5%E5%8F%A3/" style="font-size: 0.6em;">图形接口</a> <a href="/subweb/blog/tags/%E5%A4%84%E7%90%86%E5%99%A8%E6%9E%B6%E6%9E%84/" style="font-size: 0.6em;">处理器架构</a> <a href="/subweb/blog/tags/%E5%A4%9A%E5%AA%92%E4%BD%93/" style="font-size: 0.6em;">多媒体</a> <a href="/subweb/blog/tags/%E5%AD%A6%E4%B9%A0/" style="font-size: 0.73em;">学习</a> <a href="/subweb/blog/tags/%E5%AE%89%E5%85%A8/" style="font-size: 0.6em;">安全</a> <a href="/subweb/blog/tags/%E5%B7%A5%E4%BD%9C%E4%BB%8B%E7%BB%8D/" style="font-size: 0.6em;">工作介绍</a> <a href="/subweb/blog/tags/%E5%BD%B1%E8%A7%86/" style="font-size: 0.6em;">影视</a> <a href="/subweb/blog/tags/%E6%8C%87%E4%BB%A4%E9%9B%86/" style="font-size: 0.6em;">指令集</a> <a href="/subweb/blog/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" style="font-size: 0.67em;">操作系统</a>
+      </div>
+  </aside>
+
+            
+                
+  <aside id="krw-posts" class="widget widget-kratos-posts">
+  <h4 class="widget-title"><i class="fa fa-file"></i>最新文章</h4>
+  <div class="tab-content">
+      <ul class="list-group">
+        
+        
+          
+          
+            <a class="list-group-item" href="/subweb/blog/2024/04/02/0012.%E5%8A%A8%E6%BC%AB%E5%88%97%E8%A1%A8-%E9%95%BF%E6%9C%9F%E6%9B%B4%E6%96%B0/"><i class="fa  fa-book"></i> 【动漫】动漫列表-长期更新</a>
+            
+          
+        
+          
+          
+            <a class="list-group-item" href="/subweb/blog/2023/12/23/0016.%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E9%94%99%E9%A2%98%E6%9C%AC/"><i class="fa  fa-book"></i> 【错题本】考研-2024-计算机网络错题本</a>
+            
+          
+        
+          
+          
+            <a class="list-group-item" href="/subweb/blog/2023/12/23/0015.%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E9%94%99%E9%A2%98%E6%9C%AC/"><i class="fa  fa-book"></i> 【错题本】考研-2024-操作系统错题本</a>
+            
+          
+        
+          
+          
+            <a class="list-group-item" href="/subweb/blog/2023/12/23/0014.%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E9%94%99%E9%A2%98%E6%9C%AC/"><i class="fa  fa-book"></i> 【错题本】考研-2024-计组错题本</a>
+            
+          
+        
+          
+          
+            <a class="list-group-item" href="/subweb/blog/2023/12/23/0013.%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E9%94%99%E9%A2%98%E6%9C%AC/"><i class="fa  fa-book"></i> 【错题本】考研-2024-数据结构错题本</a>
+            
+          
+        
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+      </ul>
+  </div>
+  </aside>
+
+            
+    </div>
+</section>
+        
+        </div>
+    </div>
+</div>
+<footer>
+    <div id="footer"  class="ap-lrc"  >
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3 footer-list text-center">
+                    <ul class="kratos-social-icons">
+                        <!-- Keep for compatibility -->
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <!-- New links -->
+                        
+                    </ul>
+                    <ul class="kratos-copyright">
+                        <div>
+                            <li>&copy; 2024 爆脖の奇妙生活 版权所有.</li>
+                            <li>本站已运行<span id="span_dt">Loading...</span></li>
+                        </div>
+                        <div>
+                            <li>Theme <a href="https://github.com/Candinya/Kratos-Rebirth" target="_blank">Kratos:Rebirth</a></li>
+                            <li>Site built with&nbsp;<i class="fa fa-heart throb" style="color:#d43f57"></i>&nbsp;by 爆脖大大Zz.</li>
+                        </div>
+                        <div>
+                            <li>Powered by <a href="https://hexo.io" target="_blank" rel="nofollow">Hexo</a></li>
+                            <li>Hosted on <a href="https://github.io" target="_blank">Github Pages</a></li>
+                        </div>
+                        <div>
+                            
+                            
+                        </div>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="kr-tool text-center">
+            <div class="tool">
+                
+                    <div class="box search-box">
+                        <a href="/subweb/blog/search/">
+                            <span class="fa fa-search"></span>
+                        </a>
+                    </div>
+                
+                
+                    <div class="box theme-box" id="darkmode-switch">
+                        <span class="fa fa-adjust"></span>
+                    </div>
+                
+                
+                
+            </div>
+            <div class="box gotop-box">
+                <span class="fa fa-chevron-up"></span>
+            </div>
+        </div>
+    </div>
+</footer>
+</div>
+</div>
+
+        <script defer src="/subweb/blog/vendors/bootstrap@3.3.4/dist/js/bootstrap.min.js"></script>
+<script defer src="/subweb/blog/vendors/nprogress@0.2.0/nprogress.js"></script>
+<script>
+    if (!window.kr) {
+        window.kr = {};
+    }
+    window.kr.notMobile = (!(navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i)));
+    window.kr.siteRoot = "/subweb/blog/";
+</script>
+
+
+    <script async src="/subweb/blog/js/candy.min.js"></script>
+
+
+
+    <script defer src="/subweb/blog/vendors/aplayer@1.10.1/dist/APlayer.min.js"></script>
+    
+    <script defer src="/subweb/blog/vendors/meting@2.0.1/dist/Meting.min.js"></script>
+    <meting-js
+        server="netease"
+        type="playlist"
+        id="9650496682"
+        order="random"
+        fixed="true"
+    >
+    </meting-js>
+
+
+
+    <script defer src="/subweb/blog/vendors/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+
+<script defer src="/subweb/blog/js/kratosr.min.js"></script>
+<script defer src="/subweb/blog/js/pjax.min.js"></script>
+
+    <script defer src="/subweb/blog/vendors/layui-src@2.5.5/dist/layui.all.js"></script>
+
+
+
+<!-- Extra support for third-party plguins  -->
+
+
+    </body>
+</html>

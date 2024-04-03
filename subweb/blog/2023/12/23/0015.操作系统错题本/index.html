@@ -1,0 +1,911 @@
+<!DOCTYPE html>
+<html lang="zh">
+    <head>
+  <!-- 元数据 -->
+  <meta charset="utf-8">
+  
+  
+  <title>【错题本】考研-2024-操作系统错题本 | 爆脖の奇妙生活</title>
+  
+  <meta name="author" content="爆脖大大Zz" />
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="robots" content="index,follow" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <meta name="format-detection" content="telphone=no, email=no" />
+  
+    <meta name="keywords" content="408, 学习, 操作系统, 研究生考试, 计算机, 错题本" />
+  
+  <meta name="description" content="操作系统错题本王道考研-2024-操作系统考研复习指导第一章 计算机系统概述p005-1.1.4 源程序是一种计算机代码，是用程序设计语言编写的程序，经编译或解释后可形成具有一定功能的可执行文件，是直接面向程序员用户的，而不是操作系统的管理内容。 操作系统管理文件，是指操作系统关心计算机中的文件的逻辑结构、物理结构、文件内部结构、多文件之间如何组织的问题，而不是关心文件的具体内容。 操作系统主要向">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【错题本】考研-2024-操作系统错题本">
+<meta property="og:url" content="https://nav.baobodadazz.top/subweb/blog/2023/12/23/0015.%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E9%94%99%E9%A2%98%E6%9C%AC/index.html">
+<meta property="og:site_name" content="爆脖の奇妙生活">
+<meta property="og:description" content="操作系统错题本王道考研-2024-操作系统考研复习指导第一章 计算机系统概述p005-1.1.4 源程序是一种计算机代码，是用程序设计语言编写的程序，经编译或解释后可形成具有一定功能的可执行文件，是直接面向程序员用户的，而不是操作系统的管理内容。 操作系统管理文件，是指操作系统关心计算机中的文件的逻辑结构、物理结构、文件内部结构、多文件之间如何组织的问题，而不是关心文件的具体内容。 操作系统主要向">
+<meta property="og:locale">
+<meta property="og:image" content="https://nav.baobodadazz.top/subweb/blog/images/posts/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E9%94%99%E9%A2%98%E6%9C%AC/image-20230912190120136.png">
+<meta property="og:image" content="https://nav.baobodadazz.top/subweb/blog/images/posts/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E9%94%99%E9%A2%98%E6%9C%AC/image-20230912190031123.png">
+<meta property="og:image" content="https://nav.baobodadazz.top/subweb/blog/images/posts/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E9%94%99%E9%A2%98%E6%9C%AC/image-20230913225450377.png">
+<meta property="og:image" content="https://nav.baobodadazz.top/subweb/blog/images/posts/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E9%94%99%E9%A2%98%E6%9C%AC/image-20230914100906523.png">
+<meta property="og:image" content="https://nav.baobodadazz.top/subweb/blog/images/posts/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E9%94%99%E9%A2%98%E6%9C%AC/image-20230914100955768.png">
+<meta property="og:image" content="https://nav.baobodadazz.top/subweb/blog/images/posts/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E9%94%99%E9%A2%98%E6%9C%AC/image-20230923105806427.png">
+<meta property="og:image" content="https://nav.baobodadazz.top/subweb/blog/images/posts/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E9%94%99%E9%A2%98%E6%9C%AC/image-20230923193955484.png">
+<meta property="og:image" content="https://nav.baobodadazz.top/subweb/blog/images/posts/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E9%94%99%E9%A2%98%E6%9C%AC/image-20231015103208404.png">
+<meta property="og:image" content="https://nav.baobodadazz.top/subweb/blog/images/posts/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E9%94%99%E9%A2%98%E6%9C%AC/image-20231016101627491.png">
+<meta property="article:published_time" content="2023-12-23T06:40:25.000Z">
+<meta property="article:modified_time" content="2024-04-03T04:51:31.303Z">
+<meta property="article:author" content="爆脖大大Zz">
+<meta property="article:tag" content="操作系统">
+<meta property="article:tag" content="研究生考试">
+<meta property="article:tag" content="计算机">
+<meta property="article:tag" content="学习">
+<meta property="article:tag" content="408">
+<meta property="article:tag" content="错题本">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://nav.baobodadazz.top/subweb/blog/images/posts/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E9%94%99%E9%A2%98%E6%9C%AC/image-20230912190120136.png">
+  
+  <!-- 站点验证相关 -->
+  
+    
+    
+    
+  
+  <!-- 样式表文件 -->
+  <link rel="stylesheet" id="kratos-css" href="/subweb/blog/css/kratosr.min.css" media="all"></script>
+  
+    <link rel="stylesheet" id="darkmode-css" href="/subweb/blog/css/kr-color-dark.min.css" media="(prefers-color-scheme: dark)"></script>
+    <script src="/subweb/blog/js/kr-dark.min.js"></script>
+  
+  
+    <link rel="stylesheet" id="highlight-css" href="/subweb/blog/css/highlight/night-bright.min.css" media="all"></script>
+  
+  <link rel="stylesheet" id="fontawe-css" href="/subweb/blog/vendors/font-awesome@4.7.0/css/font-awesome.min.css" media="all"></script>
+  <link rel="stylesheet" id="nprogress-css" href="/subweb/blog/vendors/nprogress@0.2.0/nprogress.css" media="all"></script>
+  
+  
+    <link rel="stylesheet" href="/subweb/blog/vendors/aplayer@1.10.1/dist/APlayer.min.css"></script>
+  
+  
+    <link rel="stylesheet" href="/subweb/blog/vendors/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css"></script>
+  
+  <!-- 不得不预先加载的一些JS文件 -->
+  <script src="/subweb/blog/vendors/jquery@3.6.0/dist/jquery.min.js"></script>
+  
+    <script src="/subweb/blog/vendors/qrcode_js@1.0.0/qrcode.min.js"></script>
+  
+  
+  <style>
+    
+      .kratos-cover.kratos-cover-2 {
+        background-image: url('/subweb/blog/images/banner.webp');
+      }
+    
+    
+      @media(min-width:768px) {
+        body.custom-background {
+          background-image: url('/subweb/blog/images/bg4.webp');
+        }
+      }
+    
+  </style>
+  
+<meta name="generator" content="Hexo 7.1.1"></head>
+
+
+    <body class="custom-background">
+        <div id="kratos-wrapper">
+    <div id="kratos-page">
+        <div id="kratos-header">
+            <header id="kratos-desktop-topnav" class="kratos-topnav">
+                <div class="container">
+                    <div class="nav-header">
+                        <nav id="kratos-menu-wrap">
+                            <ul id="kratos-primary-menu" class="sf-menu">
+                                
+                                    
+                                    
+                                
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </header>
+            <header id="kratos-mobile-topnav" class="kratos-topnav">
+                <div class="container">
+                    <div class="color-logo"><a href="/subweb/blog/">爆脖の奇妙生活</a></div>
+                    <div class="nav-toggle">
+                        <a class="kratos-nav-toggle js-kratos-nav-toggle">
+                            <i></i>
+                        </a>
+                    </div>
+                </div>
+            </header>
+        </div>
+        <div class="kratos-start kratos-hero-2">
+            <!-- <div class="kratos-overlay"></div> -->
+            <div class="kratos-cover kratos-cover-2 text-center">
+                <div class="desc desc2 animate-box">
+                    <a href="/subweb/blog/">
+                        <h2>爆脖の奇妙生活</h2> <br />
+                        <span>さあ，私たちのデートを始めましょう</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div id="kratos-blog-post">
+            <div class="container">
+                <div id="main" class="row">
+                    
+
+        
+
+            <section class="col-md-8">
+
+        
+
+            <article itemscope itemtype="https://schema.org/Article">
+    
+    <link itemprop="mainEntityOfPage" href="https://nav.baobodadazz.top/subweb/blog/2023/12/23/0015.%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E9%94%99%E9%A2%98%E6%9C%AC/">
+    <div class="kratos-hentry kratos-post-inner clearfix">
+        <header class="kratos-entry-header">
+            
+                <h1 class="kratos-entry-title text-center" itemprop="name headline">【错题本】考研-2024-操作系统错题本</h1>
+            
+            
+            <ul class="kratos-post-meta text-center">
+                <li><time datetime="2023-12-23T06:40:25.000Z" itemprop="datePublished"><i class="fa fa-calendar"></i> 2023-12-23</time></li>
+                <li itemprop="author" itemscope itemtype="https://schema.org/Person">
+                    <i class="fa fa-user"></i> 作者 <span itemprop="name">爆脖大大Zz</span>
+                </li>
+                
+                    <li>
+                        <i class="fa fa-edit"></i> 
+                        
+                        
+                            ~16.22K
+                        
+                        字
+                    </li>
+                
+                
+            </ul>
+        </header>
+        <div class="kratos-post-content">
+            
+            <div id="expire-alert" class="alert alert-warning hidden" role="alert">
+                <div class="icon"><i class="fa fa-warning"></i></div>
+                <div class="text"><p>本文最后编辑于 <time datetime="1712119891303"></time> 前，其中的内容可能需要更新。</p></div>
+            </div>
+            
+            
+            
+                <div class="kratos-post-inner-toc toc-div-class" >
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E9%94%99%E9%A2%98%E6%9C%AC"><span class="toc-number">1.</span> <span class="toc-text">操作系统错题本</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%8E%8B%E9%81%93%E8%80%83%E7%A0%94-2024-%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E8%80%83%E7%A0%94%E5%A4%8D%E4%B9%A0%E6%8C%87%E5%AF%BC"><span class="toc-number">1.1.</span> <span class="toc-text">王道考研-2024-操作系统考研复习指导</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E7%AB%A0-%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%BF%B0"><span class="toc-number">1.1.1.</span> <span class="toc-text">第一章 计算机系统概述</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#p005-1-1-4"><span class="toc-number">1.1.1.1.</span> <span class="toc-text">p005-1.1.4</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#p011-1-2-7"><span class="toc-number">1.1.1.2.</span> <span class="toc-text">p011-1.2.7</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#p018-1-3-4"><span class="toc-number">1.1.1.3.</span> <span class="toc-text">p018-1.3.4</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#p030-1-6-2"><span class="toc-number">1.1.1.4.</span> <span class="toc-text">p030-1.6.2</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E4%BA%8C%E7%AB%A0-%E8%BF%9B%E7%A8%8B%E4%B8%8E%E7%BA%BF%E7%A8%8B"><span class="toc-number">1.1.2.</span> <span class="toc-text">第二章 进程与线程</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#p046-2-1-8"><span class="toc-number">1.1.2.1.</span> <span class="toc-text">p046-2.1.8</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#p069-2-2-7"><span class="toc-number">1.1.2.2.</span> <span class="toc-text">p069-2.2.7</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#p101-2-3-7"><span class="toc-number">1.1.2.3.</span> <span class="toc-text">p101-2.3.7</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link"><span class="toc-number">1.1.2.3.1.</span> <span class="toc-text">&lt;—-整理未完成—-&gt;</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#-1"><span class="toc-number">1.1.2.3.2.</span> <span class="toc-text">&lt;—-后面大题一天写一到二题，优先做真题—-&gt;</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#p142-2-4-6"><span class="toc-number">1.1.2.4.</span> <span class="toc-text">p142-2.4.6</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#-2"><span class="toc-number">1.1.2.4.1.</span> <span class="toc-text">&lt;—-整理未完成—-&gt;</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E4%B8%89%E7%AB%A0-%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86"><span class="toc-number">1.1.3.</span> <span class="toc-text">第三章 内存管理</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#p174-3-1-8"><span class="toc-number">1.1.3.1.</span> <span class="toc-text">p174-3.1.8</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#-3"><span class="toc-number">1.1.3.1.1.</span> <span class="toc-text">&lt;–未总结完，D12需要看视频+大题未做非真题–&gt;</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#p205-3-2-10"><span class="toc-number">1.1.3.2.</span> <span class="toc-text">p205-3.2.10</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#-4"><span class="toc-number">1.1.3.2.1.</span> <span class="toc-text">&lt;——部分题目未完成—–&gt;</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E5%9B%9B%E7%AB%A0-%E6%96%87%E4%BB%B6%E7%AE%A1%E7%90%86"><span class="toc-number">1.1.4.</span> <span class="toc-text">第四章 文件管理</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#p240-4-1-8"><span class="toc-number">1.1.4.1.</span> <span class="toc-text">p240-4.1.8</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#-5"><span class="toc-number">1.1.4.1.1.</span> <span class="toc-text">&lt;——大题未完成—–&gt;</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#p258-4-2-7"><span class="toc-number">1.1.4.2.</span> <span class="toc-text">p258-4.2.7</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#p273-4-3-7"><span class="toc-number">1.1.4.3.</span> <span class="toc-text">p273-4.3.7</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E4%BA%94%E7%AB%A0-%E8%BE%93%E5%85%A5-%E8%BE%93%E5%87%BA-I-O-%E7%AE%A1%E7%90%86"><span class="toc-number">1.1.5.</span> <span class="toc-text">第五章 输入&#x2F;输出(I&#x2F;O)管理</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#p282-5-1-6"><span class="toc-number">1.1.5.1.</span> <span class="toc-text">p282-5.1.6</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#p310-5-3-6"><span class="toc-number">1.1.5.2.</span> <span class="toc-text">p310-5.3.6</span></a></li></ol></li></ol></li></ol></li></ol>
+                </div>
+            
+            <hr />
+            <div itemprop="articleBody"><h1 id="操作系统错题本"><a href="#操作系统错题本" class="headerlink" title="操作系统错题本"></a>操作系统错题本</h1><h2 id="王道考研-2024-操作系统考研复习指导"><a href="#王道考研-2024-操作系统考研复习指导" class="headerlink" title="王道考研-2024-操作系统考研复习指导"></a>王道考研-2024-操作系统考研复习指导</h2><h3 id="第一章-计算机系统概述"><a href="#第一章-计算机系统概述" class="headerlink" title="第一章 计算机系统概述"></a>第一章 计算机系统概述</h3><h4 id="p005-1-1-4"><a href="#p005-1-1-4" class="headerlink" title="p005-1.1.4"></a>p005-1.1.4</h4><ul>
+<li><strong>源程序是一种计算机代码</strong>，是用程序设计语言编写的程序，经编译或解释后可形成具有一定功能的可执行文件，是直接面向程序员用户的，而不是操作系统的管理内容。</li>
+<li>操作系统管理文件，是指操作系统关心计算机中的文件的<u>逻辑结构、物理结构、文件内部结构、多文件之间如何组织的问题</u>，而不是关心文件的具体内容。</li>
+<li>操作系统主要向用户提供命令接口和程序接口(系统调用)，此外还提供图形接口;当然图形接口其实是调用了系统调用而实现的功能。</li>
+<li>程序接口由一组<strong>系统调用</strong>（也称广义指令）组成。</li>
+<li>操作系统为编程人员提供的接口是程序接口，即系统调用。作用是请求系统服务</li>
+<li>操作系统不允许用户直接操作硬件资源，用户只能通过系统调用的方式来请求内核为其服务，间接地使用各种资源。</li>
+<li>引入<strong>多道程序设计</strong>后，程序的执行就<u>失去了封闭性和顺序性</u>。程序执行因为<strong>共享</strong>资源及相互协同的原因产生了竞争，相互<strong>制约</strong>。考虑到竞争的公平性，<u>程序的执行是<strong>断续</strong>的</u>。<strong>顺序性是单道程序设计的基本特征</strong>。</li>
+<li>处理机与设备，设备与设备，处理机与通道，由于是独立的，故即便在单处理机系统中也能并行。</li>
+<li>对于<strong>多道程序系统</strong>来说，支持虚拟存储管理并非必要，即便不支持，也可以将进程全部读入主存，让多道程序并发执行。</li>
+<li><strong>进程数越多并不代表CPU利用率越高</strong>，进程数量越多，进程之间的资源竞争越强烈，甚至可能因为资源竞争而出现死锁现象，导致CPU利用率低。</li>
+<li><strong>库函数与系统调用的区别和联系</strong>：<u>库函数</u>是语言或应用程序的一部分，可以运行在<em>用户空间</em>中。而<u>系统调用</u>是操作系统的一部分，是内核为用户提供的程序接口，运行在<em>内核空间</em>中，而且许多库函数都会使用系统调用来实现功能。未使用系统调用的库函数，其执行效率通常要比系统调用的高。因为使用系统调用时，需要上下文的切换及状态的转换 （由用户态转向核心态）。</li>
+</ul>
+<h4 id="p011-1-2-7"><a href="#p011-1-2-7" class="headerlink" title="p011-1.2.7"></a>p011-1.2.7</h4><ul>
+<li><p>操作系统的基本类型主要有<strong>批处理操作系统</strong>、<strong>分时操作系统</strong>和<strong>实时操作系统</strong>。（基本类型）</p>
+</li>
+<li><p>实时操作系统必须在<strong>被控制对象规定时间</strong>内处理来自外部的事件。</p>
+</li>
+<li><p>实时系统必须能足够及时地处理某些紧急的外部事件，因此普遍用高优先级，并用”可抢占“来确保实时处理。故进程调度采用<strong>抢占式的优先级高者优先</strong>的算法。</p>
+</li>
+<li><p>采用<strong>优先级+非抢占式调度</strong>算法，既可让重要的作业&#x2F;进程通过高优先级尽快获得系统响应又可保证次要的作业&#x2F;进程在非抢占式调度下不会迟迟得不到系统响应，这样有利于改善系统的响应时间。相反，加大时间片会延迟系统响应时间。</p>
+</li>
+<li><p>分时系统追求的目标是：比较快速响应用户。</p>
+</li>
+<li><p>分时系统种，时间片一定时，用户数越多，响应时间越长。</p>
+</li>
+<li><p>多任务操作系统在同一时间内运行多个应用程序，因此有并发和并行的特点。</p>
+</li>
+<li><p>批处理操作系统、分时操作系统和实时操作系统的特点：</p>
+<ul>
+<li><strong>批处理操作系统</strong>的用户脱机使用计算机，作业是成批处理的，系统内多道程序并发执行,交互能力差。</li>
+<li><strong>分时操作系统</strong>可让多个用户同时使用计算机，人机交互性较强，具有每个用户独立使用计算机的独占性，系统响应及时。</li>
+<li><strong>实时操作系统</strong>能对控制对象做出及时反应，可靠性高，响应及时，但资源利用率低</li>
+</ul>
+</li>
+<li><p>甘特图画法示例：</p>
+<p><img src="/subweb/blog/images/posts/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E9%94%99%E9%A2%98%E6%9C%AC/image-20230912190120136.png" alt="image-20230912190120136"></p>
+<p><img src="/subweb/blog/images/posts/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E9%94%99%E9%A2%98%E6%9C%AC/image-20230912190031123.png" alt="image-20230912190031123"></p>
+</li>
+</ul>
+<h4 id="p018-1-3-4"><a href="#p018-1-3-4" class="headerlink" title="p018-1.3.4"></a>p018-1.3.4</h4><ul>
+<li>通用操作系统使用<strong>时间片轮转调度算法</strong>，用户运行程序并不需要预先预订运行时间。</li>
+<li>编译器是操作系统的上层软件，不是操作系统需要提供的功能。</li>
+<li>操作系统是计算机资源的管理者，<strong>管理计算机系统资源</strong>是操作系统关心的主要问题。</li>
+<li>系统调用需要触发<strong>陷入（trap）</strong>指令。</li>
+<li>程序设计无法形成硬件中断，如可屏蔽中断。</li>
+<li><strong>中断是操作系统必须提供的功能</strong>，因为计算机的各种错误都需要中断处理，核心态与用户态切换也需要中断处理。</li>
+<li>操作系统不允许用户直接执行某些“危险性高”的指令，因此<u>用户态运行这些指令的结果会转成操作系统的核心态去运行</u>。这个过程就是<strong>访管中断</strong>。</li>
+<li>中断处理流程的前三个步骤是由<strong>硬件直接实现</strong>(隐指令)的。地址映射中需要<strong>基地址(或页表)寄存器和地址加法器的支持</strong>。而在时钟管理中，需要<strong>硬件计数器保持</strong>时钟的运行。进程调度由<strong>调度算法决定</strong> CPU使用权，由操作系统实现，<strong>不需要硬件的支持</strong>。</li>
+<li>当中断或异常发生时，通过硬件实现将运行在用户态的 CPU 立即转入核心态。中断发生时若被中断的是用户程序，则系统将从目态转入管态，在管态下进行中断的处理；若被中断的是低级中断，则仍然保持在管态，而用户程序只能在目态下运行，因此进入中断处理的程序只能是OS 程序。<strong>中断程序本身可能是用户程序，但是进入中断的处理程序一定是 OS 程序。</strong></li>
+<li>计算机通过硬件中断机制完成由用户态到核心态的转换。注意：中断处理程序是在核心态下执行的一些列用于处理中断的程序，不要误选。</li>
+<li>大多数计算机操作系统的内核包括四个方面的内容，即时钟管理、中断机制、原语和系统控制的数据结构及处理，其中第 4 部分实际上是系统调用类的指令(广义指令)。</li>
+<li>CPU处于核心态时，可以执行除了“访管”指令外的全部指令。因为已经处于核心态了，自然不需要执行“访管”指令。</li>
+<li>特权指令指仅能由操作系统执行的指令。</li>
+<li>系统调用是操作系统提供给用户程序的接口，系统调用发生在用户态，被调用程序在核心态下执行。</li>
+<li>在<strong>某状态执行</strong>和在<strong>某状态发生</strong>是不同的，注意辨别。</li>
+<li>trap 指令、跳转指令和压栈指令均可以在用户态执行，其中 trap 指令负责由用户态转换为内核态。关中断指令为特权指令，必须在核心态才能执行。</li>
+<li>考虑到部分指令<strong>可能出现异常</strong> (导致中断)，<strong>从而转到核心态</strong>。除法指令有<strong>除零异常</strong>的可能，<strong>软中断</strong>（软件异常）指令一定导致转到核心态，读写内存时可能出现<strong>缺页异常</strong>，导致转到核心态，寄存器取非等指令不会引发异常，故不会导致转到核心态。</li>
+<li>缺页属于异常。</li>
+<li>执行系统调用的顺序：①<strong>传递系统调用参数</strong>，②<strong>执行陷入（trap）指令</strong>，③<strong>执行相应的服务程序</strong>，④<strong>返回用户态</strong></li>
+<li>保存中断程序的中断点由硬件自动完成。</li>
+<li>操作系统提供中断服务，初始化中断向量表，保存中断屏蔽字。</li>
+<li>在内核态下，CPU 可执行任何指令，在用户态下 CPU 只能执行非特权指令，而特权指令只能在内核态下执行。<strong>常见的特权指令</strong>有: ①有关对 I&#x2F;0 设备操作的指令；②有关访问程序状态的指令；③存取特殊寄存器的指令；④其它指令。</li>
+<li>发生中断时<u>保存断点和状态字</u>，<u>模式改为内核态</u>的操作都是<strong>由硬件完成</strong>的，<u>保存通用寄存器内容</u>，<u>执行系统服务例程</u>是由<strong>操作系统完成</strong>的。</li>
+<li>处理器区分执行态（核心态和用户态）的<strong>主要目的</strong>是<strong>保护系统程序</strong>。用户态到核心态的转换发生在<strong>中断产生时</strong>，而核心态到用户态的转换则发生在<strong>中断返回用户程序时</strong>。</li>
+<li><img src="/subweb/blog/images/posts/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E9%94%99%E9%A2%98%E6%9C%AC/image-20230913225450377.png" alt="image-20230913225450377"></li>
+</ul>
+<h4 id="p030-1-6-2"><a href="#p030-1-6-2" class="headerlink" title="p030-1.6.2"></a>p030-1.6.2</h4><ul>
+<li>操作系统的结构：<img src="/subweb/blog/images/posts/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E9%94%99%E9%A2%98%E6%9C%AC/image-20230914100906523.png" alt="image-20230914100906523"></li>
+<li>两类虚拟机管理系统的对比：<img src="/subweb/blog/images/posts/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E9%94%99%E9%A2%98%E6%9C%AC/image-20230914100955768.png" alt="image-20230914100955768"></li>
+<li>通常可以从四个方面来描述<strong>微内核OS</strong>：①<strong>内核足够小</strong>，<font color="red">②<strong>基于客户&#x2F;服务器模式</strong></font>，③<strong>应用“机制与策略分离”原理“</strong>，④<strong>采用面向对象技术</strong>。(红色为认知盲区处)</li>
+<li>低级进程管理和调度属于调度功能的机制部分，应将它放入微内核。</li>
+<li>微内核在核心态和用户态之间频繁切换，<u>系统开销大，系统效率低</u>。</li>
+<li>微内核结构添加系统服务时<u>不必</u>修改内核。</li>
+<li>由于微内核结构内的<strong>服务较少</strong>，因此系统更具有<strong>可靠性</strong>（稳定性）。</li>
+<li>Windows是<strong>宏内核操作系统</strong></li>
+<li>操作系统的引导程序位于磁盘活动分区的引导扇区中。引导程序分为两种：一种是位于 <strong>ROM</strong>中的自举程序**(BIOS 的组成部分)<strong>，用于启动具体的设备；另一种是位于装有操作系统</strong>硬盘**的活动分区的引导扇区中的引导程序(称为启动管理器)，用于引导操作系统。</li>
+<li>计算机启动的过程：<ol>
+<li><strong>激活CPU</strong>：CPU加电，读取ROM中的boot程序，该程序能将指令寄存器置为BIOS的第一条指令。因此<u>启动CPU后先访问主存的ROM部分，才跳到BIOS</u>。</li>
+<li><strong>硬件自检</strong>：启动BIOS后<u>先进行硬件自检</u>。</li>
+<li><strong>加载带有操作系统的硬盘</strong>：BIOS开始读取Boot Sequence（启动顺序），把控制权交给启动顺序排在第一位的储存设备，然后CPU将<u>该存储设备引导扇区的内容加载到内存中</u>。</li>
+<li><strong>加载主引导记录（MBR）</strong>：能以特定的标识符区分引导硬盘和非引导硬盘，非引导则查找下一个设备。MBR的作用是<u>告诉CPU去硬盘的哪个主分区去找操作系统</u>。</li>
+<li><strong>扫描硬盘分区表</strong>，并加载硬盘活动分区：MBR包含硬盘分区表，分区表能标识活动分区和非活动分区，找到含有操作系统的分区（活动分区）后，开始加载活动分区，将控制权交给活动分区。</li>
+<li><strong>加载分区引导记录（PBR）</strong>：读取活动分区的第一个扇区，这个扇区成为分区引导记录，其作用是寻<u>找并激活分区根目录下用于引导操作系统的程序</u>（启动管理器）。</li>
+<li><strong>加载启动管理器</strong>。</li>
+<li><strong>加载操作系统</strong>。</li>
+</ol>
+</li>
+<li><strong>虚拟机可以由硬件实现</strong>：软件能实现的功能也能由硬件实现。</li>
+<li>虚拟机不能实现真正的并行，实现并行的是多核处理机。</li>
+<li>在操作系统初始化的过程中需要创建中断向量表，以实现通电自检 POST，CPU 检测到中断信号后，根据中断号查询中断向量表，跳转到相应的中断处理程序。</li>
+</ul>
+<h3 id="第二章-进程与线程"><a href="#第二章-进程与线程" class="headerlink" title="第二章 进程与线程"></a>第二章 进程与线程</h3><h4 id="p046-2-1-8"><a href="#p046-2-1-8" class="headerlink" title="p046-2.1.8"></a>p046-2.1.8</h4><ul>
+<li>线程是处理机调度的基本单位，包含CPU现场，可以独立执行程序。</li>
+<li>线程没有自己独立的地址空间，它共享其所属进程的空间。</li>
+<li>动态性是进程最重要的特性，以此来区分文件形式的静态程序。操作系统引入进程的概念是为了从变化的角度动态地分析和研究程序的执行。</li>
+<li>进程的优先级分静态和动态两种，动态优先级是根据运行情况而随时调整的</li>
+<li>进程获得处理器运行是通过调度得到的</li>
+<li>在系统发生死锁时有可能进程全部都处于阻塞态，CPU 空闲。<font color="red">[坑]</font><ul>
+<li>例：在单一处理器系统中任何时刻都只有一个进程处于运行状态。（错）</li>
+</ul>
+</li>
+<li>程序封闭性是指进程执行的结果只取决于进程本身，不受外界影响。也就是说，进程在执行过程中不管是不停顿地执行，还是走走停停，进程的执行速度都不会改变它的执行结果。失去封闭性后，不同速度下的执行结果不同。</li>
+<li>进程是一个<strong>独立的运行单位</strong>，也是操作系统进行<strong>资源分配和调度的基本单位</strong>，它包括 PCB、程序和数据以及执行栈区，仅仅说进程是在多程序环境下的完整程序是不合适的，因为程序是静态的，它以文件形式存放于计算机硬盘内，而进程是动态的。</li>
+<li>C语言编写的程序在使用内存时一般分为三个段,它们一般是<strong>正文段(即代码和赋值数据段)<strong>、</strong>数据堆段</strong>和<strong>数据栈段</strong>。<ul>
+<li>二进制代码和常量存放在正文段；</li>
+<li>动态分配的存储区在数据堆段；</li>
+<li>临时使用的变量在数据栈段。</li>
+<li>由此，我们可以确定<u>全局赋值变量在正文段赋值数据段</u>，<u>未赋值的局部变量和实参传递在栈段</u>，<u>动态内存分配在堆段</u>，<u>常量在正文段</u>，<u>进程的优先级只能在 PCB 内</u>。</li>
+</ul>
+</li>
+<li>一个进程是程序在一个数据集上的一次运行过程。运行于不同的数据集，将会形成不同的进程。</li>
+<li>同一个<strong>系统进程（或线程）</strong>可以由系统调用的方法被不同的进程(或线程)多次使用，它们是<strong>同一个</strong>进程（或线程）。</li>
+<li>PCB 内所含的数据结构内容，主要有四大类：进程标志信息、进程控制信息、进程资源信息、CPU 现场信息。</li>
+<li>进程的就绪数目越多，争夺 CPU 的进程就越多，但只要就绪队列不为空，CPU 就总是可以调度进程运行，保持繁忙。这<strong>与就绪进程的数目没有关系</strong>，除非就绪队列为空，此时 CPU进入等待态，导致 CPU的效率下降。</li>
+<li>同一进程中，线程的切换不会引起进程的切换。当从一个进程中的线程切换到另一个进程中的线程时，才会引起进程的切换。</li>
+<li>引入线程后处理器在既能在进程间切换也能在线程间切换。</li>
+<li>引入线程是为了减少程序执行时的时空开销。并不会增加时空开销。</li>
+<li>在无线程的系统中，进程是资源调度和并发执行的基本单位。在引入线程的系统中，进程退化为资源分配的基本单位，而线程代替了进程被操作系统调度，因而线程可以并发执行，不论是否为同一个进程的线程。</li>
+<li>整个系统只有一个键盘，而且键盘输入是人的操作，速度比较慢，完全可以使用<strong>一个线程</strong>来处理整个系统的键盘输入。</li>
+<li>线程被唤醒，是指线程等待结束后进入就绪态。只在极少数情况下会提高其优先级，但一般也不会提到最高。</li>
+<li>数据库不能直接作为进程间的通信方式。</li>
+<li>采用轮转调度算法时，如果进程中分别设置 100个用户级线程和 100个内核级线程，则前者的执行时间是后者的 100 倍，可以说<strong>在轮转调度算法中，内核级线程与用户级线程的效果完全不同</strong>。</li>
+<li>在用户级线程中，系统感知不到线程的存在，调度的对象是进程，因此，跨进程的用户级线程调度需要内核参与。</li>
+<li>用户级线程不需要内核的支持，与系统平台无关，对线程管理的代码是属于用户程序的一部分。</li>
+<li>内核级线程的程序实体可以在内核态运行。</li>
+<li><strong>进程时间片用完，可降低其优先级</strong>以让其他进程被调度进入执行状态。</li>
+<li>进程是资源分配的基本单位，线程是处理机调度的基本单位。<strong>进程的代码段、进程打开的文件、进程的全局变量</strong>等都是进程的资源，唯有<strong>进程中某线程的栈指针(包含在线程 TCB 中)是属于线程的</strong>，<strong>属于进程的资源可以共享，属于线程的栈指针是独享的</strong>，对其他线程透明。</li>
+<li>同一进程的个<strong>线程共享进程的地址空间</strong>。</li>
+<li>管道通信虽然是用共享文件来实现的，但该文件只能存在于内存中，与磁盘容量大小无关。通常被系统限制大小</li>
+<li>进程对管道读写都可能造成堵塞。</li>
+<li>管道通信可以多写一读（仅考试）。</li>
+<li>临界资源是<strong>只允许一个进程读写的共享资源</strong>，进程间互斥读写。</li>
+<li>即使是父子进程也不能同时使用同一临界资源。</li>
+<li>父进程创建子进程时会为其分配虚拟地址空间，虽然父进程和子进程可以共享一部分资源，但不能共享虚拟地址空间。</li>
+<li>执行一条命令或运行一个应用程序时，进程和程序之间形成<strong>一对一的关系</strong>。进程在执行过程中可以加载执行不同的应用程序，从而形成<strong>一对多的关系</strong>；以不同的参数或数据多次执行同一个应用程序时，形成<strong>多对一的关系</strong>;并发地执行不同的应用程序时，形成多<strong>对多的关系</strong>。</li>
+<li><em>父进程创建子进程和主程序调用子程序的区别</em>：父进程创建子进程后，父进程与子进程同时执行(并发)。主程序调用子程序后，主程序暂停在调用点，子程序开始执行，直到子程序返回，主程序才开始执行。</li>
+<li>在操作系统中，进程是竞争和分配计算机系统资源的基本单位。每个进程都有自己的独立地址空间。为了保证多个进程能够彼此互不干扰地共享物理内存，操作系统利用硬件地址机制对进程的地址空间进行了严格的保护，限制每个进程只能访问自己的地址空间。</li>
+<li><strong>多线程</strong>是指在一个程序中可以定义多个线程并同时运行它们，每个线程可以执行不同的任务。</li>
+<li>多线程与多任务的区别：<strong>多任务是针对操作系统而言的</strong>，代表操作系统可以同时执行的程序个数；<strong>多线程是针对一个程序而言的</strong>，代表一个程序可以同时执行的线程个数，而每个线程可以完成不同的任务。</li>
+<li>系统就绪态和运行态无进程的可能性：<ul>
+<li>系统无进程</li>
+<li>进程均处于等待状态</li>
+<li>进程处于死锁</li>
+</ul>
+</li>
+<li>支持进程状态变迁至少需要包括<strong>创建新进程原语、阻塞进程原语、唤醒进程原语、终止进程原语</strong>等操作。</li>
+</ul>
+<h4 id="p069-2-2-7"><a href="#p069-2-2-7" class="headerlink" title="p069-2.2.7"></a>p069-2.2.7</h4><ul>
+<li>时间片轮换调度算法的主要目的是，<strong>使得多个交互的用户能够得到及时响应</strong>，使得用户以为“独占”计算机的使用，因此它<u>并没有偏好，也不会对特殊进程做特殊服务</u>。<u>时间片轮转增加了系统开销,所以不会使得系统高效运转，吞吐量和周转时间均不如批处理</u>。但其较快速的响应时间使得用户能够与计算机进行交互，改善了人机环境，满足用户需求。</li>
+<li>在单处理机多进程系统中，进程什么时候占用处理器及决定占用时间的长短是由<strong>进程的特点和进程调度策略决定的</strong>。<font color="pink">如进程是 CPU繁忙型还是 I&#x2F;O繁忙型、自身的优先级等但仅有这些特点是不够的，能否得到调度还取决于进程调度策略，若采用优先级调度算法，则进程的优先级才起作用。至于占用处理器运行时间的长短，则要看进程自身，若进程是I&#x2F;O 繁忙型运行过程中要频繁访问I&#x2F;O 端口，即可能会频繁放弃 CPU，所以占用CPU 的时间不会长，一放弃 CPU，则必须等待下次调度。若进程是 CPU 繁忙型，则一旦占有 CPU，就可能会运行很长时间，但运行时间还取决于进程调度策略，大部分情况下，交互式系统为改善用户的响应时间，大多数采用时间片轮转的算法，这种算法在进程占用 CPU达到一定时间后，会强制将其换下，以保证其他进程的CPU使用权。</font></li>
+<li>先来先服务算法<strong>有利于CPU繁忙型的作业</strong>，<strong>而不利于I&#x2F;O繁忙型作业</strong>。</li>
+<li>在选择进程调度算法时应考虑以下几个准则：①<strong>公平</strong>：确保每个进程获得合理的 CPU份额；②<strong>有效</strong>：使 CPU尽可能地忙碌；③<strong>响应时间</strong>：使交用户的响应时间尽可能短；④<strong>周转时间</strong>：使批处理用户等待输出的时间尽可能短；⑤<strong>吞吐量</strong>：使单位时间处理的进程数尽可能最多。</li>
+<li>时间片轮换算法是绝对可抢占的</li>
+<li><strong>作业</strong>是从<u>用户角度出发的，它由用户提交，以用户任务为单位</u>；<strong>进程</strong>是从<u>操作系统出发的，由系统生成，是操作系统的资源分配和独立运行的基本单位</u>。</li>
+<li><font color="red">[粗心易错]</font>：三道程序$J_1,J_2,J_3$，运行时间分别为$T_1,T_2,T_3$($T_1&lt;T_2&lt;T_3$)。则平均周转时间为：$(3T_1+2T_2+T_3)&#x2F;3$，括号内123顺序易写反，虽然$J_1$只执行了一次，但每个程序都经历了$T_1$。</li>
+<li>分时系统中，<strong>响应时间与时间片和用户数成正比</strong>。</li>
+<li>中断向量<strong>本身</strong>是用于存放中断服务例行程序的入口地址，因此中断向量地址就应是该入口地址的地址。</li>
+<li>中断由<u>硬件保护并完成</u>，主要<strong>是为了保证系统运行可靠、正确</strong>。提高处理速度也是一个好处，但不是主要目的。</li>
+<li>UNIX是分时操作系统。[补充]<strong>分时操作系统</strong>：WIndows,Unix,Linux；<strong>实时操作系统</strong>：uCOS-II,VxWorks；<strong>单用户操作系统</strong>：DOS。</li>
+<li>当进程处于临界区时说明进程正在占用处理机，只要不破坏临界资源的使用规则，就不会影响处理机的调度。</li>
+<li>对于优先级调度算法一般来说，<strong>IO 型作业的优先权高于计算型作业的优先权</strong>，这是由于 I&#x2F;O 操作需要及时完成，它没有办法长时间地保存所要输入&#x2F;输出的数据，所以考虑到系统资源利用率，要选择 I&#x2F;O 繁忙型作业有更高的优先级。</li>
+<li>时钟中断是系统中特定的周期性时钟节拍，操作系统通过它来确定时间间隔，实现时间的延时和任务的超时。因此时钟中断发生后，系统会修改当前进程在时间片内的剩余时间。</li>
+<li>时间片调度算法中，中断处理结束后，系统检测当前时间片是否用完，若用完则进程调度。</li>
+<li><font color="red">[粗心易错]</font>：程序最开始执行的进程也应算入调度次数中，容易丢掉。</li>
+<li>为什么说多级反馈队列调度算法能较好的满足各类用户的需要？<img src="/subweb/blog/images/posts/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E9%94%99%E9%A2%98%E6%9C%AC/image-20230923105806427.png" alt="image-20230923105806427"></li>
+<li><font color="red">[易错]</font>：计算利用率时，即使出现某资源在最后未出于使用状态，也要将该时间段计算入总时间。</li>
+<li>对于<strong>多道作业</strong>的处理系统：有n道作业处理系统，则内存中能存放n个作业，内存有空位后由外部调度算法进行调度，调入后再由程序调度算法调入处理机。</li>
+<li>调入内存后的时间才算作周转时间。</li>
+<li>高相应比优先调度算法不抢占，一个程序执行完成后计算相应比，继续选择下一个要执行的程序。</li>
+<li>对于多道作业批处理系统的题目，可以画出如下图更加直观，但只问周转时间也可只在表格后添加进出内存时间。<img src="/subweb/blog/images/posts/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E9%94%99%E9%A2%98%E6%9C%AC/image-20230923193955484.png" alt="image-20230923193955484"></li>
+<li>对于进程优先数priority，cpu占用时长cpuTime，等待时长waitTime，通过以下计算方法，可实现动态优先数，避免出现饥饿现象。（nice是进程本身优先级越小越优先，priority越小越优先）$priority&#x3D;nice+k_1<em>cpuTime-k_2</em>waitTime$。</li>
+</ul>
+<h4 id="p101-2-3-7"><a href="#p101-2-3-7" class="headerlink" title="p101-2.3.7"></a>p101-2.3.7</h4><ul>
+<li>多个进程可以共享系统中的资源，一次<strong>仅允许一个进程使用的资源称为临界资源</strong>。<strong>访问临界资源的那段代码称为临界区</strong>。</li>
+<li>磁盘属于共享设备，不是临界资源。</li>
+<li>公用队列是公共使用，且一次只能有一个程序访问，因此是临界资源。</li>
+<li>P、V操作是一种<strong>低级的进程通信原语</strong>，它是不能被中断的。</li>
+<li>与互斥信号量初值一般置1不同，用PV操作实现进程同步时，信号量的初值应根据具体情况来确定。若期望的消息尚未产生，则对应的初值应设为 0:若期望的消息已存在，则信号量的初值应设为一个非0的正整数。<strong>故进程同步信号量的处置一般由用户确定</strong>。</li>
+<li>若<strong>代码可被多个进程在任意时刻共享</strong>，则要求任意一个进程在调试此段代码时都以同样的方式运行；而且进程在运行过程中被中断后再继续执行，其执行结果不受影响。这<strong>要求代码不能被任何进程修改</strong>，否则无法满足共享的需求。这样的代码就是<strong>可重入代码</strong>，也称纯代码，即允许多个进程同时访问的代码。</li>
+<li>一个系统中，由几个并发进程控制某一相同变量，临界区的数量为进程的数量。（因为临界区时访问临界资源的代码段）</li>
+<li>管程由以下四部分组成：<ul>
+<li>管程的名称。</li>
+<li>局部与管程内部的共享数据结构说明。</li>
+<li>对该数据结构进行操作的一组过程</li>
+<li>对局部于管程内部的共享数据设置初始值语句。</li>
+</ul>
+</li>
+<li>管程的<em>signal</em>操作与信号量机制中的V操作不同。信号量中V操作一定会改变信号量的值$S&#x3D;S+1$。而管程中的<em>signal</em>操作是针对某个条件变量的，若不存在因该条件而阻塞的进程，则<em>signal</em>不会产生任何影响。</li>
+<li><font color="red">[超级大坑][冲国特色傻逼抠字眼题目]</font>题目问资源等待、运行的信号量条件时，一定要注意是操作前还是操作后。例如，<u>信号量S**执行P操作<font color=red>后</font>**，使该进程进入资源等待队列的条件</u>和<u><strong>S执行P操作<font color=red>前</font></strong></u>的条件分别为 $S.value\lt0$ 和 $S.value\leq0$ ，请注意辨别。</li>
+<li><font color="red">[坑]</font>系统中有 $n$ 个进程，则<strong>就绪队列中的进程数最多有</strong>  $n-1$  <strong>个</strong>，不存在处理机为空，全在就绪队列的情况；<strong>阻塞队列中进程数最多有</strong>  $n$  <strong>个</strong>，如果发生死锁，处理机可能为空，全部处于等待队列。</li>
+<li>P，V属于两个原子操作，因此<strong>由两个不可被中断的过程组成</strong>。</li>
+<li><u>忙则等待、空闲让进、有限等待</u>是临界区互斥机制<strong>必须实现的</strong>，而<u>让权等待</u>则不一定非要实现。</li>
+<li></li>
+</ul>
+<h5 id=""><a href="#" class="headerlink" title="&lt;—-整理未完成—-&gt;"></a>&lt;—-整理未完成—-&gt;</h5><h5 id="-1"><a href="#-1" class="headerlink" title="&lt;—-后面大题一天写一到二题，优先做真题—-&gt;"></a>&lt;—-后面大题一天写一到二题，优先做真题—-&gt;</h5><h4 id="p142-2-4-6"><a href="#p142-2-4-6" class="headerlink" title="p142-2.4.6"></a>p142-2.4.6</h4><h5 id="-2"><a href="#-2" class="headerlink" title="&lt;—-整理未完成—-&gt;"></a>&lt;—-整理未完成—-&gt;</h5><h3 id="第三章-内存管理"><a href="#第三章-内存管理" class="headerlink" title="第三章 内存管理"></a>第三章 内存管理</h3><h4 id="p174-3-1-8"><a href="#p174-3-1-8" class="headerlink" title="p174-3.1.8"></a>p174-3.1.8</h4><ul>
+<li>内存保护是内存管理的一部分，是操作系统的任务，但是出于安全性和效率考虑，必须由硬件实现，所以需要操作系统和硬件机构的合作来完成。</li>
+<li>下面几种装入方式的说明和执行时间。<ul>
+<li><strong>静态装入</strong>：在编程阶段就把物理地址计算好。</li>
+<li><strong>可重定位</strong>：在装入时把逻辑地址转换成物理地址，但装入后不能改变。</li>
+<li><strong>动态重定位</strong>：在执行时再决定装入的地址并装入，装入后有可能会换出，所以同一个模块在内存中的物理地址是可能改变的。</li>
+<li><strong>动态重定位是指</strong>在作业运行过程中<u>执行到一条访存指令时，再把逻辑地址转换为主存中的物理地址</u>，实际中是<strong>通过硬件地址转换机制实现</strong>的。</li>
+</ul>
+</li>
+<li><strong>分页式存储管理</strong>有<u>内部碎片</u>，<strong>分段式存储管理</strong>有<u>外部碎片</u>，<strong>固定分区存储管理</strong>方式有<u>内部碎片</u>，<strong>段页式存储管理</strong>方式有<u>内部碎片</u>。</li>
+<li><strong>多进程的执行通过<font color="red">内存保护</font>实现互不干扰</strong>，如页式管理中有<u>页地址越界保护</u>，段式管理中有<u>段地址越界保护</u>。</li>
+<li>页表和段表同样存储在内存中，系统提供给用户的物理地址空间为总空间大小减去页表或段表的长度。由于<strong>页表和段表的长度不能确定</strong>，所以<strong>提供给用户的物理地址空间大小也不能确定</strong>。</li>
+<li>页表的功能由一组专门的存储器实现，其<strong>始址放在页表基址寄存器 (PTBR)中</strong>。这样才能满足在地址变换时能够较快地完成逻辑地址和物理地址之间的转换。</li>
+<li>可重入程序主要是通过<u>共享来使用同一块存储空间的</u>，或通过动态链接的方式将所需的程序段映射到相关进程中去，其最大的<strong>优点是减少了对程序段的调入&#x2F;调出，因此减少了对换数量</strong>。</li>
+<li>实现分页、分段和段页式存储管理<u>需要特定的数据结构支持，如页表、段表等。为了提高性能，还需要硬件提供快存和地址加法器等，代价高</u>。<strong>分区存储管理是满足多道程序设计的最简单的存储管理方案，特别适合嵌入式等微型设备</strong>。</li>
+<li>内存管理是为了<strong>提高内存的利用率</strong>，引入覆盖和交换技术，即在较小的内存空间中采用重复使用的方法来节省存储空间，但它付出的代价是<strong>需要消耗更多的处理器时间</strong>，因此实际上是一种以时间换空间的技术。为此，从节省处理器时间上来讲，<strong>换入、换出速度越快，付出的时间代价就越小，反之就越大</strong>，当时间代价大到一定程度时，覆盖和交换技术就没有了意义。<strong>应以提高换入、换出速度为主要目标</strong>。</li>
+<li>在<strong>非虚拟存储器</strong>中，<u>作业必须全部装入内存且在运行过程中也一直驻留内存</u>；在<strong>虚拟存储器</strong>中，<u>作业不必全部装入内存且在运行过程中也不用一直驻留内存</u>，<strong>这是虚拟存储器和非虚拟存储器的主要区别之一</strong>。</li>
+<li>引入段式存储管理方式，主要是为了满足用户的下列要求：<strong>方便编程、分段共享、分段保护、动态链接和动态增长</strong>。</li>
+<li><strong>主存的访问，不是主存的分配</strong>。对主存的访问<strong>是以字节或字为单位的</strong>。例如，在页式管理中，不仅要知道块号，而且要知道页内偏移。</li>
+<li>静态重定位是在<u>程序运行之前由装配程序完成</u>的，必须分配其要求的全部<strong>连续</strong>内存空间。而页式存储管理方案是将程序离散地分成若干页(块)，从而可以将程序装入不连续的内存空间，显然静态重定位不能满足其要求。</li>
+<li>分区分配内存管理方式的主要保护措施是：<strong>界地址保护</strong>。</li>
+<li>编译后的程序需要<strong>经过链接才能装载</strong>，而<strong>链接后形成的目标程序中的地址也就是逻辑地址</strong>。</li>
+<li>最佳适应算法<u>总是匹配与当前大小要求最接近的空闲分区</u>，但是大多数情况下<u>空闲分区的大小不可能完全和当前要求的大小相等，几乎每次分配内存都会产生很小的难以利用的内存块</u>，所以<strong>最佳适应算法最容易产生最多的内存碎片</strong>。</li>
+</ul>
+<h5 id="-3"><a href="#-3" class="headerlink" title="&lt;–未总结完，D12需要看视频+大题未做非真题–&gt;"></a>&lt;–未总结完，D12需要看视频+大题未做非真题–&gt;</h5><h4 id="p205-3-2-10"><a href="#p205-3-2-10" class="headerlink" title="p205-3.2.10"></a>p205-3.2.10</h4><ul>
+<li><u>多次性、对换性和离散性</u>是<strong>虚拟内存</strong>的特征，<u>一次性</u>则是<strong>传统存储系统</strong>的特征。</li>
+<li>无论采用什么页面置换算法，每种页面第一次访问时不可能在内存中，必然发生缺页，所以缺页次数大于或等于 n。(n为程序页数量)</li>
+<li>虚拟存储器的最大容量是由计算机的地址结构决定的，与主存容量和外存容量没有必然的联系。</li>
+<li>页面失效（缺页）要计算第一次使用页面的次数。交换次数则不含第一次使用。</li>
+<li>LRU算法需要对所有页<u>最近一次被访问的时间进行记录，查找时间最久的进行替换，这涉及排序</u>，对置换算法而言，开销太大。为此需要在页表项中增加LRU位，而<strong>需要硬件支持可以看作耗费高的结果，需要对所有页排序才是原因</strong>。</li>
+<li>页表项中的<strong>合法位（存在位）</strong>信息显示本页面是否在内存中，即决定了是否会发生页面故障。</li>
+<li>Belady异常是指：物理块数增大页故障却不减反增的现象，抖动不是Belady异常。</li>
+<li><strong>所有页面置换策略都可能引起抖动</strong>。</li>
+<li><strong>实地址</strong>是物理地址，即为物理内存实际的地址。<strong>虚地址</strong>是逻辑地址，是对用户来说的地址。程序页面大小计算时需要使用虚地址位数。</li>
+<li>页表也有可能存储在磁盘的交换区上，可以通过<strong>让页表常驻内存</strong>来加快虚地址转换。</li>
+<li>工作集即为最近窗口大小个页面序列的集合（记得去重）。</li>
+<li>用户进程发起，请求操作系统的服务叫系统调用。<u>页面置换过程由操作系统完成，不涉及系统调用；进程调度完全由操作系统完成，不涉及系统调用</u>；<strong>创建进程可以通过系统调用来完成</strong>，如：Linux中通过fork系统调用来创建子进程；生<u>成随机数只需要普通的函数调用，不涉及系统调用</u>。</li>
+<li><strong>页置换算法会影响缺页率</strong>，例如，LRU 算法的缺页率通常要比 FIFO 算法的缺页率低。<strong>工作集的大小决定了分配给进程的物理块数</strong>，分配给进程的物理<strong>块数越多，缺页率就越低</strong>。<strong>进程的数量越多，对内存资源的竞争越激烈，每个进程被分配的物理块数越少，缺页率也就越高</strong>。页缓冲队列是将被淘汰的页面缓存下来，暂时不写回磁盘，**队列长度会影响页面置换的速度，但不会影响缺页率。</li>
+<li>缺页发生页面置换后，会重新到快表中查找页表。置换后的页表会直接进入快表。</li>
+</ul>
+<h5 id="-4"><a href="#-4" class="headerlink" title="&lt;——部分题目未完成—–&gt;"></a>&lt;——部分题目未完成—–&gt;</h5><h3 id="第四章-文件管理"><a href="#第四章-文件管理" class="headerlink" title="第四章 文件管理"></a>第四章 文件管理</h3><h4 id="p240-4-1-8"><a href="#p240-4-1-8" class="headerlink" title="p240-4.1.8"></a>p240-4.1.8</h4><ul>
+<li>打开文件操作是将FCB存入内存活跃文件目录表；<strong>找到指定文件目录是打开文件之前的操作</strong>。</li>
+<li>目录文件是FCB的集合，一个目录中既可能有子目录，又可能有数据文件。因此目录文件中存放的是子目录和数据文件的信息。</li>
+<li>文件目录项即FCB，通常由<strong>文件基本信息、存取控制信息和使用信息</strong>组成。<strong>基本信息包括文件物理位置</strong>。文件目录项显然不包括文件控制块(FCB)的物理位置。</li>
+<li><strong>用户访问权限</strong>是指用户<u>有没有权限访问该文件</u>，而<strong>用户优先级</strong>是指在<u>多个用户同时请求该文件时应该先满足谁</u>。文件的属性包括保存在FCB 中对文件访问的控制信息。因此<strong>对于一个文件的访问</strong>常由<u>用户访问权限和文件属性共同限制</u>。</li>
+<li>相对于加密保护机制，访问控制机制的<strong>安全性较差</strong>。因为访问控制的级别和保护力度较小，因此它的灵活性相对较高。<strong>访问控制必须由系统实现</strong>，否则系统本身的安全性就无法保证。加密机制不能由系统实现，否则加密方法将无法扩展。</li>
+<li>注册和登录属于系统级安全管理。</li>
+<li><strong>文件的逻辑结构</strong>：<u>无结构文件（流式文件）和有结构文件</u>。<strong>文件的物理结构</strong>：<u>连续文件，链接文件</u>。<strong>文件用途分类</strong>：<u>系统文件和其它</u></li>
+<li>对于由 $N$ 条记录的顺序文件，查找某关键字的记录时，平均要查找 $\frac{N}{2}$ 次。在索引顺序文件中，最好情况时将 $N$ 条记录分为 $\sqrt{N}$ 组，索引表中有 $\sqrt{N}$ 个表项，每组有 $\sqrt{N}$ 条记录，查找某关键字记录时，先顺序查找索引表，需要查找 $\frac{\sqrt{N}}{2}$ 次，然后在主文件中对应的组中顺序查找，也需要查找 $\frac{\sqrt{N}}{2}$ 次，因此共需查找 $\frac{\sqrt{N}}{2} + \frac{\sqrt{N}}{2} &#x3D; \sqrt{N}$ 次。<font color="green">傻逼王道的课后题中出现了一种每次查找 $\sqrt{N}+1$个的神奇现象，知道就好了不要当真，题目讲解的视频没这选项就nm离谱。 </font></li>
+<li>索引文件的表项中含有关键字和存放该记录的<font color="red">逻辑地址</font>。易错，不是物理地址。逻辑索引和索引分配要分开。</li>
+<li><strong>打开文件表</strong>仅存放<u>已打开文件信息</u>，将指名文件的属性从外存复制到内存，再使用该文件时直接返回索引。<strong>位图和空闲盘块链表</strong>是<u>磁盘管理方法</u>。<strong>索引表</strong>中记录<u>每个文件所存放的盘块地址</u>。</li>
+<li>若一个用户进程通过read系统调用读取一个磁盘文件中的数据：<ul>
+<li>当所读文件的数据不在内存时，产生中断(缺页中断)，原进程进入阻塞态，直到所需数据从外存调入内存后，才将该进程唤醒。</li>
+<li>read 系统调用通过陷入将CPU从用户态切换到核心态，从而获取操作系统提供的服务。</li>
+<li>要读一个文件，首先要用 open 系统调用打开该文件。</li>
+<li>open 中的参数包含文件的<strong>路径名</strong>与<strong>文件名</strong>，而read 只需使用open 返回的文件描述符，并不使用文件名作为参数。</li>
+<li>read 要求用户提供三个输入参数:①文件描述符 fd；②buf 缓冲区首址；③传送的字节数 n。</li>
+<li>read 的功能是试图从fd所指示的文件中读入n个字节的数据，并将它们送至由指针 buf 所指示的缓冲区中。</li>
+</ul>
+</li>
+<li>若文件系统索引节点，索引节点总数与单个文件长度无关。</li>
+<li>CD-ROM中视频文件的快速随机播放性能最好的数据块组织方式是连续结构，因为CD-ROM不能修改，且连续结构可以很好的快速的随机播放。</li>
+</ul>
+<h5 id="-5"><a href="#-5" class="headerlink" title="&lt;——大题未完成—–&gt;"></a>&lt;——大题未完成—–&gt;</h5><h4 id="p258-4-2-7"><a href="#p258-4-2-7" class="headerlink" title="p258-4.2.7"></a>p258-4.2.7</h4><ul>
+<li><p>实现用户对文件的按名存取，系统先利用用户提供的文件名形成检索路径，对目录进行检索。在顺序检索中，<strong>路径名的一个分量未找到，说明路径名中的某个目录或文件不存在，不需要继续检索</strong>。</p>
+</li>
+<li><p>目录的查询方式有两种:<u>顺序检索法和 Hash 法</u>，<strong>通常采用顺序检索法</strong>。</p>
+</li>
+<li><p>在树形目录中，为了<strong>加快文件检索速度</strong>，<u>可设置当前目录，文件路径可以从当前目录开始查找</u>。</p>
+</li>
+<li><p>在<strong>顺序检索法查找完成后</strong>，得到的是文件的<u>逻辑地址</u>。</p>
+</li>
+<li><p>文件在磁带上通常采用连续存放方法，在硬盘上通常不采用连续存放方法，在内存上采用随机存放方法。</p>
+</li>
+<li><p><strong>对文件的访问控制</strong>，常由<u>用户访问权限</u>和<u>文件属性</u>共同限制。</p>
+</li>
+<li><p>在树形目录结构中，<strong>对于不同用户的文件，文件名可以不同也可以相同</strong>。</p>
+</li>
+<li><p><strong><u>防止文件受损</u>常采用备份的方法</strong>，<strong>而<u>存取控制矩阵</u>方法用于多用户之间的存取权限保护</strong>。</p>
+</li>
+<li><p>建立符号链接时，<strong>引用计数值直接复制</strong>；建立硬链接时，<strong>引用计数值加 1</strong>。删除文件时，删除操作对于符号链接是不可见的，这并不影响文件系统，当以后再通过符号链接访问时，发现文件不存在，直接删除符号链接；但对于<strong>硬链接则不可直接删除</strong>，<strong>引用计数值减 1</strong>，若值不为 0，则不能删除此文件，因为还有其他硬链接指向此文件。</p>
+</li>
+<li><p>符号链接创建后复制文件的引用计数值，且<strong>全程不再改变</strong>。</p>
+</li>
+<li><p>硬链接指通过索引结点进行链接。一个文件在物理存储器上有一个索引结点号。存在多个文件名指向同一个索引结点的情况。</p>
+</li>
+<li><p>两个<strong>进程各自维护自己的文件描述符</strong>，因此即使打开的是同一个文件，也是分别指向<strong>各自的文件表中的一项</strong>。</p>
+</li>
+<li><p>不同进程对同一个文件读写指针位置无关。</p>
+</li>
+<li><p><strong>不同进程打开同一个文件</strong>：</p>
+<ul>
+<li>①整个系统<strong>只有一个系统文件打开表</strong>，同一个文件打开多次，只需改变引用计数。</li>
+<li>②进程<strong>打开文件表关于同一个文件不一定相同</strong>，例如读写指针位置不一定相同。</li>
+</ul>
+</li>
+<li><p><font color="purple">[例]</font>：文件系统采用两级目录的结构，主目录有10个子目录，每个子目录有10个目录项。在同样多目录的情况下，采用单级目录结构的平均检索目录项数是原来的 <strong>5</strong> 倍。两级目录检索 $\frac{10}{2}+\frac{10}{2}&#x3D;10$ 次。单级目录检索次数 $\frac{10*10}{2}&#x3D;50$ 次。</p>
+</li>
+</ul>
+<h4 id="p273-4-3-7"><a href="#p273-4-3-7" class="headerlink" title="p273-4.3.7"></a>p273-4.3.7</h4><ul>
+<li><strong>从系统角度看</strong>，文件系统负责对文件的存储空间进行组织、分配，负责文件的存储并对存入文件进行保护、检索。<strong>从用户角度看</strong>，文件系统根据一定的格式将用户的文件存放到文件存储器中适当的地方，当用户需要使用文件时，系统根据用户所给的文件名能够从文件存储器中找到所需要的文件。</li>
+<li>即从用户观点看操作系统引入文件系统的目的是：实现文件的按名存取。</li>
+<li>文件的存储空间管理实质上是对<strong>外存空闲区</strong>的组织和管理。</li>
+<li>为了实现虚拟文件系统(VFS)，Linux 主要抽象了四种对象类型：<strong>超级块对象、索引结点对象、目录项对象和文件对象</strong>。</li>
+<li>传统文件系统管理空闲磁盘的方法包括<strong>空闲表法</strong>、<strong>空闲链表法</strong>、<strong>位示图法</strong>和<strong>成组链接法</strong>。文件分配表(FAT)的表项与物理磁盘块一一对应，并且可以用一个特殊的数字-1表示文件的最后一块，用-2表示这个磁盘块是空闲的(当然也可用-3-4 来表示)，因此FAT 不仅记录了文件中各个块的先后链接关系，同时还标记了空闲的磁盘块，<strong>操作系统可以通过 FAT 对文件存储空间进行管理</strong>。</li>
+</ul>
+<h3 id="第五章-输入-输出-I-O-管理"><a href="#第五章-输入-输出-I-O-管理" class="headerlink" title="第五章 输入&#x2F;输出(I&#x2F;O)管理"></a>第五章 输入&#x2F;输出(I&#x2F;O)管理</h3><h4 id="p282-5-1-6"><a href="#p282-5-1-6" class="headerlink" title="p282-5.1.6"></a>p282-5.1.6</h4><ul>
+<li>共享设备指<strong>一段时间</strong>允许多个进程同时访问，不是同一时间。</li>
+<li>共享设备必须是可寻址的和可随机读写的。</li>
+<li>分配共享设备不会引起进程死锁。</li>
+<li>不存在I&#x2F;O地址寄存器。地址寄存器只有计算机主机有。</li>
+<li>为了便于上层软件的编制，设备控制器通常需要提供：<strong>控制寄存器、状态寄存器和控制指令</strong>。</li>
+<li>通道也是用于实现<strong>内存与外设</strong>之间的信息传输。</li>
+<li><strong>命令&#x2F;状态寄存器</strong>控制DMA 的工作模式并给 CPU反映它当前的状态，<strong>地址寄存器</strong>存放DMA作业时的源地址和目标地址，<strong>数据寄存器</strong>存放要 DMA 转移的数据，只有<u>堆指针寄存器不需要在DMA 控制器中存放</u>。</li>
+<li><strong>字节多路通道</strong>，它通常含有许多非分配型子通道，其数量可达几十到几百个，每个通道连接一台 IO 设备，并控制该设备的 I&#x2F;O 操作。这些子通道按时间片轮转方式共享主通道。各个通道循环使用主通道，各个通道每次完成其 I&#x2F;O 设备的一个字节的交换，然后让出主通道的使用权。这样，只要字节多路通道扫描每个子通道的速率足够快，而连接到子通道上的设备的速率不太高时，便不至于丢失信息。<strong>故用于连接大量的低俗或中速I&#x2F;O设备</strong>。</li>
+<li>设备的固有属性决定了设备的使用方式；<strong>设备独立性</strong>可以提高设备分配的灵活性和设备的利用率；<strong>设备安全性</strong>可以保证分配设备时不会导致永久阻塞。<strong>设备分配时一般<font color="red">不需要</font>考虑及时性</strong>。</li>
+<li>计算机系统<u>为每台设备确定一个编号以便区分和识别设备</u>，这个确定的编号称为设备的<strong>绝对号</strong>。</li>
+<li>通道控制设备控制器，设备控制器控制设备工作。</li>
+<li>通道是特殊的处理器，不是软件。</li>
+<li>所有设备的启动工作都由系统统一来做</li>
+<li>来自通道的I&#x2F;O中断事件由设备管理负责处理</li>
+<li>编制好的通道程序是存放在主存中的</li>
+<li>操作系统只需要<strong>按照类型提供驱动程序</strong>。例如：3台打印机2台绘图机只需要两个设备驱动程序。</li>
+<li><strong>系统调用</strong>是操作系统提供给用户程序的通用接口，属于<strong>设备无关软件</strong>的功能，<strong>不会因为具体设备的不同而改变</strong>。而<strong>设备驱动程序</strong>负责执行操作系统发出的 IO 命令，它<strong>因设备不同而不同</strong>。</li>
+<li><strong>键盘</strong>是典型的通过中断 <u>I&#x2F;O</u> 方式工作的外设，当用户输入信息时，<strong>计算机响应中断并通过中断处理程序获得输入信息</strong>。</li>
+<li>I&#x2F;O软件一般从上到下分为 4 个层次：<strong>用户层</strong>、<strong>与设备无关的软件层</strong>、<strong>设备驱动程序</strong>及<strong>中断处理程序</strong>。与设备无关的软件层也就是系统调用的处理程序。</li>
+<li>用户程序发出磁盘I&#x2F;O请求后，计算数据所在磁盘的柱面号、磁头号、扇区号的程序是：<strong>设备驱动程序</strong>。</li>
+<li>设备的独立性主要是指用户使用设备的透明性，即使用户程序和实际使用的物理设备无关。</li>
+<li><strong>CPU 与IO 设备执行速度通常是不对等</strong>的，前者快、后者慢，<strong>通过高速缓冲技术来改善两者不匹配的问题</strong>。</li>
+<li>缓冲池是系统的共用资源，可供多个进程共享，并且既能用于输入又能用于输出。其一般包含三种类型的缓冲①空闲缓冲区；②装满输入数据的缓冲区；③装满输出数据的缓冲区。为了管理上的方便，可将相同类型的缓冲区链成一个队列。</li>
+<li>在鼠标移动时，若有高优先级的操作产生，为了记录鼠标活动的情况，<strong>必须使用缓冲技术</strong>。</li>
+<li>由于磁盘驱动器和目标或源I&#x2F;O 设备间的吞吐量不同，<strong>必须采用缓冲技术</strong>。</li>
+<li>为了能使数据从用户作业空间传送到磁盘或从磁盘传送到用户作业空间，<strong>必须采用缓冲技术</strong>。</li>
+<li>为了便于多幅图形的存取及提高性能，<strong>缓冲技术是可以采用的</strong>，特别是在显示<u>当前一幅图形又要得到下一幅图形时</u>，应<strong>采用双缓冲技术</strong>。</li>
+<li>在单机系统中，最关键的资源是处理器资源，最大化地提高处理器利用率，就是最大化地提高系统效率。<strong>多道程序设计技术是提高处理器利用率的关键技术</strong>。SPOOLing，虚拟技术，交换技术均为设备和内存的相关技术。</li>
+<li>SPOOLing 技术需要使用磁盘空间(输入井和输出井)和内存空间(输入&#x2F;输出缓冲区)，不需要外围计算机的支持。</li>
+<li>SPOOLing系统由<strong>预输入程序</strong>、<strong>井管理程序</strong>和<strong>缓冲输出程序</strong>组成。</li>
+<li>因为SPOOLing 技术是一种典型的虚拟设备技术，它通过<strong>将独占设备虚拟成共享设备，使得多个进程共享一个独占设备</strong>，从而<strong>加快作业的执行速度，提高独占设备的利用率</strong>。既然是将独占设备虚拟成共享设备，所以必须先有独占设备才行。</li>
+<li>独占设备采用静态分配方式，而共享设备采用动态分配方式。</li>
+<li>SPOOLing技术<strong>设备与输入输出井之间的数据传送是由操作系统实现的，用户不能控制</strong>。</li>
+<li>设备可视为特殊文件（Linux），因此可以使用文件名访问物理设备。</li>
+<li>初始化设备是由驱动程序完成的。</li>
+<li>厂家会根据设备特性，在驱动程序中实现一种最合适的IO控制方式，驱动程序和IO控制方式有关。</li>
+</ul>
+<h4 id="p310-5-3-6"><a href="#p310-5-3-6" class="headerlink" title="p310-5.3.6"></a>p310-5.3.6</h4><ul>
+<li>固态硬盘部分总结<img src="/subweb/blog/images/posts/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E9%94%99%E9%A2%98%E6%9C%AC/image-20231015103208404.png" alt="image-20231015103208404"></li>
+<li><strong>操作系统的引导程序位于磁盘活动分区的引导扇区，因此必然产生在分区之后</strong>。分区是将磁盘分为由一个或多个柱面组成的分区(即 C盘、D等形式，每个分区的起始扇区和大小都记录在磁盘主引导记录的分区表中。**而对于高级格式化(创建文件系统)**，操作系统将初始的文件系统数据结构存储到磁盘上。</li>
+<li>磁盘调度算法是为了<strong>减少寻找时间</strong>。</li>
+<li><strong>扇区数据的处理时间</strong>主要影响<u>传输时间</u>。</li>
+<li>绝大多数操作系统为改善磁盘访问时间，<strong>以簇为单位进行空间分配</strong>。</li>
+<li><img src="/subweb/blog/images/posts/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E9%94%99%E9%A2%98%E6%9C%AC/image-20231016101627491.png" alt="image-20231016101627491"></li>
+<li>当系统总是持续出现某个磁道的访问请求时，均持续满足最短寻道时间优先、扫描算法和循环扫描算法的访问条件，会一直服务该访问请求。而先来先服务按照请求次序进行调度，比较公平。</li>
+</ul>
+</div>
+        </div>
+        
+            <div class="kratos-copyright text-center clearfix">
+                <h5 itemprop="copyrightNotice">本作品采用 <a rel="license nofollow" target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/">知识共享署名-相同方式共享 4.0 国际许可协议</a> 进行许可</h5>
+            </div>
+        
+        <footer class="kratos-entry-footer clearfix">
+            
+                <div class="post-like-donate text-center clearfix" id="post-like-donate">
+                
+                    <a class="donate" href="javascript:;"><i class="fa fa-bitcoin"></i> 打赏</a>
+                
+                
+                    <a class="share" href="javascript:;"><i class="fa fa-share-alt"></i> 分享</a>
+                    <div class="share-wrap" style="display: none;">
+    <div class="share-group">
+        <a href="javascript:;" class="share-plain qq" onclick="share('qq');" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-qq"></i>
+            </div>
+        </a>
+        <a href="javascript:;" class="share-plain qzone" onclick="share('qzone');" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-star"></i>
+            </div>
+        </a>
+        <a href="javascript:;" class="share-plain weixin pop style-plain" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-weixin"></i>
+            </div>
+            <div class="share-int">
+                <div class="qrcode" id="wechat-qr"></div>
+                <p>打开微信“扫一扫”，打开网页后点击屏幕右上角分享按钮</p>
+            </div>
+        </a>
+        <a href="javascript:;" class="share-plain weibo" onclick="share('weibo');" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-weibo"></i>
+            </div>
+        </a>
+        <a href="javascript:;" class="share-plain facebook style-plain" onclick="share('facebook');" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-facebook"></i>
+            </div>
+        </a>
+        <a href="javascript:;" class="share-plain twitter style-plain" onclick="share('twitter');" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-twitter"></i>
+            </div>
+        </a>
+    </div>
+    <script type="text/javascript">
+        $(()=>{
+            new QRCode("wechat-qr", {
+                text: "https://nav.baobodadazz.top/subweb/blog/2023/12/23/0015.%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E9%94%99%E9%A2%98%E6%9C%AC/",
+                width: 150,
+                height: 150,
+                correctLevel : QRCode.CorrectLevel.H
+            });
+        });
+        function share(dest) {
+            const qqBase        = "https://connect.qq.com/widget/shareqq/index.html?";
+            const weiboBase     = "https://service.weibo.com/share/share.php?";
+            const qzoneBase     = "https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?";
+            const facebookBase  = "https://www.facebook.com/sharer/sharer.php?";
+            const twitterBase   = "https://twitter.com/intent/tweet?";
+            const hostUrl       = "https://nav.baobodadazz.top/subweb/blog/2023/12/23/0015.%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E9%94%99%E9%A2%98%E6%9C%AC/";
+            const title         = "「【错题本】考研-2024-操作系统错题本」";
+            const excerpt       = `操作系统错题本王道考研-2024-操作系统考研复习指导第一章 计算机系统概述p005-1.1.4
+源程序是一种计算机代码，是用程序设计语言编写的程序，经编译或解释后可形成具有一定功能的可执行文件，是直接面向程序员用户的，而不是操作系统...`;
+            let _URL;
+            switch (dest) {
+                case "qq"       : _URL = qqBase+"url="+hostUrl+"&title="+title+"&desc=&summary="+excerpt+"&site=cxpy";     break;
+                case "weibo"    : _URL = weiboBase+"url="+hostUrl+"&title="+title+excerpt;                                 break;
+                case "qzone"    : _URL = qzoneBase+"url="+hostUrl+"&title="+title+"&desc=&summary="+excerpt+"&site=cxpy";  break;
+                case "facebook" : _URL = facebookBase+"u="+hostUrl;                                                        break;
+                case "twitter"  : _URL = twitterBase+"text="+title+excerpt+"&url="+hostUrl;                                break;
+            }
+            window.open(_URL);
+        };
+    </script>
+</div>
+                
+                </div>
+            
+            <div class="footer-tag clearfix">
+                <div class="pull-left">
+                <i class="fa fa-tags"></i>
+                    <a class="tag-none-link" href="/subweb/blog/tags/408/" rel="tag">408</a>, <a class="tag-none-link" href="/subweb/blog/tags/%E5%AD%A6%E4%B9%A0/" rel="tag">学习</a>, <a class="tag-none-link" href="/subweb/blog/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" rel="tag">操作系统</a>, <a class="tag-none-link" href="/subweb/blog/tags/%E7%A0%94%E7%A9%B6%E7%94%9F%E8%80%83%E8%AF%95/" rel="tag">研究生考试</a>, <a class="tag-none-link" href="/subweb/blog/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/" rel="tag">计算机</a>, <a class="tag-none-link" href="/subweb/blog/tags/%E9%94%99%E9%A2%98%E6%9C%AC/" rel="tag">错题本</a>
+                </div>
+                <div class="pull-date">
+                    <time datetime="2024-04-03T04:51:31.303Z" itemprop="dateModified">最后编辑：2024-04-03</time>
+                </div>
+            </div>
+        </footer>
+    </div>
+    
+        <nav class="navigation post-navigation clearfix" role="navigation">
+            
+            <div class="nav-previous clearfix">
+                <a title=" 【错题本】考研-2024-计组错题本" href="/subweb/blog/2023/12/23/0014.计算机组成错题本/">&lt; 上一篇</a>
+            </div>
+            
+            
+            <div class="nav-next clearfix">
+                <a title=" 【错题本】考研-2024-计算机网络错题本" href="/subweb/blog/2023/12/23/0016.计算机网络错题本/">下一篇 &gt;</a>
+            </div>
+            
+        </nav>
+    
+    
+</article>
+
+        
+
+            </section>
+
+        
+
+                
+            
+
+<section id="kratos-widget-area" class="col-md-4 hidden-xs hidden-sm">
+    <!-- 文章和页面根据splitter来分割，没有的话就从头开始设置为sticky -->
+    
+    
+                <aside id="krw-about" class="widget widget-kratos-about clearfix">
+    <div class="photo-background"></div>
+    <div class="photo-wrapper clearfix">
+        <div class="photo-wrapper-tip text-center">
+            <img class="about-photo" src="/subweb/blog/images/avatar.webp" loading="lazy" decoding="auto" />
+        </div>
+    </div>
+    <div class="textwidget">
+        <p class="text-center">爆脖大大Zz</p>
+    </div>
+    <div class="site-meta">
+        <a class="meta-item" href="/subweb/blog/archives/">
+            <span class="title">
+                文章
+            </span>
+            <span class="count">
+                16
+            </span>
+        </a>
+        <a class="meta-item" href="/subweb/blog/categories/">
+            <span class="title">
+                分类
+            </span>
+            <span class="count">
+                3
+            </span>
+        </a>
+        <a class="meta-item" href="/subweb/blog/tags/">
+            <span class="title">
+                标签
+            </span>
+            <span class="count">
+                33
+            </span>
+        </a>
+    </div>
+</aside>
+            
+                    <div class="sticky-area">
+                
+                    <aside id="krw-toc" class="widget widget-kratos-toc clearfix toc-div-class" >
+    <div class="photo-background"></div>
+    <h4 class="widget-title no-after">
+        <i class="fa fa-compass"></i>
+        文章目录
+        <span class="toc-progress-bar" role="progressbar" aria-label="阅读进度："></span>
+    </h4>
+    <div class="textwidget">
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E9%94%99%E9%A2%98%E6%9C%AC"><span class="toc-text">操作系统错题本</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%8E%8B%E9%81%93%E8%80%83%E7%A0%94-2024-%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E8%80%83%E7%A0%94%E5%A4%8D%E4%B9%A0%E6%8C%87%E5%AF%BC"><span class="toc-text">王道考研-2024-操作系统考研复习指导</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E7%AB%A0-%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%BF%B0"><span class="toc-text">第一章 计算机系统概述</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#p005-1-1-4"><span class="toc-text">p005-1.1.4</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#p011-1-2-7"><span class="toc-text">p011-1.2.7</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#p018-1-3-4"><span class="toc-text">p018-1.3.4</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#p030-1-6-2"><span class="toc-text">p030-1.6.2</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E4%BA%8C%E7%AB%A0-%E8%BF%9B%E7%A8%8B%E4%B8%8E%E7%BA%BF%E7%A8%8B"><span class="toc-text">第二章 进程与线程</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#p046-2-1-8"><span class="toc-text">p046-2.1.8</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#p069-2-2-7"><span class="toc-text">p069-2.2.7</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#p101-2-3-7"><span class="toc-text">p101-2.3.7</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link"><span class="toc-text">&lt;—-整理未完成—-&gt;</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#-1"><span class="toc-text">&lt;—-后面大题一天写一到二题，优先做真题—-&gt;</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#p142-2-4-6"><span class="toc-text">p142-2.4.6</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#-2"><span class="toc-text">&lt;—-整理未完成—-&gt;</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E4%B8%89%E7%AB%A0-%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86"><span class="toc-text">第三章 内存管理</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#p174-3-1-8"><span class="toc-text">p174-3.1.8</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#-3"><span class="toc-text">&lt;–未总结完，D12需要看视频+大题未做非真题–&gt;</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#p205-3-2-10"><span class="toc-text">p205-3.2.10</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#-4"><span class="toc-text">&lt;——部分题目未完成—–&gt;</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E5%9B%9B%E7%AB%A0-%E6%96%87%E4%BB%B6%E7%AE%A1%E7%90%86"><span class="toc-text">第四章 文件管理</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#p240-4-1-8"><span class="toc-text">p240-4.1.8</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#-5"><span class="toc-text">&lt;——大题未完成—–&gt;</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#p258-4-2-7"><span class="toc-text">p258-4.2.7</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#p273-4-3-7"><span class="toc-text">p273-4.3.7</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E4%BA%94%E7%AB%A0-%E8%BE%93%E5%85%A5-%E8%BE%93%E5%87%BA-I-O-%E7%AE%A1%E7%90%86"><span class="toc-text">第五章 输入&#x2F;输出(I&#x2F;O)管理</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#p282-5-1-6"><span class="toc-text">p282-5.1.6</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#p310-5-3-6"><span class="toc-text">p310-5.3.6</span></a></li></ol></li></ol></li></ol></li></ol>
+    </div>
+</aside>
+                
+                
+  <aside id="krw-categories" class="widget widget-kratos-categories clearfix">
+    <h4 class="widget-title"><i class="fa fa-folder"></i>分类目录</h4>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/subweb/blog/categories/%E5%8A%A8%E6%BC%AB/">动漫</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/subweb/blog/categories/%E5%AD%A6%E4%B9%A0/">学习</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/subweb/blog/categories/%E9%97%AE%E7%AD%94%E7%95%99%E6%A1%A3/">问答留档</a><span class="category-list-count">11</span></li></ul>
+  </aside>
+
+
+            
+                
+  <aside id="krw-tags" class="widget widget-kratos-tags clearfix">
+    <h4 class="widget-title"><i class="fa fa-tags"></i>标签聚合</h4>
+      <div class="tag-clouds">
+        <a href="/subweb/blog/tags/408/" style="font-size: 0.73em;">408</a> <a href="/subweb/blog/tags/C/" style="font-size: 0.6em;">C++</a> <a href="/subweb/blog/tags/GPT/" style="font-size: 0.8em;">GPT</a> <a href="/subweb/blog/tags/IP/" style="font-size: 0.6em;">IP</a> <a href="/subweb/blog/tags/USD/" style="font-size: 0.6em;">USD</a> <a href="/subweb/blog/tags/openMVG/" style="font-size: 0.6em;">openMVG</a> <a href="/subweb/blog/tags/%E4%B8%89%E7%BB%B4%E9%87%8D%E5%BB%BA/" style="font-size: 0.6em;">三维重建</a> <a href="/subweb/blog/tags/%E5%8A%A8%E6%BC%AB/" style="font-size: 0.6em;">动漫</a> <a href="/subweb/blog/tags/%E5%8E%9F%E7%9B%98/" style="font-size: 0.6em;">原盘</a> <a href="/subweb/blog/tags/%E5%9B%BE%E5%BD%A2%E6%8E%A5%E5%8F%A3/" style="font-size: 0.6em;">图形接口</a> <a href="/subweb/blog/tags/%E5%A4%84%E7%90%86%E5%99%A8%E6%9E%B6%E6%9E%84/" style="font-size: 0.6em;">处理器架构</a> <a href="/subweb/blog/tags/%E5%A4%9A%E5%AA%92%E4%BD%93/" style="font-size: 0.6em;">多媒体</a> <a href="/subweb/blog/tags/%E5%AD%A6%E4%B9%A0/" style="font-size: 0.73em;">学习</a> <a href="/subweb/blog/tags/%E5%AE%89%E5%85%A8/" style="font-size: 0.6em;">安全</a> <a href="/subweb/blog/tags/%E5%B7%A5%E4%BD%9C%E4%BB%8B%E7%BB%8D/" style="font-size: 0.6em;">工作介绍</a> <a href="/subweb/blog/tags/%E5%BD%B1%E8%A7%86/" style="font-size: 0.6em;">影视</a> <a href="/subweb/blog/tags/%E6%8C%87%E4%BB%A4%E9%9B%86/" style="font-size: 0.6em;">指令集</a> <a href="/subweb/blog/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" style="font-size: 0.67em;">操作系统</a>
+      </div>
+  </aside>
+
+            
+                
+  <aside id="krw-posts" class="widget widget-kratos-posts">
+  <h4 class="widget-title"><i class="fa fa-file"></i>最新文章</h4>
+  <div class="tab-content">
+      <ul class="list-group">
+        
+        
+          
+          
+            <a class="list-group-item" href="/subweb/blog/2024/04/02/0012.%E5%8A%A8%E6%BC%AB%E5%88%97%E8%A1%A8-%E9%95%BF%E6%9C%9F%E6%9B%B4%E6%96%B0/"><i class="fa  fa-book"></i> 【动漫】动漫列表-长期更新</a>
+            
+          
+        
+          
+          
+            <a class="list-group-item" href="/subweb/blog/2023/12/23/0016.%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E9%94%99%E9%A2%98%E6%9C%AC/"><i class="fa  fa-book"></i> 【错题本】考研-2024-计算机网络错题本</a>
+            
+          
+        
+          
+          
+            <a class="list-group-item" href="/subweb/blog/2023/12/23/0015.%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E9%94%99%E9%A2%98%E6%9C%AC/"><i class="fa  fa-book"></i> 【错题本】考研-2024-操作系统错题本</a>
+            
+          
+        
+          
+          
+            <a class="list-group-item" href="/subweb/blog/2023/12/23/0014.%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E9%94%99%E9%A2%98%E6%9C%AC/"><i class="fa  fa-book"></i> 【错题本】考研-2024-计组错题本</a>
+            
+          
+        
+          
+          
+            <a class="list-group-item" href="/subweb/blog/2023/12/23/0013.%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E9%94%99%E9%A2%98%E6%9C%AC/"><i class="fa  fa-book"></i> 【错题本】考研-2024-数据结构错题本</a>
+            
+          
+        
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+      </ul>
+  </div>
+  </aside>
+
+            
+    </div>
+</section>
+        
+        </div>
+    </div>
+</div>
+<footer>
+    <div id="footer"  class="ap-lrc"  >
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3 footer-list text-center">
+                    <ul class="kratos-social-icons">
+                        <!-- Keep for compatibility -->
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <!-- New links -->
+                        
+                    </ul>
+                    <ul class="kratos-copyright">
+                        <div>
+                            <li>&copy; 2024 爆脖の奇妙生活 版权所有.</li>
+                            <li>本站已运行<span id="span_dt">Loading...</span></li>
+                        </div>
+                        <div>
+                            <li>Theme <a href="https://github.com/Candinya/Kratos-Rebirth" target="_blank">Kratos:Rebirth</a></li>
+                            <li>Site built with&nbsp;<i class="fa fa-heart throb" style="color:#d43f57"></i>&nbsp;by 爆脖大大Zz.</li>
+                        </div>
+                        <div>
+                            <li>Powered by <a href="https://hexo.io" target="_blank" rel="nofollow">Hexo</a></li>
+                            <li>Hosted on <a href="https://github.io" target="_blank">Github Pages</a></li>
+                        </div>
+                        <div>
+                            
+                            
+                        </div>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="kr-tool text-center">
+            <div class="tool">
+                
+                    <div class="box search-box">
+                        <a href="/subweb/blog/search/">
+                            <span class="fa fa-search"></span>
+                        </a>
+                    </div>
+                
+                
+                    <div class="box theme-box" id="darkmode-switch">
+                        <span class="fa fa-adjust"></span>
+                    </div>
+                
+                
+                
+            </div>
+            <div class="box gotop-box">
+                <span class="fa fa-chevron-up"></span>
+            </div>
+        </div>
+    </div>
+</footer>
+</div>
+</div>
+
+        <script defer src="/subweb/blog/vendors/bootstrap@3.3.4/dist/js/bootstrap.min.js"></script>
+<script defer src="/subweb/blog/vendors/nprogress@0.2.0/nprogress.js"></script>
+<script>
+    if (!window.kr) {
+        window.kr = {};
+    }
+    window.kr.notMobile = (!(navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i)));
+    window.kr.siteRoot = "/subweb/blog/";
+</script>
+
+
+    <script async src="/subweb/blog/js/candy.min.js"></script>
+
+
+
+    <script defer src="/subweb/blog/vendors/aplayer@1.10.1/dist/APlayer.min.js"></script>
+    
+    <script defer src="/subweb/blog/vendors/meting@2.0.1/dist/Meting.min.js"></script>
+    <meting-js
+        server="netease"
+        type="playlist"
+        id="9650496682"
+        order="random"
+        fixed="true"
+    >
+    </meting-js>
+
+
+
+    <script defer src="/subweb/blog/vendors/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+
+<script defer src="/subweb/blog/js/kratosr.min.js"></script>
+<script defer src="/subweb/blog/js/pjax.min.js"></script>
+
+    <script defer src="/subweb/blog/vendors/layui-src@2.5.5/dist/layui.all.js"></script>
+
+
+
+<!-- Extra support for third-party plguins  -->
+
+
+    </body>
+</html>
