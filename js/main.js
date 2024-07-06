@@ -118,11 +118,6 @@ $(function () {
             box_shadow: '#37bf4c',
             icon: 'img/douban.png',
         }, {
-            name: '虎扑',
-            link: 'https://www.hupu.com/',
-            box_shadow: '#c01d2f',
-            icon: 'img/hupu.png',
-        }, {
             name: '斗鱼',
             link: 'https://www.douyu.com/',
             box_shadow: '#fe7700',
@@ -137,6 +132,11 @@ $(function () {
             link: 'https://www.xda-developers.com/',
             box_shadow: '#AC6E2F',
             icon: 'img/xda.png',
+        }, {
+            name: '文本加密',
+            link: 'subweb/Invisibletext/index.html',
+            box_shadow: '#c01d2f',
+            icon: 'img/text-encrypt.png',
         }, {
             name: 'XP测试',
             link: 'subweb/xpcheck/index.html',
