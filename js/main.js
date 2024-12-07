@@ -25,6 +25,11 @@ var closealert = storage.closealert;
 var li = $('.sidenav-btn');
 var blockquote = $('.blockquote');
 
+$('.no-click').click(function(){
+    alert('暂时无法使用！！');
+    event.preventDefault();
+})
+
 if (storage.data != undefined) {
     data = data.split(',');
     // console.log('已存在localStorage的数据：' + data); //已存在localStorage的数据
