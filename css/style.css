@@ -300,6 +300,13 @@ blockquote {
     margin: 0!important;
     font-weight: bold;
     color: black;
+
+    border-left: 6px solid #3498db;
+    background: linear-gradient(to right, #c4edfa, #ededed);
+}
+
+blockquote span {
+    color: #3498db;
 }
 
 .menu ul a li {
@@ -319,10 +326,16 @@ blockquote {
     width: 42%;
     transition: 0.3s;
     /*标签延迟0.3s显示*/
+    
+    border: 1px solid #e0e0e0
 }
 
 .sidenav-btn:hover {
-    background-color: lightgray;
+    /* background-color: lightgray; */
+    background-color: #f8f9fa;
+    border-color: #3498db;
+    box-shadow: 0 4px 12px rgba(52, 152, 219, 0.15);
+    transform: translateY(-2px);
 }
 
 .sidenav-btn p {
