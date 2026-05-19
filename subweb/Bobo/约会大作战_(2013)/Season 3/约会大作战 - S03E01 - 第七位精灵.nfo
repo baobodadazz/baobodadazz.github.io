@@ -1,0 +1,192 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<episodedetails>
+  <plot><![CDATA[在绝望和战斗的连锁中，五河士道与救出的精灵们今天也吵吵闹闹地过着充实且和平的日子。但空间震警报将这平凡的日子划上句号。在游乐园废墟中现界的是被称为“魔女”的精灵七罪。有着成熟女性的魅力，也似乎对士道也有好感的样子。正想着难得碰到简单模式的约会，与之前的精灵有着完全不同的个性，面对妩媚且成熟的她赌上人类的存亡以及精灵的命运！五河士道的战争（约会），就此展开第三次的序幕。]]></plot>
+  <outline />
+  <lockdata>true</lockdata>
+  <dateadded>2024-06-29 11:36:11</dateadded>
+  <title>第七位精灵</title>
+  <originaltitle>七番目の精霊</originaltitle>
+  <actor>
+    <name>岛崎信长</name>
+    <role>Shido Itsuka (voice)</role>
+    <type>Actor</type>
+    <tmdbid>1210634</tmdbid>
+  </actor>
+  <actor>
+    <name>井上麻里奈</name>
+    <role>Tohka Yatogami (voice)</role>
+    <type>Actor</type>
+    <tmdbid>90135</tmdbid>
+  </actor>
+  <actor>
+    <name>富㭴美铃</name>
+    <role>Origami Tobiichi (voice)</role>
+    <type>Actor</type>
+    <tmdbid>1316009</tmdbid>
+  </actor>
+  <actor>
+    <name>Ayana Taketatsu</name>
+    <role>Kotori Itsuka (voice)</role>
+    <type>Actor</type>
+    <tmdbid>1072776</tmdbid>
+  </actor>
+  <actor>
+    <name>野水伊织</name>
+    <role>Yoshino (voice)</role>
+    <type>Actor</type>
+    <tmdbid>1254069</tmdbid>
+  </actor>
+  <actor>
+    <name>真田麻美</name>
+    <role>Kurumi Tokisaki (voice)</role>
+    <type>Actor</type>
+    <tmdbid>1241552</tmdbid>
+  </actor>
+  <actor>
+    <name>内田真礼</name>
+    <role>Kaguya Yamai (voice)</role>
+    <type>Actor</type>
+    <tmdbid>1296667</tmdbid>
+  </actor>
+  <actor>
+    <name>布莱德库特·莎拉·惠美</name>
+    <role>Kuzuru Yamai (voice)</role>
+    <type>Actor</type>
+    <tmdbid>1498133</tmdbid>
+  </actor>
+  <actor>
+    <name>茅原实里</name>
+    <role>Miku Iyazoi (voice)</role>
+    <type>Actor</type>
+    <tmdbid>144648</tmdbid>
+  </actor>
+  <actor>
+    <name>远藤绫</name>
+    <role>Reine  Murasame (voice)</role>
+    <type>Actor</type>
+    <tmdbid>223687</tmdbid>
+  </actor>
+  <actor>
+    <name>子安武人</name>
+    <role>Kyōhei Kannazuki (voice)</role>
+    <type>Actor</type>
+    <tmdbid>84508</tmdbid>
+  </actor>
+  <actor>
+    <name>胜杏里</name>
+    <role>Hiroto Tonomachi (voice)</role>
+    <type>Actor</type>
+    <tmdbid>1251007</tmdbid>
+  </actor>
+  <actor>
+    <name>伊藤静</name>
+    <role>Ellen Mira Mathers (Voice)</role>
+    <type>Actor</type>
+    <tmdbid>571993</tmdbid>
+  </actor>
+  <actor>
+    <name>置鲇龙太郎</name>
+    <role>Isaac Ray Pelham Westcott (Voice)</role>
+    <type>Actor</type>
+    <tmdbid>89878</tmdbid>
+  </actor>
+  <actor>
+    <name>真野步</name>
+    <role>Natsumi (Voice)</role>
+    <type>Actor</type>
+    <tmdbid>2210352</tmdbid>
+  </actor>
+  <actor>
+    <name>三石琴乃</name>
+    <role>Narration (Voice)</role>
+    <type>Actor</type>
+    <tmdbid>77931</tmdbid>
+  </actor>
+  <director tmdbid="1408426">元永庆太郎</director>
+  <director tmdbid="1609344">则座诚</director>
+  <writer tmdbid="1335525">白根秀樹</writer>
+  <writer tmdbid="1335524">Kōshi Tachibana</writer>
+  <credits tmdbid="1335525">白根秀樹</credits>
+  <credits tmdbid="1335524">Kōshi Tachibana</credits>
+  <rating>8</rating>
+  <year>2019</year>
+  <sorttitle>第七位精灵</sorttitle>
+  <imdbid>tt9165594</imdbid>
+  <tvdbid>6880004</tvdbid>
+  <tmdbid>1634745</tmdbid>
+  <runtime>24</runtime>
+  <studio>AT-X</studio>
+  <studio>Tokyo MX</studio>
+  <studio>AIC PLUS+</studio>
+  <studio>J.C.STAFF</studio>
+  <studio>Production IMS</studio>
+  <studio>GEEKTOYS</studio>
+  <studio>Nippon Columbia</studio>
+  <studio>KADOKAWA</studio>
+  <studio>KADOKAWA Media House</studio>
+  <studio>GEEK PICTURES</studio>
+  <studio>Docomo Anime Store</studio>
+  <uniqueid type="tmdb">1634745</uniqueid>
+  <uniqueid type="imdb">tt9165594</uniqueid>
+  <uniqueid type="trakt">3137367</uniqueid>
+  <traktid>3137367</traktid>
+  <uniqueid type="tvdb">6880004</uniqueid>
+  <episode>1</episode>
+  <season>3</season>
+  <aired>2019-01-11</aired>
+  <fileinfo>
+    <streamdetails>
+      <video>
+        <codec>hevc</codec>
+        <micodec>hevc</micodec>
+        <bitrate>10661377</bitrate>
+        <width>3840</width>
+        <height>2160</height>
+        <aspect>16:9</aspect>
+        <aspectratio>16:9</aspectratio>
+        <framerate>23.976025</framerate>
+        <scantype>progressive</scantype>
+        <default>False</default>
+        <forced>False</forced>
+        <duration>23</duration>
+        <durationinseconds>1422</durationinseconds>
+      </video>
+      <audio>
+        <codec>flac</codec>
+        <micodec>flac</micodec>
+        <language>jpn</language>
+        <scantype>progressive</scantype>
+        <channels>2</channels>
+        <samplingrate>48000</samplingrate>
+        <default>True</default>
+        <forced>False</forced>
+      </audio>
+      <subtitle>
+        <codec>ass</codec>
+        <micodec>ass</micodec>
+        <scantype>progressive</scantype>
+        <default>True</default>
+        <forced>False</forced>
+      </subtitle>
+    </streamdetails>
+  </fileinfo>
+  <showtitle>约会大作战</showtitle>
+  <ratings>
+    <rating default="false" max="10" name="themoviedb">
+      <value>8.0</value>
+      <votes>1</votes>
+    </rating>
+  </ratings>
+  <userrating>0</userrating>
+  <thumb>https://image.tmdb.org/t/p/original/4IxxowgZxnreT1Lyiiw5a0oPd8e.jpg</thumb>
+  <watched>false</watched>
+  <playcount>0</playcount>
+  <epbookmark />
+  <code />
+  <source>UNKNOWN</source>
+  <original_filename>S03E01.mkv</original_filename>
+  <user_note />
+  <episode_groups>
+    <group episode="1" id="AIRED" name="" season="3" />
+  </episode_groups>
+</episodedetails>

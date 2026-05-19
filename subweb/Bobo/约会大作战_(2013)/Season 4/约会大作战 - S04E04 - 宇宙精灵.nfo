@@ -1,0 +1,170 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<episodedetails>
+  <plot><![CDATA[精灵其实原本都是人类—二亚的一番话牵动了大家的内心，士道迎来了第三个学期，突然从天上落下的陨石将日常生活一瞬间破坏了。始作俑者是漂浮在宇宙空间的新〈精灵〉星宫六喰。]]></plot>
+  <outline />
+  <lockdata>true</lockdata>
+  <dateadded>2024-06-29 11:36:10</dateadded>
+  <title>宇宙精灵</title>
+  <originaltitle>宙の精霊</originaltitle>
+  <actor>
+    <name>岛崎信长</name>
+    <role>Shido Itsuka (voice)</role>
+    <type>Actor</type>
+    <tmdbid>1210634</tmdbid>
+  </actor>
+  <actor>
+    <name>井上麻里奈</name>
+    <role>Tohka Yatogami (voice)</role>
+    <type>Actor</type>
+    <tmdbid>90135</tmdbid>
+  </actor>
+  <actor>
+    <name>富㭴美铃</name>
+    <role>Origami Tobiichi (voice)</role>
+    <type>Actor</type>
+    <tmdbid>1316009</tmdbid>
+  </actor>
+  <actor>
+    <name>Ayana Taketatsu</name>
+    <role>Kotori Itsuka (voice)</role>
+    <type>Actor</type>
+    <tmdbid>1072776</tmdbid>
+  </actor>
+  <actor>
+    <name>野水伊织</name>
+    <role>Yoshino (voice)</role>
+    <type>Actor</type>
+    <tmdbid>1254069</tmdbid>
+  </actor>
+  <actor>
+    <name>真田麻美</name>
+    <role>Kurumi Tokisaki (voice)</role>
+    <type>Actor</type>
+    <tmdbid>1241552</tmdbid>
+  </actor>
+  <actor>
+    <name>内田真礼</name>
+    <role>Kaguya Yamai (voice)</role>
+    <type>Actor</type>
+    <tmdbid>1296667</tmdbid>
+  </actor>
+  <actor>
+    <name>布莱德库特·莎拉·惠美</name>
+    <role>Kuzuru Yamai (voice)</role>
+    <type>Actor</type>
+    <tmdbid>1498133</tmdbid>
+  </actor>
+  <actor>
+    <name>茅原实里</name>
+    <role>Miku Iyazoi (voice)</role>
+    <type>Actor</type>
+    <tmdbid>144648</tmdbid>
+  </actor>
+  <actor>
+    <name>生天目仁美</name>
+    <role>Nia Honjō (voice)</role>
+    <type>Actor</type>
+    <tmdbid>1241562</tmdbid>
+  </actor>
+  <actor>
+    <name>Akari Kageyama</name>
+    <role>Mukuro Hoshimiya (voice)</role>
+    <type>Actor</type>
+    <tmdbid>1788697</tmdbid>
+  </actor>
+  <actor>
+    <name>远藤绫</name>
+    <role>Reine  Murasame (voice)</role>
+    <type>Actor</type>
+    <tmdbid>223687</tmdbid>
+  </actor>
+  <actor>
+    <name>子安武人</name>
+    <role>Kyōhei Kannazuki (voice)</role>
+    <type>Actor</type>
+    <tmdbid>84508</tmdbid>
+  </actor>
+  <director tmdbid="2387640">Koichiro Kuroda</director>
+  <director tmdbid="2816257">Ryuta Imaizumi</director>
+  <writer tmdbid="1257198">志茂文彦</writer>
+  <credits tmdbid="1257198">志茂文彦</credits>
+  <rating>7</rating>
+  <year>2022</year>
+  <sorttitle>宇宙精灵</sorttitle>
+  <tvdbid>9098700</tvdbid>
+  <tmdbid>3629250</tmdbid>
+  <runtime>24</runtime>
+  <studio>AT-X</studio>
+  <studio>Tokyo MX</studio>
+  <studio>AIC PLUS+</studio>
+  <studio>J.C.STAFF</studio>
+  <studio>Production IMS</studio>
+  <studio>GEEKTOYS</studio>
+  <studio>Nippon Columbia</studio>
+  <studio>KADOKAWA</studio>
+  <studio>KADOKAWA Media House</studio>
+  <studio>GEEK PICTURES</studio>
+  <studio>Docomo Anime Store</studio>
+  <uniqueid type="tmdb">3629250</uniqueid>
+  <uniqueid type="trakt">6006898</uniqueid>
+  <traktid>6006898</traktid>
+  <uniqueid type="tvdb">9098700</uniqueid>
+  <episode>4</episode>
+  <season>4</season>
+  <aired>2022-04-29</aired>
+  <fileinfo>
+    <streamdetails>
+      <video>
+        <codec>hevc</codec>
+        <micodec>hevc</micodec>
+        <bitrate>10849684</bitrate>
+        <width>3840</width>
+        <height>2160</height>
+        <aspect>16:9</aspect>
+        <aspectratio>16:9</aspectratio>
+        <framerate>23.976025</framerate>
+        <scantype>progressive</scantype>
+        <default>False</default>
+        <forced>False</forced>
+        <duration>23</duration>
+        <durationinseconds>1421</durationinseconds>
+      </video>
+      <audio>
+        <codec>flac</codec>
+        <micodec>flac</micodec>
+        <language>jpn</language>
+        <scantype>progressive</scantype>
+        <channels>2</channels>
+        <samplingrate>48000</samplingrate>
+        <default>True</default>
+        <forced>False</forced>
+      </audio>
+      <subtitle>
+        <codec>ass</codec>
+        <micodec>ass</micodec>
+        <scantype>progressive</scantype>
+        <default>True</default>
+        <forced>False</forced>
+      </subtitle>
+    </streamdetails>
+  </fileinfo>
+  <showtitle>约会大作战</showtitle>
+  <ratings>
+    <rating default="false" max="10" name="themoviedb">
+      <value>7.0</value>
+      <votes>1</votes>
+    </rating>
+  </ratings>
+  <userrating>0</userrating>
+  <thumb>https://image.tmdb.org/t/p/original/aJtk1EE6gM5RnUuNf0pRk52DGfN.jpg</thumb>
+  <watched>false</watched>
+  <playcount>0</playcount>
+  <epbookmark />
+  <code />
+  <source>UNKNOWN</source>
+  <original_filename>S04E04.mkv</original_filename>
+  <user_note />
+  <episode_groups>
+    <group episode="4" id="AIRED" name="" season="4" />
+  </episode_groups>
+</episodedetails>

@@ -1,0 +1,193 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<episodedetails>
+  <plot><![CDATA[舞台胜负已定，可惜败给了美九，但是，托同伴们奋斗的福，士道等人取得了综合顺位优胜。然而，胜利是短暂的，美九用强硬的手段控制了所有人。另一方面，为了保护士道而在空中孤军奋战的折纸，面临着穷途末路的危机。可以依靠的人只有自己，一切都被绝望所剥夺，只剩下士道，就在此时有个人向士道伸出援手。]]></plot>
+  <outline />
+  <lockdata>true</lockdata>
+  <dateadded>2024-06-29 11:36:11</dateadded>
+  <title>破军歌姫</title>
+  <originaltitle>破軍歌姫（ガブリエル）</originaltitle>
+  <actor>
+    <name>岛崎信长</name>
+    <role>Shido Itsuka (voice)</role>
+    <type>Actor</type>
+    <tmdbid>1210634</tmdbid>
+  </actor>
+  <actor>
+    <name>井上麻里奈</name>
+    <role>Tohka Yatogami (voice)</role>
+    <type>Actor</type>
+    <tmdbid>90135</tmdbid>
+  </actor>
+  <actor>
+    <name>富㭴美铃</name>
+    <role>Origami Tobiichi (voice)</role>
+    <type>Actor</type>
+    <tmdbid>1316009</tmdbid>
+  </actor>
+  <actor>
+    <name>Ayana Taketatsu</name>
+    <role>Kotori Itsuka (voice)</role>
+    <type>Actor</type>
+    <tmdbid>1072776</tmdbid>
+  </actor>
+  <actor>
+    <name>野水伊织</name>
+    <role>Yoshino (voice)</role>
+    <type>Actor</type>
+    <tmdbid>1254069</tmdbid>
+  </actor>
+  <actor>
+    <name>真田麻美</name>
+    <role>Kurumi Tokisaki (voice)</role>
+    <type>Actor</type>
+    <tmdbid>1241552</tmdbid>
+  </actor>
+  <actor>
+    <name>内田真礼</name>
+    <role>Kaguya Yamai (voice)</role>
+    <type>Actor</type>
+    <tmdbid>1296667</tmdbid>
+  </actor>
+  <actor>
+    <name>布莱德库特·莎拉·惠美</name>
+    <role>Kuzuru Yamai (voice)</role>
+    <type>Actor</type>
+    <tmdbid>1498133</tmdbid>
+  </actor>
+  <actor>
+    <name>茅原实里</name>
+    <role>Miku Iyazoi (voice)</role>
+    <type>Actor</type>
+    <tmdbid>144648</tmdbid>
+  </actor>
+  <actor>
+    <name>远藤绫</name>
+    <role>Reine  Murasame (voice)</role>
+    <type>Actor</type>
+    <tmdbid>223687</tmdbid>
+  </actor>
+  <actor>
+    <name>味里</name>
+    <role>Mana Takamiya (voice)</role>
+    <type>Actor</type>
+    <tmdbid>1656810</tmdbid>
+  </actor>
+  <actor>
+    <name>子安武人</name>
+    <role>Kyōhei Kannazuki (voice)</role>
+    <type>Actor</type>
+    <tmdbid>84508</tmdbid>
+  </actor>
+  <actor>
+    <name>佐土原香织</name>
+    <role>Tamae Okamine (voice)</role>
+    <type>Actor</type>
+    <tmdbid>1653051</tmdbid>
+  </actor>
+  <actor>
+    <name>胜杏里</name>
+    <role>Hiroto Tonomachi (voice)</role>
+    <type>Actor</type>
+    <tmdbid>1251007</tmdbid>
+  </actor>
+  <actor>
+    <name>伊藤静</name>
+    <role>Ellen Mira Mathers (Voice)</role>
+    <type>Actor</type>
+    <tmdbid>571993</tmdbid>
+  </actor>
+  <actor>
+    <name>置鲇龙太郎</name>
+    <role>Isaac Ray Pelham Westcott (Voice)</role>
+    <type>Actor</type>
+    <tmdbid>89878</tmdbid>
+  </actor>
+  <director tmdbid="1408426">元永庆太郎</director>
+  <writer tmdbid="1335525">白根秀樹</writer>
+  <writer tmdbid="1335524">Kōshi Tachibana</writer>
+  <writer tmdbid="1618586">田中仁</writer>
+  <credits tmdbid="1335525">白根秀樹</credits>
+  <credits tmdbid="1335524">Kōshi Tachibana</credits>
+  <credits tmdbid="1618586">田中仁</credits>
+  <rating>8.5</rating>
+  <year>2014</year>
+  <sorttitle>破军歌姫</sorttitle>
+  <imdbid>tt4034494</imdbid>
+  <tvdbid>4854240</tvdbid>
+  <tmdbid>991814</tmdbid>
+  <runtime>28</runtime>
+  <studio>AT-X</studio>
+  <studio>Tokyo MX</studio>
+  <studio>AIC PLUS+</studio>
+  <studio>J.C.STAFF</studio>
+  <studio>Production IMS</studio>
+  <studio>GEEKTOYS</studio>
+  <studio>Nippon Columbia</studio>
+  <studio>KADOKAWA</studio>
+  <studio>KADOKAWA Media House</studio>
+  <studio>GEEK PICTURES</studio>
+  <studio>Docomo Anime Store</studio>
+  <uniqueid type="tmdb">991814</uniqueid>
+  <uniqueid type="imdb">tt4034494</uniqueid>
+  <uniqueid type="trakt">1172533</uniqueid>
+  <traktid>1172533</traktid>
+  <uniqueid type="tvdb">4854240</uniqueid>
+  <episode>7</episode>
+  <season>2</season>
+  <aired>2014-05-24</aired>
+  <fileinfo>
+    <streamdetails>
+      <video>
+        <codec>hevc</codec>
+        <micodec>hevc</micodec>
+        <bitrate>10257023</bitrate>
+        <width>3840</width>
+        <height>2160</height>
+        <aspect>16:9</aspect>
+        <aspectratio>16:9</aspectratio>
+        <framerate>23.976025</framerate>
+        <scantype>progressive</scantype>
+        <default>False</default>
+        <forced>False</forced>
+        <duration>28</duration>
+        <durationinseconds>1696</durationinseconds>
+      </video>
+      <audio>
+        <codec>flac</codec>
+        <micodec>flac</micodec>
+        <language>jpn</language>
+        <scantype>progressive</scantype>
+        <channels>2</channels>
+        <samplingrate>48000</samplingrate>
+        <default>True</default>
+        <forced>False</forced>
+      </audio>
+      <subtitle>
+        <codec>ass</codec>
+        <micodec>ass</micodec>
+        <scantype>progressive</scantype>
+        <default>True</default>
+        <forced>False</forced>
+      </subtitle>
+    </streamdetails>
+  </fileinfo>
+  <showtitle>约会大作战</showtitle>
+  <ratings>
+    <rating default="false" max="10" name="themoviedb">
+      <value>8.5</value>
+      <votes>4</votes>
+    </rating>
+  </ratings>
+  <userrating>0</userrating>
+  <thumb>https://artworks.thetvdb.com/banners/episodes/264663/4854240.jpg</thumb>
+  <watched>false</watched>
+  <playcount>0</playcount>
+  <epbookmark />
+  <code />
+  <source>UNKNOWN</source>
+  <original_filename>S02E07.mkv</original_filename>
+  <user_note />
+  <episode_groups>
+    <group episode="7" id="AIRED" name="" season="2" />
+  </episode_groups>
+</episodedetails>

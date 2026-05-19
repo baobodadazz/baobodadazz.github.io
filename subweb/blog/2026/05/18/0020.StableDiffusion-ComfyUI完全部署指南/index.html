@@ -1,0 +1,826 @@
+<!DOCTYPE html>
+<html lang="zh">
+    <head>
+  <!-- 元数据 -->
+  <meta charset="utf-8">
+  
+  
+  <title>【教程】StableDiffusion: ComfyUI完全部署指南-以Linux为例 | 爆脖の奇妙生活</title>
+  
+  <meta name="author" content="爆脖大大Zz" />
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="robots" content="index,follow" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <meta name="format-detection" content="telphone=no, email=no" />
+  
+    <meta name="keywords" content="AI绘画, ComfyUI, StableDiffusion, 教程" />
+  
+  <meta name="description" content="想要尝试StableDiffusion绘画的可以看看，这是在本地（本文以Linux为例）部署ComfyUI的流程。 一、克隆项目项目连接：ComfyUI 到对应项目后，通过下面命令克隆项目，并进入项目文件夹 12git clone https:&#x2F;&#x2F;github.com&#x2F;comfyanonymous&#x2F;ComfyUI.gitcd ComfyUI  二、Conda环境配置当前版本的ComfyUI推荐使用">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【教程】StableDiffusion: ComfyUI完全部署指南-以Linux为例">
+<meta property="og:url" content="https://nav.baobodadazz.top/subweb/blog/2026/05/18/0020.StableDiffusion-ComfyUI%E5%AE%8C%E5%85%A8%E9%83%A8%E7%BD%B2%E6%8C%87%E5%8D%97/index.html">
+<meta property="og:site_name" content="爆脖の奇妙生活">
+<meta property="og:description" content="想要尝试StableDiffusion绘画的可以看看，这是在本地（本文以Linux为例）部署ComfyUI的流程。 一、克隆项目项目连接：ComfyUI 到对应项目后，通过下面命令克隆项目，并进入项目文件夹 12git clone https:&#x2F;&#x2F;github.com&#x2F;comfyanonymous&#x2F;ComfyUI.gitcd ComfyUI  二、Conda环境配置当前版本的ComfyUI推荐使用">
+<meta property="og:locale">
+<meta property="og:image" content="https://nav.baobodadazz.top/subweb/blog/images/posts/StableDiffusion-ComfyUI%E5%AE%8C%E5%85%A8%E9%83%A8%E7%BD%B2%E6%8C%87%E5%8D%97/image-20260518190804384.png">
+<meta property="og:image" content="https://nav.baobodadazz.top/subweb/blog/images/posts/StableDiffusion-ComfyUI%E5%AE%8C%E5%85%A8%E9%83%A8%E7%BD%B2%E6%8C%87%E5%8D%97/image-20260518191140699.png">
+<meta property="og:image" content="https://nav.baobodadazz.top/subweb/blog/images/posts/StableDiffusion-ComfyUI%E5%AE%8C%E5%85%A8%E9%83%A8%E7%BD%B2%E6%8C%87%E5%8D%97/image-20260518195826057.png">
+<meta property="og:image" content="https://nav.baobodadazz.top/subweb/blog/images/posts/StableDiffusion-ComfyUI%E5%AE%8C%E5%85%A8%E9%83%A8%E7%BD%B2%E6%8C%87%E5%8D%97/image-20260518200146883.png">
+<meta property="og:image" content="https://nav.baobodadazz.top/subweb/blog/images/posts/StableDiffusion-ComfyUI%E5%AE%8C%E5%85%A8%E9%83%A8%E7%BD%B2%E6%8C%87%E5%8D%97/image-20260518202035687.png">
+<meta property="og:image" content="https://nav.baobodadazz.top/subweb/blog/images/posts/StableDiffusion-ComfyUI%E5%AE%8C%E5%85%A8%E9%83%A8%E7%BD%B2%E6%8C%87%E5%8D%97/image-20260518202207644.png">
+<meta property="og:image" content="https://nav.baobodadazz.top/subweb/blog/images/posts/StableDiffusion-ComfyUI%E5%AE%8C%E5%85%A8%E9%83%A8%E7%BD%B2%E6%8C%87%E5%8D%97/image-20260518202305652.png">
+<meta property="og:image" content="https://nav.baobodadazz.top/subweb/blog/images/posts/StableDiffusion-ComfyUI%E5%AE%8C%E5%85%A8%E9%83%A8%E7%BD%B2%E6%8C%87%E5%8D%97/image-20260518202601105.png">
+<meta property="og:image" content="https://nav.baobodadazz.top/subweb/blog/images/posts/StableDiffusion-ComfyUI%E5%AE%8C%E5%85%A8%E9%83%A8%E7%BD%B2%E6%8C%87%E5%8D%97/image-20260518202816456.png">
+<meta property="og:image" content="https://nav.baobodadazz.top/subweb/blog/images/posts/StableDiffusion-ComfyUI%E5%AE%8C%E5%85%A8%E9%83%A8%E7%BD%B2%E6%8C%87%E5%8D%97/image-20260518202906400.png">
+<meta property="og:image" content="https://nav.baobodadazz.top/subweb/blog/images/posts/StableDiffusion-ComfyUI%E5%AE%8C%E5%85%A8%E9%83%A8%E7%BD%B2%E6%8C%87%E5%8D%97/image-20260518202942195.png">
+<meta property="og:image" content="https://nav.baobodadazz.top/subweb/blog/images/posts/StableDiffusion-ComfyUI%E5%AE%8C%E5%85%A8%E9%83%A8%E7%BD%B2%E6%8C%87%E5%8D%97/image-20260518203038059.png">
+<meta property="og:image" content="https://nav.baobodadazz.top/subweb/blog/images/posts/StableDiffusion-ComfyUI%E5%AE%8C%E5%85%A8%E9%83%A8%E7%BD%B2%E6%8C%87%E5%8D%97/image-20260518203153921.png">
+<meta property="og:image" content="https://nav.baobodadazz.top/subweb/blog/images/posts/StableDiffusion-ComfyUI%E5%AE%8C%E5%85%A8%E9%83%A8%E7%BD%B2%E6%8C%87%E5%8D%97/image-20260518203212186.png">
+<meta property="og:image" content="https://nav.baobodadazz.top/subweb/blog/images/posts/StableDiffusion-ComfyUI%E5%AE%8C%E5%85%A8%E9%83%A8%E7%BD%B2%E6%8C%87%E5%8D%97/image-20260518203328355.png">
+<meta property="og:image" content="https://nav.baobodadazz.top/subweb/blog/images/posts/StableDiffusion-ComfyUI%E5%AE%8C%E5%85%A8%E9%83%A8%E7%BD%B2%E6%8C%87%E5%8D%97/image-20260518205233008.png">
+<meta property="og:image" content="https://nav.baobodadazz.top/subweb/blog/images/posts/StableDiffusion-ComfyUI%E5%AE%8C%E5%85%A8%E9%83%A8%E7%BD%B2%E6%8C%87%E5%8D%97/image-20260518205833408.png">
+<meta property="og:image" content="https://nav.baobodadazz.top/subweb/blog/images/posts/StableDiffusion-ComfyUI%E5%AE%8C%E5%85%A8%E9%83%A8%E7%BD%B2%E6%8C%87%E5%8D%97/image-20260518210036157.png">
+<meta property="article:published_time" content="2026-05-18T13:07:45.000Z">
+<meta property="article:modified_time" content="2026-05-19T04:37:54.049Z">
+<meta property="article:author" content="爆脖大大Zz">
+<meta property="article:tag" content="教程">
+<meta property="article:tag" content="StableDiffusion">
+<meta property="article:tag" content="ComfyUI">
+<meta property="article:tag" content="AI绘画">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://nav.baobodadazz.top/subweb/blog/images/posts/StableDiffusion-ComfyUI%E5%AE%8C%E5%85%A8%E9%83%A8%E7%BD%B2%E6%8C%87%E5%8D%97/image-20260518190804384.png">
+  
+  <!-- 站点验证相关 -->
+  
+    
+    
+    
+  
+  <!-- 样式表文件 -->
+  <link rel="stylesheet" id="kratos-css" href="/subweb/blog/css/kratosr.min.css" media="all"></script>
+  
+    <link rel="stylesheet" id="darkmode-css" href="/subweb/blog/css/kr-color-dark.min.css" media="(prefers-color-scheme: dark)"></script>
+    <script src="/subweb/blog/js/kr-dark.min.js"></script>
+  
+  
+    <link rel="stylesheet" id="highlight-css" href="/subweb/blog/css/highlight/night-bright.min.css" media="all"></script>
+  
+  <link rel="stylesheet" id="fontawe-css" href="/subweb/blog/vendors/font-awesome@4.7.0/css/font-awesome.min.css" media="all"></script>
+  <link rel="stylesheet" id="nprogress-css" href="/subweb/blog/vendors/nprogress@0.2.0/nprogress.css" media="all"></script>
+  
+  
+    <link rel="stylesheet" href="/subweb/blog/vendors/aplayer@1.10.1/dist/APlayer.min.css"></script>
+  
+  
+    <link rel="stylesheet" href="/subweb/blog/vendors/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css"></script>
+  
+  <!-- 不得不预先加载的一些JS文件 -->
+  <script src="/subweb/blog/vendors/jquery@3.6.0/dist/jquery.min.js"></script>
+  
+    <script src="/subweb/blog/vendors/qrcode_js@1.0.0/qrcode.min.js"></script>
+  
+  
+  <style>
+    
+      .kratos-cover.kratos-cover-2 {
+        background-image: url('/subweb/blog/images/banner.webp');
+      }
+    
+    
+      @media(min-width:768px) {
+        body.custom-background {
+          background-image: url('/subweb/blog/images/bg4.webp');
+        }
+      }
+    
+  </style>
+  
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.1.1"></head>
+
+
+    <body class="custom-background">
+        <div id="kratos-wrapper">
+    <div id="kratos-page">
+        <div id="kratos-header">
+            <header id="kratos-desktop-topnav" class="kratos-topnav">
+                <div class="container">
+                    <div class="nav-header">
+                        <nav id="kratos-menu-wrap">
+                            <ul id="kratos-primary-menu" class="sf-menu">
+                                
+                                    
+                                        <li>
+                                            
+                                                <a href="/subweb/blog/">
+                                            
+                                                
+                                                    <i class="fa fa-home"></i>
+                                                
+                                                首页
+                                            </a>
+                                            
+                                        </li>
+                                    
+                                        <li>
+                                            
+                                                <a href="/subweb/blog/archives/">
+                                            
+                                                
+                                                    <i class="fa fa-file"></i>
+                                                
+                                                档案馆
+                                            </a>
+                                            
+                                        </li>
+                                    
+                                        <li>
+                                            
+                                                <a href="/subweb/blog/friends/">
+                                            
+                                                
+                                                    <i class="fa fa-paw"></i>
+                                                
+                                                好伙伴
+                                            </a>
+                                            
+                                        </li>
+                                    
+                                        <li>
+                                            
+                                                <a>
+                                            
+                                                
+                                                    <i class="fa fa-link"></i>
+                                                
+                                                链接
+                                            </a>
+                                            
+                                                <ul class="sub-menu">
+                                                    
+                                                        <li>
+                                                            <a target="_blank" rel="noopener" href="https://space.bilibili.com/40750119">
+                                                                
+                                                                bilibili
+                                                            </a>
+                                                        </li>
+                                                    
+                                                        <li>
+                                                            <a target="_blank" rel="noopener" href="https://github.com/baobodadazz">
+                                                                
+                                                                github
+                                                            </a>
+                                                        </li>
+                                                    
+                                                        <li>
+                                                            <a href="https://nav.baobodadazz.top/index.html">
+                                                                
+                                                                上网导航
+                                                            </a>
+                                                        </li>
+                                                    
+                                                </ul>
+                                            
+                                        </li>
+                                    
+                                
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </header>
+            <header id="kratos-mobile-topnav" class="kratos-topnav">
+                <div class="container">
+                    <div class="color-logo"><a href="/subweb/blog/">爆脖の奇妙生活</a></div>
+                    <div class="nav-toggle">
+                        <a class="kratos-nav-toggle js-kratos-nav-toggle">
+                            <i></i>
+                        </a>
+                    </div>
+                </div>
+            </header>
+        </div>
+        <div class="kratos-start kratos-hero-2">
+            <!-- <div class="kratos-overlay"></div> -->
+            <div class="kratos-cover kratos-cover-2 text-center">
+                <div class="desc desc2 animate-box">
+                    <a href="/subweb/blog/">
+                        <h2>爆脖の奇妙生活</h2> <br />
+                        <span>さあ，私たちのデートを始めましょう</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div id="kratos-blog-post">
+            <div class="container">
+                <div id="main" class="row">
+                    
+
+        
+
+            <section class="col-md-8">
+
+        
+
+            <article itemscope itemtype="https://schema.org/Article">
+    
+    <link itemprop="mainEntityOfPage" href="https://nav.baobodadazz.top/subweb/blog/2026/05/18/0020.StableDiffusion-ComfyUI%E5%AE%8C%E5%85%A8%E9%83%A8%E7%BD%B2%E6%8C%87%E5%8D%97/">
+    <div class="kratos-hentry kratos-post-inner clearfix">
+        <header class="kratos-entry-header">
+            
+                <h1 class="kratos-entry-title text-center" itemprop="name headline">【教程】StableDiffusion: ComfyUI完全部署指南-以Linux为例</h1>
+            
+            
+            <ul class="kratos-post-meta text-center">
+                <li><time datetime="2026-05-18T13:07:45.000Z" itemprop="datePublished"><i class="fa fa-calendar"></i> 2026-05-18</time></li>
+                <li itemprop="author" itemscope itemtype="https://schema.org/Person">
+                    <i class="fa fa-user"></i> 作者 <span itemprop="name">爆脖大大Zz</span>
+                </li>
+                
+                    <li>
+                        <i class="fa fa-edit"></i> 
+                        
+                        
+                            ~6.34K
+                        
+                        字
+                    </li>
+                
+                
+            </ul>
+        </header>
+        <div class="kratos-post-content">
+            
+            <div id="expire-alert" class="alert alert-warning hidden" role="alert">
+                <div class="icon"><i class="fa fa-warning"></i></div>
+                <div class="text"><p>本文最后编辑于 <time datetime="1779165474049"></time> 前，其中的内容可能需要更新。</p></div>
+            </div>
+            
+            
+            
+                <div class="kratos-post-inner-toc toc-div-class" >
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E5%85%8B%E9%9A%86%E9%A1%B9%E7%9B%AE"><span class="toc-number">1.</span> <span class="toc-text">一、克隆项目</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BA%8C%E3%80%81Conda%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE"><span class="toc-number">2.</span> <span class="toc-text">二、Conda环境配置</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA-Python-%E7%8E%AF%E5%A2%83"><span class="toc-number">2.1.</span> <span class="toc-text">创建 Python 环境</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%85-PyTorch"><span class="toc-number">2.2.</span> <span class="toc-text">安装 PyTorch</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%85-ComfyUI-%E4%BE%9D%E8%B5%96"><span class="toc-number">2.3.</span> <span class="toc-text">安装 ComfyUI 依赖</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%85ComfyUI-Manager"><span class="toc-number">2.4.</span> <span class="toc-text">安装ComfyUI Manager</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%B0%E7%89%88ComfyUI%EF%BC%88%E8%87%AA%E5%B8%A6-Manager%EF%BC%8C%E9%9C%80%E6%89%8B%E5%8A%A8%E5%90%AF%E7%94%A8%EF%BC%89"><span class="toc-number">2.4.1.</span> <span class="toc-text">新版ComfyUI（自带 Manager，需手动启用）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B8%B8%E8%A7%84%E6%89%8B%E5%8A%A8%E5%AE%89%E8%A3%85%EF%BC%88%E9%80%82%E7%94%A8%E4%BA%8E%E5%A4%A7%E5%A4%9A%E6%95%B0%E7%89%88%E6%9C%AC%EF%BC%89"><span class="toc-number">2.4.2.</span> <span class="toc-text">常规手动安装（适用于大多数版本）</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%89%E3%80%81%E4%B8%8B%E8%BD%BDSDXL%E6%A8%A1%E5%9E%8B"><span class="toc-number">3.</span> <span class="toc-text">三、下载SDXL模型</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%9B%9B%E3%80%81%E8%BF%90%E8%A1%8CComfyUI"><span class="toc-number">4.</span> <span class="toc-text">四、运行ComfyUI</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8E%A8%E8%8D%90%E5%90%AF%E5%8A%A8%E5%91%BD%E4%BB%A4"><span class="toc-number">4.1.</span> <span class="toc-text">推荐启动命令</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BA%94%E3%80%81%E6%B5%8B%E8%AF%95%E5%87%BA%E5%9B%BE"><span class="toc-number">5.</span> <span class="toc-text">五、测试出图</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%88%E8%B7%91%E9%80%9Abase%E6%A8%A1%E5%9E%8B%EF%BC%8C%E4%B8%8D%E7%94%A8%E7%9D%80%E6%80%A5%E5%8A%A0Refiner"><span class="toc-number">5.1.</span> <span class="toc-text">先跑通base模型，不用着急加Refiner</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E6%B7%BB%E5%8A%A0Load-Checkpoint%EF%BC%88Checkpoint%E5%8A%A0%E8%BD%BD%E5%99%A8%EF%BC%89%E8%8A%82%E7%82%B9"><span class="toc-number">5.1.1.</span> <span class="toc-text">1.添加Load Checkpoint（Checkpoint加载器）节点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E6%B7%BB%E5%8A%A0CLIP-encode%EF%BC%88CLIP%E6%96%87%E6%9C%AC%E7%BC%96%E7%A0%81%EF%BC%89%E8%8A%82%E7%82%B9"><span class="toc-number">5.1.2.</span> <span class="toc-text">2.添加CLIP encode（CLIP文本编码）节点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E6%B7%BB%E5%8A%A0Empty-Latent-Image%EF%BC%88%E7%A9%BALatent%E5%9B%BE%E5%83%8F%EF%BC%89"><span class="toc-number">5.1.3.</span> <span class="toc-text">3.添加Empty Latent Image（空Latent图像）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E6%B7%BB%E5%8A%A0KSampler%EF%BC%88K%E9%87%87%E6%A0%B7%E5%99%A8%EF%BC%89"><span class="toc-number">5.1.4.</span> <span class="toc-text">4.添加KSampler（K采样器）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-%E6%B7%BB%E5%8A%A0VAE-Decode"><span class="toc-number">5.1.5.</span> <span class="toc-text">5.添加VAE Decode</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-%E8%BF%90%E8%A1%8C"><span class="toc-number">5.1.6.</span> <span class="toc-text">6.运行</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8A%A0%E4%B8%8ARefiner"><span class="toc-number">5.2.</span> <span class="toc-text">加上Refiner</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E4%BF%AE%E6%94%B9%E5%9F%BA%E7%A1%80K-Samper%EF%BC%88K%E9%87%87%E6%A0%B7%E5%99%A8%EF%BC%89"><span class="toc-number">5.2.1.</span> <span class="toc-text">1.修改基础K Samper（K采样器）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E6%B7%BB%E5%8A%A0%E4%B8%80%E4%B8%AALoad-Checkpoint%EF%BC%88Checkpoint%E5%8A%A0%E8%BD%BD%E5%99%A8%EF%BC%89"><span class="toc-number">5.2.2.</span> <span class="toc-text">2.添加一个Load Checkpoint（Checkpoint加载器）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E7%BB%99refiner%E6%B7%BB%E5%8A%A0%E4%B8%A4%E4%B8%AACLIP-Text-Encode%EF%BC%88CLIP%E6%96%87%E6%9C%AC%E7%BC%96%E7%A0%81%EF%BC%89"><span class="toc-number">5.2.3.</span> <span class="toc-text">3.给refiner添加两个CLIP Text Encode（CLIP文本编码）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E6%B7%BB%E5%8A%A0%E7%AC%AC%E4%BA%8C%E4%B8%AAK-Sampler%EF%BC%88K%E9%87%87%E6%A0%B7%E5%99%A8%EF%BC%89"><span class="toc-number">5.2.4.</span> <span class="toc-text">4.添加第二个K Sampler（K采样器）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-%E8%BF%9E%E6%8E%A5refiner-K-Sampler"><span class="toc-number">5.2.5.</span> <span class="toc-text">5.连接refiner K Sampler</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-%E4%BF%AE%E6%94%B9VAE%E8%BE%93%E5%87%BA"><span class="toc-number">5.2.6.</span> <span class="toc-text">6.修改VAE输出</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-%E8%BF%90%E8%A1%8C"><span class="toc-number">5.2.7.</span> <span class="toc-text">7.运行</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%85%AD%E3%80%81%E4%B8%8B%E4%B8%80%E6%AD%A5%E5%AD%A6%E4%B9%A0%E9%A1%BA%E5%BA%8F"><span class="toc-number">6.</span> <span class="toc-text">六、下一步学习顺序</span></a></li></ol>
+                </div>
+            
+            <hr />
+            <div itemprop="articleBody"><p>想要尝试StableDiffusion绘画的可以看看，这是在本地（本文以<strong>Linux</strong>为例）部署ComfyUI的流程。</p>
+<h1 id="一、克隆项目"><a href="#一、克隆项目" class="headerlink" title="一、克隆项目"></a>一、克隆项目</h1><p>项目连接：<a target="_blank" rel="noopener" href="https://github.com/Comfy-Org/ComfyUI">ComfyUI</a></p>
+<p>到对应项目后，通过下面命令克隆项目，并进入项目文件夹</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/comfyanonymous/ComfyUI.git</span><br><span class="line"><span class="built_in">cd</span> ComfyUI</span><br></pre></td></tr></table></figure>
+
+<h1 id="二、Conda环境配置"><a href="#二、Conda环境配置" class="headerlink" title="二、Conda环境配置"></a>二、Conda环境配置</h1><p>当前版本的ComfyUI推荐使用python3.13环境，因此这里使用的是3.13，可以根据comfyUI的项目网站，找到推荐的python版本。</p>
+<h2 id="创建-Python-环境"><a href="#创建-Python-环境" class="headerlink" title="创建 Python 环境"></a>创建 Python 环境</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">conda create -n comfyui python=3.13 -y</span><br><span class="line">conda activate comfyui</span><br><span class="line"></span><br><span class="line">python --version</span><br><span class="line">pip install --upgrade pip wheel setuptools</span><br></pre></td></tr></table></figure>
+
+<p>这里使用 <code>python --version</code> 确认 python 版本。</p>
+<h2 id="安装-PyTorch"><a href="#安装-PyTorch" class="headerlink" title="安装 PyTorch"></a>安装 PyTorch</h2><p>这里安装 cuda 13.0 pip版本，可以根据实际情况安装其它版本的pytorch。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install torch torchvision torchaudio --extra-index-url https://download.pytorch.org/whl/cu130</span><br></pre></td></tr></table></figure>
+
+<p>测试：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">python - &lt;&lt;<span class="string">&#x27;PY&#x27;</span></span><br><span class="line">import torch</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;Torch:&quot;</span>, torch.__version__)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;CUDA available:&quot;</span>, torch.cuda.is_available())</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;CUDA:&quot;</span>, torch.version.cuda)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;GPU:&quot;</span>, torch.cuda.get_device_name(0) <span class="keyword">if</span> torch.cuda.is_available() <span class="keyword">else</span> <span class="string">&quot;None&quot;</span>)</span><br><span class="line">PY</span><br></pre></td></tr></table></figure>
+
+<p>看到下面这行说明安装成功，并可以正常使用 cuda 加速</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">CUDA available: True</span><br></pre></td></tr></table></figure>
+
+<p>下面是我安装到这一步的截图：</p>
+<p><img src="/subweb/blog/images/posts/StableDiffusion-ComfyUI%E5%AE%8C%E5%85%A8%E9%83%A8%E7%BD%B2%E6%8C%87%E5%8D%97/image-20260518190804384.png" alt="image-20260518190804384"></p>
+<h2 id="安装-ComfyUI-依赖"><a href="#安装-ComfyUI-依赖" class="headerlink" title="安装 ComfyUI 依赖"></a>安装 ComfyUI 依赖</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python -m pip install -r requirements.txt</span><br></pre></td></tr></table></figure>
+
+<p>等待依赖安装后即可尝试运行，输入以下命令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python main.py</span><br></pre></td></tr></table></figure>
+
+<p>运行成功截图如下，可以看到：</p>
+<p><img src="/subweb/blog/images/posts/StableDiffusion-ComfyUI%E5%AE%8C%E5%85%A8%E9%83%A8%E7%BD%B2%E6%8C%87%E5%8D%97/image-20260518191140699.png" alt="image-20260518191140699"></p>
+<p>看到这个就说明，ComfyUI已经启动了，如果使用ssh连接远程服务器，可以在vscode等IDE看到出现了一个端口，选择在浏览器打开即可使用ssh隧道打开对应网页。如果没有使用vscode，仅使用ssh命令行，可以用<code>ip:8188</code>的方式连接。</p>
+<p>使用<code>Ctrl+C</code>结束，下面安装ComfyUI Manager</p>
+<h2 id="安装ComfyUI-Manager"><a href="#安装ComfyUI-Manager" class="headerlink" title="安装ComfyUI Manager"></a>安装ComfyUI Manager</h2><p>ComfyUI-Manager 是 ComfyUI 生态中<strong>最核心、最推荐的必备插件</strong>。它相当于一个“应用商店”和“环境管家”，能让你通过图形化界面一键安装、更新和管理成百上千的自定义节点（Custom Nodes），彻底告别繁琐的手动 Git 克隆和依赖修复。</p>
+<p>由于近期 ComfyUI 官方进行了架构调整，目前的安装方式主要分为以下几种情况：</p>
+<h3 id="新版ComfyUI（自带-Manager，需手动启用）"><a href="#新版ComfyUI（自带-Manager，需手动启用）" class="headerlink" title="新版ComfyUI（自带 Manager，需手动启用）"></a>新版ComfyUI（自带 Manager，需手动启用）</h3><p>如果你使用的是最新版本的 ComfyUI，Manager 其实已经内置在核心代码中了，只是默认没有开启。可以通过以下步骤直接启用它：</p>
+<p><strong>安装管理器依赖：</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip -m install -r manager_requirements.txt</span><br></pre></td></tr></table></figure>
+
+<p><strong>启动时添加参数：</strong></p>
+<p>在启动 ComfyUI 时，需要在运行命令后加上 <code>--enable-manager</code> 参数。例如：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python main.py --enable-manager</span><br></pre></td></tr></table></figure>
+
+<h3 id="常规手动安装（适用于大多数版本）"><a href="#常规手动安装（适用于大多数版本）" class="headerlink" title="常规手动安装（适用于大多数版本）"></a>常规手动安装（适用于大多数版本）</h3><p>如果你的版本较旧，或者习惯传统的安装方式，可以直接将其作为一个普通的自定义节点来安装：</p>
+<ol>
+<li>打开你的 ComfyUI 文件夹，进入 <code>ComfyUI\custom_nodes</code> 目录。</li>
+<li>在此处打开终端（CMD 或 PowerShell）。</li>
+<li>执行 Git 克隆命令（确保电脑已安装 Git）：<br><code>git clone https://github.com/ltdrdata/ComfyUI-Manager comfyui-manager</code></li>
+<li>重启 ComfyUI，界面上方就会出现 <strong>Manager</strong> 按钮</li>
+</ol>
+<h1 id="三、下载SDXL模型"><a href="#三、下载SDXL模型" class="headerlink" title="三、下载SDXL模型"></a>三、下载SDXL模型</h1><p>这里使用hugging face下载SD模型，国内网络环境原因，直接连接hugging face需要有学术网络访问或魔法，这里我使用了学校提供的学术网络访问下载的模型。如果你不在大学做学生或老师，也不再霍格沃兹修读魔法，可以选择hf-mirror下载，这是hugging face的社区镜像，十分完善，速度也很快。也可以访问阿里巴巴达摩院下的魔搭社区，里面也有需要下载的模型。</p>
+<p>安装 Hugging Face CLI：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install -U huggingface_hub</span><br></pre></td></tr></table></figure>
+
+<p>有些模型需要登录：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hf auth login</span><br></pre></td></tr></table></figure>
+
+<p>创建模型目录：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> -p models/checkpoints models/vae models/loras models/controlnet models/upscale_models</span><br></pre></td></tr></table></figure>
+
+<p>下载 SDXL Base：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hf download stabilityai/stable-diffusion-xl-base-1.0 \</span><br><span class="line">  sd_xl_base_1.0.safetensors \</span><br><span class="line">  --local-dir models/checkpoints</span><br></pre></td></tr></table></figure>
+
+<p>可选，下载 SDXL Refiner：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hf download stabilityai/stable-diffusion-xl-refiner-1.0 \</span><br><span class="line">  sd_xl_refiner_1.0.safetensors \</span><br><span class="line">  --local-dir models/checkpoints</span><br></pre></td></tr></table></figure>
+
+<p>可选，下载 SDXL VAE：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hf download stabilityai/sdxl-vae \</span><br><span class="line">  sdxl_vae.safetensors \</span><br><span class="line">  --local-dir models/vae</span><br></pre></td></tr></table></figure>
+
+<p>目录大概是：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;你的项目&gt;/ComfyUI/models/</span><br><span class="line">├── checkpoints/</span><br><span class="line">│   ├── sd_xl_base_1.0.safetensors</span><br><span class="line">│   └── sd_xl_refiner_1.0.safetensors</span><br><span class="line">├── vae/</span><br><span class="line">│   └── sdxl_vae.safetensors</span><br><span class="line">├── loras/</span><br><span class="line">├── controlnet/</span><br><span class="line">└── upscale_models/</span><br></pre></td></tr></table></figure>
+
+<p>ComfyUI 官方文档说明模型需要放进 <code>models</code> 下对应类型目录，例如 checkpoint、VAE、LoRA 等。</p>
+<hr>
+<p><strong>下面为你详细拆解这三者的区别和作用：</strong></p>
+<p><strong>stable-diffusion-xl-base-1.0（基础模型）</strong></p>
+<ul>
+<li><strong>角色定位</strong>：<strong>“总设计师”与“构图者”</strong>。</li>
+<li><strong>核心作用</strong>：这是 SDXL 的核心主模型。它的主要任务是根据你的提示词（Prompt）来理解语义，并负责生成图片的整体构图、色彩基调以及大致的画面内容。</li>
+<li><strong>日常使用</strong>：如果你只想下载一个文件就跑 SDXL，那就是它。单独使用 Base 模型已经能生成质量很高的图片了。</li>
+</ul>
+<p>**stable-diffusion-xl-refiner-1.0（精修模型）</p>
+<ul>
+<li><strong>角色定位</strong>：<strong>“后期修图师”与“细节狂魔”</strong>。</li>
+<li><strong>核心作用</strong>：它是一个专门用来“锦上添花”的模型。Refiner 不能凭空从文字生成图片，它必须接收 Base 模型生成的半成品（潜空间特征），然后对画面进行二次加工。它能极大地提升图片的高频细节（比如皮肤纹理、发丝、布料褶皱），让光影过渡更自然，画质更逼真。</li>
+<li><strong>日常使用</strong>：在 ComfyUI 中，通常会将它串联在 Base 模型之后。如果你觉得 Base 模型直出的图有点“肉”或者不够锐利，加上 Refiner 效果会立竿见影。</li>
+</ul>
+<p><strong>sdxl-vae（变分自编码器）</strong></p>
+<ul>
+<li><strong>角色定位</strong>：<strong>“最终翻译官”与“调色盘”</strong>。</li>
+<li><strong>核心作用</strong>：AI 内部运算时使用的是人类看不懂的压缩数据（潜空间 Latent）。VAE 的作用就是充当“解码器”，把这些 AI 的内部数据<strong>翻译成我们肉眼可见的最终像素图片</strong>。</li>
+<li><strong>为什么需要它</strong>：SDXL 专用的 VAE 经过了特殊优化，能让生成的图片色彩更鲜艳饱满，对比度更好，且能有效避免画面出现灰蒙蒙、过曝或奇怪的色块伪影。如果不用它（或者用错了老版本的 VAE），生成的图片往往会严重偏色。</li>
+</ul>
+<p>** 总结与类比**</p>
+<p>为了让你更直观地理解，我们可以把生成一张图的过程比作<strong>拍电影</strong>：</p>
+<ol>
+<li><strong>Base (基础模型)</strong> 是<strong>导演兼摄影师</strong>，负责搭好场景、找好角度，拍出电影的初版样片。</li>
+<li><strong>Refiner (精修模型)</strong> 是<strong>后期特效团队</strong>，给样片做高清修复、加细节、调光影，让画面达到影院级质感。</li>
+<li><strong>VAE (解码器)</strong> 是<strong>放映机&#x2F;显示器</strong>，负责把处理好的数字信号完美地呈现在观众眼前，保证颜色不失真。</li>
+</ol>
+<p>注意：上述区别内容由AI生成</p>
+<hr>
+<h1 id="四、运行ComfyUI"><a href="#四、运行ComfyUI" class="headerlink" title="四、运行ComfyUI"></a>四、运行ComfyUI</h1><h2 id="推荐启动命令"><a href="#推荐启动命令" class="headerlink" title="推荐启动命令"></a>推荐启动命令</h2><p><strong>显存8G左右</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">python main.py \</span><br><span class="line">  --listen 127.0.0.1 \</span><br><span class="line">  --port 8188 \</span><br><span class="line">  --lowvram \</span><br><span class="line">  --preview-method none \</span><br><span class="line">  --reserve-vram 1 \</span><br><span class="line">  --enable-manager</span><br></pre></td></tr></table></figure>
+
+<p><strong>显存12G左右</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">python main.py \</span><br><span class="line">  --listen 127.0.0.1 \</span><br><span class="line">  --port 8188 \</span><br><span class="line">  --normalvram \</span><br><span class="line">  --preview-method auto \</span><br><span class="line">  --reserve-vram 1 \</span><br><span class="line">  --enable-manager</span><br></pre></td></tr></table></figure>
+
+<p><strong>显存大于16G</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">python main.py \</span><br><span class="line">  --listen 127.0.0.1 \</span><br><span class="line">  --port 8188 \</span><br><span class="line">  --highvram \</span><br><span class="line">  --preview-method auto \</span><br><span class="line">  --reserve-vram 1 \</span><br><span class="line">  --enable-manager</span><br></pre></td></tr></table></figure>
+
+<p>如果只是你自己在服务器本机使用，也可以直接：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python main.py --enable-manager</span><br></pre></td></tr></table></figure>
+
+<h1 id="五、测试出图"><a href="#五、测试出图" class="headerlink" title="五、测试出图"></a>五、测试出图</h1><p>运行成功后浏览器如图所示：</p>
+<p><img src="/subweb/blog/images/posts/StableDiffusion-ComfyUI%E5%AE%8C%E5%85%A8%E9%83%A8%E7%BD%B2%E6%8C%87%E5%8D%97/image-20260518195826057.png" alt="image-20260518195826057"></p>
+<h2 id="先跑通base模型，不用着急加Refiner"><a href="#先跑通base模型，不用着急加Refiner" class="headerlink" title="先跑通base模型，不用着急加Refiner"></a>先跑通base模型，不用着急加Refiner</h2><h3 id="1-添加Load-Checkpoint（Checkpoint加载器）节点"><a href="#1-添加Load-Checkpoint（Checkpoint加载器）节点" class="headerlink" title="1.添加Load Checkpoint（Checkpoint加载器）节点"></a>1.添加Load Checkpoint（Checkpoint加载器）节点</h3><p>找到下载的模型点击可以在图形中看到：</p>
+<p><img src="/subweb/blog/images/posts/StableDiffusion-ComfyUI%E5%AE%8C%E5%85%A8%E9%83%A8%E7%BD%B2%E6%8C%87%E5%8D%97/image-20260518200146883.png" alt="image-20260518200146883"></p>
+<h3 id="2-添加CLIP-encode（CLIP文本编码）节点"><a href="#2-添加CLIP-encode（CLIP文本编码）节点" class="headerlink" title="2.添加CLIP encode（CLIP文本编码）节点"></a>2.添加CLIP encode（CLIP文本编码）节点</h3><p>双击空白处，添加两个<code>CLIP文本编码</code>节点</p>
+<p><img src="/subweb/blog/images/posts/StableDiffusion-ComfyUI%E5%AE%8C%E5%85%A8%E9%83%A8%E7%BD%B2%E6%8C%87%E5%8D%97/image-20260518202035687.png" alt="image-20260518202035687"></p>
+<p>一个作为正向提示词，写：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">a cinematic photo of an orange cat wearing an astronaut suit, standing on Mars, Earth in the background, soft lighting, highly detailed, realistic</span><br></pre></td></tr></table></figure>
+
+<p>另一个作为反向提示词，写：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">low quality, blurry, bad anatomy, distorted hands, extra fingers, watermark, text, logo</span><br></pre></td></tr></table></figure>
+
+<p>然后连接：</p>
+<p><img src="/subweb/blog/images/posts/StableDiffusion-ComfyUI%E5%AE%8C%E5%85%A8%E9%83%A8%E7%BD%B2%E6%8C%87%E5%8D%97/image-20260518202207644.png" alt="image-20260518202207644"></p>
+<h3 id="3-添加Empty-Latent-Image（空Latent图像）"><a href="#3-添加Empty-Latent-Image（空Latent图像）" class="headerlink" title="3.添加Empty Latent Image（空Latent图像）"></a>3.添加Empty Latent Image（空Latent图像）</h3><p>添加<code>空latent图像</code></p>
+<p><img src="/subweb/blog/images/posts/StableDiffusion-ComfyUI%E5%AE%8C%E5%85%A8%E9%83%A8%E7%BD%B2%E6%8C%87%E5%8D%97/image-20260518202305652.png" alt="image-20260518202305652"></p>
+<p>参数设置：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">width: 1024</span><br><span class="line">height: 1024</span><br><span class="line">batch_size: 1</span><br></pre></td></tr></table></figure>
+
+<p><code>Empty Latent Image</code> 可以理解成设置画布尺寸，官方基础文生图教程也是用它来决定最终生成图像尺寸。</p>
+<h3 id="4-添加KSampler（K采样器）"><a href="#4-添加KSampler（K采样器）" class="headerlink" title="4.添加KSampler（K采样器）"></a>4.添加KSampler（K采样器）</h3><p>K采样器是调用模型的重要节点。</p>
+<p><img src="/subweb/blog/images/posts/StableDiffusion-ComfyUI%E5%AE%8C%E5%85%A8%E9%83%A8%E7%BD%B2%E6%8C%87%E5%8D%97/image-20260518202601105.png" alt="image-20260518202601105"></p>
+<p>参数先这样：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">seed: 随便，或者点 randomize</span><br><span class="line">steps: 25</span><br><span class="line">cfg: 6</span><br><span class="line">sampler_name: dpmpp_2m</span><br><span class="line">scheduler: karras</span><br><span class="line">denoise: 1.00</span><br></pre></td></tr></table></figure>
+
+<p>参数中，<code>cfg</code>表示，模型有多听话，sampler_name是制定采样器，该参数决定了是哪个“画师”来画这幅画。选dpmpp_2m效果旧不错。</p>
+<p>然后连接：</p>
+<p><img src="/subweb/blog/images/posts/StableDiffusion-ComfyUI%E5%AE%8C%E5%85%A8%E9%83%A8%E7%BD%B2%E6%8C%87%E5%8D%97/image-20260518202816456.png" alt="image-20260518202816456"></p>
+<h3 id="5-添加VAE-Decode"><a href="#5-添加VAE-Decode" class="headerlink" title="5.添加VAE Decode"></a>5.添加VAE Decode</h3><p>添加VAE decode节点和load VAE节点</p>
+<p><img src="/subweb/blog/images/posts/StableDiffusion-ComfyUI%E5%AE%8C%E5%85%A8%E9%83%A8%E7%BD%B2%E6%8C%87%E5%8D%97/image-20260518202906400.png" alt="image-20260518202906400"></p>
+<p><img src="/subweb/blog/images/posts/StableDiffusion-ComfyUI%E5%AE%8C%E5%85%A8%E9%83%A8%E7%BD%B2%E6%8C%87%E5%8D%97/image-20260518202942195.png" alt="image-20260518202942195"></p>
+<p>连接如下:</p>
+<p><img src="/subweb/blog/images/posts/StableDiffusion-ComfyUI%E5%AE%8C%E5%85%A8%E9%83%A8%E7%BD%B2%E6%8C%87%E5%8D%97/image-20260518203038059.png" alt="image-20260518203038059"></p>
+<p>添加save image</p>
+<p><img src="/subweb/blog/images/posts/StableDiffusion-ComfyUI%E5%AE%8C%E5%85%A8%E9%83%A8%E7%BD%B2%E6%8C%87%E5%8D%97/image-20260518203153921.png" alt="image-20260518203153921"></p>
+<p>最终节点连接如下图</p>
+<p><img src="/subweb/blog/images/posts/StableDiffusion-ComfyUI%E5%AE%8C%E5%85%A8%E9%83%A8%E7%BD%B2%E6%8C%87%E5%8D%97/image-20260518203212186.png" alt="image-20260518203212186"></p>
+<h3 id="6-运行"><a href="#6-运行" class="headerlink" title="6.运行"></a>6.运行</h3><p>最后点击右上角的运行即可跑通流程，如图为画好图片后的样式：</p>
+<p><img src="/subweb/blog/images/posts/StableDiffusion-ComfyUI%E5%AE%8C%E5%85%A8%E9%83%A8%E7%BD%B2%E6%8C%87%E5%8D%97/image-20260518203328355.png" alt="image-20260518203328355"></p>
+<h2 id="加上Refiner"><a href="#加上Refiner" class="headerlink" title="加上Refiner"></a>加上Refiner</h2><p>保留之前的全部节点，然后进行下面操作</p>
+<h3 id="1-修改基础K-Samper（K采样器）"><a href="#1-修改基础K-Samper（K采样器）" class="headerlink" title="1.修改基础K Samper（K采样器）"></a>1.修改基础K Samper（K采样器）</h3><p>参数如下</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">steps: 25</span><br><span class="line">cfg: 6</span><br><span class="line">sampler_name: dpmpp_2m</span><br><span class="line">scheduler: karras</span><br><span class="line">denoise: 0.80</span><br></pre></td></tr></table></figure>
+
+<p>注意，这里<code>denoise</code>为0.8，不要为1，因为要留一些空间给refiner细化</p>
+<h3 id="2-添加一个Load-Checkpoint（Checkpoint加载器）"><a href="#2-添加一个Load-Checkpoint（Checkpoint加载器）" class="headerlink" title="2.添加一个Load Checkpoint（Checkpoint加载器）"></a>2.添加一个Load Checkpoint（Checkpoint加载器）</h3><p>双击搜索添加后选择refiner模型</p>
+<h3 id="3-给refiner添加两个CLIP-Text-Encode（CLIP文本编码）"><a href="#3-给refiner添加两个CLIP-Text-Encode（CLIP文本编码）" class="headerlink" title="3.给refiner添加两个CLIP Text Encode（CLIP文本编码）"></a>3.给refiner添加两个CLIP Text Encode（CLIP文本编码）</h3><p>一个正向，一个反向。</p>
+<p>Refiner 正向可以先复制 Base 的正向提示词：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">a cinematic photo of an orange cat wearing an astronaut suit, standing on Mars, Earth in the background, soft lighting, highly detailed, realistic</span><br></pre></td></tr></table></figure>
+
+<p>Refiner 反向也复制：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">low quality, blurry, bad anatomy, distorted hands, extra fingers, watermark, text, logo</span><br></pre></td></tr></table></figure>
+
+<p>都连接到refiner的CLIP上。</p>
+<h3 id="4-添加第二个K-Sampler（K采样器）"><a href="#4-添加第二个K-Sampler（K采样器）" class="headerlink" title="4.添加第二个K Sampler（K采样器）"></a>4.添加第二个K Sampler（K采样器）</h3><p>这个作为：Refiner K Sampler。</p>
+<p>参数设置：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">steps: 20</span><br><span class="line">cfg: 5</span><br><span class="line">sampler_name: dpmpp_2m</span><br><span class="line">scheduler: karras</span><br><span class="line">denoise: 0.25</span><br></pre></td></tr></table></figure>
+
+<p>这里 <code>denoise</code> 不要太高，refiner 是精修，不是重画。</p>
+<h3 id="5-连接refiner-K-Sampler"><a href="#5-连接refiner-K-Sampler" class="headerlink" title="5.连接refiner K Sampler"></a>5.连接refiner K Sampler</h3><p>如图所示，将正负面条件、模型连接，基础K采样器输出的Latent图像连接到refiner的K采样器上。</p>
+<p><img src="/subweb/blog/images/posts/StableDiffusion-ComfyUI%E5%AE%8C%E5%85%A8%E9%83%A8%E7%BD%B2%E6%8C%87%E5%8D%97/image-20260518205233008.png" alt="image-20260518205233008"></p>
+<h3 id="6-修改VAE输出"><a href="#6-修改VAE输出" class="headerlink" title="6.修改VAE输出"></a>6.修改VAE输出</h3><p>最后把VAE decode 改接refine的输出。最终的节点整理后如图所示。</p>
+<p><img src="/subweb/blog/images/posts/StableDiffusion-ComfyUI%E5%AE%8C%E5%85%A8%E9%83%A8%E7%BD%B2%E6%8C%87%E5%8D%97/image-20260518205833408.png" alt="image-20260518205833408"></p>
+<h3 id="7-运行"><a href="#7-运行" class="headerlink" title="7.运行"></a>7.运行</h3><p>运行后查看输出如图，多次测试后终于出了正常的图像。</p>
+<p><img src="/subweb/blog/images/posts/StableDiffusion-ComfyUI%E5%AE%8C%E5%85%A8%E9%83%A8%E7%BD%B2%E6%8C%87%E5%8D%97/image-20260518210036157.png" alt="image-20260518210036157"></p>
+<h1 id="六、下一步学习顺序"><a href="#六、下一步学习顺序" class="headerlink" title="六、下一步学习顺序"></a>六、下一步学习顺序</h1><p>建议顺序是：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">1. 文生图 txt2img</span><br><span class="line">2. 固定 seed 复现图片</span><br><span class="line">3. 改尺寸做人像/横图</span><br><span class="line">4. 学 img2img 图生图</span><br><span class="line">5. 学 LoRA</span><br><span class="line">6. 学局部重绘 inpaint</span><br><span class="line">7. 再学 Refiner</span><br><span class="line">8. 最后学 ControlNet / 视频</span><br></pre></td></tr></table></figure>
+</div>
+        </div>
+        
+            <div class="kratos-copyright text-center clearfix">
+                <h5 itemprop="copyrightNotice">本作品采用 <a rel="license nofollow" target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/">知识共享署名-相同方式共享 4.0 国际许可协议</a> 进行许可</h5>
+            </div>
+        
+        <footer class="kratos-entry-footer clearfix">
+            
+                <div class="post-like-donate text-center clearfix" id="post-like-donate">
+                
+                    <a class="donate" href="javascript:;"><i class="fa fa-bitcoin"></i> 打赏</a>
+                
+                
+                    <a class="share" href="javascript:;"><i class="fa fa-share-alt"></i> 分享</a>
+                    <div class="share-wrap" style="display: none;">
+    <div class="share-group">
+        <a href="javascript:;" class="share-plain qq" onclick="share('qq');" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-qq"></i>
+            </div>
+        </a>
+        <a href="javascript:;" class="share-plain qzone" onclick="share('qzone');" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-star"></i>
+            </div>
+        </a>
+        <a href="javascript:;" class="share-plain weixin pop style-plain" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-weixin"></i>
+            </div>
+            <div class="share-int">
+                <div class="qrcode" id="wechat-qr"></div>
+                <p>打开微信“扫一扫”，打开网页后点击屏幕右上角分享按钮</p>
+            </div>
+        </a>
+        <a href="javascript:;" class="share-plain weibo" onclick="share('weibo');" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-weibo"></i>
+            </div>
+        </a>
+        <a href="javascript:;" class="share-plain facebook style-plain" onclick="share('facebook');" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-facebook"></i>
+            </div>
+        </a>
+        <a href="javascript:;" class="share-plain twitter style-plain" onclick="share('twitter');" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-twitter"></i>
+            </div>
+        </a>
+    </div>
+    <script type="text/javascript">
+        $(()=>{
+            new QRCode("wechat-qr", {
+                text: "https://nav.baobodadazz.top/subweb/blog/2026/05/18/0020.StableDiffusion-ComfyUI%E5%AE%8C%E5%85%A8%E9%83%A8%E7%BD%B2%E6%8C%87%E5%8D%97/",
+                width: 150,
+                height: 150,
+                correctLevel : QRCode.CorrectLevel.H
+            });
+        });
+        function share(dest) {
+            const qqBase        = "https://connect.qq.com/widget/shareqq/index.html?";
+            const weiboBase     = "https://service.weibo.com/share/share.php?";
+            const qzoneBase     = "https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?";
+            const facebookBase  = "https://www.facebook.com/sharer/sharer.php?";
+            const twitterBase   = "https://twitter.com/intent/tweet?";
+            const hostUrl       = "https://nav.baobodadazz.top/subweb/blog/2026/05/18/0020.StableDiffusion-ComfyUI%E5%AE%8C%E5%85%A8%E9%83%A8%E7%BD%B2%E6%8C%87%E5%8D%97/";
+            const title         = "「【教程】StableDiffusion: ComfyUI完全部署指南-以Linux为例」";
+            const excerpt       = `想要尝试StableDiffusion绘画的可以看看，这是在本地（本文以Linux为例）部署ComfyUI的流程。
+一、克隆项目项目连接：ComfyUI
+到对应项目后，通过下面命令克隆项目，并进入项目文件夹
+12git clone h...`;
+            let _URL;
+            switch (dest) {
+                case "qq"       : _URL = qqBase+"url="+hostUrl+"&title="+title+"&desc=&summary="+excerpt+"&site=cxpy";     break;
+                case "weibo"    : _URL = weiboBase+"url="+hostUrl+"&title="+title+excerpt;                                 break;
+                case "qzone"    : _URL = qzoneBase+"url="+hostUrl+"&title="+title+"&desc=&summary="+excerpt+"&site=cxpy";  break;
+                case "facebook" : _URL = facebookBase+"u="+hostUrl;                                                        break;
+                case "twitter"  : _URL = twitterBase+"text="+title+excerpt+"&url="+hostUrl;                                break;
+            }
+            window.open(_URL);
+        };
+    </script>
+</div>
+                
+                </div>
+            
+            <div class="footer-tag clearfix">
+                <div class="pull-left">
+                <i class="fa fa-tags"></i>
+                    <a class="tag-none-link" href="/subweb/blog/tags/AI%E7%BB%98%E7%94%BB/" rel="tag">AI绘画</a>, <a class="tag-none-link" href="/subweb/blog/tags/ComfyUI/" rel="tag">ComfyUI</a>, <a class="tag-none-link" href="/subweb/blog/tags/StableDiffusion/" rel="tag">StableDiffusion</a>, <a class="tag-none-link" href="/subweb/blog/tags/%E6%95%99%E7%A8%8B/" rel="tag">教程</a>
+                </div>
+                <div class="pull-date">
+                    <time datetime="2026-05-19T04:37:54.049Z" itemprop="dateModified">最后编辑：2026-05-19</time>
+                </div>
+            </div>
+        </footer>
+    </div>
+    
+        <nav class="navigation post-navigation clearfix" role="navigation">
+            
+            <div class="nav-previous clearfix">
+                <a title=" 【教程】Windows系统下VScode配置LaTeX环境" href="/subweb/blog/2025/12/07/0019.Windows系统VScode配置LaTeX环境/">&lt; 上一篇</a>
+            </div>
+            
+            
+        </nav>
+    
+    
+</article>
+
+        
+
+            </section>
+
+        
+
+                
+            
+
+<section id="kratos-widget-area" class="col-md-4 hidden-xs hidden-sm">
+    <!-- 文章和页面根据splitter来分割，没有的话就从头开始设置为sticky -->
+    
+    
+                <aside id="krw-about" class="widget widget-kratos-about clearfix">
+    <div class="photo-background"></div>
+    <div class="photo-wrapper clearfix">
+        <div class="photo-wrapper-tip text-center">
+            <img class="about-photo" src="/subweb/blog/images/avatar.webp" loading="lazy" decoding="auto" />
+        </div>
+    </div>
+    <div class="textwidget">
+        <p class="text-center">爆脖大大Zz</p>
+    </div>
+    <div class="site-meta">
+        <a class="meta-item" href="/subweb/blog/archives/">
+            <span class="title">
+                文章
+            </span>
+            <span class="count">
+                20
+            </span>
+        </a>
+        <a class="meta-item" href="/subweb/blog/categories/">
+            <span class="title">
+                分类
+            </span>
+            <span class="count">
+                6
+            </span>
+        </a>
+        <a class="meta-item" href="/subweb/blog/tags/">
+            <span class="title">
+                标签
+            </span>
+            <span class="count">
+                46
+            </span>
+        </a>
+    </div>
+</aside>
+            
+                    <div class="sticky-area">
+                
+                    <aside id="krw-toc" class="widget widget-kratos-toc clearfix toc-div-class" >
+    <div class="photo-background"></div>
+    <h4 class="widget-title no-after">
+        <i class="fa fa-compass"></i>
+        文章目录
+        <span class="toc-progress-bar" role="progressbar" aria-label="阅读进度："></span>
+    </h4>
+    <div class="textwidget">
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E5%85%8B%E9%9A%86%E9%A1%B9%E7%9B%AE"><span class="toc-text">一、克隆项目</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BA%8C%E3%80%81Conda%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE"><span class="toc-text">二、Conda环境配置</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA-Python-%E7%8E%AF%E5%A2%83"><span class="toc-text">创建 Python 环境</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%85-PyTorch"><span class="toc-text">安装 PyTorch</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%85-ComfyUI-%E4%BE%9D%E8%B5%96"><span class="toc-text">安装 ComfyUI 依赖</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%85ComfyUI-Manager"><span class="toc-text">安装ComfyUI Manager</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%B0%E7%89%88ComfyUI%EF%BC%88%E8%87%AA%E5%B8%A6-Manager%EF%BC%8C%E9%9C%80%E6%89%8B%E5%8A%A8%E5%90%AF%E7%94%A8%EF%BC%89"><span class="toc-text">新版ComfyUI（自带 Manager，需手动启用）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B8%B8%E8%A7%84%E6%89%8B%E5%8A%A8%E5%AE%89%E8%A3%85%EF%BC%88%E9%80%82%E7%94%A8%E4%BA%8E%E5%A4%A7%E5%A4%9A%E6%95%B0%E7%89%88%E6%9C%AC%EF%BC%89"><span class="toc-text">常规手动安装（适用于大多数版本）</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%89%E3%80%81%E4%B8%8B%E8%BD%BDSDXL%E6%A8%A1%E5%9E%8B"><span class="toc-text">三、下载SDXL模型</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%9B%9B%E3%80%81%E8%BF%90%E8%A1%8CComfyUI"><span class="toc-text">四、运行ComfyUI</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8E%A8%E8%8D%90%E5%90%AF%E5%8A%A8%E5%91%BD%E4%BB%A4"><span class="toc-text">推荐启动命令</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BA%94%E3%80%81%E6%B5%8B%E8%AF%95%E5%87%BA%E5%9B%BE"><span class="toc-text">五、测试出图</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%88%E8%B7%91%E9%80%9Abase%E6%A8%A1%E5%9E%8B%EF%BC%8C%E4%B8%8D%E7%94%A8%E7%9D%80%E6%80%A5%E5%8A%A0Refiner"><span class="toc-text">先跑通base模型，不用着急加Refiner</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E6%B7%BB%E5%8A%A0Load-Checkpoint%EF%BC%88Checkpoint%E5%8A%A0%E8%BD%BD%E5%99%A8%EF%BC%89%E8%8A%82%E7%82%B9"><span class="toc-text">1.添加Load Checkpoint（Checkpoint加载器）节点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E6%B7%BB%E5%8A%A0CLIP-encode%EF%BC%88CLIP%E6%96%87%E6%9C%AC%E7%BC%96%E7%A0%81%EF%BC%89%E8%8A%82%E7%82%B9"><span class="toc-text">2.添加CLIP encode（CLIP文本编码）节点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E6%B7%BB%E5%8A%A0Empty-Latent-Image%EF%BC%88%E7%A9%BALatent%E5%9B%BE%E5%83%8F%EF%BC%89"><span class="toc-text">3.添加Empty Latent Image（空Latent图像）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E6%B7%BB%E5%8A%A0KSampler%EF%BC%88K%E9%87%87%E6%A0%B7%E5%99%A8%EF%BC%89"><span class="toc-text">4.添加KSampler（K采样器）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-%E6%B7%BB%E5%8A%A0VAE-Decode"><span class="toc-text">5.添加VAE Decode</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-%E8%BF%90%E8%A1%8C"><span class="toc-text">6.运行</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8A%A0%E4%B8%8ARefiner"><span class="toc-text">加上Refiner</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E4%BF%AE%E6%94%B9%E5%9F%BA%E7%A1%80K-Samper%EF%BC%88K%E9%87%87%E6%A0%B7%E5%99%A8%EF%BC%89"><span class="toc-text">1.修改基础K Samper（K采样器）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E6%B7%BB%E5%8A%A0%E4%B8%80%E4%B8%AALoad-Checkpoint%EF%BC%88Checkpoint%E5%8A%A0%E8%BD%BD%E5%99%A8%EF%BC%89"><span class="toc-text">2.添加一个Load Checkpoint（Checkpoint加载器）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E7%BB%99refiner%E6%B7%BB%E5%8A%A0%E4%B8%A4%E4%B8%AACLIP-Text-Encode%EF%BC%88CLIP%E6%96%87%E6%9C%AC%E7%BC%96%E7%A0%81%EF%BC%89"><span class="toc-text">3.给refiner添加两个CLIP Text Encode（CLIP文本编码）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E6%B7%BB%E5%8A%A0%E7%AC%AC%E4%BA%8C%E4%B8%AAK-Sampler%EF%BC%88K%E9%87%87%E6%A0%B7%E5%99%A8%EF%BC%89"><span class="toc-text">4.添加第二个K Sampler（K采样器）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-%E8%BF%9E%E6%8E%A5refiner-K-Sampler"><span class="toc-text">5.连接refiner K Sampler</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-%E4%BF%AE%E6%94%B9VAE%E8%BE%93%E5%87%BA"><span class="toc-text">6.修改VAE输出</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-%E8%BF%90%E8%A1%8C"><span class="toc-text">7.运行</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%85%AD%E3%80%81%E4%B8%8B%E4%B8%80%E6%AD%A5%E5%AD%A6%E4%B9%A0%E9%A1%BA%E5%BA%8F"><span class="toc-text">六、下一步学习顺序</span></a></li></ol>
+    </div>
+</aside>
+                
+                
+  <aside id="krw-categories" class="widget widget-kratos-categories clearfix">
+    <h4 class="widget-title"><i class="fa fa-folder"></i>分类目录</h4>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/subweb/blog/categories/%E5%8A%A8%E6%BC%AB/">动漫</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/subweb/blog/categories/%E5%AD%A6%E4%B9%A0/">学习</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/subweb/blog/categories/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/">技术分享</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/subweb/blog/categories/%E6%95%99%E7%A8%8B/">教程</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/subweb/blog/categories/%E7%A8%8B%E5%BA%8F%E7%8C%BF%E7%AC%94%E8%AE%B0/">程序猿笔记</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/subweb/blog/categories/%E9%97%AE%E7%AD%94%E7%95%99%E6%A1%A3/">问答留档</a><span class="category-list-count">11</span></li></ul>
+  </aside>
+
+
+            
+                
+  <aside id="krw-tags" class="widget widget-kratos-tags clearfix">
+    <h4 class="widget-title"><i class="fa fa-tags"></i>标签聚合</h4>
+      <div class="tag-clouds">
+        <a href="/subweb/blog/tags/408/" style="font-size: 0.7em;">408</a> <a href="/subweb/blog/tags/AI%E7%BB%98%E7%94%BB/" style="font-size: 0.6em;">AI绘画</a> <a href="/subweb/blog/tags/Android/" style="font-size: 0.6em;">Android</a> <a href="/subweb/blog/tags/C/" style="font-size: 0.6em;">C++</a> <a href="/subweb/blog/tags/ComfyUI/" style="font-size: 0.6em;">ComfyUI</a> <a href="/subweb/blog/tags/GPT/" style="font-size: 0.8em;">GPT</a> <a href="/subweb/blog/tags/IP/" style="font-size: 0.6em;">IP</a> <a href="/subweb/blog/tags/LaTeX/" style="font-size: 0.6em;">LaTeX</a> <a href="/subweb/blog/tags/StableDiffusion/" style="font-size: 0.6em;">StableDiffusion</a> <a href="/subweb/blog/tags/USD/" style="font-size: 0.6em;">USD</a> <a href="/subweb/blog/tags/VScode/" style="font-size: 0.6em;">VScode</a> <a href="/subweb/blog/tags/adb/" style="font-size: 0.6em;">adb</a> <a href="/subweb/blog/tags/java/" style="font-size: 0.6em;">java</a> <a href="/subweb/blog/tags/javaweb/" style="font-size: 0.6em;">javaweb</a> <a href="/subweb/blog/tags/maven/" style="font-size: 0.6em;">maven</a> <a href="/subweb/blog/tags/openMVG/" style="font-size: 0.6em;">openMVG</a> <a href="/subweb/blog/tags/%E4%B8%89%E7%BB%B4%E9%87%8D%E5%BB%BA/" style="font-size: 0.6em;">三维重建</a> <a href="/subweb/blog/tags/%E5%8A%A8%E6%BC%AB/" style="font-size: 0.6em;">动漫</a>
+      </div>
+  </aside>
+
+            
+                
+  <aside id="krw-posts" class="widget widget-kratos-posts">
+  <h4 class="widget-title"><i class="fa fa-file"></i>最新文章</h4>
+  <div class="tab-content">
+      <ul class="list-group">
+        
+        
+          
+          
+            <a class="list-group-item" href="/subweb/blog/2026/05/18/0020.StableDiffusion-ComfyUI%E5%AE%8C%E5%85%A8%E9%83%A8%E7%BD%B2%E6%8C%87%E5%8D%97/"><i class="fa  fa-book"></i> 【教程】StableDiffusion: ComfyUI完全部署指南-以Linux为例</a>
+            
+          
+        
+          
+          
+            <a class="list-group-item" href="/subweb/blog/2025/12/07/0019.Windows%E7%B3%BB%E7%BB%9FVScode%E9%85%8D%E7%BD%AELaTeX%E7%8E%AF%E5%A2%83/"><i class="fa  fa-book"></i> 【教程】Windows系统下VScode配置LaTeX环境</a>
+            
+          
+        
+          
+          
+            <a class="list-group-item" href="/subweb/blog/2024/04/18/0017.maven/"><i class="fa  fa-book"></i> 【学习笔记】Maven入门、原理与实战</a>
+            
+          
+        
+          
+          
+            <a class="list-group-item" href="/subweb/blog/2024/04/18/0018.%E4%BD%BF%E7%94%A8adb%E5%AE%89%E8%A3%85%E6%8B%86%E5%88%86%E5%AE%89%E8%A3%85%E5%8C%85%EF%BC%88%E4%BB%A5Tailscale%E4%B8%BA%E4%BE%8B%EF%BC%89/"><i class="fa  fa-book"></i> 【技术分享】使用ADB安装拆分安装包或补充安装包（以Tailscale为例）</a>
+            
+          
+        
+          
+          
+            <a class="list-group-item" href="/subweb/blog/2024/04/02/0012.%E5%8A%A8%E6%BC%AB%E5%88%97%E8%A1%A8-%E9%95%BF%E6%9C%9F%E6%9B%B4%E6%96%B0/"><i class="fa  fa-book"></i> 【动漫】【置顶】动漫列表-长期更新</a>
+            
+          
+        
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+      </ul>
+  </div>
+  </aside>
+
+            
+    </div>
+</section>
+        
+        </div>
+    </div>
+</div>
+<footer>
+    <div id="footer"  class="ap-lrc"  >
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3 footer-list text-center">
+                    <ul class="kratos-social-icons">
+                        <!-- Keep for compatibility -->
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <!-- New links -->
+                        
+                    </ul>
+                    <ul class="kratos-copyright">
+                        <div>
+                            <li>&copy; 2026 爆脖の奇妙生活 版权所有.</li>
+                            <li>导弹已飞行<span id="span_dt">Loading...</span></li>
+                        </div>
+                        <div>
+                            <li>Theme <a href="https://github.com/Candinya/Kratos-Rebirth" target="_blank">Kratos:Rebirth</a></li>
+                            <li>Site built with&nbsp;<i class="fa fa-heart throb" style="color:#d43f57"></i>&nbsp;by 爆脖大大Zz.</li>
+                        </div>
+                        <div>
+                            <li>Powered by <a href="https://hexo.io" target="_blank" rel="nofollow">Hexo</a></li>
+                            <li>Hosted on <a href="https://github.io" target="_blank">Github Pages</a></li>
+                        </div>
+                        <div>
+                            
+                            
+                        </div>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="kr-tool text-center">
+            <div class="tool">
+                
+                    <div class="box search-box">
+                        <a href="/subweb/blog/search/">
+                            <span class="fa fa-search"></span>
+                        </a>
+                    </div>
+                
+                
+                    <div class="box theme-box" id="darkmode-switch">
+                        <span class="fa fa-adjust"></span>
+                    </div>
+                
+                
+                
+            </div>
+            <div class="box gotop-box">
+                <span class="fa fa-chevron-up"></span>
+            </div>
+        </div>
+    </div>
+</footer>
+</div>
+</div>
+
+        <script defer src="/subweb/blog/vendors/bootstrap@3.3.4/dist/js/bootstrap.min.js"></script>
+<script defer src="/subweb/blog/vendors/nprogress@0.2.0/nprogress.js"></script>
+<script>
+    if (!window.kr) {
+        window.kr = {};
+    }
+    window.kr.notMobile = (!(navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i)));
+    window.kr.siteRoot = "/subweb/blog/";
+</script>
+
+
+    <script async src="/subweb/blog/js/candy.min.js"></script>
+
+
+
+    <script defer src="/subweb/blog/vendors/aplayer@1.10.1/dist/APlayer.min.js"></script>
+    
+    <script defer src="/subweb/blog/vendors/meting@2.0.1/dist/Meting.min.js"></script>
+    <meting-js
+        server="netease"
+        type="playlist"
+        id="9650496682"
+        order="random"
+        fixed="true"
+    >
+    </meting-js>
+
+
+
+    <script defer src="/subweb/blog/vendors/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+
+<script defer src="/subweb/blog/js/kratosr.min.js"></script>
+<script defer src="/subweb/blog/js/pjax.min.js"></script>
+
+    <script defer src="/subweb/blog/vendors/layui-src@2.5.5/dist/layui.all.js"></script>
+
+
+
+<!-- Extra support for third-party plguins  -->
+
+
+    </body>
+</html>

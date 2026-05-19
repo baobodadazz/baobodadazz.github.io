@@ -1,0 +1,1181 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>约会大作战-番剧-爆脖影业-BoBoVideo-</title>
+    <!-- 引入 FontAwesome 图标库 (用于显示星星、心形、分享等图标) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" href="otherpic/baoboVideoBig.png" type="image/x-icon">
+    <style>
+        /* --- 基础重置 --- */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            color: #fff;
+            background-color: #141414;
+            overflow-x: hidden;
+            /* 防止横向滚动条 */
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* --- 动态背景 --- */
+        .background-slider {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .background-slider img {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0;
+            animation: fadeEffect 20s infinite;
+        }
+
+        /*  stagger animations for 4 images */
+        .background-slider img:nth-child(1) {
+            animation-delay: 0s;
+        }
+
+        .background-slider img:nth-child(2) {
+            animation-delay: 10s;
+        }
+
+        .background-slider img:nth-child(3) {
+            animation-delay: 20s;
+        }
+
+        .background-slider img:nth-child(4) {
+            animation-delay: 30s;
+        }
+
+        .background-slider img:nth-child(5) {
+            animation-delay: 40s;
+        }
+
+        .background-slider img:nth-child(6) {
+            animation-delay: 50s;
+        }
+
+        .background-slider img:nth-child(7) {
+            animation-delay: 60s;
+        }
+
+        .background-slider img:nth-child(8) {
+            animation-delay: 70s;
+        }
+
+        @keyframes fadeEffect {
+            0% {
+                opacity: 0;
+                transform: scale(1);
+            }
+
+            5% {
+                opacity: 1;
+            }
+
+            30% {
+                opacity: 1;
+                transform: scale(1);
+            }
+
+            /* 轻微放大效果 已经设置为1原来为1.05 */
+            95% {
+                opacity: 1;
+            }
+
+            100% {
+                opacity: 0;
+            }
+        }
+
+        /* 黑色半透明遮罩 */
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            z-index: -1;
+            /* backdrop-filter: blur(2px); 背景微模糊 */
+        }
+
+        /* --- 顶栏 --- */
+        .top-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            transition: transform 0.4s ease-in-out;
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.8), transparent);
+        }
+
+        .top-bar.hidden {
+            transform: translateY(-100%);
+        }
+
+        .logo img {
+            height: 40px;
+        }
+
+        .nav-actions i {
+            margin-left: 20px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+
+        .nav-actions i:hover {
+            color: #e50914;
+        }
+
+        /* --- 主体内容 --- */
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 80px 20px 40px;
+            /* 顶部留出空间给背景 */
+        }
+
+        /* 1. 头部信息区 */
+        .hero-section {
+            display: flex;
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        .poster img {
+            width: 250px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+        }
+
+        .meta-info {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .title {
+            font-size: 3rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .stats {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+            flex-wrap: wrap;
+            color: #ccc;
+            font-size: 0.9rem;
+        }
+
+        .rating-badge {
+            border: 1px solid #fff;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+
+        .score {
+            color: #46d369;
+            font-weight: bold;
+        }
+
+        .tags span {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            margin-right: 5px;
+        }
+
+        .actions {
+            display: flex;
+            gap: 15px;
+            margin: 10px 0;
+        }
+
+        .btn {
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: background 0.2s;
+        }
+
+        .btn-primary {
+            background: #fff;
+            color: #000;
+        }
+
+        .btn-primary:hover {
+            background: #ddd;
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.2);
+            color: #fff;
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.4);
+        }
+
+        .description {
+            line-height: 1.6;
+            color: #ddd;
+            max-width: 800px;
+            position: relative;
+        }
+
+        .description.collapsed {
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .read-more {
+            color: #fff;
+            font-weight: bold;
+            cursor: pointer;
+            margin-left: 5px;
+            text-decoration: underline;
+        }
+
+        /* --- 通用横向滚动区域样式 --- */
+        .section-block {
+            margin-bottom: 50px;
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            padding: 0 10px;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .slider-container {
+            position: relative;
+        }
+
+        .scroll-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.5);
+            border: none;
+            color: #fff;
+            font-size: 2rem;
+            padding: 10px;
+            cursor: pointer;
+            z-index: 10;
+            border-radius: 4px;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .slider-container:hover .scroll-btn {
+            opacity: 1;
+        }
+
+        .scroll-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .prev {
+            left: -20px;
+        }
+
+        .next {
+            right: -20px;
+        }
+
+        .slider-track {
+            display: flex;
+            gap: 20px;
+            overflow-x: auto;
+            scroll-behavior: smooth;
+            padding: 10px 5px;
+            scrollbar-width: none;
+            /* Firefox 隐藏滚动条 */
+        }
+
+        .slider-track::-webkit-scrollbar {
+            display: none;
+        }
+
+        /* Chrome 隐藏滚动条 */
+
+        /* --- 季列表 --- */
+        .season-card {
+            min-width: 180px;
+            width: 200px;
+            cursor: pointer;
+            transition: transform 0.3s;
+            text-align: center;
+        }
+
+        .season-card:hover {
+            transform: scale(1.05);
+        }
+
+        .season-card img {
+            width: 100%;
+            border-radius: 6px;
+            margin-bottom: 10px;
+        }
+
+        .season-name {
+            font-size: 0.9rem;
+            color: #ddd;
+        }
+
+        /* --- 剧集列表 --- */
+        .episode-card {
+            min-width: 300px;
+            background: #1f1f1f;
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+            position: relative;
+        }
+
+        .episode-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+            z-index: 5;
+        }
+
+        .ep-thumb {
+            position: relative;
+            width: 100%;
+            height: 170px;
+        }
+
+        .ep-thumb img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .ep-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 10px;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.9));
+            display: flex;
+            justify-content: flex-end;
+            gap: 10px;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .episode-card:hover .ep-overlay {
+            opacity: 1;
+        }
+
+        .ep-icon {
+            color: #fff;
+            font-size: 1.2rem;
+            cursor: pointer;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+        }
+
+        .ep-icon.favorite:hover {
+            color: red;
+        }
+
+        .ep-icon.list:hover {
+            color: yellow;
+        }
+
+        .ep-icon.seened:hover {
+            color: greenyellow;
+        }
+
+        .ep-info {
+            padding: 15px;
+        }
+
+        .ep-title {
+            font-weight: bold;
+            margin-bottom: 5px;
+            font-size: 1.1rem;
+        }
+
+        .ep-meta {
+            font-size: 0.8rem;
+            color: #aaa;
+            margin-bottom: 10px;
+        }
+
+        .ep-desc {
+            font-size: 0.85rem;
+            color: #ccc;
+            line-height: 1.4;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        /* --- 演职人员 --- */
+        .cast-card {
+            min-width: 130px;
+            text-align: center;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .cast-card:hover {
+            transform: scale(1.1);
+        }
+
+        .cast-card img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 10px;
+            border: 2px solid transparent;
+            transition: border-color 0.3s;
+        }
+
+        .cast-card:hover img {
+            border-color: white;
+        }
+
+        .cast-name {
+            font-weight: bold;
+            font-size: 0.9rem;
+        }
+
+        .cast-role {
+            font-size: 0.8rem;
+            color: #aaa;
+        }
+
+        /* --- 推荐 --- */
+        .recommend-card {
+            width: 200px;
+            min-width: 200px;
+            position: relative;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .recommend-card:hover {
+            transform: scale(1.05);
+        }
+
+        .recommend-card img {
+            width: 100%;
+            aspect-ratio: 200 / 300;
+            border-radius: 6px;
+        }
+
+        .rec-info {
+            padding: 10px 0;
+        }
+
+        .rec-title {
+            font-weight: bold;
+            font-size: 1rem;
+        }
+
+        .rec-year {
+            font-size: 0.8rem;
+            color: #aaa;
+        }
+
+        .rec-actions {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            display: flex;
+            gap: 8px;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .recommend-card:hover .rec-actions {
+            opacity: 1;
+        }
+
+        .rec-btn {
+            background: rgba(0, 0, 0, 0.6);
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+        }
+
+        .rec-btn:hover {
+            background: #e50914;
+        }
+
+        /* --- 底部信息 --- */
+        .footer-info {
+            margin-top: 60px;
+            padding-top: 20px;
+            border-top: 1px solid #333;
+            color: #888;
+            font-size: 0.9rem;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .footer-item span {
+            color: #fff;
+            margin-right: 5px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- 背景轮播 -->
+    <div class="background-slider">
+        <!-- 请替换 src 为你的本地路径 a/backdrop1.jpg 等 -->
+        <img src="约会大作战_(2013)/backdrop1.jpg" alt="Backdrop 1">
+        <img src="约会大作战_(2013)/backdrop2.jpg" alt="Backdrop 2">
+        <img src="约会大作战_(2013)/backdrop3.jpg" alt="Backdrop 3">
+        <img src="约会大作战_(2013)/backdrop4.jpg" alt="Backdrop 4">
+        <img src="约会大作战_(2013)/backdrop5.jpg" alt="Backdrop 5">
+        <img src="约会大作战_(2013)/backdrop6.jpg" alt="Backdrop 6">
+        <img src="约会大作战_(2013)/backdrop7.jpg" alt="Backdrop 7">
+        <img src="约会大作战_(2013)/backdrop8.jpg" alt="Backdrop 8">
+    </div>
+    <div class="overlay"></div>
+
+    <!-- 顶栏 -->
+    <header class="top-bar" id="topBar">
+        <div class="logo">
+            <!-- 请替换 src 为你的本地路径 a/clearlogo.png -->
+            <img src="约会大作战_(2013)/clearlogo.png" alt="Logo">
+        </div>
+        <div class="nav-actions">
+            <i class="fas fa-share-alt"></i>
+            <i class="fas fa-bookmark"></i>
+            <i class="fas fa-cog"></i>
+        </div>
+    </header>
+
+    <main class="container">
+
+        <!-- 头部信息 -->
+        <section class="hero-section">
+            <div class="poster">
+                <!-- 占位图：海报 -->
+                <img src="约会大作战_(2013)/poster.jpg" alt="Poster">
+            </div>
+            <div class="meta-info">
+                <h1 class="title">约会大作战</h1>
+
+                <div class="stats">
+                    <span class="score">8.5</span>
+                    <span>2013</span>
+                    <span>Tokyo MX</span>
+                    <span>7 季</span>
+                    <span class="rating-badge">TV-MA</span>
+                </div>
+
+                <div class="tags">
+                    <span>动画</span>
+                    <span>科幻</span>
+                    <span>喜剧</span>
+                    <span>动作</span>
+                </div>
+
+                <div class="actions">
+                    <button class="btn btn-primary"><i class="fas fa-play"></i> 播放</button>
+                    <button class="btn btn-secondary"><i class="fas fa-check"></i> 已看过</button>
+                    <button class="btn btn-secondary"><i class="fas fa-heart"></i> 喜欢</button>
+                    <button class="btn btn-secondary"><i class="fas fa-plus"></i> 我的列表</button>
+                </div>
+
+                <div class="description collapsed" id="description">
+                    四月十日，春假在昨天结束，今天早上就是所谓的返校日。被可爱的妹妹吵醒后，五河士道原本以为今天也会如同往常般度过平凡的一天。然而伴随着一阵突如其来的冲击波，街道就这样消失得无影无踪。在宛如陨石撞击而变成环形山的街道一隅，一名身穿盔甲手持大剑的神秘少女正站在坑洞的正中央。“你也是来杀我的吧？”摧毁世界的灾难、充满谜团的怪物、被世界否定的少女。
+                    阻止这一切的方法只有两种——歼灭或对话。身穿司令官服的妹妹五河琴里对士道说：“所以你必须与精灵〈约会〉，并且让对方迷恋上你！”这名少女的真正身份是精灵，是会给世界带来毁灭性灾难的存在，她的再次出现，将会给地球带来毁灭性的未来！然而主人公士道却有方法阻止世界毁灭，这个唯一能够阻止世界毁灭的方法就是——要与她约会！
+                    <span class="read-more" onclick="toggleDescription()">更多</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- 季列表 -->
+        <section class="section-block">
+            <div class="section-header">
+                <h2 class="section-title">剧集列表</h2>
+            </div>
+            <div class="slider-container">
+                <button class="scroll-btn prev" onclick="scrollSlider('seasons', -1)"><i
+                        class="fas fa-chevron-left"></i></button>
+                <div class="slider-track" id="seasons">
+                    <!-- 生成多个季 -->
+                    <div class="season-card"><img src="约会大作战_(2013)/season-specials-poster.jpg" alt="SP">
+                        <div class="season-name">特别篇</div>
+                    </div>
+                    <div class="season-card"><img src="约会大作战_(2013)/season01-poster.jpg" alt="S01">
+                        <div class="season-name">第一季</div>
+                    </div>
+                    <div class="season-card"><img src="约会大作战_(2013)/season02-poster.jpg" alt="S02">
+                        <div class="season-name">第二季</div>
+                    </div>
+                    <div class="season-card"><img src="约会大作战_(2013)/season03-poster.jpg" alt="S03">
+                        <div class="season-name">第三季</div>
+                    </div>
+                    <div class="season-card"><img src="约会大作战_(2013)/season04-poster.jpg" alt="S04">
+                        <div class="season-name">第四季</div>
+                    </div>
+                    <div class="season-card"><img src="约会大作战_(2013)/season05-poster.jpg" alt="S05">
+                        <div class="season-name">第五季</div>
+                    </div>
+                    <div class="season-card"><img src="约会大作战_(2013)/season99-poster.jpg" alt="S99">
+                        <div class="season-name">额外内容</div>
+                    </div>
+                </div>
+                <button class="scroll-btn next" onclick="scrollSlider('seasons', 1)"><i
+                        class="fas fa-chevron-right"></i></button>
+            </div>
+        </section>
+
+        <!-- 当前季剧集 -->
+        <section class="section-block">
+            <div class="section-header">
+                <h2 class="section-title">第一季</h2>
+            </div>
+            <div class="slider-container">
+                <button class="scroll-btn prev" onclick="scrollSlider('episodes', -1)"><i
+                        class="fas fa-chevron-left"></i></button>
+                <div class="slider-track" id="episodes">
+                    <!-- 剧集 1 -->
+                    <div class="episode-card">
+                        <div class="ep-thumb">
+                            <img src="约会大作战_(2013)/Season 1/约会大作战 - S01E01 - 四月十日-thumb.jpg" alt="Ep1">
+                            <div class="ep-overlay">
+                                <i class="fas fa-check ep-icon seened" title="看过了"></i>
+                                <i class="fas fa-plus ep-icon list" title="加收藏"></i>
+                                <i class="fas fa-heart ep-icon favorite" title="喜欢"></i>
+                            </div>
+                        </div>
+                        <div class="ep-info">
+                            <div class="ep-title">1. 四月十日</div>
+                            <div class="ep-meta">2013-04-06 • 28分钟</div>
+                            <div class="ep-desc">刚刚升到来禅高中的二年级的五河士道。
+
+                                他和妹妹在一起生活，每天过着平凡的而学校生活。有一天突然响起来“空间震”的警报。本应是习以为常的避难，但这次的空间地震过程中，却让他邂逅了一个美丽的精灵——
+
+                                “你，是来杀我的吗？</div>
+                        </div>
+                    </div>
+                    <!-- 剧集 2 -->
+                    <div class="episode-card">
+                        <div class="ep-thumb">
+                            <img src="约会大作战_(2013)/Season 1/约会大作战 - S01E02 - 再接近遭遇-thumb.jpg" alt="Ep2">
+                            <div class="ep-overlay">
+                                <i class="fas fa-check ep-icon seened" title="看过了"></i>
+                                <i class="fas fa-plus ep-icon list" title="加收藏"></i>
+                                <i class="fas fa-heart ep-icon favorite" title="喜欢"></i>
+                            </div>
+                        </div>
+                        <div class="ep-info">
+                            <div class="ep-title">2. 再接近遭遇</div>
+                            <div class="ep-meta">2013-04-13 • 24分钟</div>
+                            <div class="ep-desc">士道为了拯救在空间震中心遇到的少女，在“拉塔特斯克”的帮助下接受特训。
+
+                                从琴里那里得到的指示是：“向老师求爱！？面对突如其来的实践，士道不知所措。
+
+                                然后，空间震的警报又再次响起了……</div>
+                        </div>
+                    </div>
+                    <!-- 剧集 3 -->
+                    <div class="episode-card">
+                        <div class="ep-thumb">
+                            <img src="约会大作战_(2013)/Season 1/约会大作战 - S01E03 - 分割天空之剑-thumb.jpg" alt="Ep3">
+                            <div class="ep-overlay">
+                                <i class="fas fa-check ep-icon seened" title="看过了"></i>
+                                <i class="fas fa-plus ep-icon list" title="加收藏"></i>
+                                <i class="fas fa-heart ep-icon favorite" title="喜欢"></i>
+                            </div>
+                        </div>
+                        <div class="ep-info">
+                            <div class="ep-title">3. 分割天空之剑</div>
+                            <div class="ep-meta">2013-04-20 • 25分钟</div>
+                            <div class="ep-desc">“是你约我的吧，要约会的吧”
+
+                                士道对突然出现的精灵十香说道，尽管他还不知所措。
+
+                                借助“拉塔特斯克”，他们漫步在天宫市街。
+
+                                对于每次来到这个空间都都受到AST生命威胁的十香而言，这就是她初次接触到的世界的样子。</div>
+                        </div>
+                    </div>
+                    <!-- 剧集 4 -->
+                    <div class="episode-card">
+                        <div class="ep-thumb">
+                            <img src="约会大作战_(2013)/Season 1/约会大作战 - S01E04 - 不高兴的雨-thumb.jpg" alt="Ep4">
+                            <div class="ep-overlay">
+                                <i class="fas fa-check ep-icon seened" title="看过了"></i>
+                                <i class="fas fa-plus ep-icon list" title="加收藏"></i>
+                                <i class="fas fa-heart ep-icon favorite" title="喜欢"></i>
+                            </div>
+                        </div>
+                        <div class="ep-info">
+                            <div class="ep-title">4. 不高兴的雨</div>
+                            <div class="ep-meta">2013-04-27 • 24分钟</div>
+                            <div class="ep-desc">天气预报被下雨所背叛了，在雨中的神社里，士道遇见了在积水中玩耍的少女。
+
+                                那是一个梦幻般的，给人以怯生生样子的少女。
+
+                                在此后的数日间，可空间大爆炸一起出现的、是识别名为“隐士”的精灵，她正是士道在神社遇到的那个少女。</div>
+                        </div>
+                    </div>
+                    <!-- 剧集 5 -->
+                    <div class="episode-card">
+                        <div class="ep-thumb">
+                            <img src="约会大作战_(2013)/Season 1/约会大作战 - S01E05 - 冰冻的大地-thumb.jpg" alt="Ep5">
+                            <div class="ep-overlay">
+                                <i class="fas fa-check ep-icon seened" title="看过了"></i>
+                                <i class="fas fa-plus ep-icon list" title="加收藏"></i>
+                                <i class="fas fa-heart ep-icon favorite" title="喜欢"></i>
+                            </div>
+                        </div>
+                        <div class="ep-info">
+                            <div class="ep-title">5. 冰冻的大地</div>
+                            <div class="ep-meta">2013-05-04 • 27分钟</div>
+                            <div class="ep-desc">四糸乃很珍视的布偶“四糸奈”失踪了。
+
+                                为了救四糸乃，士道封印了的精灵之力，从寻找“四糸奈”开始。
+
+                                但是，琴里他们发现“拉塔特斯克”查到的“四糸奈”的所在之处竟是鸢一折纸的住所。</div>
+                        </div>
+                    </div>
+
+                    <div class="episode-card">
+                        <div class="ep-thumb">
+                            <img src="约会大作战_(2013)/Season 1/约会大作战 - S01E06 - 恋爱的温泉-thumb.jpg" alt="Ep5">
+                            <div class="ep-overlay">
+                                <i class="fas fa-check ep-icon seened" title="看过了"></i>
+                                <i class="fas fa-plus ep-icon list" title="加收藏"></i>
+                                <i class="fas fa-heart ep-icon favorite" title="喜欢"></i>
+                            </div>
+                        </div>
+                        <div class="ep-info">
+                            <div class="ep-title">6. 恋爱的温泉</div>
+                            <div class="ep-meta">2013-05-11 • 27分钟</div>
+                            <div class="ep-desc">要去温泉的士道他们被十香和四糸乃死磨硬泡。
+
+                                另一方面，AST天宫驻地的队员们正在为队长的日下部辽子策划一个在温泉的慰劳会。
+
+                                为了不让精灵和AST接触，“拉塔特斯克”开始行动。围绕温泉一场大战拉开了帷幕。</div>
+                        </div>
+                    </div>
+
+                    <div class="episode-card">
+                        <div class="ep-thumb">
+                            <img src="约会大作战_(2013)/Season 1/约会大作战 - S01E07 - 来访者们-thumb.jpg" alt="Ep5">
+                            <div class="ep-overlay">
+                                <i class="fas fa-check ep-icon seened" title="看过了"></i>
+                                <i class="fas fa-plus ep-icon list" title="加收藏"></i>
+                                <i class="fas fa-heart ep-icon favorite" title="喜欢"></i>
+                            </div>
+                        </div>
+                        <div class="ep-info">
+                            <div class="ep-title">7. 来访者们</div>
+                            <div class="ep-meta">2013-05-18 • 25分钟</div>
+                            <div class="ep-desc">“其实我是精灵”转学生的时崎狂三若无其事的说道。
+
+                                同一时间，在AST天宫屯驻地陆上自卫队的王牌崇宫真那开始加入。
+
+                                新的精灵的出场再加上管士道叫“哥哥”的真那，令士道和琴里应接不暇。</div>
+                        </div>
+                    </div>
+
+                    <div class="episode-card">
+                        <div class="ep-thumb">
+                            <img src="约会大作战_(2013)/Season 1/约会大作战 - S01E08 - 三重狂骚曲-thumb.jpg" alt="Ep5">
+                            <div class="ep-overlay">
+                                <i class="fas fa-check ep-icon seened" title="看过了"></i>
+                                <i class="fas fa-plus ep-icon list" title="加收藏"></i>
+                                <i class="fas fa-heart ep-icon favorite" title="喜欢"></i>
+                            </div>
+                        </div>
+                        <div class="ep-info">
+                            <div class="ep-title">8. 三重狂骚曲</div>
+                            <div class="ep-meta">2013-05-25 • 24分钟</div>
+                            <div class="ep-desc">士道本次的任务是把十香、折纸、还有狂三都牵扯其中的三角关系的约会！
+
+                                想一想就有末日来临的紧张感！
+
+                                挑战肉体和精神的极限的士道！如履薄冰一样的任务之后，还有属于士道的明天吗！？</div>
+                        </div>
+                    </div>
+
+                    <div class="episode-card">
+                        <div class="ep-thumb">
+                            <img src="约会大作战_(2013)/Season 1/约会大作战 - S01E09 - 狂乱的恶梦-thumb.jpg" alt="Ep5">
+                            <div class="ep-overlay">
+                                <i class="fas fa-check ep-icon seened" title="看过了"></i>
+                                <i class="fas fa-plus ep-icon list" title="加收藏"></i>
+                                <i class="fas fa-heart ep-icon favorite" title="喜欢"></i>
+                            </div>
+                        </div>
+                        <div class="ep-info">
+                            <div class="ep-title">9. 狂乱的恶梦</div>
+                            <div class="ep-meta">2013-06-01 • 25分钟</div>
+                            <div class="ep-desc">千钧一发，真那从施暴的狂三手下救出了士道。
+
+                                原封不动的转达了“习惯了就让人讨厌了”的话，士道无法对向狂三动手的真那隐藏经受的打击。
+
+                                愤怒、悔恨向士道阵阵袭来……虚脱。
+
+                                然后在丧失掉力气的士道的瞳孔中，映出了夜刀神十香的身影。
+
+                                在笼罩着黑暗的士道的内心，再次燃起了希望之光！</div>
+                        </div>
+                    </div>
+
+                    <div class="episode-card">
+                        <div class="ep-thumb">
+                            <img src="约会大作战_(2013)/Season 1/约会大作战 - S01E10 - 炎之精灵(Efreet)-thumb.jpg" alt="Ep5">
+                            <div class="ep-overlay">
+                                <i class="fas fa-check ep-icon seened" title="看过了"></i>
+                                <i class="fas fa-plus ep-icon list" title="加收藏"></i>
+                                <i class="fas fa-heart ep-icon favorite" title="喜欢"></i>
+                            </div>
+                        </div>
+                        <div class="ep-info">
+                            <div class="ep-title">10. 炎之精灵(Efreet)</div>
+                            <div class="ep-meta">2013-06-08 • 27分钟</div>
+                            <div class="ep-desc">救下被狂三逼的无计可施的士道，现身的是……五河琴里。
+
+                                超越人类的力量，以天使现身的琴里的身影、毫无疑问——。
+
+                                五河兄妹的过去越来越清晰了。
+
+                                于是，一个真相……新的谜底呼之欲出了。</div>
+                        </div>
+                    </div>
+
+                    <div class="episode-card">
+                        <div class="ep-thumb">
+                            <img src="约会大作战_(2013)/Season 1/约会大作战 - S01E11 - 倒数计时-thumb.jpg" alt="Ep5">
+                            <div class="ep-overlay">
+                                <i class="fas fa-check ep-icon seened" title="看过了"></i>
+                                <i class="fas fa-plus ep-icon list" title="加收藏"></i>
+                                <i class="fas fa-heart ep-icon favorite" title="喜欢"></i>
+                            </div>
+                        </div>
+                        <div class="ep-info">
+                            <div class="ep-title">11. 倒数计时</div>
+                            <div class="ep-meta">2011-05-15 • 26分钟</div>
+                            <div class="ep-desc">留给琴里的时间，琴里作为琴里的时间只有此后的2天……
+
+                                对自幼相伴的妹妹士道应该采取的行动就是“与其约会”。
+
+                                士道能否救下最爱的妹妹琴里！？
+
+                                在繁华的街市中，五颜六色的泳装，在更衣室中，士道面临着终极的抉择！</div>
+                        </div>
+                    </div>
+
+                    <div class="episode-card">
+                        <div class="ep-thumb">
+                            <img src="约会大作战_(2013)/Season 1//约会大作战 - S01E12 - 无法放弃的事物-thumb.jpg" alt="Ep5">
+                            <div class="ep-overlay">
+                                <i class="fas fa-check ep-icon seened" title="看过了"></i>
+                                <i class="fas fa-plus ep-icon list" title="加收藏"></i>
+                                <i class="fas fa-heart ep-icon favorite" title="喜欢"></i>
+                            </div>
+                        </div>
+                        <div class="ep-info">
+                            <div class="ep-title">12. 无法放弃的事物</div>
+                            <div class="ep-meta">2013-06-22 • 26分钟</div>
+                            <div class="ep-desc">士道为了琴里正在进行泳池约会。
+
+                                但是，即使在那个时间，也无情的吹来冲击和轰鸣声。
+
+                                正在那里的是眼睛里闪着复仇的火焰的鸢一折纸。</div>
+                        </div>
+                    </div>
+                </div>
+                <button class="scroll-btn next" onclick="scrollSlider('episodes', 1)"><i
+                        class="fas fa-chevron-right"></i></button>
+            </div>
+        </section>
+
+        <!-- 演职人员 -->
+        <section class="section-block">
+            <div class="section-header">
+                <h2 class="section-title">演职人员</h2>
+            </div>
+            <div class="slider-container">
+                <button class="scroll-btn prev" onclick="scrollSlider('cast', -1)"><i
+                        class="fas fa-chevron-left"></i></button>
+                <div class="slider-track" id="cast">
+                    <div class="cast-card">
+                        <img src="约会大作战_(2013)/actors/岛崎信长.jpg" alt="Actor">
+                        <div class="cast-name">岛崎信长</div>
+                        <div class="cast-role">Shido Itsuka (voice)</div>
+                    </div>
+                    <div class="cast-card">
+                        <img src="约会大作战_(2013)/actors/井上麻里奈.jpg" alt="Actor">
+                        <div class="cast-name">井上麻里奈</div>
+                        <div class="cast-role">Tohka Yatogami (voice)</div>
+                    </div>
+                    <div class="cast-card">
+                        <img src="约会大作战_(2013)/actors/富㭴美铃.jpg" alt="Actor">
+                        <div class="cast-name">富㭴美铃</div>
+                        <div class="cast-role">Origami Tobiichi (voice)</div>
+                    </div>
+                    <div class="cast-card">
+                        <img src="约会大作战_(2013)/actors/竹达彩奈.jpg" alt="Actor">
+                        <div class="cast-name">竹达彩奈</div>
+                        <div class="cast-role">Kotori Itsuka (voice)</div>
+                    </div>
+                    <div class="cast-card">
+                        <img src="约会大作战_(2013)/actors/野水伊织.jpg" alt="Actor">
+                        <div class="cast-name">野水伊织</div>
+                        <div class="cast-role">Yoshino (voice)</div>
+                    </div>
+                    <div class="cast-card">
+                        <img src="约会大作战_(2013)/actors/真田麻美.jpg" alt="Actor">
+                        <div class="cast-name">真田麻美</div>
+                        <div class="cast-role">Kurumi Tokisaki (voice)</div>
+                    </div>
+                    <div class="cast-card">
+                        <img src="约会大作战_(2013)/actors/内田真礼.jpg" alt="Actor">
+                        <div class="cast-name">内田真礼</div>
+                        <div class="cast-role">Kaguya Yamai (voice)</div>
+                    </div>
+                    <div class="cast-card">
+                        <img src="约会大作战_(2013)/actors/布莱德库特·莎拉·惠美.jpg" alt="Actor">
+                        <div class="cast-name">布莱德库特·莎拉·惠美</div>
+                        <div class="cast-role">Kuzuru Yamai (voice)</div>
+                    </div>
+                    <div class="cast-card">
+                        <img src="约会大作战_(2013)/actors/茅原实里.jpg" alt="Actor">
+                        <div class="cast-name">茅原实里</div>
+                        <div class="cast-role">Miku Iyazoi (voice)</div>
+                    </div>
+                    <div class="cast-card">
+                        <img src="约会大作战_(2013)/actors/远藤绫.jpg" alt="Actor">
+                        <div class="cast-name">远藤绫</div>
+                        <div class="cast-role">Reine Murasame (voice)</div>
+                    </div>
+                    <div class="cast-card">
+                        <img src="约会大作战_(2013)/actors/子安武人.jpg" alt="Actor">
+                        <div class="cast-name">子安武人</div>
+                        <div class="cast-role">Kyōhei Kannazuki (voice)</div>
+                    </div>
+                    <div class="cast-card">
+                        <img src="约会大作战_(2013)/actors/味里.jpg" alt="Actor">
+                        <div class="cast-name">味里</div>
+                        <div class="cast-role">Mana Takamiya (voice)</div>
+                    </div>
+                    <div class="cast-card">
+                        <img src="约会大作战_(2013)/actors/佐土原香织.jpg" alt="Actor">
+                        <div class="cast-name">佐土原香织</div>
+                        <div class="cast-role">Tamae Okamine (voice)</div>
+                    </div>
+                    <div class="cast-card">
+                        <img src="约会大作战_(2013)/actors/胜杏里.jpg" alt="Actor">
+                        <div class="cast-name">胜杏里</div>
+                        <div class="cast-role">Hiroto Tonomachi (voice)</div>
+                    </div>
+                    <div class="cast-card">
+                        <img src="约会大作战_(2013)/actors/井上刚.jpg" alt="Actor">
+                        <div class="cast-name">井上刚</div>
+                        <div class="cast-role">Kawagoe (voice)</div>
+                    </div>
+                    <div class="cast-card">
+                        <img src="约会大作战_(2013)/actors/明坂聪美.jpg" alt="Actor">
+                        <div class="cast-name">明坂聪美</div>
+                        <div class="cast-role">Shiizaki (voice)</div>
+                    </div>
+                    <button class="scroll-btn next" onclick="scrollSlider('cast', 1)"><i
+                            class="fas fa-chevron-right"></i></button>
+                </div>
+        </section>
+
+        <!-- 推荐 -->
+        <section class="section-block">
+            <div class="section-header">
+                <h2 class="section-title">更多剧集</h2>
+            </div>
+            <div class="slider-container">
+                <button class="scroll-btn prev" onclick="scrollSlider('recommendations', -1)"><i
+                        class="fas fa-chevron-left"></i></button>
+                <div class="slider-track" id="recommendations">
+                    <!-- 推荐项 1 -->
+                    <div class="recommend-card">
+                        <img src="otherpic/poster1.jpg" alt="Rec 1">
+                        <div class="rec-info">
+                            <div class="rec-title">赛博朋克：边缘行者</div>
+                            <div class="rec-year">2022</div>
+                        </div>
+                        <div class="rec-actions">
+                            <div class="rec-btn"><i class="fas fa-plus"></i></div>
+                            <div class="rec-btn"><i class="fas fa-heart"></i></div>
+                        </div>
+                    </div>
+                    <!-- 推荐项 2 -->
+                    <div class="recommend-card">
+                        <img src="otherpic/poster2.jpg" alt="Rec 2">
+                        <div class="rec-info">
+                            <div class="rec-title">魔卡少女樱</div>
+                            <div class="rec-year">1998</div>
+                        </div>
+                        <div class="rec-actions">
+                            <div class="rec-btn"><i class="fas fa-plus"></i></div>
+                            <div class="rec-btn"><i class="fas fa-heart"></i></div>
+                        </div>
+                    </div>
+                    <!-- 推荐项 3 -->
+                    <div class="recommend-card">
+                        <img src="otherpic/poster3.jpg" alt="Rec 3">
+                        <div class="rec-info">
+                            <div class="rec-title">别当欧尼酱了！</div>
+                            <div class="rec-year">2023</div>
+                        </div>
+                        <div class="rec-actions">
+                            <div class="rec-btn"><i class="fas fa-plus"></i></div>
+                            <div class="rec-btn"><i class="fas fa-heart"></i></div>
+                        </div>
+                    </div>
+                    <!-- 推荐项 4 -->
+                    <div class="recommend-card">
+                        <img src="otherpic/poster4.jpg" alt="Rec 4">
+                        <div class="rec-info">
+                            <div class="rec-title">路人女主的养成方法</div>
+                            <div class="rec-year">2015</div>
+                        </div>
+                        <div class="rec-actions">
+                            <div class="rec-btn"><i class="fas fa-plus"></i></div>
+                            <div class="rec-btn"><i class="fas fa-heart"></i></div>
+                        </div>
+                    </div>
+                    <!-- 推荐项 5 -->
+                    <div class="recommend-card">
+                        <img src="otherpic/poster5.jpg" alt="Rec 5">
+                        <div class="rec-info">
+                            <div class="rec-title">青春猪头少年不会梦到兔女郎学姐</div>
+                            <div class="rec-year">2018</div>
+                        </div>
+                        <div class="rec-actions">
+                            <div class="rec-btn"><i class="fas fa-plus"></i></div>
+                            <div class="rec-btn"><i class="fas fa-heart"></i></div>
+                        </div>
+                    </div>
+                </div>
+                <button class="scroll-btn next" onclick="scrollSlider('recommendations', 1)"><i
+                        class="fas fa-chevron-right"></i></button>
+            </div>
+        </section>
+
+        <!-- 底部信息 -->
+        <footer class="footer-info">
+            <div class="footer-item"><span>类型:</span> 动画, 科幻, 喜剧, 动作</div> <br>
+            <div class="footer-item"><span>工作室:</span> AT-X, Tokyo MX, AIC PLUS+, J.C.STAFF, Production IMS, GEEKTOYS,
+                Nippon Columbia, KADOKAWA, KADOKAWA Media House, GEEK PICTURES, Docomo Anime Store</div><br>
+            <div class="footer-item"><span>数据库:</span> <a href="https://www.themoviedb.org/tv/46004"
+                    style="text-decoration: underline;">TMDB</a></div>
+        </footer>
+
+    </main>
+
+    <!-- 交互脚本 -->
+    <script>
+        // 1. 顶栏滚动逻辑
+        let lastScrollY = window.scrollY;
+        const topBar = document.getElementById('topBar');
+
+        window.addEventListener('scroll', () => {
+            const currentScrollY = window.scrollY;
+
+            // 如果向下滚动 且 滚动距离超过一定阈值（防止在顶部抖动）
+            if (currentScrollY > lastScrollY && currentScrollY > 50) {
+                topBar.classList.add('hidden');
+            } else {
+                // 向上滚动
+                topBar.classList.remove('hidden');
+            }
+            lastScrollY = currentScrollY;
+        });
+
+        // 2. 横向滚动逻辑
+        function scrollSlider(sliderId, direction) {
+            const slider = document.getElementById(sliderId);
+            const scrollAmount = 300; // 每次滚动的像素距离
+            if (direction === 1) {
+                slider.scrollLeft += scrollAmount;
+            } else {
+                slider.scrollLeft -= scrollAmount;
+            }
+        }
+
+        // 3. 简介“更多”切换逻辑
+        function toggleDescription() {
+            const desc = document.getElementById('description');
+            const readMore = desc.querySelector('.read-more');
+
+            if (desc.classList.contains('collapsed')) {
+                desc.classList.remove('collapsed');
+                readMore.textContent = '收起';
+            } else {
+                desc.classList.add('collapsed');
+                readMore.textContent = '更多';
+            }
+        }
+    </script>
+</body>
+
+</html>

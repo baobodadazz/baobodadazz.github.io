@@ -1,0 +1,180 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<episodedetails>
+  <plot><![CDATA[士道带令音去以前崇宫真士与澪约会时去过的海岸，令音的好感度也随之变高，士道终于成功与她接吻。全程都在观察的琴里等人，本来也确信这次约会即将成功……]]></plot>
+  <outline />
+  <lockdata>true</lockdata>
+  <dateadded>2024-06-29 11:36:10</dateadded>
+  <title>不该存在的战场</title>
+  <originaltitle>ありえないはずの戦場</originaltitle>
+  <actor>
+    <name>岛崎信长</name>
+    <role>Shido Itsuka (voice)</role>
+    <type>Actor</type>
+    <tmdbid>1210634</tmdbid>
+  </actor>
+  <actor>
+    <name>井上麻里奈</name>
+    <role>Tohka Yatogami (voice)</role>
+    <type>Actor</type>
+    <tmdbid>90135</tmdbid>
+  </actor>
+  <actor>
+    <name>富㭴美铃</name>
+    <role>Origami Tobiichi (voice)</role>
+    <type>Actor</type>
+    <tmdbid>1316009</tmdbid>
+  </actor>
+  <actor>
+    <name>Ayana Taketatsu</name>
+    <role>Kotori Itsuka (voice)</role>
+    <type>Actor</type>
+    <tmdbid>1072776</tmdbid>
+  </actor>
+  <actor>
+    <name>野水伊织</name>
+    <role>Yoshino (voice)</role>
+    <type>Actor</type>
+    <tmdbid>1254069</tmdbid>
+  </actor>
+  <actor>
+    <name>真田麻美</name>
+    <role>Kurumi Tokisaki (voice)</role>
+    <type>Actor</type>
+    <tmdbid>1241552</tmdbid>
+  </actor>
+  <actor>
+    <name>内田真礼</name>
+    <role>Kaguya Yamai (voice)</role>
+    <type>Actor</type>
+    <tmdbid>1296667</tmdbid>
+  </actor>
+  <actor>
+    <name>布莱德库特·莎拉·惠美</name>
+    <role>Kuzuru Yamai (voice)</role>
+    <type>Actor</type>
+    <tmdbid>1498133</tmdbid>
+  </actor>
+  <actor>
+    <name>茅原实里</name>
+    <role>Miku Iyazoi (voice)</role>
+    <type>Actor</type>
+    <tmdbid>144648</tmdbid>
+  </actor>
+  <actor>
+    <name>远藤绫</name>
+    <role>Reine  Murasame (voice)</role>
+    <type>Actor</type>
+    <tmdbid>223687</tmdbid>
+  </actor>
+  <actor>
+    <name>子安武人</name>
+    <role>Kyōhei Kannazuki (voice)</role>
+    <type>Actor</type>
+    <tmdbid>84508</tmdbid>
+  </actor>
+  <year>2024</year>
+  <sorttitle>不该存在的战场</sorttitle>
+  <tvdbid>10367488</tvdbid>
+  <tmdbid>5258059</tmdbid>
+  <runtime>24</runtime>
+  <studio>AT-X</studio>
+  <studio>Tokyo MX</studio>
+  <studio>AIC PLUS+</studio>
+  <studio>J.C.STAFF</studio>
+  <studio>Production IMS</studio>
+  <studio>GEEKTOYS</studio>
+  <studio>Nippon Columbia</studio>
+  <studio>KADOKAWA</studio>
+  <studio>KADOKAWA Media House</studio>
+  <studio>GEEK PICTURES</studio>
+  <studio>Docomo Anime Store</studio>
+  <uniqueid type="tmdb">5258059</uniqueid>
+  <uniqueid type="trakt">11711704</uniqueid>
+  <traktid>11711704</traktid>
+  <uniqueid type="tvdb">10367488</uniqueid>
+  <episode>10</episode>
+  <season>5</season>
+  <aired>2024-06-12</aired>
+  <fileinfo>
+    <streamdetails>
+      <video>
+        <codec>hevc</codec>
+        <micodec>hevc</micodec>
+        <bitrate>9602541</bitrate>
+        <width>3840</width>
+        <height>2160</height>
+        <aspect>16:9</aspect>
+        <aspectratio>16:9</aspectratio>
+        <framerate>23.976025</framerate>
+        <scantype>progressive</scantype>
+        <default>False</default>
+        <forced>False</forced>
+        <duration>23</duration>
+        <durationinseconds>1420</durationinseconds>
+      </video>
+      <audio>
+        <codec>aac</codec>
+        <micodec>aac</micodec>
+        <bitrate>192000</bitrate>
+        <language>jpn</language>
+        <scantype>progressive</scantype>
+        <channels>2</channels>
+        <samplingrate>44100</samplingrate>
+        <default>True</default>
+        <forced>False</forced>
+      </audio>
+      <subtitle>
+        <codec>ass</codec>
+        <micodec>ass</micodec>
+        <language>chi</language>
+        <scantype>progressive</scantype>
+        <default>True</default>
+        <forced>False</forced>
+      </subtitle>
+      <attachment>
+        <scantype>progressive</scantype>
+        <default>False</default>
+        <forced>False</forced>
+      </attachment>
+      <attachment>
+        <scantype>progressive</scantype>
+        <default>False</default>
+        <forced>False</forced>
+      </attachment>
+      <attachment>
+        <scantype>progressive</scantype>
+        <default>False</default>
+        <forced>False</forced>
+      </attachment>
+      <attachment>
+        <scantype>progressive</scantype>
+        <default>False</default>
+        <forced>False</forced>
+      </attachment>
+      <attachment>
+        <scantype>progressive</scantype>
+        <default>False</default>
+        <forced>False</forced>
+      </attachment>
+      <attachment>
+        <scantype>progressive</scantype>
+        <default>False</default>
+        <forced>False</forced>
+      </attachment>
+    </streamdetails>
+  </fileinfo>
+  <showtitle>约会大作战</showtitle>
+  <ratings />
+  <userrating>0</userrating>
+  <thumb>https://image.tmdb.org/t/p/original/g0rpuD8uogE3V4jMLl6ux3pnIcx.jpg</thumb>
+  <watched>false</watched>
+  <playcount>0</playcount>
+  <epbookmark />
+  <code />
+  <source>UNKNOWN</source>
+  <original_filename>S05E10.mkv</original_filename>
+  <user_note />
+  <episode_groups>
+    <group episode="10" id="AIRED" name="" season="5" />
+  </episode_groups>
+</episodedetails>

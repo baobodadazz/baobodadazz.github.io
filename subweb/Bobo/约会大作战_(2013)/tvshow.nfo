@@ -1,0 +1,363 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<tvshow>
+  <plot><![CDATA[四月十日，春假在昨天结束，今天早上就是所谓的返校日。被可爱的妹妹吵醒后，五河士道原本以为今天也会如同往常般度过平凡的一天。然而伴随着一阵突如其来的冲击波，街道就这样消失得无影无踪。在宛如陨石撞击而变成环形山的街道一隅，一名身穿盔甲手持大剑的神秘少女正站在坑洞的正中央。“你也是来杀我的吧？”摧毁世界的灾难、充满谜团的怪物、被世界否定的少女。 阻止这一切的方法只有两种——歼灭或对话。身穿司令官服的妹妹五河琴里对士道说：“所以你必须与精灵〈约会〉，并且让对方迷恋上你！”这名少女的真正身份是精灵，是会给世界带来毁灭性灾难的存在，她的再次出现，将会给地球带来毁灭性的未来！然而主人公士道却有方法阻止世界毁灭，这个唯一能够阻止世界毁灭的方法就是——要与她约会！]]></plot>
+  <outline><![CDATA[四月十日，春假在昨天结束，今天早上就是所谓的返校日。被可爱的妹妹吵醒后，五河士道原本以为今天也会如同往常般度过平凡的一天。然而伴随着一阵突如其来的冲击波，街道就这样消失得无影无踪。在宛如陨石撞击而变成环形山的街道一隅，一名身穿盔甲手持大剑的神秘少女正站在坑洞的正中央。“你也是来杀我的吧？”摧毁世界的灾难、充满谜团的怪物、被世界否定的少女。 阻止这一切的方法只有两种——歼灭或对话。身穿司令官服的妹妹五河琴里对士道说：“所以你必须与精灵〈约会〉，并且让对方迷恋上你！”这名少女的真正身份是精灵，是会给世界带来毁灭性灾难的存在，她的再次出现，将会给地球带来毁灭性的未来！然而主人公士道却有方法阻止世界毁灭，这个唯一能够阻止世界毁灭的方法就是——要与她约会！]]></outline>
+  <lockdata>true</lockdata>
+  <dateadded>2024-06-29 11:36:10</dateadded>
+  <title>约会大作战</title>
+  <originaltitle>デート・ア・ライブ</originaltitle>
+  <actor>
+    <name>岛崎信长</name>
+    <role>Shido Itsuka (voice)</role>
+    <type>Actor</type>
+    <tmdbid>1210634</tmdbid>
+  </actor>
+  <actor>
+    <name>井上麻里奈</name>
+    <role>Tohka Yatogami (voice)</role>
+    <type>Actor</type>
+    <tmdbid>90135</tmdbid>
+  </actor>
+  <actor>
+    <name>富㭴美铃</name>
+    <role>Origami Tobiichi (voice)</role>
+    <type>Actor</type>
+    <tmdbid>1316009</tmdbid>
+  </actor>
+  <actor>
+    <name>Ayana Taketatsu</name>
+    <role>Kotori Itsuka (voice)</role>
+    <type>Actor</type>
+    <tmdbid>1072776</tmdbid>
+  </actor>
+  <actor>
+    <name>野水伊织</name>
+    <role>Yoshino (voice)</role>
+    <type>Actor</type>
+    <tmdbid>1254069</tmdbid>
+  </actor>
+  <actor>
+    <name>真田麻美</name>
+    <role>Kurumi Tokisaki (voice)</role>
+    <type>Actor</type>
+    <tmdbid>1241552</tmdbid>
+  </actor>
+  <actor>
+    <name>内田真礼</name>
+    <role>Kaguya Yamai (voice)</role>
+    <type>Actor</type>
+    <tmdbid>1296667</tmdbid>
+  </actor>
+  <actor>
+    <name>布莱德库特·莎拉·惠美</name>
+    <role>Kuzuru Yamai (voice)</role>
+    <type>Actor</type>
+    <tmdbid>1498133</tmdbid>
+  </actor>
+  <actor>
+    <name>茅原实里</name>
+    <role>Miku Iyazoi (voice)</role>
+    <type>Actor</type>
+    <tmdbid>144648</tmdbid>
+  </actor>
+  <actor>
+    <name>远藤绫</name>
+    <role>Reine  Murasame (voice)</role>
+    <type>Actor</type>
+    <tmdbid>223687</tmdbid>
+  </actor>
+  <actor>
+    <name>子安武人</name>
+    <role>Kyōhei Kannazuki (voice)</role>
+    <type>Actor</type>
+    <tmdbid>84508</tmdbid>
+  </actor>
+  <actor>
+    <name>味里</name>
+    <role>Mana Takamiya (voice)</role>
+    <type>Actor</type>
+    <tmdbid>1656810</tmdbid>
+  </actor>
+  <actor>
+    <name>佐土原香织</name>
+    <role>Tamae Okamine (voice)</role>
+    <type>Actor</type>
+    <tmdbid>1653051</tmdbid>
+  </actor>
+  <actor>
+    <name>胜杏里</name>
+    <role>Hiroto Tonomachi (voice)</role>
+    <type>Actor</type>
+    <tmdbid>1251007</tmdbid>
+  </actor>
+  <actor>
+    <name>井上刚</name>
+    <role>Kawagoe (voice)</role>
+    <type>GuestStar</type>
+    <tmdbid>1254837</tmdbid>
+  </actor>
+  <actor>
+    <name>ゴー☆ジャス</name>
+    <role>Nakatsugawa (voice)</role>
+    <type>GuestStar</type>
+    <tmdbid>1860274</tmdbid>
+  </actor>
+  <actor>
+    <name>明坂聪美</name>
+    <role>Shiizaki (voice)</role>
+    <type>GuestStar</type>
+    <tmdbid>1252386</tmdbid>
+  </actor>
+  <actor>
+    <name>村井理沙子</name>
+    <role>Ai (voice)</role>
+    <type>GuestStar</type>
+    <tmdbid>1860263</tmdbid>
+  </actor>
+  <actor>
+    <name>积田佳代子</name>
+    <role>Mai (voice)</role>
+    <type>GuestStar</type>
+    <tmdbid>1849847</tmdbid>
+  </actor>
+  <actor>
+    <name>月宫美鸟</name>
+    <role>Mii (voice)</role>
+    <type>GuestStar</type>
+    <tmdbid>1254353</tmdbid>
+  </actor>
+  <actor>
+    <name>高梁碧</name>
+    <role>Ryouko Kusakabe (voice)</role>
+    <type>GuestStar</type>
+    <tmdbid>1253086</tmdbid>
+  </actor>
+  <actor>
+    <name>利根健太朗</name>
+    <role>Mikimoto (voice)</role>
+    <type>GuestStar</type>
+    <tmdbid>1845268</tmdbid>
+  </actor>
+  <actor>
+    <name>うさみともこ</name>
+    <role>Minowa (voice)</role>
+    <type>GuestStar</type>
+    <tmdbid>1860273</tmdbid>
+  </actor>
+  <actor>
+    <name>三石琴乃</name>
+    <role>Narration (voice)</role>
+    <type>GuestStar</type>
+    <tmdbid>77931</tmdbid>
+  </actor>
+  <actor>
+    <name>Asuka Arishima</name>
+    <role>Member (voice)</role>
+    <type>GuestStar</type>
+    <tmdbid>3317935</tmdbid>
+  </actor>
+  <actor>
+    <name>Chie Uihara</name>
+    <role>Member (voice)</role>
+    <type>GuestStar</type>
+    <tmdbid>3317953</tmdbid>
+  </actor>
+  <actor>
+    <name>宗矢樹頼</name>
+    <role>Superior Officer (voice)</role>
+    <type>GuestStar</type>
+    <tmdbid>1796273</tmdbid>
+  </actor>
+  <actor>
+    <name>Kenshun Bandō</name>
+    <role>Futamura (voice)</role>
+    <type>GuestStar</type>
+    <tmdbid>3318822</tmdbid>
+  </actor>
+  <actor>
+    <name>增元拓也</name>
+    <role>Man (voice)</role>
+    <type>GuestStar</type>
+    <tmdbid>1513941</tmdbid>
+  </actor>
+  <actor>
+    <name>須嵜成幸</name>
+    <role>Man (voice)</role>
+    <type>GuestStar</type>
+    <tmdbid>1338538</tmdbid>
+  </actor>
+  <actor>
+    <name>水野貴雄</name>
+    <role>Suzuki (voice)</role>
+    <type>GuestStar</type>
+    <tmdbid>2070218</tmdbid>
+  </actor>
+  <actor>
+    <name>寺岛惇太</name>
+    <role>Youth (voice)</role>
+    <type>GuestStar</type>
+    <tmdbid>1613374</tmdbid>
+  </actor>
+  <actor>
+    <name>伊藤静</name>
+    <role>Ellen Mira Mathers (Voice)</role>
+    <type>Actor</type>
+    <tmdbid>571993</tmdbid>
+  </actor>
+  <actor>
+    <name>置鲇龙太郎</name>
+    <role>Isaac Ray Pelham Westcott (Voice)</role>
+    <type>Actor</type>
+    <tmdbid>89878</tmdbid>
+  </actor>
+  <actor>
+    <name>小笠原早纪</name>
+    <role>Mildred F. Fujimura (voice)</role>
+    <type>GuestStar</type>
+    <tmdbid>1860270</tmdbid>
+  </actor>
+  <actor>
+    <name>佐藤奏美</name>
+    <role>Mikie Okamine (voice)</role>
+    <type>GuestStar</type>
+    <tmdbid>1357106</tmdbid>
+  </actor>
+  <actor>
+    <name>Toshiharu Nakanishi</name>
+    <role>James A. Paddington (voice)</role>
+    <type>GuestStar</type>
+    <tmdbid>1852178</tmdbid>
+  </actor>
+  <actor>
+    <name>Jouji Nakata</name>
+    <role>Elliot Woodman (voice)</role>
+    <type>GuestStar</type>
+    <tmdbid>23987</tmdbid>
+  </actor>
+  <actor>
+    <name>仲村香织</name>
+    <role>Tsukamoto (voice)</role>
+    <type>GuestStar</type>
+    <tmdbid>3000980</tmdbid>
+  </actor>
+  <actor>
+    <name>藏合纱惠子</name>
+    <role>Shiori Itsuka (voice)</role>
+    <type>GuestStar</type>
+    <tmdbid>1796647</tmdbid>
+  </actor>
+  <actor>
+    <name>甲斐田裕子</name>
+    <role>Jessica Bailey (voice)</role>
+    <type>GuestStar</type>
+    <tmdbid>222340</tmdbid>
+  </actor>
+  <actor>
+    <name>山本兼平</name>
+    <role>Man (voice)</role>
+    <type>GuestStar</type>
+    <tmdbid>1315198</tmdbid>
+  </actor>
+  <actor>
+    <name>真野步</name>
+    <role>Natsumi (Voice)</role>
+    <type>Actor</type>
+    <tmdbid>2210352</tmdbid>
+  </actor>
+  <actor>
+    <name>生天目仁美</name>
+    <role>Nia Honjō (voice)</role>
+    <type>Actor</type>
+    <tmdbid>1241562</tmdbid>
+  </actor>
+  <actor>
+    <name>Akari Kageyama</name>
+    <role>Mukuro Hoshimiya (voice)</role>
+    <type>Actor</type>
+    <tmdbid>1788697</tmdbid>
+  </actor>
+  <rating>8.5</rating>
+  <year>2013</year>
+  <sorttitle>约会大作战</sorttitle>
+  <mpaa>US:TV-14</mpaa>
+  <imdb_id>tt2575684</imdb_id>
+  <tmdbid>46004</tmdbid>
+  <premiered>2013-04-06</premiered>
+  <releasedate>2013-04-06</releasedate>
+  <runtime>24</runtime>
+  <country>日本</country>
+  <genre>动画</genre>
+  <genre>科幻</genre>
+  <genre>喜剧</genre>
+  <genre>动作</genre>
+  <studio>AT-X</studio>
+  <studio>Tokyo MX</studio>
+  <studio>AIC PLUS+</studio>
+  <studio>J.C.STAFF</studio>
+  <studio>Production IMS</studio>
+  <studio>GEEKTOYS</studio>
+  <studio>Nippon Columbia</studio>
+  <studio>KADOKAWA</studio>
+  <studio>KADOKAWA Media House</studio>
+  <studio>GEEK PICTURES</studio>
+  <studio>Docomo Anime Store</studio>
+  <tag>affectation</tag>
+  <tag>anime</tag>
+  <tag>enthusiastic</tag>
+  <tag>harem</tag>
+  <uniqueid type="tvdb">264663</uniqueid>
+  <tvdbid>264663</tvdbid>
+  <uniqueid type="imdb">tt2575684</uniqueid>
+  <uniqueid type="tmdb">46004</uniqueid>
+  <episodeguide>{"tvdb":"264663","imdb":"tt2575684","tmdb":"46004"}</episodeguide>
+  <id>264663</id>
+  <season>-1</season>
+  <episode>-1</episode>
+  <displayorder>aired</displayorder>
+  <status>Continuing</status>
+  <showtitle>约会大作战</showtitle>
+  <top250>0</top250>
+  <ratings>
+    <rating default="true" max="10" name="themoviedb">
+      <value>8.5</value>
+      <votes>422</votes>
+    </rating>
+  </ratings>
+  <userrating>0</userrating>
+  <thumb aspect="poster">https://artworks.thetvdb.com/banners/posters/264663-2.jpg</thumb>
+  <thumb aspect="banner">https://artworks.thetvdb.com/banners/graphical/264663-g2.jpg</thumb>
+  <thumb aspect="clearart">http://assets.fanart.tv/fanart/tv/264663/hdclearart/date-a-live-54fc81a49d3e4.png</thumb>
+  <thumb aspect="clearlogo">http://assets.fanart.tv/fanart/tv/264663/hdtvlogo/date-a-live-6659ddb608cad.png</thumb>
+  <thumb aspect="landscape">http://assets.fanart.tv/fanart/tv/264663/tvthumb/date-a-live-5db2a4f0d4900.jpg</thumb>
+  <thumb aspect="keyart">http://assets.fanart.tv/fanart/tv/264663/tvposter/date-a-live-665c5800dc1f8.jpg</thumb>
+  <thumb aspect="characterart">http://assets.fanart.tv/fanart/tv/264663/characterart/date-a-live-64bd417557c74.png</thumb>
+  <namedseason number="4">Ⅳ</namedseason>
+  <namedseason number="3">Ⅲ</namedseason>
+  <namedseason number="5">Ⅴ</namedseason>
+  <namedseason number="2">Ⅱ</namedseason>
+  <namedseason number="1">Ⅰ</namedseason>
+  <namedseason number="0">特别篇</namedseason>
+  <thumb aspect="poster" season="99" type="season">https://image.tmdb.org/t/p/original/zdL7mjRftd7zLzeBL8zcq2m62P3.jpg</thumb>
+  <thumb aspect="poster" season="4" type="season">https://artworks.thetvdb.com/banners/v4/season/1906809/posters/6141f3ea648ac.jpg</thumb>
+  <thumb aspect="poster" season="3" type="season">http://assets.fanart.tv/fanart/tv/264663/seasonposter/date-a-live-5dc404c778370.jpg</thumb>
+  <thumb aspect="poster" season="5" type="season">https://artworks.thetvdb.com/banners/v4/season/2007132/posters/642d98fd4fbd9.jpg</thumb>
+  <thumb aspect="poster" season="2" type="season">http://assets.fanart.tv/fanart/tv/264663/seasonposter/date-a-live-626a64fb6fdfd.jpg</thumb>
+  <thumb aspect="poster" season="1" type="season">http://assets.fanart.tv/fanart/tv/264663/seasonposter/date-a-live-626a64ee193e9.jpg</thumb>
+  <thumb aspect="poster" season="0" type="season">http://assets.fanart.tv/fanart/tv/264663/seasonposter/date-a-live-5dbfff490075a.jpg</thumb>
+  <thumb aspect="thumb" season="4" type="season">http://assets.fanart.tv/fanart/tv/264663/seasonthumb/date-a-live-626bae8c1dd39.jpg</thumb>
+  <fanart>
+    <thumb>http://assets.fanart.tv/fanart/tv/264663/showbackground/date-a-live-60c09af236f38.jpg</thumb>
+    <thumb>https://artworks.thetvdb.com/banners/fanart/original/264663-6.jpg</thumb>
+    <thumb>https://artworks.thetvdb.com/banners/v4/series/264663/backgrounds/622e052d2f266.jpg</thumb>
+    <thumb>https://artworks.thetvdb.com/banners/fanart/original/264663-7.jpg</thumb>
+    <thumb>https://artworks.thetvdb.com/banners/fanart/original/264663-5.jpg</thumb>
+    <thumb>https://artworks.thetvdb.com/banners/fanart/original/264663-1.jpg</thumb>
+    <thumb>https://artworks.thetvdb.com/banners/fanart/original/264663-3.jpg</thumb>
+    <thumb>https://artworks.thetvdb.com/banners/fanart/original/264663-4.jpg</thumb>
+    <thumb>https://artworks.thetvdb.com/banners/v4/series/264663/backgrounds/60453327b044d.jpg</thumb>
+  </fanart>
+  <certification>US:TV-14</certification>
+  <watched>false</watched>
+  <playcount />
+  <user_note />
+</tvshow>

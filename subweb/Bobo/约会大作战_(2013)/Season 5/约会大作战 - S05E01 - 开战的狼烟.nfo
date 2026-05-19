@@ -1,0 +1,164 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<episodedetails>
+  <plot><![CDATA[集结到空中舰〈佛拉克西纳斯〉舰桥的琴里与十香等人，得知狂三已经回溯时间并拯救了士道204次一事。另外，为了知道崇宫澪究竟是什么人，士道决定探索自己的记忆……]]></plot>
+  <outline />
+  <lockdata>true</lockdata>
+  <dateadded>2024-06-29 11:36:11</dateadded>
+  <title>开战的狼烟</title>
+  <originaltitle>開戦の狼煙</originaltitle>
+  <actor>
+    <name>岛崎信长</name>
+    <role>Shido Itsuka (voice)</role>
+    <type>Actor</type>
+    <tmdbid>1210634</tmdbid>
+  </actor>
+  <actor>
+    <name>井上麻里奈</name>
+    <role>Tohka Yatogami (voice)</role>
+    <type>Actor</type>
+    <tmdbid>90135</tmdbid>
+  </actor>
+  <actor>
+    <name>富㭴美铃</name>
+    <role>Origami Tobiichi (voice)</role>
+    <type>Actor</type>
+    <tmdbid>1316009</tmdbid>
+  </actor>
+  <actor>
+    <name>Ayana Taketatsu</name>
+    <role>Kotori Itsuka (voice)</role>
+    <type>Actor</type>
+    <tmdbid>1072776</tmdbid>
+  </actor>
+  <actor>
+    <name>野水伊织</name>
+    <role>Yoshino (voice)</role>
+    <type>Actor</type>
+    <tmdbid>1254069</tmdbid>
+  </actor>
+  <actor>
+    <name>真田麻美</name>
+    <role>Kurumi Tokisaki (voice)</role>
+    <type>Actor</type>
+    <tmdbid>1241552</tmdbid>
+  </actor>
+  <actor>
+    <name>内田真礼</name>
+    <role>Kaguya Yamai (voice)</role>
+    <type>Actor</type>
+    <tmdbid>1296667</tmdbid>
+  </actor>
+  <actor>
+    <name>布莱德库特·莎拉·惠美</name>
+    <role>Kuzuru Yamai (voice)</role>
+    <type>Actor</type>
+    <tmdbid>1498133</tmdbid>
+  </actor>
+  <actor>
+    <name>茅原实里</name>
+    <role>Miku Iyazoi (voice)</role>
+    <type>Actor</type>
+    <tmdbid>144648</tmdbid>
+  </actor>
+  <actor>
+    <name>远藤绫</name>
+    <role>Reine  Murasame (voice)</role>
+    <type>Actor</type>
+    <tmdbid>223687</tmdbid>
+  </actor>
+  <actor>
+    <name>子安武人</name>
+    <role>Kyōhei Kannazuki (voice)</role>
+    <type>Actor</type>
+    <tmdbid>84508</tmdbid>
+  </actor>
+  <director tmdbid="3518647">Jiro Arimoto</director>
+  <writer tmdbid="1257198">志茂文彦</writer>
+  <credits tmdbid="1257198">志茂文彦</credits>
+  <rating>8</rating>
+  <year>2024</year>
+  <sorttitle>开战的狼烟</sorttitle>
+  <tvdbid>9533081</tvdbid>
+  <tmdbid>5228997</tmdbid>
+  <runtime>24</runtime>
+  <studio>AT-X</studio>
+  <studio>Tokyo MX</studio>
+  <studio>AIC PLUS+</studio>
+  <studio>J.C.STAFF</studio>
+  <studio>Production IMS</studio>
+  <studio>GEEKTOYS</studio>
+  <studio>Nippon Columbia</studio>
+  <studio>KADOKAWA</studio>
+  <studio>KADOKAWA Media House</studio>
+  <studio>GEEK PICTURES</studio>
+  <studio>Docomo Anime Store</studio>
+  <uniqueid type="tmdb">5228997</uniqueid>
+  <uniqueid type="trakt">11664740</uniqueid>
+  <traktid>11664740</traktid>
+  <uniqueid type="tvdb">9533081</uniqueid>
+  <episode>1</episode>
+  <season>5</season>
+  <aired>2024-04-10</aired>
+  <fileinfo>
+    <streamdetails>
+      <video>
+        <codec>hevc</codec>
+        <micodec>hevc</micodec>
+        <bitrate>8851749</bitrate>
+        <width>3840</width>
+        <height>2160</height>
+        <aspect>16:9</aspect>
+        <aspectratio>16:9</aspectratio>
+        <framerate>23.976025</framerate>
+        <scantype>progressive</scantype>
+        <default>False</default>
+        <forced>False</forced>
+        <duration>23</duration>
+        <durationinseconds>1420</durationinseconds>
+      </video>
+      <audio>
+        <codec>aac</codec>
+        <micodec>aac</micodec>
+        <bitrate>192000</bitrate>
+        <language>jpn</language>
+        <scantype>progressive</scantype>
+        <channels>2</channels>
+        <samplingrate>44100</samplingrate>
+        <default>True</default>
+        <forced>False</forced>
+      </audio>
+      <subtitle>
+        <codec>ass</codec>
+        <micodec>ass</micodec>
+        <language>chi</language>
+        <scantype>progressive</scantype>
+        <default>True</default>
+        <forced>False</forced>
+      </subtitle>
+      <attachment>
+        <scantype>progressive</scantype>
+        <default>False</default>
+        <forced>False</forced>
+      </attachment>
+    </streamdetails>
+  </fileinfo>
+  <showtitle>约会大作战</showtitle>
+  <ratings>
+    <rating default="false" max="10" name="themoviedb">
+      <value>8.0</value>
+      <votes>1</votes>
+    </rating>
+  </ratings>
+  <userrating>0</userrating>
+  <thumb>https://image.tmdb.org/t/p/original/25iu5XcfnVQXDK6z1JYpvhJ3GEn.jpg</thumb>
+  <watched>false</watched>
+  <playcount>0</playcount>
+  <epbookmark />
+  <code />
+  <source>UNKNOWN</source>
+  <original_filename>S05E01.mkv</original_filename>
+  <user_note />
+  <episode_groups>
+    <group episode="1" id="AIRED" name="" season="5" />
+  </episode_groups>
+</episodedetails>

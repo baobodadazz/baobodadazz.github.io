@@ -30,6 +30,10 @@ $('.no-click').click(function(){
     event.preventDefault();
 })
 
+$('#baobo-media').click(function(){
+    alert('注意，此页面仅为初期演示静态页面，无任何功能');
+})
+
 if (storage.data != undefined) {
     data = data.split(',');
     // console.log('已存在localStorage的数据：' + data); //已存在localStorage的数据

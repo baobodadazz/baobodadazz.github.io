@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<season>
+  <plot />
+  <outline />
+  <lockdata>true</lockdata>
+  <dateadded>2024-07-14 23:05:09</dateadded>
+  <title>特别篇</title>
+  <year>2013</year>
+  <sorttitle>特别篇</sorttitle>
+  <imdbid>tt2575684</imdbid>
+  <tvdbid>264663</tvdbid>
+  <tmdbid>46004</tmdbid>
+  <premiered>2013-12-06</premiered>
+  <releasedate>2013-12-06</releasedate>
+  <uniqueid type="tvdb">264663</uniqueid>
+  <uniqueid type="tmdb">46004</uniqueid>
+  <uniqueid type="imdb">tt2575684</uniqueid>
+  <seasonnumber>0</seasonnumber>
+  <showtitle>约会大作战</showtitle>
+  <thumb aspect="poster">http://assets.fanart.tv/fanart/tv/264663/seasonposter/date-a-live-5dbfff490075a.jpg</thumb>
+  <fanart>
+    <thumb>https://image.tmdb.org/t/p/original/xFSCSGIucGBu918wx2dco5Fuaxf.jpg</thumb>
+  </fanart>
+</season>

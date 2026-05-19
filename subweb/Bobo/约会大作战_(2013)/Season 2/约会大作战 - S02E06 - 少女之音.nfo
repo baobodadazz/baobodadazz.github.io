@@ -1,0 +1,254 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<episodedetails>
+  <plot><![CDATA[精灵“DIVA”——龙胆寺女学院就读的诱宵美九，与五河士织(士道)在舞台上一决胜负。得到了Fraxinus的支持，加上十香和折纸也决定参战，并且已经做好了充分的战斗准备。但是，AST似乎有了不明的行动。在闪耀着的聚光灯面前，敌人是一位偶像，在充满了赞美声和欢笑声的舞台上，士道等人想要取得胜利还很艰难。]]></plot>
+  <outline />
+  <lockdata>true</lockdata>
+  <dateadded>2024-06-29 11:36:11</dateadded>
+  <title>少女之音</title>
+  <originaltitle>ガールズ・ミュージック</originaltitle>
+  <actor>
+    <name>岛崎信长</name>
+    <role>Shido Itsuka (voice)</role>
+    <type>Actor</type>
+    <tmdbid>1210634</tmdbid>
+  </actor>
+  <actor>
+    <name>井上麻里奈</name>
+    <role>Tohka Yatogami (voice)</role>
+    <type>Actor</type>
+    <tmdbid>90135</tmdbid>
+  </actor>
+  <actor>
+    <name>富㭴美铃</name>
+    <role>Origami Tobiichi (voice)</role>
+    <type>Actor</type>
+    <tmdbid>1316009</tmdbid>
+  </actor>
+  <actor>
+    <name>Ayana Taketatsu</name>
+    <role>Kotori Itsuka (voice)</role>
+    <type>Actor</type>
+    <tmdbid>1072776</tmdbid>
+  </actor>
+  <actor>
+    <name>野水伊织</name>
+    <role>Yoshino (voice)</role>
+    <type>Actor</type>
+    <tmdbid>1254069</tmdbid>
+  </actor>
+  <actor>
+    <name>真田麻美</name>
+    <role>Kurumi Tokisaki (voice)</role>
+    <type>Actor</type>
+    <tmdbid>1241552</tmdbid>
+  </actor>
+  <actor>
+    <name>内田真礼</name>
+    <role>Kaguya Yamai (voice)</role>
+    <type>Actor</type>
+    <tmdbid>1296667</tmdbid>
+  </actor>
+  <actor>
+    <name>布莱德库特·莎拉·惠美</name>
+    <role>Kuzuru Yamai (voice)</role>
+    <type>Actor</type>
+    <tmdbid>1498133</tmdbid>
+  </actor>
+  <actor>
+    <name>茅原实里</name>
+    <role>Miku Iyazoi (voice)</role>
+    <type>Actor</type>
+    <tmdbid>144648</tmdbid>
+  </actor>
+  <actor>
+    <name>远藤绫</name>
+    <role>Reine  Murasame (voice)</role>
+    <type>Actor</type>
+    <tmdbid>223687</tmdbid>
+  </actor>
+  <actor>
+    <name>味里</name>
+    <role>Mana Takamiya (voice)</role>
+    <type>Actor</type>
+    <tmdbid>1656810</tmdbid>
+  </actor>
+  <actor>
+    <name>子安武人</name>
+    <role>Kyōhei Kannazuki (voice)</role>
+    <type>Actor</type>
+    <tmdbid>84508</tmdbid>
+  </actor>
+  <actor>
+    <name>佐土原香织</name>
+    <role>Tamae Okamine (voice)</role>
+    <type>Actor</type>
+    <tmdbid>1653051</tmdbid>
+  </actor>
+  <actor>
+    <name>胜杏里</name>
+    <role>Hiroto Tonomachi (voice)</role>
+    <type>Actor</type>
+    <tmdbid>1251007</tmdbid>
+  </actor>
+  <actor>
+    <name>伊藤静</name>
+    <role>Ellen Mira Mathers (Voice)</role>
+    <type>Actor</type>
+    <tmdbid>571993</tmdbid>
+  </actor>
+  <actor>
+    <name>置鲇龙太郎</name>
+    <role>Isaac Ray Pelham Westcott (Voice)</role>
+    <type>Actor</type>
+    <tmdbid>89878</tmdbid>
+  </actor>
+  <actor>
+    <name>明坂聪美</name>
+    <role>Shiizaki (voice)</role>
+    <type>GuestStar</type>
+    <tmdbid>1252386</tmdbid>
+  </actor>
+  <actor>
+    <name>村井理沙子</name>
+    <role>Ai (voice)</role>
+    <type>GuestStar</type>
+    <tmdbid>1860263</tmdbid>
+  </actor>
+  <actor>
+    <name>积田佳代子</name>
+    <role>Mai (voice)</role>
+    <type>GuestStar</type>
+    <tmdbid>1849847</tmdbid>
+  </actor>
+  <actor>
+    <name>月宫美鸟</name>
+    <role>Mii (voice)</role>
+    <type>GuestStar</type>
+    <tmdbid>1254353</tmdbid>
+  </actor>
+  <actor>
+    <name>うさみともこ</name>
+    <role>Minowa (voice)</role>
+    <type>GuestStar</type>
+    <tmdbid>1860273</tmdbid>
+  </actor>
+  <actor>
+    <name>藏合纱惠子</name>
+    <role>Shiori Itsuka (voice)</role>
+    <type>GuestStar</type>
+    <tmdbid>1796647</tmdbid>
+  </actor>
+  <actor>
+    <name>山本兼平</name>
+    <role>Man (voice)</role>
+    <type>GuestStar</type>
+    <tmdbid>1315198</tmdbid>
+  </actor>
+  <actor>
+    <name>高梁碧</name>
+    <role>Ryouko Kusakabe (voice)</role>
+    <type>GuestStar</type>
+    <tmdbid>1253086</tmdbid>
+  </actor>
+  <actor>
+    <name>三石琴乃</name>
+    <role>Narration (voice)</role>
+    <type>GuestStar</type>
+    <tmdbid>77931</tmdbid>
+  </actor>
+  <actor>
+    <name>甲斐田裕子</name>
+    <role>Jessica Bailey (voice)</role>
+    <type>GuestStar</type>
+    <tmdbid>222340</tmdbid>
+  </actor>
+  <director tmdbid="1408426">元永庆太郎</director>
+  <director tmdbid="1319787">喜多幡彻</director>
+  <writer tmdbid="1335525">白根秀樹</writer>
+  <writer tmdbid="1335524">Kōshi Tachibana</writer>
+  <writer tmdbid="1618586">田中仁</writer>
+  <credits tmdbid="1335525">白根秀樹</credits>
+  <credits tmdbid="1335524">Kōshi Tachibana</credits>
+  <credits tmdbid="1618586">田中仁</credits>
+  <rating>7.8</rating>
+  <year>2014</year>
+  <sorttitle>少女之音</sorttitle>
+  <imdbid>tt4034492</imdbid>
+  <tvdbid>4854239</tvdbid>
+  <tmdbid>991813</tmdbid>
+  <runtime>28</runtime>
+  <studio>AT-X</studio>
+  <studio>Tokyo MX</studio>
+  <studio>AIC PLUS+</studio>
+  <studio>J.C.STAFF</studio>
+  <studio>Production IMS</studio>
+  <studio>GEEKTOYS</studio>
+  <studio>Nippon Columbia</studio>
+  <studio>KADOKAWA</studio>
+  <studio>KADOKAWA Media House</studio>
+  <studio>GEEK PICTURES</studio>
+  <studio>Docomo Anime Store</studio>
+  <uniqueid type="tmdb">991813</uniqueid>
+  <uniqueid type="imdb">tt4034492</uniqueid>
+  <uniqueid type="trakt">1172383</uniqueid>
+  <traktid>1172383</traktid>
+  <uniqueid type="tvdb">4854239</uniqueid>
+  <episode>6</episode>
+  <season>2</season>
+  <aired>2014-05-17</aired>
+  <fileinfo>
+    <streamdetails>
+      <video>
+        <codec>hevc</codec>
+        <micodec>hevc</micodec>
+        <bitrate>11211494</bitrate>
+        <width>3840</width>
+        <height>2160</height>
+        <aspect>16:9</aspect>
+        <aspectratio>16:9</aspectratio>
+        <framerate>23.976025</framerate>
+        <scantype>progressive</scantype>
+        <default>False</default>
+        <forced>False</forced>
+        <duration>28</duration>
+        <durationinseconds>1691</durationinseconds>
+      </video>
+      <audio>
+        <codec>flac</codec>
+        <micodec>flac</micodec>
+        <language>jpn</language>
+        <scantype>progressive</scantype>
+        <channels>2</channels>
+        <samplingrate>48000</samplingrate>
+        <default>True</default>
+        <forced>False</forced>
+      </audio>
+      <subtitle>
+        <codec>ass</codec>
+        <micodec>ass</micodec>
+        <scantype>progressive</scantype>
+        <default>True</default>
+        <forced>False</forced>
+      </subtitle>
+    </streamdetails>
+  </fileinfo>
+  <showtitle>约会大作战</showtitle>
+  <ratings>
+    <rating default="false" max="10" name="themoviedb">
+      <value>7.8</value>
+      <votes>5</votes>
+    </rating>
+  </ratings>
+  <userrating>0</userrating>
+  <thumb>https://image.tmdb.org/t/p/original/b8E9lilHWO0LkgVvYIweQrleSGR.jpg</thumb>
+  <watched>false</watched>
+  <playcount>0</playcount>
+  <epbookmark />
+  <code />
+  <source>UNKNOWN</source>
+  <original_filename>S02E06.mkv</original_filename>
+  <user_note />
+  <episode_groups>
+    <group episode="6" id="AIRED" name="" season="2" />
+  </episode_groups>
+</episodedetails>

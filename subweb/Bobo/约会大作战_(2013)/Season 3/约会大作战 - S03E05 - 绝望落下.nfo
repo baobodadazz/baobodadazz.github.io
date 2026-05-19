@@ -1,0 +1,194 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<episodedetails>
+  <plot><![CDATA[就算被七罪逼上绝境，即使知道了七罪的真面目。五河士道仍旧不改他对七罪的态度。但七罪对此感到十分地困惑。这或许是七罪第一次有着这样的感情。在这之中，七罪疑心病很重的个性也慢慢地产生变化。但就在事情开始好转时，七罪竟然逃出了佛拉克西纳斯！]]></plot>
+  <outline />
+  <lockdata>true</lockdata>
+  <dateadded>2024-06-29 11:36:11</dateadded>
+  <title>绝望落下</title>
+  <originaltitle>絶望が落ちてくる</originaltitle>
+  <actor>
+    <name>岛崎信长</name>
+    <role>Shido Itsuka (voice)</role>
+    <type>Actor</type>
+    <tmdbid>1210634</tmdbid>
+  </actor>
+  <actor>
+    <name>井上麻里奈</name>
+    <role>Tohka Yatogami (voice)</role>
+    <type>Actor</type>
+    <tmdbid>90135</tmdbid>
+  </actor>
+  <actor>
+    <name>富㭴美铃</name>
+    <role>Origami Tobiichi (voice)</role>
+    <type>Actor</type>
+    <tmdbid>1316009</tmdbid>
+  </actor>
+  <actor>
+    <name>Ayana Taketatsu</name>
+    <role>Kotori Itsuka (voice)</role>
+    <type>Actor</type>
+    <tmdbid>1072776</tmdbid>
+  </actor>
+  <actor>
+    <name>野水伊织</name>
+    <role>Yoshino (voice)</role>
+    <type>Actor</type>
+    <tmdbid>1254069</tmdbid>
+  </actor>
+  <actor>
+    <name>真田麻美</name>
+    <role>Kurumi Tokisaki (voice)</role>
+    <type>Actor</type>
+    <tmdbid>1241552</tmdbid>
+  </actor>
+  <actor>
+    <name>内田真礼</name>
+    <role>Kaguya Yamai (voice)</role>
+    <type>Actor</type>
+    <tmdbid>1296667</tmdbid>
+  </actor>
+  <actor>
+    <name>布莱德库特·莎拉·惠美</name>
+    <role>Kuzuru Yamai (voice)</role>
+    <type>Actor</type>
+    <tmdbid>1498133</tmdbid>
+  </actor>
+  <actor>
+    <name>茅原实里</name>
+    <role>Miku Iyazoi (voice)</role>
+    <type>Actor</type>
+    <tmdbid>144648</tmdbid>
+  </actor>
+  <actor>
+    <name>远藤绫</name>
+    <role>Reine  Murasame (voice)</role>
+    <type>Actor</type>
+    <tmdbid>223687</tmdbid>
+  </actor>
+  <actor>
+    <name>子安武人</name>
+    <role>Kyōhei Kannazuki (voice)</role>
+    <type>Actor</type>
+    <tmdbid>84508</tmdbid>
+  </actor>
+  <actor>
+    <name>胜杏里</name>
+    <role>Hiroto Tonomachi (voice)</role>
+    <type>Actor</type>
+    <tmdbid>1251007</tmdbid>
+  </actor>
+  <actor>
+    <name>伊藤静</name>
+    <role>Ellen Mira Mathers (Voice)</role>
+    <type>Actor</type>
+    <tmdbid>571993</tmdbid>
+  </actor>
+  <actor>
+    <name>置鲇龙太郎</name>
+    <role>Isaac Ray Pelham Westcott (Voice)</role>
+    <type>Actor</type>
+    <tmdbid>89878</tmdbid>
+  </actor>
+  <actor>
+    <name>真野步</name>
+    <role>Natsumi (Voice)</role>
+    <type>Actor</type>
+    <tmdbid>2210352</tmdbid>
+  </actor>
+  <actor>
+    <name>三石琴乃</name>
+    <role>Narration (Voice)</role>
+    <type>Actor</type>
+    <tmdbid>77931</tmdbid>
+  </actor>
+  <director tmdbid="1408426">元永庆太郎</director>
+  <director tmdbid="1449564">山口美浩</director>
+  <writer tmdbid="1335525">白根秀樹</writer>
+  <writer tmdbid="1335524">Kōshi Tachibana</writer>
+  <writer tmdbid="2267223">イシノアツオ</writer>
+  <credits tmdbid="1335525">白根秀樹</credits>
+  <credits tmdbid="1335524">Kōshi Tachibana</credits>
+  <credits tmdbid="2267223">イシノアツオ</credits>
+  <rating>8</rating>
+  <year>2019</year>
+  <sorttitle>绝望落下</sorttitle>
+  <imdbid>tt9454460</imdbid>
+  <tvdbid>6944310</tvdbid>
+  <tmdbid>1659834</tmdbid>
+  <runtime>24</runtime>
+  <studio>AT-X</studio>
+  <studio>Tokyo MX</studio>
+  <studio>AIC PLUS+</studio>
+  <studio>J.C.STAFF</studio>
+  <studio>Production IMS</studio>
+  <studio>GEEKTOYS</studio>
+  <studio>Nippon Columbia</studio>
+  <studio>KADOKAWA</studio>
+  <studio>KADOKAWA Media House</studio>
+  <studio>GEEK PICTURES</studio>
+  <studio>Docomo Anime Store</studio>
+  <uniqueid type="tmdb">1659834</uniqueid>
+  <uniqueid type="imdb">tt9454460</uniqueid>
+  <uniqueid type="trakt">3280081</uniqueid>
+  <traktid>3280081</traktid>
+  <uniqueid type="tvdb">6944310</uniqueid>
+  <episode>5</episode>
+  <season>3</season>
+  <aired>2019-02-08</aired>
+  <fileinfo>
+    <streamdetails>
+      <video>
+        <codec>hevc</codec>
+        <micodec>hevc</micodec>
+        <bitrate>10761922</bitrate>
+        <width>3840</width>
+        <height>2160</height>
+        <aspect>16:9</aspect>
+        <aspectratio>16:9</aspectratio>
+        <framerate>23.976025</framerate>
+        <scantype>progressive</scantype>
+        <default>False</default>
+        <forced>False</forced>
+        <duration>23</duration>
+        <durationinseconds>1421</durationinseconds>
+      </video>
+      <audio>
+        <codec>flac</codec>
+        <micodec>flac</micodec>
+        <language>jpn</language>
+        <scantype>progressive</scantype>
+        <channels>2</channels>
+        <samplingrate>48000</samplingrate>
+        <default>True</default>
+        <forced>False</forced>
+      </audio>
+      <subtitle>
+        <codec>ass</codec>
+        <micodec>ass</micodec>
+        <scantype>progressive</scantype>
+        <default>True</default>
+        <forced>False</forced>
+      </subtitle>
+    </streamdetails>
+  </fileinfo>
+  <showtitle>约会大作战</showtitle>
+  <ratings>
+    <rating default="false" max="10" name="themoviedb">
+      <value>8.0</value>
+      <votes>1</votes>
+    </rating>
+  </ratings>
+  <userrating>0</userrating>
+  <thumb>https://image.tmdb.org/t/p/original/sU4uK9QB4gnXZndsNlUdKHFMp1T.jpg</thumb>
+  <watched>false</watched>
+  <playcount>0</playcount>
+  <epbookmark />
+  <code />
+  <source>UNKNOWN</source>
+  <original_filename>S03E05.mkv</original_filename>
+  <user_note />
+  <episode_groups>
+    <group episode="5" id="AIRED" name="" season="3" />
+  </episode_groups>
+</episodedetails>
