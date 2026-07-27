@@ -1,0 +1,787 @@
+<!DOCTYPE html>
+<html lang="zh">
+    <head>
+  <!-- 元数据 -->
+  <meta charset="utf-8">
+  
+  
+  <title>【教程】Windows多网卡设置优先级 | 爆脖の奇妙生活</title>
+  
+  <meta name="author" content="爆脖大大Zz" />
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="robots" content="index,follow" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <meta name="format-detection" content="telphone=no, email=no" />
+  
+    <meta name="keywords" content="windows, 教程, 网络" />
+  
+  <meta name="description" content="在实验室使用电脑时，我们有时会同时连接网线和 Wi-Fi，以满足不同的网络使用需求。 一般情况下，很多人会认为：只要插上网线，Windows 就一定会优先使用有线网络。但实际使用中并不总是如此。有些电脑会优先走有线，有些电脑却仍然通过 Wi-Fi 上网。 这是因为 Windows 选择网络出口时，并不是单纯根据“有没有插网线”来判断，而是根据网络接口的跃点数，也就是 Metric，决定哪张网卡的优">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【教程】Windows多网卡设置优先级">
+<meta property="og:url" content="https://nav.baobodadazz.top/subweb/blog/2026/07/25/0021.windows%E7%BD%91%E5%8D%A1%E4%BC%98%E5%85%88%E7%BA%A7%E8%AE%BE%E7%BD%AE/index.html">
+<meta property="og:site_name" content="爆脖の奇妙生活">
+<meta property="og:description" content="在实验室使用电脑时，我们有时会同时连接网线和 Wi-Fi，以满足不同的网络使用需求。 一般情况下，很多人会认为：只要插上网线，Windows 就一定会优先使用有线网络。但实际使用中并不总是如此。有些电脑会优先走有线，有些电脑却仍然通过 Wi-Fi 上网。 这是因为 Windows 选择网络出口时，并不是单纯根据“有没有插网线”来判断，而是根据网络接口的跃点数，也就是 Metric，决定哪张网卡的优">
+<meta property="og:locale">
+<meta property="article:published_time" content="2026-07-25T06:05:45.000Z">
+<meta property="article:modified_time" content="2026-07-27T04:23:58.342Z">
+<meta property="article:author" content="爆脖大大Zz">
+<meta property="article:tag" content="网络">
+<meta property="article:tag" content="教程">
+<meta property="article:tag" content="windows">
+<meta name="twitter:card" content="summary">
+  
+  <!-- 站点验证相关 -->
+  
+    
+    
+    
+  
+  <!-- 样式表文件 -->
+  <link rel="stylesheet" id="kratos-css" href="/subweb/blog/css/kratosr.min.css" media="all"></script>
+  
+    <link rel="stylesheet" id="darkmode-css" href="/subweb/blog/css/kr-color-dark.min.css" media="(prefers-color-scheme: dark)"></script>
+    <script src="/subweb/blog/js/kr-dark.min.js"></script>
+  
+  
+    <link rel="stylesheet" id="highlight-css" href="/subweb/blog/css/highlight/night-bright.min.css" media="all"></script>
+  
+  <link rel="stylesheet" id="fontawe-css" href="/subweb/blog/vendors/font-awesome@4.7.0/css/font-awesome.min.css" media="all"></script>
+  <link rel="stylesheet" id="nprogress-css" href="/subweb/blog/vendors/nprogress@0.2.0/nprogress.css" media="all"></script>
+  
+  
+    <link rel="stylesheet" href="/subweb/blog/vendors/aplayer@1.10.1/dist/APlayer.min.css"></script>
+  
+  
+    <link rel="stylesheet" href="/subweb/blog/vendors/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css"></script>
+  
+  <!-- 不得不预先加载的一些JS文件 -->
+  <script src="/subweb/blog/vendors/jquery@3.6.0/dist/jquery.min.js"></script>
+  
+    <script src="/subweb/blog/vendors/qrcode_js@1.0.0/qrcode.min.js"></script>
+  
+  
+  <style>
+    
+      .kratos-cover.kratos-cover-2 {
+        background-image: url('/subweb/blog/images/banner.webp');
+      }
+    
+    
+      @media(min-width:768px) {
+        body.custom-background {
+          background-image: url('/subweb/blog/images/bg4.webp');
+        }
+      }
+    
+  </style>
+  
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.1.1"></head>
+
+
+    <body class="custom-background">
+        <div id="kratos-wrapper">
+    <div id="kratos-page">
+        <div id="kratos-header">
+            <header id="kratos-desktop-topnav" class="kratos-topnav">
+                <div class="container">
+                    <div class="nav-header">
+                        <nav id="kratos-menu-wrap">
+                            <ul id="kratos-primary-menu" class="sf-menu">
+                                
+                                    
+                                        <li>
+                                            
+                                                <a href="/subweb/blog/">
+                                            
+                                                
+                                                    <i class="fa fa-home"></i>
+                                                
+                                                首页
+                                            </a>
+                                            
+                                        </li>
+                                    
+                                        <li>
+                                            
+                                                <a href="/subweb/blog/archives/">
+                                            
+                                                
+                                                    <i class="fa fa-file"></i>
+                                                
+                                                档案馆
+                                            </a>
+                                            
+                                        </li>
+                                    
+                                        <li>
+                                            
+                                                <a href="/subweb/blog/friends/">
+                                            
+                                                
+                                                    <i class="fa fa-paw"></i>
+                                                
+                                                好伙伴
+                                            </a>
+                                            
+                                        </li>
+                                    
+                                        <li>
+                                            
+                                                <a>
+                                            
+                                                
+                                                    <i class="fa fa-link"></i>
+                                                
+                                                链接
+                                            </a>
+                                            
+                                                <ul class="sub-menu">
+                                                    
+                                                        <li>
+                                                            <a target="_blank" rel="noopener" href="https://space.bilibili.com/40750119">
+                                                                
+                                                                bilibili
+                                                            </a>
+                                                        </li>
+                                                    
+                                                        <li>
+                                                            <a target="_blank" rel="noopener" href="https://github.com/baobodadazz">
+                                                                
+                                                                github
+                                                            </a>
+                                                        </li>
+                                                    
+                                                        <li>
+                                                            <a href="https://nav.baobodadazz.top/index.html">
+                                                                
+                                                                上网导航
+                                                            </a>
+                                                        </li>
+                                                    
+                                                </ul>
+                                            
+                                        </li>
+                                    
+                                
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </header>
+            <header id="kratos-mobile-topnav" class="kratos-topnav">
+                <div class="container">
+                    <div class="color-logo"><a href="/subweb/blog/">爆脖の奇妙生活</a></div>
+                    <div class="nav-toggle">
+                        <a class="kratos-nav-toggle js-kratos-nav-toggle">
+                            <i></i>
+                        </a>
+                    </div>
+                </div>
+            </header>
+        </div>
+        <div class="kratos-start kratos-hero-2">
+            <!-- <div class="kratos-overlay"></div> -->
+            <div class="kratos-cover kratos-cover-2 text-center">
+                <div class="desc desc2 animate-box">
+                    <a href="/subweb/blog/">
+                        <h2>爆脖の奇妙生活</h2> <br />
+                        <span>さあ，私たちのデートを始めましょう</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div id="kratos-blog-post">
+            <div class="container">
+                <div id="main" class="row">
+                    
+
+        
+
+            <section class="col-md-8">
+
+        
+
+            <article itemscope itemtype="https://schema.org/Article">
+    
+    <link itemprop="mainEntityOfPage" href="https://nav.baobodadazz.top/subweb/blog/2026/07/25/0021.windows%E7%BD%91%E5%8D%A1%E4%BC%98%E5%85%88%E7%BA%A7%E8%AE%BE%E7%BD%AE/">
+    <div class="kratos-hentry kratos-post-inner clearfix">
+        <header class="kratos-entry-header">
+            
+                <h1 class="kratos-entry-title text-center" itemprop="name headline">【教程】Windows多网卡设置优先级</h1>
+            
+            
+            <ul class="kratos-post-meta text-center">
+                <li><time datetime="2026-07-25T06:05:45.000Z" itemprop="datePublished"><i class="fa fa-calendar"></i> 2026-07-25</time></li>
+                <li itemprop="author" itemscope itemtype="https://schema.org/Person">
+                    <i class="fa fa-user"></i> 作者 <span itemprop="name">爆脖大大Zz</span>
+                </li>
+                
+                    <li>
+                        <i class="fa fa-edit"></i> 
+                        
+                        
+                            ~4.66K
+                        
+                        字
+                    </li>
+                
+                
+            </ul>
+        </header>
+        <div class="kratos-post-content">
+            
+            <div id="expire-alert" class="alert alert-warning hidden" role="alert">
+                <div class="icon"><i class="fa fa-warning"></i></div>
+                <div class="text"><p>本文最后编辑于 <time datetime="1785126238342"></time> 前，其中的内容可能需要更新。</p></div>
+            </div>
+            
+            
+            
+                <div class="kratos-post-inner-toc toc-div-class" >
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%80%E3%80%81Windows-%E5%A6%82%E4%BD%95%E5%86%B3%E5%AE%9A%E4%BD%BF%E7%94%A8%E5%93%AA%E5%BC%A0%E7%BD%91%E5%8D%A1%EF%BC%9F"><span class="toc-number">1.</span> <span class="toc-text">一、Windows 如何决定使用哪张网卡？</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E4%B8%BA%E4%BB%80%E4%B9%88%E4%B8%8D%E5%90%8C%E7%94%B5%E8%84%91%E7%9A%84%E4%BC%98%E5%85%88%E7%BD%91%E7%BB%9C%E4%B8%8D%E4%B8%80%E6%A0%B7%EF%BC%9F"><span class="toc-number">2.</span> <span class="toc-text">二、为什么不同电脑的优先网络不一样？</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%89%E3%80%81%E4%B8%BA%E4%BB%80%E4%B9%88%E6%89%BE%E4%B8%8D%E5%88%B0%E2%80%9C%E8%87%AA%E5%8A%A8%E8%B7%83%E7%82%B9%E6%95%B0%E2%80%9D%E9%80%89%E9%A1%B9%EF%BC%9F"><span class="toc-number">3.</span> <span class="toc-text">三、为什么找不到“自动跃点数”选项？</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%9B%9B%E3%80%81%E9%80%9A%E8%BF%87-PowerShell-%E6%9F%A5%E7%9C%8B%E7%BD%91%E5%8D%A1%E4%BF%A1%E6%81%AF"><span class="toc-number">4.</span> <span class="toc-text">四、通过 PowerShell 查看网卡信息</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BA%94%E3%80%81%E8%AE%BE%E7%BD%AE%E6%9C%89%E7%BA%BF%E7%BD%91%E7%BB%9C%E4%BC%98%E5%85%88"><span class="toc-number">5.</span> <span class="toc-text">五、设置有线网络优先</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%85%AD%E3%80%81%E5%90%8C%E6%97%B6%E8%AE%BE%E7%BD%AE-IPv6"><span class="toc-number">6.</span> <span class="toc-text">六、同时设置 IPv6</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%83%E3%80%81%E6%A3%80%E6%9F%A5%E8%AE%BE%E7%BD%AE%E6%98%AF%E5%90%A6%E7%94%9F%E6%95%88"><span class="toc-number">7.</span> <span class="toc-text">七、检查设置是否生效</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%85%AB%E3%80%81%E6%9F%A5%E7%9C%8B%E5%BD%93%E5%89%8D%E9%BB%98%E8%AE%A4%E8%B7%AF%E7%94%B1"><span class="toc-number">8.</span> <span class="toc-text">八、查看当前默认路由</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B9%9D%E3%80%81%E5%A6%82%E4%BD%95%E6%81%A2%E5%A4%8D%E8%87%AA%E5%8A%A8%E9%80%89%E6%8B%A9%EF%BC%9F"><span class="toc-number">9.</span> <span class="toc-text">九、如何恢复自动选择？</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8D%81%E3%80%81%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98"><span class="toc-number">10.</span> <span class="toc-text">十、常见问题</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E8%AE%BE%E7%BD%AE%E6%9C%89%E7%BA%BF%E4%BC%98%E5%85%88%E5%90%8E%EF%BC%8CWi-Fi-%E8%BF%98%E9%9C%80%E8%A6%81%E5%85%B3%E9%97%AD%E5%90%97%EF%BC%9F"><span class="toc-number">10.1.</span> <span class="toc-text">1. 设置有线优先后，Wi-Fi 还需要关闭吗？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E4%B8%A4%E5%BC%A0%E7%BD%91%E5%8D%A1%E8%BF%9E%E6%8E%A5%E5%90%8C%E4%B8%80%E4%B8%AA%E8%B7%AF%E7%94%B1%E5%99%A8%EF%BC%8C%E4%BC%9A%E4%B8%8D%E4%BC%9A%E7%BD%91%E9%80%9F%E5%8F%A0%E5%8A%A0%EF%BC%9F"><span class="toc-number">10.2.</span> <span class="toc-text">2. 两张网卡连接同一个路由器，会不会网速叠加？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E4%B8%BA%E4%BB%80%E4%B9%88%E8%AE%BE%E7%BD%AE%E5%90%8E%E6%9F%90%E4%BA%9B%E8%AE%BF%E9%97%AE%E4%BB%8D%E7%84%B6%E8%B5%B0-Wi-Fi%EF%BC%9F"><span class="toc-number">10.3.</span> <span class="toc-text">3. 为什么设置后某些访问仍然走 Wi-Fi？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E4%B8%BA%E4%BB%80%E4%B9%88%E8%AE%BE%E7%BD%AE-Metric-%E5%90%8E%E4%BB%8D%E7%84%B6%E6%B2%A1%E6%9C%89%E5%8F%98%E5%8C%96%EF%BC%9F"><span class="toc-number">10.4.</span> <span class="toc-text">4. 为什么设置 Metric 后仍然没有变化？</span></a></li></ol></li></ol>
+                </div>
+            
+            <hr />
+            <div itemprop="articleBody"><p>在实验室使用电脑时，我们有时会同时连接网线和 Wi-Fi，以满足不同的网络使用需求。</p>
+<p>一般情况下，很多人会认为：<em>只要插上网线，Windows 就一定会优先使用有线网络</em>。但实际使用中并不总是如此。有些电脑会优先走有线，有些电脑却仍然通过 Wi-Fi 上网。</p>
+<p>这是因为 Windows 选择网络出口时，并不是单纯根据“有没有插网线”来判断，而是根据网络接口的跃点数，也就是 <code>Metric</code>，决定哪张网卡的优先级更高。</p>
+<p>本文记录一下 Windows 10 中设置有线网络优先的方法。</p>
+<h1 id="一、Windows-如何决定使用哪张网卡？"><a href="#一、Windows-如何决定使用哪张网卡？" class="headerlink" title="一、Windows 如何决定使用哪张网卡？"></a>一、Windows 如何决定使用哪张网卡？</h1><p>当有线网卡和无线网卡同时连接时，两张网卡通常都会获得：</p>
+<ul>
+<li>IP 地址</li>
+<li>默认网关</li>
+<li>DNS 服务器</li>
+<li>默认路由</li>
+</ul>
+<p>Windows 会比较不同网络接口的路由成本。</p>
+<p>简单来说：</p>
+<blockquote>
+<p>Metric 数值越小，网络接口的优先级越高。</p>
+</blockquote>
+<p>例如：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">以太网 Metric：10 </span><br><span class="line">Wi-Fi Metric：50</span><br></pre></td></tr></table></figure>
+
+<p>这种情况下，Windows 会优先通过以太网上网。</p>
+<p>当网线断开后，以太网对应的路由失效，系统会自动切换到 Wi-Fi，因此不需要每次手动关闭无线网络。</p>
+<h1 id="二、为什么不同电脑的优先网络不一样？"><a href="#二、为什么不同电脑的优先网络不一样？" class="headerlink" title="二、为什么不同电脑的优先网络不一样？"></a>二、为什么不同电脑的优先网络不一样？</h1><p>不同电脑可能出现不同结果，常见原因包括：</p>
+<ol>
+<li>网卡协商速度不同</li>
+<li>网卡驱动设置不同</li>
+<li>Windows 自动分配的 Metric 不同</li>
+<li>有线网络只协商到 10 Mbps 或 100 Mbps</li>
+<li>Wi-Fi 连接速度高于有线连接</li>
+<li>VPN、虚拟网卡或安全软件修改了路由</li>
+<li>IPv4 和 IPv6 的接口优先级不同</li>
+</ol>
+<p>因此，即使两台电脑连接的是同一个路由器，它们的网络出口也可能不一样。</p>
+<h1 id="三、为什么找不到“自动跃点数”选项？"><a href="#三、为什么找不到“自动跃点数”选项？" class="headerlink" title="三、为什么找不到“自动跃点数”选项？"></a>三、为什么找不到“自动跃点数”选项？</h1><p>网上很多教程会让用户进入：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">控制面板</span><br><span class="line">→ 网络和共享中心</span><br><span class="line">→ 更改适配器设置</span><br><span class="line">→ 网卡属性</span><br><span class="line">→ Internet 协议版本 4</span><br><span class="line">→ 高级</span><br></pre></td></tr></table></figure>
+
+<p>然后取消勾选“自动跃点数”，再手动输入接口跃点数。</p>
+<p>但在部分 Windows 10 版本、网卡驱动或网络配置中，这个选项可能根本不会显示。</p>
+<p>因此，与其继续在图形界面里寻找，不如直接使用 PowerShell 设置。这个方法更直接，也更容易检查结果。</p>
+<h1 id="四、通过-PowerShell-查看网卡信息"><a href="#四、通过-PowerShell-查看网卡信息" class="headerlink" title="四、通过 PowerShell 查看网卡信息"></a>四、通过 PowerShell 查看网卡信息</h1><p>右键单击 Windows 开始菜单，选择：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Windows PowerShell（管理员）</span><br></pre></td></tr></table></figure>
+
+<p>也可以搜索 PowerShell，然后选择“以管理员身份运行”。</p>
+<p>执行下面的命令：</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Get-NetIPInterface</span> <span class="literal">-AddressFamily</span> IPv4 |</span><br><span class="line"><span class="built_in">Sort-Object</span> InterfaceMetric |</span><br><span class="line"><span class="built_in">Format-Table</span> ifIndex, InterfaceAlias, ConnectionState, AutomaticMetric, InterfaceMetric</span><br></pre></td></tr></table></figure>
+
+<p>输出结果类似：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ifIndex InterfaceAlias ConnectionState AutomaticMetric InterfaceMetric</span><br><span class="line">------- -------------- --------------- --------------- ---------------</span><br><span class="line">8       以太网         Connected       Enabled         25</span><br><span class="line">14      WLAN           Connected       Enabled         35</span><br></pre></td></tr></table></figure>
+
+<p>其中需要重点关注：</p>
+<ul>
+<li><code>ifIndex</code>：网卡接口编号</li>
+<li><code>InterfaceAlias</code>：网卡名称</li>
+<li><code>ConnectionState</code>：连接状态</li>
+<li><code>AutomaticMetric</code>：是否自动设置跃点数</li>
+<li><code>InterfaceMetric</code>：当前接口跃点数</li>
+</ul>
+<p>建议使用 <code>ifIndex</code> 设置，因为不同电脑上的网卡名称可能不一样。</p>
+<p>例如，有的电脑显示：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">以太网</span><br><span class="line">WLAN</span><br></pre></td></tr></table></figure>
+
+<p>有的电脑则显示：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Ethernet</span><br><span class="line">Wi-Fi</span><br></pre></td></tr></table></figure>
+
+<p>接口编号则不会受到语言和名称变化的影响。</p>
+<h1 id="五、设置有线网络优先"><a href="#五、设置有线网络优先" class="headerlink" title="五、设置有线网络优先"></a>五、设置有线网络优先</h1><p>假设查询结果中：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">有线网卡 ifIndex：8</span><br><span class="line">无线网卡 ifIndex：14</span><br></pre></td></tr></table></figure>
+
+<p>执行以下命令：</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Set-NetIPInterface</span> <span class="literal">-InterfaceIndex</span> <span class="number">8</span> <span class="literal">-AddressFamily</span> IPv4 <span class="literal">-AutomaticMetric</span> Disabled <span class="literal">-InterfaceMetric</span> <span class="number">10</span></span><br><span class="line"><span class="built_in">Set-NetIPInterface</span> <span class="literal">-InterfaceIndex</span> <span class="number">14</span> <span class="literal">-AddressFamily</span> IPv4 <span class="literal">-AutomaticMetric</span> Disabled <span class="literal">-InterfaceMetric</span> <span class="number">50</span></span><br></pre></td></tr></table></figure>
+
+<p>这里的设置含义是：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">有线网卡 Metric：10</span><br><span class="line">无线网卡 Metric：50</span><br></pre></td></tr></table></figure>
+
+<p>因为 10 小于 50，所以 Windows 会优先使用有线网络。</p>
+<p>设置数值时没有必要追求某个固定值，只需要保证有线网卡的数值明显小于无线网卡即可。</p>
+<p>例如下面这些组合都可以：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">有线 5，无线 50</span><br><span class="line">有线 10，无线 30</span><br><span class="line">有线 10，无线 100</span><br></pre></td></tr></table></figure>
+
+<p>一般推荐使用：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">有线：10</span><br><span class="line">无线：50</span><br></pre></td></tr></table></figure>
+
+<p>这样比较直观，也能避免两张网卡的 Metric 太接近。</p>
+<h1 id="六、同时设置-IPv6"><a href="#六、同时设置-IPv6" class="headerlink" title="六、同时设置 IPv6"></a>六、同时设置 IPv6</h1><p>如果电脑启用了 IPv6，建议也设置 IPv6 的接口优先级。</p>
+<p>执行：</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Set-NetIPInterface</span> <span class="literal">-InterfaceIndex</span> <span class="number">8</span> <span class="literal">-AddressFamily</span> IPv6 <span class="literal">-AutomaticMetric</span> Disabled <span class="literal">-InterfaceMetric</span> <span class="number">10</span></span><br><span class="line"><span class="built_in">Set-NetIPInterface</span> <span class="literal">-InterfaceIndex</span> <span class="number">14</span> <span class="literal">-AddressFamily</span> IPv6 <span class="literal">-AutomaticMetric</span> Disabled <span class="literal">-InterfaceMetric</span> <span class="number">50</span></span><br></pre></td></tr></table></figure>
+
+<p>这样可以避免出现以下情况：</p>
+<ul>
+<li>IPv4 流量走有线</li>
+<li>IPv6 流量却走 Wi-Fi</li>
+</ul>
+<p>如果只调整 IPv4，而系统或应用优先使用 IPv6，实际访问网络时仍然可能发现部分流量经过无线网卡。</p>
+<h1 id="七、检查设置是否生效"><a href="#七、检查设置是否生效" class="headerlink" title="七、检查设置是否生效"></a>七、检查设置是否生效</h1><p>执行下面的命令：</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Get-NetIPInterface</span> |</span><br><span class="line"><span class="built_in">Sort-Object</span> AddressFamily, InterfaceMetric |</span><br><span class="line"><span class="built_in">Format-Table</span> ifIndex, InterfaceAlias, AddressFamily, ConnectionState, AutomaticMetric, InterfaceMetric</span><br></pre></td></tr></table></figure>
+
+<p>正常情况下，可以看到类似结果：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">ifIndex InterfaceAlias AddressFamily ConnectionState AutomaticMetric InterfaceMetric</span><br><span class="line">------- -------------- ------------- --------------- --------------- ---------------</span><br><span class="line">8       以太网         IPv4          Connected       Disabled        10</span><br><span class="line">14      WLAN           IPv4          Connected       Disabled        50</span><br><span class="line">8       以太网         IPv6          Connected       Disabled        10</span><br><span class="line">14      WLAN           IPv6          Connected       Disabled        50</span><br></pre></td></tr></table></figure>
+
+<p>如果设置完成后没有立即生效，可以尝试：</p>
+<ol>
+<li>断开并重新连接 Wi-Fi</li>
+<li>禁用再启用有线网卡</li>
+<li>拔掉并重新插入网线</li>
+<li>重启电脑</li>
+</ol>
+<h1 id="八、查看当前默认路由"><a href="#八、查看当前默认路由" class="headerlink" title="八、查看当前默认路由"></a>八、查看当前默认路由</h1><p>可以使用下面的命令查看 IPv4 默认路由：</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Get-NetRoute</span> <span class="literal">-DestinationPrefix</span> <span class="string">&quot;0.0.0.0/0&quot;</span> |</span><br><span class="line"><span class="built_in">Sort-Object</span> InterfaceMetric, RouteMetric |</span><br><span class="line"><span class="built_in">Format-Table</span> InterfaceIndex, InterfaceAlias, NextHop, RouteMetric, InterfaceMetric</span><br></pre></td></tr></table></figure>
+
+<p>需要注意，Windows 最终选择路由时，通常不只看 <code>InterfaceMetric</code>，还会综合考虑路由本身的 <code>RouteMetric</code>。</p>
+<p>可以大致理解为：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">总路由成本 = 接口跃点数 + 路由跃点数</span><br></pre></td></tr></table></figure>
+
+<p>总成本较低的路由通常会被优先使用。</p>
+<p>因此，除了检查接口跃点数，还可以检查默认路由对应的接口和下一跳网关。</p>
+<h1 id="九、如何恢复自动选择？"><a href="#九、如何恢复自动选择？" class="headerlink" title="九、如何恢复自动选择？"></a>九、如何恢复自动选择？</h1><p>如果以后不想手动指定优先级，可以恢复 Windows 自动设置。</p>
+<p>假设有线网卡编号为 8，无线网卡编号为 14，执行：</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Set-NetIPInterface</span> <span class="literal">-InterfaceIndex</span> <span class="number">8</span> <span class="literal">-AddressFamily</span> IPv4 <span class="literal">-AutomaticMetric</span> Enabled</span><br><span class="line"><span class="built_in">Set-NetIPInterface</span> <span class="literal">-InterfaceIndex</span> <span class="number">14</span> <span class="literal">-AddressFamily</span> IPv4 <span class="literal">-AutomaticMetric</span> Enabled</span><br></pre></td></tr></table></figure>
+
+<p>恢复 IPv6 自动设置：</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Set-NetIPInterface</span> <span class="literal">-InterfaceIndex</span> <span class="number">8</span> <span class="literal">-AddressFamily</span> IPv6 <span class="literal">-AutomaticMetric</span> Enabled</span><br><span class="line"><span class="built_in">Set-NetIPInterface</span> <span class="literal">-InterfaceIndex</span> <span class="number">14</span> <span class="literal">-AddressFamily</span> IPv6 <span class="literal">-AutomaticMetric</span> Enabled</span><br></pre></td></tr></table></figure>
+
+<p>恢复后，Windows 会再次根据网卡速度、连接状态等信息自动计算接口跃点数。</p>
+<h1 id="十、常见问题"><a href="#十、常见问题" class="headerlink" title="十、常见问题"></a>十、常见问题</h1><h2 id="1-设置有线优先后，Wi-Fi-还需要关闭吗？"><a href="#1-设置有线优先后，Wi-Fi-还需要关闭吗？" class="headerlink" title="1. 设置有线优先后，Wi-Fi 还需要关闭吗？"></a>1. 设置有线优先后，Wi-Fi 还需要关闭吗？</h2><p>不需要。</p>
+<p>Wi-Fi 可以继续保持连接。有线网络正常时，默认流量优先走有线；拔掉网线后，系统会自动切换到 Wi-Fi。</p>
+<p>这也是同时保留两种连接的主要好处。</p>
+<h2 id="2-两张网卡连接同一个路由器，会不会网速叠加？"><a href="#2-两张网卡连接同一个路由器，会不会网速叠加？" class="headerlink" title="2. 两张网卡连接同一个路由器，会不会网速叠加？"></a>2. 两张网卡连接同一个路由器，会不会网速叠加？</h2><p>通常不会。</p>
+<p>普通 Windows 网络连接不会自动把有线和 Wi-Fi 的带宽合并。即使两张网卡同时连接，单个普通网络连接通常仍然只会选择其中一条路径。</p>
+<p>要实现多线路聚合，需要路由器、服务器、驱动程序或特定软件的支持，不能仅靠调整 Metric 实现。</p>
+<h2 id="3-为什么设置后某些访问仍然走-Wi-Fi？"><a href="#3-为什么设置后某些访问仍然走-Wi-Fi？" class="headerlink" title="3. 为什么设置后某些访问仍然走 Wi-Fi？"></a>3. 为什么设置后某些访问仍然走 Wi-Fi？</h2><p>可能原因包括：</p>
+<ul>
+<li>目标地址存在更具体的静态路由</li>
+<li>VPN 添加了新的路由</li>
+<li>IPv4 和 IPv6 设置不一致</li>
+<li>两张网卡连接了不同子网</li>
+<li>应用程序主动绑定了某个网络接口</li>
+<li>虚拟机或安全软件修改了路由表</li>
+</ul>
+<p>系统选择路由时，会优先匹配更具体的路由，然后才比较 Metric。</p>
+<p>因此，“有线优先”主要控制默认网络出口，并不意味着所有流量都必须经过有线网卡。</p>
+<h2 id="4-为什么设置-Metric-后仍然没有变化？"><a href="#4-为什么设置-Metric-后仍然没有变化？" class="headerlink" title="4. 为什么设置 Metric 后仍然没有变化？"></a>4. 为什么设置 Metric 后仍然没有变化？</h2><p>可以依次检查：</p>
+<ol>
+<li>PowerShell 是否以管理员身份运行</li>
+<li>设置的 <code>ifIndex</code> 是否正确</li>
+<li>有线和无线是否都处于 Connected 状态</li>
+<li>IPv4 和 IPv6 是否都已设置</li>
+<li>是否存在 VPN 或虚拟网卡</li>
+<li>默认路由是否指向正确网关</li>
+<li>网卡是否需要重新连接或重启</li>
+</ol>
+</div>
+        </div>
+        
+            <div class="kratos-copyright text-center clearfix">
+                <h5 itemprop="copyrightNotice">本作品采用 <a rel="license nofollow" target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/">知识共享署名-相同方式共享 4.0 国际许可协议</a> 进行许可</h5>
+            </div>
+        
+        <footer class="kratos-entry-footer clearfix">
+            
+                <div class="post-like-donate text-center clearfix" id="post-like-donate">
+                
+                    <a class="donate" href="javascript:;"><i class="fa fa-bitcoin"></i> 打赏</a>
+                
+                
+                    <a class="share" href="javascript:;"><i class="fa fa-share-alt"></i> 分享</a>
+                    <div class="share-wrap" style="display: none;">
+    <div class="share-group">
+        <a href="javascript:;" class="share-plain qq" onclick="share('qq');" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-qq"></i>
+            </div>
+        </a>
+        <a href="javascript:;" class="share-plain qzone" onclick="share('qzone');" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-star"></i>
+            </div>
+        </a>
+        <a href="javascript:;" class="share-plain weixin pop style-plain" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-weixin"></i>
+            </div>
+            <div class="share-int">
+                <div class="qrcode" id="wechat-qr"></div>
+                <p>打开微信“扫一扫”，打开网页后点击屏幕右上角分享按钮</p>
+            </div>
+        </a>
+        <a href="javascript:;" class="share-plain weibo" onclick="share('weibo');" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-weibo"></i>
+            </div>
+        </a>
+        <a href="javascript:;" class="share-plain facebook style-plain" onclick="share('facebook');" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-facebook"></i>
+            </div>
+        </a>
+        <a href="javascript:;" class="share-plain twitter style-plain" onclick="share('twitter');" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-twitter"></i>
+            </div>
+        </a>
+    </div>
+    <script type="text/javascript">
+        $(()=>{
+            new QRCode("wechat-qr", {
+                text: "https://nav.baobodadazz.top/subweb/blog/2026/07/25/0021.windows%E7%BD%91%E5%8D%A1%E4%BC%98%E5%85%88%E7%BA%A7%E8%AE%BE%E7%BD%AE/",
+                width: 150,
+                height: 150,
+                correctLevel : QRCode.CorrectLevel.H
+            });
+        });
+        function share(dest) {
+            const qqBase        = "https://connect.qq.com/widget/shareqq/index.html?";
+            const weiboBase     = "https://service.weibo.com/share/share.php?";
+            const qzoneBase     = "https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?";
+            const facebookBase  = "https://www.facebook.com/sharer/sharer.php?";
+            const twitterBase   = "https://twitter.com/intent/tweet?";
+            const hostUrl       = "https://nav.baobodadazz.top/subweb/blog/2026/07/25/0021.windows%E7%BD%91%E5%8D%A1%E4%BC%98%E5%85%88%E7%BA%A7%E8%AE%BE%E7%BD%AE/";
+            const title         = "「【教程】Windows多网卡设置优先级」";
+            const excerpt       = `在实验室使用电脑时，我们有时会同时连接网线和 Wi-Fi，以满足不同的网络使用需求。
+一般情况下，很多人会认为：只要插上网线，Windows 就一定会优先使用有线网络。但实际使用中并不总是如此。有些电脑会优先走有线，有些电脑却仍然通过...`;
+            let _URL;
+            switch (dest) {
+                case "qq"       : _URL = qqBase+"url="+hostUrl+"&title="+title+"&desc=&summary="+excerpt+"&site=cxpy";     break;
+                case "weibo"    : _URL = weiboBase+"url="+hostUrl+"&title="+title+excerpt;                                 break;
+                case "qzone"    : _URL = qzoneBase+"url="+hostUrl+"&title="+title+"&desc=&summary="+excerpt+"&site=cxpy";  break;
+                case "facebook" : _URL = facebookBase+"u="+hostUrl;                                                        break;
+                case "twitter"  : _URL = twitterBase+"text="+title+excerpt+"&url="+hostUrl;                                break;
+            }
+            window.open(_URL);
+        };
+    </script>
+</div>
+                
+                </div>
+            
+            <div class="footer-tag clearfix">
+                <div class="pull-left">
+                <i class="fa fa-tags"></i>
+                    <a class="tag-none-link" href="/subweb/blog/tags/windows/" rel="tag">windows</a>, <a class="tag-none-link" href="/subweb/blog/tags/%E6%95%99%E7%A8%8B/" rel="tag">教程</a>, <a class="tag-none-link" href="/subweb/blog/tags/%E7%BD%91%E7%BB%9C/" rel="tag">网络</a>
+                </div>
+                <div class="pull-date">
+                    <time datetime="2026-07-27T04:23:58.342Z" itemprop="dateModified">最后编辑：2026-07-27</time>
+                </div>
+            </div>
+        </footer>
+    </div>
+    
+        <nav class="navigation post-navigation clearfix" role="navigation">
+            
+            <div class="nav-previous clearfix">
+                <a title=" 【教程】StableDiffusion: ComfyUI完全部署指南-以Linux为例" href="/subweb/blog/2026/05/18/0020.StableDiffusion-ComfyUI完全部署指南/">&lt; 上一篇</a>
+            </div>
+            
+            
+            <div class="nav-next clearfix">
+                <a title=" 【教程】FRP实现内网穿透，公网轻松访问" href="/subweb/blog/2026/07/26/0023.frp内网穿透，公网轻松访问/">下一篇 &gt;</a>
+            </div>
+            
+        </nav>
+    
+    
+</article>
+
+        
+
+            </section>
+
+        
+
+                
+            
+
+<section id="kratos-widget-area" class="col-md-4 hidden-xs hidden-sm">
+    <!-- 文章和页面根据splitter来分割，没有的话就从头开始设置为sticky -->
+    
+    
+                <aside id="krw-about" class="widget widget-kratos-about clearfix">
+    <div class="photo-background"></div>
+    <div class="photo-wrapper clearfix">
+        <div class="photo-wrapper-tip text-center">
+            <img class="about-photo" src="/subweb/blog/images/avatar.webp" loading="lazy" decoding="auto" />
+        </div>
+    </div>
+    <div class="textwidget">
+        <p class="text-center">爆脖大大Zz</p>
+    </div>
+    <div class="site-meta">
+        <a class="meta-item" href="/subweb/blog/archives/">
+            <span class="title">
+                文章
+            </span>
+            <span class="count">
+                23
+            </span>
+        </a>
+        <a class="meta-item" href="/subweb/blog/categories/">
+            <span class="title">
+                分类
+            </span>
+            <span class="count">
+                6
+            </span>
+        </a>
+        <a class="meta-item" href="/subweb/blog/tags/">
+            <span class="title">
+                标签
+            </span>
+            <span class="count">
+                51
+            </span>
+        </a>
+    </div>
+</aside>
+            
+                    <div class="sticky-area">
+                
+                    <aside id="krw-toc" class="widget widget-kratos-toc clearfix toc-div-class" >
+    <div class="photo-background"></div>
+    <h4 class="widget-title no-after">
+        <i class="fa fa-compass"></i>
+        文章目录
+        <span class="toc-progress-bar" role="progressbar" aria-label="阅读进度："></span>
+    </h4>
+    <div class="textwidget">
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%80%E3%80%81Windows-%E5%A6%82%E4%BD%95%E5%86%B3%E5%AE%9A%E4%BD%BF%E7%94%A8%E5%93%AA%E5%BC%A0%E7%BD%91%E5%8D%A1%EF%BC%9F"><span class="toc-text">一、Windows 如何决定使用哪张网卡？</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E4%B8%BA%E4%BB%80%E4%B9%88%E4%B8%8D%E5%90%8C%E7%94%B5%E8%84%91%E7%9A%84%E4%BC%98%E5%85%88%E7%BD%91%E7%BB%9C%E4%B8%8D%E4%B8%80%E6%A0%B7%EF%BC%9F"><span class="toc-text">二、为什么不同电脑的优先网络不一样？</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%89%E3%80%81%E4%B8%BA%E4%BB%80%E4%B9%88%E6%89%BE%E4%B8%8D%E5%88%B0%E2%80%9C%E8%87%AA%E5%8A%A8%E8%B7%83%E7%82%B9%E6%95%B0%E2%80%9D%E9%80%89%E9%A1%B9%EF%BC%9F"><span class="toc-text">三、为什么找不到“自动跃点数”选项？</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%9B%9B%E3%80%81%E9%80%9A%E8%BF%87-PowerShell-%E6%9F%A5%E7%9C%8B%E7%BD%91%E5%8D%A1%E4%BF%A1%E6%81%AF"><span class="toc-text">四、通过 PowerShell 查看网卡信息</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BA%94%E3%80%81%E8%AE%BE%E7%BD%AE%E6%9C%89%E7%BA%BF%E7%BD%91%E7%BB%9C%E4%BC%98%E5%85%88"><span class="toc-text">五、设置有线网络优先</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%85%AD%E3%80%81%E5%90%8C%E6%97%B6%E8%AE%BE%E7%BD%AE-IPv6"><span class="toc-text">六、同时设置 IPv6</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%83%E3%80%81%E6%A3%80%E6%9F%A5%E8%AE%BE%E7%BD%AE%E6%98%AF%E5%90%A6%E7%94%9F%E6%95%88"><span class="toc-text">七、检查设置是否生效</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%85%AB%E3%80%81%E6%9F%A5%E7%9C%8B%E5%BD%93%E5%89%8D%E9%BB%98%E8%AE%A4%E8%B7%AF%E7%94%B1"><span class="toc-text">八、查看当前默认路由</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B9%9D%E3%80%81%E5%A6%82%E4%BD%95%E6%81%A2%E5%A4%8D%E8%87%AA%E5%8A%A8%E9%80%89%E6%8B%A9%EF%BC%9F"><span class="toc-text">九、如何恢复自动选择？</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8D%81%E3%80%81%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98"><span class="toc-text">十、常见问题</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E8%AE%BE%E7%BD%AE%E6%9C%89%E7%BA%BF%E4%BC%98%E5%85%88%E5%90%8E%EF%BC%8CWi-Fi-%E8%BF%98%E9%9C%80%E8%A6%81%E5%85%B3%E9%97%AD%E5%90%97%EF%BC%9F"><span class="toc-text">1. 设置有线优先后，Wi-Fi 还需要关闭吗？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E4%B8%A4%E5%BC%A0%E7%BD%91%E5%8D%A1%E8%BF%9E%E6%8E%A5%E5%90%8C%E4%B8%80%E4%B8%AA%E8%B7%AF%E7%94%B1%E5%99%A8%EF%BC%8C%E4%BC%9A%E4%B8%8D%E4%BC%9A%E7%BD%91%E9%80%9F%E5%8F%A0%E5%8A%A0%EF%BC%9F"><span class="toc-text">2. 两张网卡连接同一个路由器，会不会网速叠加？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E4%B8%BA%E4%BB%80%E4%B9%88%E8%AE%BE%E7%BD%AE%E5%90%8E%E6%9F%90%E4%BA%9B%E8%AE%BF%E9%97%AE%E4%BB%8D%E7%84%B6%E8%B5%B0-Wi-Fi%EF%BC%9F"><span class="toc-text">3. 为什么设置后某些访问仍然走 Wi-Fi？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E4%B8%BA%E4%BB%80%E4%B9%88%E8%AE%BE%E7%BD%AE-Metric-%E5%90%8E%E4%BB%8D%E7%84%B6%E6%B2%A1%E6%9C%89%E5%8F%98%E5%8C%96%EF%BC%9F"><span class="toc-text">4. 为什么设置 Metric 后仍然没有变化？</span></a></li></ol></li></ol>
+    </div>
+</aside>
+                
+                
+  <aside id="krw-categories" class="widget widget-kratos-categories clearfix">
+    <h4 class="widget-title"><i class="fa fa-folder"></i>分类目录</h4>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/subweb/blog/categories/%E5%8A%A8%E6%BC%AB/">动漫</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/subweb/blog/categories/%E5%AD%A6%E4%B9%A0/">学习</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/subweb/blog/categories/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/">技术分享</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/subweb/blog/categories/%E6%95%99%E7%A8%8B/">教程</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/subweb/blog/categories/%E7%A8%8B%E5%BA%8F%E7%8C%BF%E7%AC%94%E8%AE%B0/">程序猿笔记</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/subweb/blog/categories/%E9%97%AE%E7%AD%94%E7%95%99%E6%A1%A3/">问答留档</a><span class="category-list-count">11</span></li></ul>
+  </aside>
+
+
+            
+                
+  <aside id="krw-tags" class="widget widget-kratos-tags clearfix">
+    <h4 class="widget-title"><i class="fa fa-tags"></i>标签聚合</h4>
+      <div class="tag-clouds">
+        <a href="/subweb/blog/tags/408/" style="font-size: 0.7em;">408</a> <a href="/subweb/blog/tags/AI%E7%BB%98%E7%94%BB/" style="font-size: 0.6em;">AI绘画</a> <a href="/subweb/blog/tags/Android/" style="font-size: 0.6em;">Android</a> <a href="/subweb/blog/tags/C/" style="font-size: 0.6em;">C++</a> <a href="/subweb/blog/tags/ComfyUI/" style="font-size: 0.6em;">ComfyUI</a> <a href="/subweb/blog/tags/FRP/" style="font-size: 0.6em;">FRP</a> <a href="/subweb/blog/tags/GPT/" style="font-size: 0.8em;">GPT</a> <a href="/subweb/blog/tags/IP/" style="font-size: 0.6em;">IP</a> <a href="/subweb/blog/tags/LaTeX/" style="font-size: 0.6em;">LaTeX</a> <a href="/subweb/blog/tags/Nas/" style="font-size: 0.6em;">Nas</a> <a href="/subweb/blog/tags/StableDiffusion/" style="font-size: 0.6em;">StableDiffusion</a> <a href="/subweb/blog/tags/USD/" style="font-size: 0.6em;">USD</a> <a href="/subweb/blog/tags/VScode/" style="font-size: 0.6em;">VScode</a> <a href="/subweb/blog/tags/adb/" style="font-size: 0.6em;">adb</a> <a href="/subweb/blog/tags/java/" style="font-size: 0.6em;">java</a> <a href="/subweb/blog/tags/javaweb/" style="font-size: 0.6em;">javaweb</a> <a href="/subweb/blog/tags/maven/" style="font-size: 0.6em;">maven</a> <a href="/subweb/blog/tags/openMVG/" style="font-size: 0.6em;">openMVG</a>
+      </div>
+  </aside>
+
+            
+                
+  <aside id="krw-posts" class="widget widget-kratos-posts">
+  <h4 class="widget-title"><i class="fa fa-file"></i>最新文章</h4>
+  <div class="tab-content">
+      <ul class="list-group">
+        
+        
+          
+          
+            <a class="list-group-item" href="/subweb/blog/2026/07/26/0022.%E9%A3%9E%E7%89%9BOS%E7%9B%B8%E5%86%8C%E8%BF%81%E7%A7%BB/"><i class="fa  fa-book"></i> 【教程】飞牛OS相册数据迁移</a>
+            
+          
+        
+          
+          
+            <a class="list-group-item" href="/subweb/blog/2026/07/26/0023.frp%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F%EF%BC%8C%E5%85%AC%E7%BD%91%E8%BD%BB%E6%9D%BE%E8%AE%BF%E9%97%AE/"><i class="fa  fa-book"></i> 【教程】FRP实现内网穿透，公网轻松访问</a>
+            
+          
+        
+          
+          
+            <a class="list-group-item" href="/subweb/blog/2026/07/25/0021.windows%E7%BD%91%E5%8D%A1%E4%BC%98%E5%85%88%E7%BA%A7%E8%AE%BE%E7%BD%AE/"><i class="fa  fa-book"></i> 【教程】Windows多网卡设置优先级</a>
+            
+          
+        
+          
+          
+            <a class="list-group-item" href="/subweb/blog/2026/05/18/0020.StableDiffusion-ComfyUI%E5%AE%8C%E5%85%A8%E9%83%A8%E7%BD%B2%E6%8C%87%E5%8D%97/"><i class="fa  fa-book"></i> 【教程】StableDiffusion: ComfyUI完全部署指南-以Linux为例</a>
+            
+          
+        
+          
+          
+            <a class="list-group-item" href="/subweb/blog/2025/12/07/0019.Windows%E7%B3%BB%E7%BB%9FVScode%E9%85%8D%E7%BD%AELaTeX%E7%8E%AF%E5%A2%83/"><i class="fa  fa-book"></i> 【教程】Windows系统下VScode配置LaTeX环境</a>
+            
+          
+        
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+      </ul>
+  </div>
+  </aside>
+
+            
+    </div>
+</section>
+        
+        </div>
+    </div>
+</div>
+<footer>
+    <div id="footer"  class="ap-lrc"  >
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3 footer-list text-center">
+                    <ul class="kratos-social-icons">
+                        <!-- Keep for compatibility -->
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <!-- New links -->
+                        
+                    </ul>
+                    <ul class="kratos-copyright">
+                        <div>
+                            <li>&copy; 2026 爆脖の奇妙生活 版权所有.</li>
+                            <li>导弹已飞行<span id="span_dt">Loading...</span></li>
+                        </div>
+                        <div>
+                            <li>Theme <a href="https://github.com/Candinya/Kratos-Rebirth" target="_blank">Kratos:Rebirth</a></li>
+                            <li>Site built with&nbsp;<i class="fa fa-heart throb" style="color:#d43f57"></i>&nbsp;by 爆脖大大Zz.</li>
+                        </div>
+                        <div>
+                            <li>Powered by <a href="https://hexo.io" target="_blank" rel="nofollow">Hexo</a></li>
+                            <li>Hosted on <a href="https://github.io" target="_blank">Github Pages</a></li>
+                        </div>
+                        <div>
+                            
+                            
+                        </div>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="kr-tool text-center">
+            <div class="tool">
+                
+                    <div class="box search-box">
+                        <a href="/subweb/blog/search/">
+                            <span class="fa fa-search"></span>
+                        </a>
+                    </div>
+                
+                
+                    <div class="box theme-box" id="darkmode-switch">
+                        <span class="fa fa-adjust"></span>
+                    </div>
+                
+                
+                
+            </div>
+            <div class="box gotop-box">
+                <span class="fa fa-chevron-up"></span>
+            </div>
+        </div>
+    </div>
+</footer>
+</div>
+</div>
+
+        <script defer src="/subweb/blog/vendors/bootstrap@3.3.4/dist/js/bootstrap.min.js"></script>
+<script defer src="/subweb/blog/vendors/nprogress@0.2.0/nprogress.js"></script>
+<script>
+    if (!window.kr) {
+        window.kr = {};
+    }
+    window.kr.notMobile = (!(navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i)));
+    window.kr.siteRoot = "/subweb/blog/";
+</script>
+
+
+    <script async src="/subweb/blog/js/candy.min.js"></script>
+
+
+
+    <script defer src="/subweb/blog/vendors/aplayer@1.10.1/dist/APlayer.min.js"></script>
+    
+    <script defer src="/subweb/blog/vendors/meting@2.0.1/dist/Meting.min.js"></script>
+    <meting-js
+        server="netease"
+        type="playlist"
+        id="9650496682"
+        order="random"
+        fixed="true"
+    >
+    </meting-js>
+
+
+
+    <script defer src="/subweb/blog/vendors/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+
+<script defer src="/subweb/blog/js/kratosr.min.js"></script>
+<script defer src="/subweb/blog/js/pjax.min.js"></script>
+
+    <script defer src="/subweb/blog/vendors/layui-src@2.5.5/dist/layui.all.js"></script>
+
+
+
+<!-- Extra support for third-party plguins  -->
+
+
+    </body>
+</html>

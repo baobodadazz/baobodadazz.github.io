@@ -1,0 +1,3175 @@
+<!DOCTYPE html>
+<html lang="zh">
+    <head>
+  <!-- 元数据 -->
+  <meta charset="utf-8">
+  
+  
+  <title>【教程】飞牛OS相册数据迁移 | 爆脖の奇妙生活</title>
+  
+  <meta name="author" content="爆脖大大Zz" />
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="robots" content="index,follow" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <meta name="format-detection" content="telphone=no, email=no" />
+  
+    <meta name="keywords" content="Nas, 教程, 飞牛OS" />
+  
+  <meta name="description" content="一、背景飞牛OS是目前无需”黑“就能实现多种专业功能，好用且免费的Nas系统，但是如果需要迁移Nas，从一台换到另一台，飞牛官方暂未给出合适的解决方案。尤其是对于相册等应用的数据，相册中的AI识别数据、图像位置数据、相册分类数据等十分珍贵，迁移后需要重新构建并不方便，在此背景下，本文提出了一种近乎无损的方法，直接修改和迁移数据库文件，让迁移数据不再麻烦。 本流程可用性已由本人亲自测试，下面步骤为本">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【教程】飞牛OS相册数据迁移">
+<meta property="og:url" content="https://nav.baobodadazz.top/subweb/blog/2026/07/26/0022.%E9%A3%9E%E7%89%9BOS%E7%9B%B8%E5%86%8C%E8%BF%81%E7%A7%BB/index.html">
+<meta property="og:site_name" content="爆脖の奇妙生活">
+<meta property="og:description" content="一、背景飞牛OS是目前无需”黑“就能实现多种专业功能，好用且免费的Nas系统，但是如果需要迁移Nas，从一台换到另一台，飞牛官方暂未给出合适的解决方案。尤其是对于相册等应用的数据，相册中的AI识别数据、图像位置数据、相册分类数据等十分珍贵，迁移后需要重新构建并不方便，在此背景下，本文提出了一种近乎无损的方法，直接修改和迁移数据库文件，让迁移数据不再麻烦。 本流程可用性已由本人亲自测试，下面步骤为本">
+<meta property="og:locale">
+<meta property="og:image" content="https://nav.baobodadazz.top/subweb/blog/images/posts/%E9%A3%9E%E7%89%9BOS%E7%9B%B8%E5%86%8C%E8%BF%81%E7%A7%BB/image-20260722123556707.png">
+<meta property="og:image" content="https://nav.baobodadazz.top/subweb/blog/images/posts/%E9%A3%9E%E7%89%9BOS%E7%9B%B8%E5%86%8C%E8%BF%81%E7%A7%BB/image-20260722123921771.png">
+<meta property="og:image" content="https://nav.baobodadazz.top/subweb/blog/images/posts/%E9%A3%9E%E7%89%9BOS%E7%9B%B8%E5%86%8C%E8%BF%81%E7%A7%BB/image-20260722124052470.png">
+<meta property="og:image" content="https://nav.baobodadazz.top/subweb/blog/images/posts/%E9%A3%9E%E7%89%9BOS%E7%9B%B8%E5%86%8C%E8%BF%81%E7%A7%BB/image-20260722130926422.png">
+<meta property="og:image" content="https://nav.baobodadazz.top/subweb/blog/images/posts/%E9%A3%9E%E7%89%9BOS%E7%9B%B8%E5%86%8C%E8%BF%81%E7%A7%BB/image-20260722131343473.png">
+<meta property="og:image" content="https://nav.baobodadazz.top/subweb/blog/images/posts/%E9%A3%9E%E7%89%9BOS%E7%9B%B8%E5%86%8C%E8%BF%81%E7%A7%BB/image-20260722141832498.png">
+<meta property="article:published_time" content="2026-07-26T10:07:45.000Z">
+<meta property="article:modified_time" content="2026-07-27T04:27:08.488Z">
+<meta property="article:author" content="爆脖大大Zz">
+<meta property="article:tag" content="教程">
+<meta property="article:tag" content="飞牛OS">
+<meta property="article:tag" content="Nas">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://nav.baobodadazz.top/subweb/blog/images/posts/%E9%A3%9E%E7%89%9BOS%E7%9B%B8%E5%86%8C%E8%BF%81%E7%A7%BB/image-20260722123556707.png">
+  
+  <!-- 站点验证相关 -->
+  
+    
+    
+    
+  
+  <!-- 样式表文件 -->
+  <link rel="stylesheet" id="kratos-css" href="/subweb/blog/css/kratosr.min.css" media="all"></script>
+  
+    <link rel="stylesheet" id="darkmode-css" href="/subweb/blog/css/kr-color-dark.min.css" media="(prefers-color-scheme: dark)"></script>
+    <script src="/subweb/blog/js/kr-dark.min.js"></script>
+  
+  
+    <link rel="stylesheet" id="highlight-css" href="/subweb/blog/css/highlight/night-bright.min.css" media="all"></script>
+  
+  <link rel="stylesheet" id="fontawe-css" href="/subweb/blog/vendors/font-awesome@4.7.0/css/font-awesome.min.css" media="all"></script>
+  <link rel="stylesheet" id="nprogress-css" href="/subweb/blog/vendors/nprogress@0.2.0/nprogress.css" media="all"></script>
+  
+  
+    <link rel="stylesheet" href="/subweb/blog/vendors/aplayer@1.10.1/dist/APlayer.min.css"></script>
+  
+  
+    <link rel="stylesheet" href="/subweb/blog/vendors/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css"></script>
+  
+  <!-- 不得不预先加载的一些JS文件 -->
+  <script src="/subweb/blog/vendors/jquery@3.6.0/dist/jquery.min.js"></script>
+  
+    <script src="/subweb/blog/vendors/qrcode_js@1.0.0/qrcode.min.js"></script>
+  
+  
+  <style>
+    
+      .kratos-cover.kratos-cover-2 {
+        background-image: url('/subweb/blog/images/banner.webp');
+      }
+    
+    
+      @media(min-width:768px) {
+        body.custom-background {
+          background-image: url('/subweb/blog/images/bg4.webp');
+        }
+      }
+    
+  </style>
+  
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.1.1"></head>
+
+
+    <body class="custom-background">
+        <div id="kratos-wrapper">
+    <div id="kratos-page">
+        <div id="kratos-header">
+            <header id="kratos-desktop-topnav" class="kratos-topnav">
+                <div class="container">
+                    <div class="nav-header">
+                        <nav id="kratos-menu-wrap">
+                            <ul id="kratos-primary-menu" class="sf-menu">
+                                
+                                    
+                                        <li>
+                                            
+                                                <a href="/subweb/blog/">
+                                            
+                                                
+                                                    <i class="fa fa-home"></i>
+                                                
+                                                首页
+                                            </a>
+                                            
+                                        </li>
+                                    
+                                        <li>
+                                            
+                                                <a href="/subweb/blog/archives/">
+                                            
+                                                
+                                                    <i class="fa fa-file"></i>
+                                                
+                                                档案馆
+                                            </a>
+                                            
+                                        </li>
+                                    
+                                        <li>
+                                            
+                                                <a href="/subweb/blog/friends/">
+                                            
+                                                
+                                                    <i class="fa fa-paw"></i>
+                                                
+                                                好伙伴
+                                            </a>
+                                            
+                                        </li>
+                                    
+                                        <li>
+                                            
+                                                <a>
+                                            
+                                                
+                                                    <i class="fa fa-link"></i>
+                                                
+                                                链接
+                                            </a>
+                                            
+                                                <ul class="sub-menu">
+                                                    
+                                                        <li>
+                                                            <a target="_blank" rel="noopener" href="https://space.bilibili.com/40750119">
+                                                                
+                                                                bilibili
+                                                            </a>
+                                                        </li>
+                                                    
+                                                        <li>
+                                                            <a target="_blank" rel="noopener" href="https://github.com/baobodadazz">
+                                                                
+                                                                github
+                                                            </a>
+                                                        </li>
+                                                    
+                                                        <li>
+                                                            <a href="https://nav.baobodadazz.top/index.html">
+                                                                
+                                                                上网导航
+                                                            </a>
+                                                        </li>
+                                                    
+                                                </ul>
+                                            
+                                        </li>
+                                    
+                                
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </header>
+            <header id="kratos-mobile-topnav" class="kratos-topnav">
+                <div class="container">
+                    <div class="color-logo"><a href="/subweb/blog/">爆脖の奇妙生活</a></div>
+                    <div class="nav-toggle">
+                        <a class="kratos-nav-toggle js-kratos-nav-toggle">
+                            <i></i>
+                        </a>
+                    </div>
+                </div>
+            </header>
+        </div>
+        <div class="kratos-start kratos-hero-2">
+            <!-- <div class="kratos-overlay"></div> -->
+            <div class="kratos-cover kratos-cover-2 text-center">
+                <div class="desc desc2 animate-box">
+                    <a href="/subweb/blog/">
+                        <h2>爆脖の奇妙生活</h2> <br />
+                        <span>さあ，私たちのデートを始めましょう</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div id="kratos-blog-post">
+            <div class="container">
+                <div id="main" class="row">
+                    
+
+        
+
+            <section class="col-md-8">
+
+        
+
+            <article itemscope itemtype="https://schema.org/Article">
+    
+    <link itemprop="mainEntityOfPage" href="https://nav.baobodadazz.top/subweb/blog/2026/07/26/0022.%E9%A3%9E%E7%89%9BOS%E7%9B%B8%E5%86%8C%E8%BF%81%E7%A7%BB/">
+    <div class="kratos-hentry kratos-post-inner clearfix">
+        <header class="kratos-entry-header">
+            
+                <h1 class="kratos-entry-title text-center" itemprop="name headline">【教程】飞牛OS相册数据迁移</h1>
+            
+            
+            <ul class="kratos-post-meta text-center">
+                <li><time datetime="2026-07-26T10:07:45.000Z" itemprop="datePublished"><i class="fa fa-calendar"></i> 2026-07-26</time></li>
+                <li itemprop="author" itemscope itemtype="https://schema.org/Person">
+                    <i class="fa fa-user"></i> 作者 <span itemprop="name">爆脖大大Zz</span>
+                </li>
+                
+                    <li>
+                        <i class="fa fa-edit"></i> 
+                        
+                        
+                            ~20.39K
+                        
+                        字
+                    </li>
+                
+                
+            </ul>
+        </header>
+        <div class="kratos-post-content">
+            
+            <div id="expire-alert" class="alert alert-warning hidden" role="alert">
+                <div class="icon"><i class="fa fa-warning"></i></div>
+                <div class="text"><p>本文最后编辑于 <time datetime="1785126428488"></time> 前，其中的内容可能需要更新。</p></div>
+            </div>
+            
+            
+            
+                <div class="kratos-post-inner-toc toc-div-class" >
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E8%83%8C%E6%99%AF"><span class="toc-number">1.</span> <span class="toc-text">一、背景</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E5%87%86%E5%A4%87%E5%B7%A5%E4%BD%9C"><span class="toc-number">2.</span> <span class="toc-text">二、准备工作</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-SSH%E8%BF%9E%E6%8E%A5%E6%AD%A3%E5%B8%B8"><span class="toc-number">2.1.</span> <span class="toc-text">1. SSH连接正常</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E2%91%A0-%E6%89%93%E5%BC%80ssh"><span class="toc-number">2.1.1.</span> <span class="toc-text">① 打开ssh</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E2%91%A1%E5%B0%9D%E8%AF%95%E8%BF%9E%E6%8E%A5"><span class="toc-number">2.1.2.</span> <span class="toc-text">②尝试连接</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E5%81%9C%E7%94%A8%E7%9B%B8%E5%86%8C%E6%88%96%E5%8D%B8%E8%BD%BD%E7%9B%B8%E5%86%8C"><span class="toc-number">2.2.</span> <span class="toc-text">2. 停用相册或卸载相册</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E5%AE%89%E8%A3%85%E5%8F%AF%E4%BB%A5%E8%AF%BB%E5%8F%96SQLite%E7%9A%84%E5%B7%A5%E5%85%B7"><span class="toc-number">2.3.</span> <span class="toc-text">3. 安装可以读取SQLite的工具</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E7%85%A7%E7%89%87%E8%BF%81%E7%A7%BB%E4%B8%8E%E5%A4%87%E4%BB%BD"><span class="toc-number">2.4.</span> <span class="toc-text">4. 照片迁移与备份</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%89%E3%80%81%E8%BF%81%E7%A7%BB%E6%96%B9%E6%B3%95"><span class="toc-number">3.</span> <span class="toc-text">三、迁移方法</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E5%A4%87%E4%BB%BD%E7%9B%B8%E5%86%8C%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="toc-number">3.1.</span> <span class="toc-text">1. 备份相册数据库</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E6%95%B0%E6%8D%AE%E5%BA%93%E4%BF%AE%E6%94%B9"><span class="toc-number">3.2.</span> <span class="toc-text">2. 数据库修改</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E5%88%A0%E9%99%A4%E7%BC%93%E5%AD%98%E6%96%87%E4%BB%B6"><span class="toc-number">3.3.</span> <span class="toc-text">3. 删除缓存文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E4%B8%8A%E4%BC%A0%E5%88%B0%E6%96%B0Nas%E7%9A%84%E5%AF%B9%E5%BA%94%E7%9B%AE%E5%BD%95"><span class="toc-number">3.4.</span> <span class="toc-text">4. 上传到新Nas的对应目录</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-%E5%AE%89%E8%A3%85%E7%9B%B8%E5%86%8C"><span class="toc-number">3.5.</span> <span class="toc-text">5. 安装相册</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%9B%9B%E3%80%81%E6%95%85%E9%9A%9C%E5%9B%9E%E6%BB%9A"><span class="toc-number">4.</span> <span class="toc-text">四、故障回滚</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%99%84%E5%BD%95A%EF%BC%9AAI%E7%94%9F%E6%88%90%E7%9A%84%E6%95%B0%E6%8D%AE%E5%BA%93%E8%A7%A3%E9%87%8A"><span class="toc-number">5.</span> <span class="toc-text">附录A：AI生成的数据库解释</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E9%98%85%E8%AF%BB%E8%AF%B4%E6%98%8E"><span class="toc-number">5.1.</span> <span class="toc-text">1. 阅读说明</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-%E6%97%B6%E9%97%B4%E5%AD%97%E6%AE%B5"><span class="toc-number">5.1.1.</span> <span class="toc-text">1.1 时间字段</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-%E8%A1%A8%E4%B9%8B%E9%97%B4%E7%9A%84%E5%85%B3%E8%81%94"><span class="toc-number">5.1.2.</span> <span class="toc-text">1.2 表之间的关联</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-3-%E5%B8%83%E5%B0%94%E4%B8%8E%E6%9E%9A%E4%B8%BE%E5%AD%97%E6%AE%B5"><span class="toc-number">5.1.3.</span> <span class="toc-text">1.3 布尔与枚举字段</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-4-%E7%A9%BA%E9%97%B4%E6%89%A9%E5%B1%95%E8%A1%A8"><span class="toc-number">5.1.4.</span> <span class="toc-text">1.4 空间扩展表</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E6%A0%B8%E5%BF%83%E6%95%B0%E6%8D%AE%E5%85%B3%E7%B3%BB"><span class="toc-number">5.2.</span> <span class="toc-text">2. 核心数据关系</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E6%A0%B8%E5%BF%83%E4%B8%9A%E5%8A%A1%E8%A1%A8"><span class="toc-number">5.3.</span> <span class="toc-text">3. 核心业务表</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#user"><span class="toc-number">5.3.1.</span> <span class="toc-text">user</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#device"><span class="toc-number">5.3.2.</span> <span class="toc-text">device</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#photo"><span class="toc-number">5.3.3.</span> <span class="toc-text">photo</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#user-photo"><span class="toc-number">5.3.4.</span> <span class="toc-text">user_photo</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#user-folder"><span class="toc-number">5.3.5.</span> <span class="toc-text">user_folder</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#user-album"><span class="toc-number">5.3.6.</span> <span class="toc-text">user_album</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#album-user-photo"><span class="toc-number">5.3.7.</span> <span class="toc-text">album_user_photo</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#album-condition"><span class="toc-number">5.3.8.</span> <span class="toc-text">album_condition</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#user-album-grant"><span class="toc-number">5.3.9.</span> <span class="toc-text">user_album_grant</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#user-tag"><span class="toc-number">5.3.10.</span> <span class="toc-text">user_tag</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#user-photo-tag"><span class="toc-number">5.3.11.</span> <span class="toc-text">user_photo_tag</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#user-photo-category"><span class="toc-number">5.3.12.</span> <span class="toc-text">user_photo_category</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#person"><span class="toc-number">5.3.13.</span> <span class="toc-text">person</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#face"><span class="toc-number">5.3.14.</span> <span class="toc-text">face</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#face-task-log"><span class="toc-number">5.3.15.</span> <span class="toc-text">face_task_log</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#folder-cover"><span class="toc-number">5.3.16.</span> <span class="toc-text">folder_cover</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#address-task"><span class="toc-number">5.3.17.</span> <span class="toc-text">address_task</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#repeat-photo"><span class="toc-number">5.3.18.</span> <span class="toc-text">repeat_photo</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#recycle-bin"><span class="toc-number">5.3.19.</span> <span class="toc-text">recycle_bin</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#file-task"><span class="toc-number">5.3.20.</span> <span class="toc-text">file_task</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#err-item-log"><span class="toc-number">5.3.21.</span> <span class="toc-text">err_item_log</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#google-takeout-log"><span class="toc-number">5.3.22.</span> <span class="toc-text">google_takeout_log</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#share-link"><span class="toc-number">5.3.23.</span> <span class="toc-text">share_link</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#user-config"><span class="toc-number">5.3.24.</span> <span class="toc-text">user_config</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#sys-config"><span class="toc-number">5.3.25.</span> <span class="toc-text">sys_config</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#data-version"><span class="toc-number">5.3.26.</span> <span class="toc-text">data_version</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#db-version"><span class="toc-number">5.3.27.</span> <span class="toc-text">db_version</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#data-licenses"><span class="toc-number">5.3.28.</span> <span class="toc-text">data_licenses</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-SpatiaLite-%E7%A9%BA%E9%97%B4%E6%89%A9%E5%B1%95%E8%A1%A8"><span class="toc-number">5.4.</span> <span class="toc-text">4. SpatiaLite 空间扩展表</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#geometry-columns"><span class="toc-number">5.4.1.</span> <span class="toc-text">geometry_columns</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#geometry-columns-auth"><span class="toc-number">5.4.2.</span> <span class="toc-text">geometry_columns_auth</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#geometry-columns-field-infos"><span class="toc-number">5.4.3.</span> <span class="toc-text">geometry_columns_field_infos</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#geometry-columns-statistics"><span class="toc-number">5.4.4.</span> <span class="toc-text">geometry_columns_statistics</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#geometry-columns-time"><span class="toc-number">5.4.5.</span> <span class="toc-text">geometry_columns_time</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#spatial-ref-sys"><span class="toc-number">5.4.6.</span> <span class="toc-text">spatial_ref_sys</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#spatial-ref-sys-aux"><span class="toc-number">5.4.7.</span> <span class="toc-text">spatial_ref_sys_aux</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#idx-photo-geom"><span class="toc-number">5.4.8.</span> <span class="toc-text">idx_photo_geom</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#idx-photo-geom-node"><span class="toc-number">5.4.9.</span> <span class="toc-text">idx_photo_geom_node</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#idx-photo-geom-parent"><span class="toc-number">5.4.10.</span> <span class="toc-text">idx_photo_geom_parent</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#idx-photo-geom-rowid"><span class="toc-number">5.4.11.</span> <span class="toc-text">idx_photo_geom_rowid</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#views-geometry-columns"><span class="toc-number">5.4.12.</span> <span class="toc-text">views_geometry_columns</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#views-geometry-columns-auth"><span class="toc-number">5.4.13.</span> <span class="toc-text">views_geometry_columns_auth</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#views-geometry-columns-field-infos"><span class="toc-number">5.4.14.</span> <span class="toc-text">views_geometry_columns_field_infos</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#views-geometry-columns-statistics"><span class="toc-number">5.4.15.</span> <span class="toc-text">views_geometry_columns_statistics</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#virts-geometry-columns"><span class="toc-number">5.4.16.</span> <span class="toc-text">virts_geometry_columns</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#virts-geometry-columns-auth"><span class="toc-number">5.4.17.</span> <span class="toc-text">virts_geometry_columns_auth</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#virts-geometry-columns-field-infos"><span class="toc-number">5.4.18.</span> <span class="toc-text">virts_geometry_columns_field_infos</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#virts-geometry-columns-statistics"><span class="toc-number">5.4.19.</span> <span class="toc-text">virts_geometry_columns_statistics</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ElementaryGeometries"><span class="toc-number">5.4.20.</span> <span class="toc-text">ElementaryGeometries</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#KNN"><span class="toc-number">5.4.21.</span> <span class="toc-text">KNN</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#SpatialIndex"><span class="toc-number">5.4.22.</span> <span class="toc-text">SpatialIndex</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#spatialite-history"><span class="toc-number">5.4.23.</span> <span class="toc-text">spatialite_history</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#sql-statements-log"><span class="toc-number">5.4.24.</span> <span class="toc-text">sql_statements_log</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-%E4%B8%BB%E8%A6%81%E6%95%B0%E6%8D%AE%E5%BA%93%E8%A7%86%E5%9B%BE"><span class="toc-number">5.5.</span> <span class="toc-text">5. 主要数据库视图</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-%E4%BF%AE%E6%94%B9%E6%95%B0%E6%8D%AE%E5%BA%93%E6%97%B6%E7%9A%84%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9"><span class="toc-number">5.6.</span> <span class="toc-text">6. 修改数据库时的注意事项</span></a></li></ol></li></ol>
+                </div>
+            
+            <hr />
+            <div itemprop="articleBody"><h1 id="一、背景"><a href="#一、背景" class="headerlink" title="一、背景"></a>一、背景</h1><p>飞牛OS是目前无需”黑“就能实现多种专业功能，好用且免费的Nas系统，但是如果需要迁移Nas，从一台换到另一台，飞牛官方暂未给出合适的解决方案。尤其是对于相册等应用的数据，相册中的AI识别数据、图像位置数据、相册分类数据等十分珍贵，迁移后需要重新构建并不方便，在此背景下，本文提出了一种近乎无损的方法，<strong>直接修改和迁移数据库文件</strong>，让迁移数据不再麻烦。</p>
+<p>本流程可用性已由本人亲自测试，下面步骤为本人迁移时完成，迁移目标机器的fnOS版本为<code>1.2.0203</code>，相册版本为<code>0.9.7</code>，本文只确定在此版本下能正常工作，<strong>修改系统文件有风险，请确保自己有承担风险的能力和基本计算机知识，最好有Linux方面知识</strong>。<strong>请提前备份数据，如出现数据丢失等问题，本人概不负责</strong>。</p>
+<h1 id="二、准备工作"><a href="#二、准备工作" class="headerlink" title="二、准备工作"></a>二、准备工作</h1><h2 id="1-SSH连接正常"><a href="#1-SSH连接正常" class="headerlink" title="1. SSH连接正常"></a>1. SSH连接正常</h2><p>由于本文的方法需要处理系统级文件，在图形界面无法查看，因此需要<strong>使用ssh连接到Nas</strong>，请确保ssh为打开状态，并保证能连接，本文使用Xshell作为连接ssh的连接工具，也可以选择其它工具甚至直接使用windows子带的ssh，选择Xftp作为文件传输方式，没有该文件传输方式也可以将需要修改备份的文件放到存储空间内下载。下面为ssh连接的步骤。</p>
+<h3 id="①-打开ssh"><a href="#①-打开ssh" class="headerlink" title="① 打开ssh"></a>① 打开ssh</h3><p>在飞牛的 <code>系统设置 - SSH - SSH功能</code>，将ssh开关打开，并记住端口（默认22），并在下方的用户权限处确保管理员具有访问SSH的权限。</p>
+<p><img src="/subweb/blog/images/posts/%E9%A3%9E%E7%89%9BOS%E7%9B%B8%E5%86%8C%E8%BF%81%E7%A7%BB/image-20260722123556707.png" alt="开启ssh功能"></p>
+<h3 id="②尝试连接"><a href="#②尝试连接" class="headerlink" title="②尝试连接"></a>②尝试连接</h3><p>在Xshell中新建连接，按下图提示输入相应连接信息。</p>
+<p><img src="/subweb/blog/images/posts/%E9%A3%9E%E7%89%9BOS%E7%9B%B8%E5%86%8C%E8%BF%81%E7%A7%BB/image-20260722123921771.png" alt="在Xshell中输入连接信息"></p>
+<p>输入信息后点击用户身份验证，然后输入用户名和密码，用户名和密码同Nas的管理员登录用户名和密码，具体如下图所示。</p>
+<p><img src="/subweb/blog/images/posts/%E9%A3%9E%E7%89%9BOS%E7%9B%B8%E5%86%8C%E8%BF%81%E7%A7%BB/image-20260722124052470.png" alt="输入用户名和密码"></p>
+<p>然后点击连接即可，连接后会将信息自动保存，下次无需再次输入。看到是否接受选择永久接受即可。</p>
+<p>注意，这里原Nas和新Nas都应该连接才行。</p>
+<h2 id="2-停用相册或卸载相册"><a href="#2-停用相册或卸载相册" class="headerlink" title="2. 停用相册或卸载相册"></a>2. 停用相册或卸载相册</h2><p>原Nas中将相册停用，新Nas若安装也要停用，最好是卸载，本文中新的Nas还未安装相册，因此仅需要将原Nas中的相册停用即可。可在<code>应用中心 - 已安装 - 相册</code>中选择停用。如果你要卸载，请选择保留数据卸载。</p>
+<p>停用或卸载相册后，才能确保数据库不会再被读取，新Nas安装后，相册会以为以前安装过，数据还留在Nas上。</p>
+<h2 id="3-安装可以读取SQLite的工具"><a href="#3-安装可以读取SQLite的工具" class="headerlink" title="3. 安装可以读取SQLite的工具"></a>3. 安装可以读取SQLite的工具</h2><p>可以安装Navicat或SQLiteStudio作为读取sqlite文件的工具。由于Navicat收费，本文选择了SQLiteStudio。安装方法非常简单，也可参考其它文档，本文不再赘述。</p>
+<h2 id="4-照片迁移与备份"><a href="#4-照片迁移与备份" class="headerlink" title="4. 照片迁移与备份"></a>4. 照片迁移与备份</h2><p>请将照片先迁移到新Nas的对应位置，并至少留一份备份以防止相册出现损坏。</p>
+<p>（建议备份多做，数据保存应当做到3个备份2个不同介质1个异地备份，本人适应移动硬盘进行不同介质备份，后续文件增大可能会入手数据磁带，同时使用阿里云和百度云作为异地备份，文件加密后上传到网盘。）</p>
+<h1 id="三、迁移方法"><a href="#三、迁移方法" class="headerlink" title="三、迁移方法"></a>三、迁移方法</h1><h2 id="1-备份相册数据库"><a href="#1-备份相册数据库" class="headerlink" title="1. 备份相册数据库"></a>1. 备份相册数据库</h2><p>备份整个相册数据目录，如出现问题方便数据回滚。为方便操作，这里进入root用户进行操作，命令如下，运行该命令后需要根据提示输入密码，这里输入的不是root的密码，而是登录用户的密码，root用户权限极高，甚至能将系统本身删除，因此不建议长期使用root操作。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo -i</span><br></pre></td></tr></table></figure>
+
+<p>首先进入应用数据文件夹：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /usr/local/apps/@appdata/</span><br></pre></td></tr></table></figure>
+
+<p>相册的数据库文件夹就在该文件夹下的<code>trim.photos</code>文件夹，再旧Nas中，使用如下命令备份：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar -zcvf backup_$(%Y%m%d_%H%M%S).tar.gz trim.photos/</span><br></pre></td></tr></table></figure>
+
+<p>这会生成一个名称为 <code>backup_20260721_092340.tar.gz</code>的文件，后面的串数字是日期和时间，根据实际情况变动，请使用<code>ll</code>命令查看你自己的文件。得到备份文件后，将该文件下载到本地电脑，可以使用<code>Xftp</code>，也可以将其移动到存储空间后下载。（下载方式没什么可讲的，都是计算机常识，都玩Nas了还不会的话应该自己上网搜索）</p>
+<h2 id="2-数据库修改"><a href="#2-数据库修改" class="headerlink" title="2. 数据库修改"></a>2. 数据库修改</h2><p>下载文件后解压，使用WinRAR等工具均可解压，解压后找到<code>trim.photos/db/photo.db</code>，这是飞牛相册主数据库，使用SQLiteStudio打开。打开后如下所示。</p>
+<p><img src="/subweb/blog/images/posts/%E9%A3%9E%E7%89%9BOS%E7%9B%B8%E5%86%8C%E8%BF%81%E7%A7%BB/image-20260722130926422.png" alt="飞牛相册主数据库"></p>
+<p>附录里有数据库的详细规则，可以不用看以为没必要，数据能不改就别改。双击<code>photo</code>表，跳转到数据，可以在右侧看到一个表格如下图所示。</p>
+<p><img src="/subweb/blog/images/posts/%E9%A3%9E%E7%89%9BOS%E7%9B%B8%E5%86%8C%E8%BF%81%E7%A7%BB/image-20260722131343473.png" alt="photo表"></p>
+<p>由于本人从旧的机器的vol2迁移到新的vol2，为了模拟路径变动，因此本人在旧机器的vol1中也创建了一些照片和视频，并迁移后放在了vol2的目录下，还修改了部分路径。</p>
+<p>这里在上方搜索框搜到vol1，结果如下，我希望视频放到<code>/vol2/1000/Photos/photo videos/2026</code>下，图片放到<code>/vol2/1000/Photos/other pictures/</code>下，需要修改<code>file_path</code>的目录部分和<code>file_dir</code></p>
+<p><img src="/subweb/blog/images/posts/%E9%A3%9E%E7%89%9BOS%E7%9B%B8%E5%86%8C%E8%BF%81%E7%A7%BB/image-20260722141832498.png" alt="vol1中的视频和图片"></p>
+<p>选择新建sql文件，使用下面命令批量修改。每个<code>UPDATE</code>命令修改一套文件夹变动。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">UPDATE</span> photo</span><br><span class="line"><span class="keyword">SET</span> file_path <span class="operator">=</span> REPLACE(file_path, <span class="string">&#x27;/vol1/1000/Photos2/MobileBackup/Xiaomi 24129PN74C/&#x27;</span>, <span class="string">&#x27;/vol2/1000/Photos/other pictures/&#x27;</span>),</span><br><span class="line">    file_dir  <span class="operator">=</span> REPLACE(file_dir,  <span class="string">&#x27;/vol1/1000/Photos2/MobileBackup/Xiaomi 24129PN74C/&#x27;</span>, <span class="string">&#x27;/vol2/1000/Photos/other pictures/&#x27;</span>);</span><br><span class="line">    </span><br><span class="line"><span class="keyword">UPDATE</span> photo</span><br><span class="line"><span class="keyword">SET</span> file_path <span class="operator">=</span> REPLACE(file_path, <span class="string">&#x27;/vol1/1000/Photos2/PhotoLibrary/2026/4/&#x27;</span>, <span class="string">&#x27;/vol2/1000/Photos/photo videos/2026/&#x27;</span>),</span><br><span class="line">    file_dir  <span class="operator">=</span> REPLACE(file_dir,  <span class="string">&#x27;/vol1/1000/Photos2/PhotoLibrary/2026/4&#x27;</span>, <span class="string">&#x27;/vol2/1000/Photos/photo videos/2026&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+<p>这样数据库就修改好了。除此之外，还需要修改相册的存储卷数据，在表<code>user_folder</code>中，可以直接删除这个表中的数据（注意不是删除表），使用下面的sql语句。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">DELETE</span> <span class="keyword">FROM</span> user_folder;</span><br></pre></td></tr></table></figure>
+
+<p>运行sql语句时，记得观察有无报错，是否正常进行，如果使用图形界面编辑数据库，记得手动点击提交。</p>
+<h2 id="3-删除缓存文件"><a href="#3-删除缓存文件" class="headerlink" title="3. 删除缓存文件"></a>3. 删除缓存文件</h2><p>删除<code>photo.db</code>同目录下的<code>photo.db-shm</code>和<code>photo.db-wal</code>文件。</p>
+<h2 id="4-上传到新Nas的对应目录"><a href="#4-上传到新Nas的对应目录" class="headerlink" title="4. 上传到新Nas的对应目录"></a>4. 上传到新Nas的对应目录</h2><p>可以打包后上传，也可以直接整个文件夹传上去，具体方式可以自己选择。</p>
+<p>我这里直接上传到vol2下，使用下面命令移动到对应目录。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">mv</span> /vol2/1000/trim.photos /usr/local/apps/@appdata/trim.photos</span><br></pre></td></tr></table></figure>
+
+<h2 id="5-安装相册"><a href="#5-安装相册" class="headerlink" title="5. 安装相册"></a>5. 安装相册</h2><p>到应用商店重新安装飞牛相册，进入相册后选择对应备份相册文件夹后即可。记得安装之前安装过的人脸模型和只能识别模型。进入设置，找到偏好设置，维护工具，任务名称选择重建索引，重新生成缩略图，清理垃圾数据，都执行一遍。</p>
+<h1 id="四、故障回滚"><a href="#四、故障回滚" class="headerlink" title="四、故障回滚"></a>四、故障回滚</h1><p>如果出现错误，使用此命令回滚恢复数据库</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">rm</span> -rf trim.photos/</span><br><span class="line">tar -zxvf 备份的文件名.tar.gz</span><br></pre></td></tr></table></figure>
+
+<h1 id="附录A：AI生成的数据库解释"><a href="#附录A：AI生成的数据库解释" class="headerlink" title="附录A：AI生成的数据库解释"></a>附录A：AI生成的数据库解释</h1><blockquote>
+<p>本附录根据飞牛相册 SQLite 数据库导出的 SQL 结构整理，主要用于数据研究、备份恢复和二次开发参考。</p>
+<p>字段含义由 SQL 注释、字段命名、索引及表间关系综合推断，并非飞牛官方数据库文档。对于 SQL 中没有给出枚举或单位的字段，本文会明确标注“具体含义未声明”。</p>
+</blockquote>
+<hr>
+<h2 id="1-阅读说明"><a href="#1-阅读说明" class="headerlink" title="1. 阅读说明"></a>1. 阅读说明</h2><h3 id="1-1-时间字段"><a href="#1-1-时间字段" class="headerlink" title="1.1 时间字段"></a>1.1 时间字段</h3><p>数据库中大量使用 <code>INTEGER</code> 保存时间，例如：</p>
+<ul>
+<li><code>created_at</code></li>
+<li><code>updated_at</code></li>
+<li><code>mod_time</code></li>
+<li><code>delete_at</code></li>
+<li><code>last_heartbeat</code></li>
+</ul>
+<p>它们通常是 Unix 时间戳，但 SQL 结构没有统一说明使用秒、毫秒还是其他精度。实际处理前，建议先抽取几条数据进行验证。</p>
+<h3 id="1-2-表之间的关联"><a href="#1-2-表之间的关联" class="headerlink" title="1.2 表之间的关联"></a>1.2 表之间的关联</h3><p>SQL 导出文件中执行了：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">PRAGMA foreign_keys <span class="operator">=</span> off;</span><br></pre></td></tr></table></figure>
+
+<p>而且多数业务表并没有显式声明外键。因此，本文所写的关联关系主要根据字段名和索引推断。</p>
+<h3 id="1-3-布尔与枚举字段"><a href="#1-3-布尔与枚举字段" class="headerlink" title="1.3 布尔与枚举字段"></a>1.3 布尔与枚举字段</h3><p>以下类型字段通常使用整数表示状态：</p>
+<ul>
+<li><code>status</code></li>
+<li><code>source</code></li>
+<li><code>shared</code></li>
+<li><code>deleted</code></li>
+<li><code>is_live</code></li>
+<li><code>is_collect</code></li>
+<li><code>special_type</code></li>
+</ul>
+<p>除 SQL 中已有注释的字段外，具体枚举值不能仅凭数据库结构确定。</p>
+<h3 id="1-4-空间扩展表"><a href="#1-4-空间扩展表" class="headerlink" title="1.4 空间扩展表"></a>1.4 空间扩展表</h3><p>数据库包含大量 SpatiaLite 表和虚拟表，例如：</p>
+<ul>
+<li><code>geometry_columns</code></li>
+<li><code>spatial_ref_sys</code></li>
+<li><code>idx_photo_geom</code></li>
+<li><code>SpatialIndex</code></li>
+<li><code>KNN</code></li>
+</ul>
+<p>这些对象主要用于照片 GPS 坐标、地图查询和空间索引，一般不建议手动修改。</p>
+<hr>
+<h2 id="2-核心数据关系"><a href="#2-核心数据关系" class="headerlink" title="2. 核心数据关系"></a>2. 核心数据关系</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">erDiagram</span><br><span class="line">    USER ||--o&#123; DEVICE : owns</span><br><span class="line">    USER ||--o&#123; USER_PHOTO : owns</span><br><span class="line">    PHOTO ||--o&#123; USER_PHOTO : maps</span><br><span class="line">    USER ||--o&#123; USER_ALBUM : creates</span><br><span class="line"></span><br><span class="line">    USER_ALBUM ||--o&#123; ALBUM_USER_PHOTO : contains</span><br><span class="line">    USER_PHOTO ||--o&#123; ALBUM_USER_PHOTO : belongs_to</span><br><span class="line"></span><br><span class="line">    USER_ALBUM ||--o&#123; ALBUM_CONDITION : filters</span><br><span class="line">    USER_ALBUM ||--o&#123; USER_ALBUM_GRANT : grants</span><br><span class="line"></span><br><span class="line">    USER_PHOTO ||--o&#123; USER_PHOTO_TAG : tagged</span><br><span class="line">    USER_TAG ||--o&#123; USER_PHOTO_TAG : applies</span><br><span class="line"></span><br><span class="line">    USER_PHOTO ||--o&#123; USER_PHOTO_CATEGORY : classified</span><br><span class="line"></span><br><span class="line">    USER_PHOTO ||--o&#123; FACE : contains</span><br><span class="line">    PERSON ||--o&#123; FACE : groups</span><br><span class="line"></span><br><span class="line">    USER_PHOTO ||--o| RECYCLE_BIN : deleted_to</span><br><span class="line">    USER_PHOTO ||--o| REPEAT_PHOTO : deduplicated</span><br></pre></td></tr></table></figure>
+
+<p>核心结构可以简单理解为：</p>
+<ul>
+<li><code>photo</code> 保存磁盘上的实际媒体文件信息。</li>
+<li><code>user_photo</code> 保存媒体文件在某个用户相册空间中的实例。</li>
+<li><code>user_album</code> 保存相册。</li>
+<li><code>album_user_photo</code> 连接相册和用户照片。</li>
+<li><code>face</code> 保存照片中检测到的人脸。</li>
+<li><code>person</code> 将多个人脸聚合为同一个人物。</li>
+<li><code>user_tag</code> 和 <code>user_photo_tag</code> 负责标签系统。</li>
+</ul>
+<hr>
+<h2 id="3-核心业务表"><a href="#3-核心业务表" class="headerlink" title="3. 核心业务表"></a>3. 核心业务表</h2><h3 id="user"><a href="#user" class="headerlink" title="user"></a><code>user</code></h3><p>用户与 NAS 用户账户的映射表。</p>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>类型</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>id</code></td>
+<td><code>INTEGER</code></td>
+<td>用户表主键，自增。</td>
+</tr>
+<tr>
+<td><code>nas_uid</code></td>
+<td><code>INTEGER</code></td>
+<td>NAS 系统中的用户编号，存在唯一索引。</td>
+</tr>
+<tr>
+<td><code>created_at</code></td>
+<td><code>INTEGER</code></td>
+<td>用户记录创建时间。</td>
+</tr>
+<tr>
+<td><code>updated_at</code></td>
+<td><code>INTEGER</code></td>
+<td>用户记录最后更新时间。</td>
+</tr>
+</tbody></table>
+<hr>
+<h3 id="device"><a href="#device" class="headerlink" title="device"></a><code>device</code></h3><p>记录用户设备和设备备份目录。</p>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>类型</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>id</code></td>
+<td><code>INTEGER</code></td>
+<td>设备记录主键，自增。</td>
+</tr>
+<tr>
+<td><code>user_id</code></td>
+<td><code>INTEGER</code></td>
+<td>设备所属用户，通常关联 <code>user.id</code>。</td>
+</tr>
+<tr>
+<td><code>device_id</code></td>
+<td><code>TEXT</code></td>
+<td>设备在业务系统中的标识。</td>
+</tr>
+<tr>
+<td><code>device_name</code></td>
+<td><code>TEXT</code></td>
+<td>设备显示名称。</td>
+</tr>
+<tr>
+<td><code>device_uniq_name</code></td>
+<td><code>TEXT</code></td>
+<td>设备唯一名称或用于去重的名称。</td>
+</tr>
+<tr>
+<td><code>created_at</code></td>
+<td><code>INTEGER</code></td>
+<td>设备记录创建时间。</td>
+</tr>
+<tr>
+<td><code>updated_at</code></td>
+<td><code>INTEGER</code></td>
+<td>设备记录最后更新时间。</td>
+</tr>
+<tr>
+<td><code>backup_path</code></td>
+<td><code>TEXT</code></td>
+<td>设备照片的备份目录。</td>
+</tr>
+<tr>
+<td><code>oem_device_id</code></td>
+<td><code>TEXT</code></td>
+<td>设备厂商或 OEM 提供的设备标识。</td>
+</tr>
+</tbody></table>
+<p><code>user_id + device_id</code> 上存在唯一索引，说明同一用户下不能重复登记相同设备。</p>
+<hr>
+<h3 id="photo"><a href="#photo" class="headerlink" title="photo"></a><code>photo</code></h3><p>照片库最核心的资源表，保存磁盘文件、EXIF、尺寸、哈希、GPS 和动态照片信息。</p>
+<blockquote>
+<p><code>photo</code> 表代表底层媒体资源；用户看到的照片实例主要由 <code>user_photo</code> 表表示。</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>类型</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>id</code></td>
+<td><code>INTEGER</code></td>
+<td>照片资源主键，自增。</td>
+</tr>
+<tr>
+<td><code>file_path</code></td>
+<td><code>TEXT</code></td>
+<td>媒体文件完整路径，存在唯一索引。</td>
+</tr>
+<tr>
+<td><code>file_dir</code></td>
+<td><code>TEXT</code></td>
+<td>媒体文件所在目录。</td>
+</tr>
+<tr>
+<td><code>date_time</code></td>
+<td><code>TEXT</code></td>
+<td>拍摄时间或创建时间的原始文本。</td>
+</tr>
+<tr>
+<td><code>file_type</code></td>
+<td><code>TEXT</code></td>
+<td>文件格式、扩展名或 MIME 类型标识。</td>
+</tr>
+<tr>
+<td><code>category</code></td>
+<td><code>TEXT</code></td>
+<td>媒体大类或文件分类。</td>
+</tr>
+<tr>
+<td><code>model</code></td>
+<td><code>TEXT</code></td>
+<td>拍摄设备型号，对应 EXIF <code>Model</code>。</td>
+</tr>
+<tr>
+<td><code>fumber</code></td>
+<td><code>TEXT</code></td>
+<td>光圈值，字段名疑似历史拼写，原意可能是 <code>FNumber</code>。</td>
+</tr>
+<tr>
+<td><code>exposure_time</code></td>
+<td><code>TEXT</code></td>
+<td>曝光时间，对应 EXIF <code>ExposureTime</code>。</td>
+</tr>
+<tr>
+<td><code>ISO_speed_ratings</code></td>
+<td><code>TEXT</code></td>
+<td>ISO 感光度，对应 EXIF <code>ISOSpeedRatings</code>。</td>
+</tr>
+<tr>
+<td><code>focal_length</code></td>
+<td><code>TEXT</code></td>
+<td>拍摄焦距，对应 EXIF <code>FocalLength</code>。</td>
+</tr>
+<tr>
+<td><code>file_size</code></td>
+<td><code>INTEGER</code></td>
+<td>当前媒体文件大小，通常以字节计。</td>
+</tr>
+<tr>
+<td><code>width</code></td>
+<td><code>INTEGER</code></td>
+<td>媒体宽度，通常以像素计。</td>
+</tr>
+<tr>
+<td><code>height</code></td>
+<td><code>INTEGER</code></td>
+<td>媒体高度，通常以像素计。</td>
+</tr>
+<tr>
+<td><code>make</code></td>
+<td><code>TEXT</code></td>
+<td>拍摄设备制造商，对应 EXIF <code>Make</code>。</td>
+</tr>
+<tr>
+<td><code>exposure_program</code></td>
+<td><code>TEXT</code></td>
+<td>曝光程序，对应 EXIF <code>ExposureProgram</code>。</td>
+</tr>
+<tr>
+<td><code>metering_mode</code></td>
+<td><code>TEXT</code></td>
+<td>测光模式，对应 EXIF <code>MeteringMode</code>。</td>
+</tr>
+<tr>
+<td><code>flash</code></td>
+<td><code>TEXT</code></td>
+<td>闪光灯信息，对应 EXIF <code>Flash</code>。</td>
+</tr>
+<tr>
+<td><code>geo</code></td>
+<td><code>TEXT</code></td>
+<td>旧版或辅助地理信息文本。</td>
+</tr>
+<tr>
+<td><code>file_name</code></td>
+<td><code>TEXT</code></td>
+<td>文件名，不包含或可能不包含完整目录。</td>
+</tr>
+<tr>
+<td><code>uuid</code></td>
+<td><code>TEXT</code></td>
+<td>媒体资源 UUID。</td>
+</tr>
+<tr>
+<td><code>media_duration</code></td>
+<td><code>INTEGER</code></td>
+<td>视频或动态媒体时长，单位未在 SQL 中声明。</td>
+</tr>
+<tr>
+<td><code>latitude</code></td>
+<td><code>TEXT</code></td>
+<td>纬度文本值。</td>
+</tr>
+<tr>
+<td><code>longitude</code></td>
+<td><code>TEXT</code></td>
+<td>经度文本值。</td>
+</tr>
+<tr>
+<td><code>country_code</code></td>
+<td><code>TEXT</code></td>
+<td>国家或地区代码。</td>
+</tr>
+<tr>
+<td><code>city</code></td>
+<td><code>TEXT</code></td>
+<td>城市名称。</td>
+</tr>
+<tr>
+<td><code>file_hash</code></td>
+<td><code>TEXT</code></td>
+<td>当前文件哈希，用于校验或去重。</td>
+</tr>
+<tr>
+<td><code>live_photo_video_index</code></td>
+<td><code>INTEGER</code></td>
+<td>Live Photo 配套视频的索引或关联标记。</td>
+</tr>
+<tr>
+<td><code>content_identifier</code></td>
+<td><code>TEXT</code></td>
+<td>动态照片中图片与视频的内容配对标识。</td>
+</tr>
+<tr>
+<td><code>angle</code></td>
+<td><code>INTEGER</code></td>
+<td>媒体旋转角度。</td>
+</tr>
+<tr>
+<td><code>has_thumbnail</code></td>
+<td><code>INTEGER</code></td>
+<td>是否已经生成缩略图的状态标记。</td>
+</tr>
+<tr>
+<td><code>created_at</code></td>
+<td><code>INTEGER</code></td>
+<td>资源记录创建时间。</td>
+</tr>
+<tr>
+<td><code>updated_at</code></td>
+<td><code>INTEGER</code></td>
+<td>资源记录最后更新时间。</td>
+</tr>
+<tr>
+<td><code>original_size</code></td>
+<td><code>INTEGER</code></td>
+<td>原始媒体文件大小。</td>
+</tr>
+<tr>
+<td><code>motion_type</code></td>
+<td><code>INTEGER</code></td>
+<td>动态照片或运动媒体类型，具体枚举未声明。</td>
+</tr>
+<tr>
+<td><code>original_hash</code></td>
+<td><code>TEXT</code></td>
+<td>原始文件哈希。</td>
+</tr>
+<tr>
+<td><code>mod_time</code></td>
+<td><code>INTEGER</code></td>
+<td>文件最后修改时间。</td>
+</tr>
+<tr>
+<td><code>geom</code></td>
+<td><code>POINT</code></td>
+<td>SpatiaLite 点坐标，用于地图和空间索引查询。</td>
+</tr>
+<tr>
+<td><code>gps_standard</code></td>
+<td><code>INTEGER</code></td>
+<td>GPS 坐标标准或来源标记，默认值为 <code>0</code>。</td>
+</tr>
+<tr>
+<td><code>time_zone_offset</code></td>
+<td><code>INTEGER</code></td>
+<td>拍摄时间对应的时区偏移，单位未声明。</td>
+</tr>
+<tr>
+<td><code>special_type</code></td>
+<td><code>TINYINT</code></td>
+<td>特殊媒体类型标记，默认值为 <code>0</code>。</td>
+</tr>
+</tbody></table>
+<hr>
+<h3 id="user-photo"><a href="#user-photo" class="headerlink" title="user_photo"></a><code>user_photo</code></h3><p>媒体资源在某个用户空间中的实例表。</p>
+<p>同一个底层 <code>photo</code> 记录，理论上可以对应不同用户的 <code>user_photo</code> 记录。</p>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>类型</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>id</code></td>
+<td><code>INTEGER</code></td>
+<td>用户照片主键，自增。</td>
+</tr>
+<tr>
+<td><code>photo_id</code></td>
+<td><code>INTEGER</code></td>
+<td>底层媒体资源 ID，通常关联 <code>photo.id</code>。</td>
+</tr>
+<tr>
+<td><code>user_id</code></td>
+<td><code>INTEGER</code></td>
+<td>照片所属用户，通常关联 <code>user.id</code>。</td>
+</tr>
+<tr>
+<td><code>description</code></td>
+<td><code>TEXT</code></td>
+<td>用户为照片设置的描述。</td>
+</tr>
+<tr>
+<td><code>is_collect</code></td>
+<td><code>INTEGER</code></td>
+<td>是否收藏。</td>
+</tr>
+<tr>
+<td><code>date_time</code></td>
+<td><code>TEXT</code></td>
+<td>用于用户时间线展示和排序的时间。</td>
+</tr>
+<tr>
+<td><code>year</code></td>
+<td><code>INTEGER</code></td>
+<td>时间线年份。</td>
+</tr>
+<tr>
+<td><code>month</code></td>
+<td><code>INTEGER</code></td>
+<td>时间线月份。</td>
+</tr>
+<tr>
+<td><code>day</code></td>
+<td><code>INTEGER</code></td>
+<td>时间线日期。</td>
+</tr>
+<tr>
+<td><code>source</code></td>
+<td><code>TEXT</code></td>
+<td>照片进入用户图库的来源。</td>
+</tr>
+<tr>
+<td><code>live_video_id</code></td>
+<td><code>INTEGER</code></td>
+<td>动态照片配套视频的关联记录 ID。</td>
+</tr>
+<tr>
+<td><code>created_at</code></td>
+<td><code>INTEGER</code></td>
+<td>用户照片记录创建时间。</td>
+</tr>
+<tr>
+<td><code>updated_at</code></td>
+<td><code>INTEGER</code></td>
+<td>用户照片记录最后更新时间。</td>
+</tr>
+<tr>
+<td><code>is_live</code></td>
+<td><code>INTEGER</code></td>
+<td>是否为 Live Photo 或动态照片。</td>
+</tr>
+<tr>
+<td><code>time_zone_offset</code></td>
+<td><code>INTEGER</code></td>
+<td>时间线所使用的时区偏移。</td>
+</tr>
+</tbody></table>
+<hr>
+<h3 id="user-folder"><a href="#user-folder" class="headerlink" title="user_folder"></a><code>user_folder</code></h3><p>记录用户纳入照片管理和扫描范围的目录。</p>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>类型</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>id</code></td>
+<td><code>INTEGER</code></td>
+<td>目录记录主键，自增。</td>
+</tr>
+<tr>
+<td><code>user_id</code></td>
+<td><code>INTEGER</code></td>
+<td>目录所属用户。</td>
+</tr>
+<tr>
+<td><code>folder_path</code></td>
+<td><code>TEXT</code></td>
+<td>被纳入照片管理的目录路径。</td>
+</tr>
+<tr>
+<td><code>status</code></td>
+<td><code>INTEGER</code></td>
+<td>目录扫描或启用状态，具体枚举未声明。</td>
+</tr>
+<tr>
+<td><code>is_default</code></td>
+<td><code>INTEGER</code></td>
+<td>是否为默认照片目录。</td>
+</tr>
+<tr>
+<td><code>deleted</code></td>
+<td><code>INTEGER</code></td>
+<td>逻辑删除标记。</td>
+</tr>
+<tr>
+<td><code>created_at</code></td>
+<td><code>INTEGER</code></td>
+<td>目录记录创建时间。</td>
+</tr>
+<tr>
+<td><code>updated_at</code></td>
+<td><code>INTEGER</code></td>
+<td>目录记录最后更新时间。</td>
+</tr>
+</tbody></table>
+<hr>
+<h3 id="user-album"><a href="#user-album" class="headerlink" title="user_album"></a><code>user_album</code></h3><p>用户相册信息表。</p>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>类型</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>id</code></td>
+<td><code>INTEGER</code></td>
+<td>相册主键，自增。</td>
+</tr>
+<tr>
+<td><code>name</code></td>
+<td><code>TEXT</code></td>
+<td>相册名称。</td>
+</tr>
+<tr>
+<td><code>user_id</code></td>
+<td><code>INTEGER</code></td>
+<td>相册所属用户。</td>
+</tr>
+<tr>
+<td><code>poster_photo_id</code></td>
+<td><code>INTEGER</code></td>
+<td>相册封面对应的底层照片 ID。</td>
+</tr>
+<tr>
+<td><code>shared</code></td>
+<td><code>INTEGER</code></td>
+<td>相册是否处于共享状态。</td>
+</tr>
+<tr>
+<td><code>source</code></td>
+<td><code>TEXT</code></td>
+<td>相册来源或创建方式。</td>
+</tr>
+<tr>
+<td><code>created_at</code></td>
+<td><code>INTEGER</code></td>
+<td>相册创建时间。</td>
+</tr>
+<tr>
+<td><code>updated_at</code></td>
+<td><code>INTEGER</code></td>
+<td>相册最后更新时间。</td>
+</tr>
+<tr>
+<td><code>name_pinyin</code></td>
+<td><code>TEXT</code></td>
+<td>相册名称拼音，用于搜索或排序。</td>
+</tr>
+<tr>
+<td><code>poster_album_user_photo_id</code></td>
+<td><code>INTEGER</code></td>
+<td>相册封面在 <code>album_user_photo</code> 中的关联记录 ID，按字段名称推断。</td>
+</tr>
+<tr>
+<td><code>mod_time</code></td>
+<td><code>INTEGER</code></td>
+<td>相册内容或相册信息修改时间。</td>
+</tr>
+<tr>
+<td><code>share_mod_time</code></td>
+<td><code>INTEGER</code></td>
+<td>相册共享信息最后修改时间。</td>
+</tr>
+<tr>
+<td><code>category</code></td>
+<td><code>INTEGER</code></td>
+<td>相册类别，具体枚举未声明。</td>
+</tr>
+<tr>
+<td><code>display_type</code></td>
+<td><code>INTEGER</code></td>
+<td>相册展示类型，具体枚举未声明。</td>
+</tr>
+<tr>
+<td><code>birthday</code></td>
+<td><code>TEXT</code></td>
+<td>生日相册或人物相册相关日期。</td>
+</tr>
+</tbody></table>
+<p>同一用户下的相册名称存在唯一索引：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">user_id + name</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="album-user-photo"><a href="#album-user-photo" class="headerlink" title="album_user_photo"></a><code>album_user_photo</code></h3><p>相册与用户照片的多对多关联表。</p>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>类型</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>id</code></td>
+<td><code>INTEGER</code></td>
+<td>关联记录主键，自增。</td>
+</tr>
+<tr>
+<td><code>album_id</code></td>
+<td><code>INTEGER</code></td>
+<td>相册 ID，通常关联 <code>user_album.id</code>。</td>
+</tr>
+<tr>
+<td><code>user_photo_id</code></td>
+<td><code>INTEGER</code></td>
+<td>用户照片 ID，通常关联 <code>user_photo.id</code>。</td>
+</tr>
+<tr>
+<td><code>source</code></td>
+<td><code>TEXT</code></td>
+<td>照片进入相册的来源或添加方式。</td>
+</tr>
+<tr>
+<td><code>created_at</code></td>
+<td><code>INTEGER</code></td>
+<td>关联创建时间。</td>
+</tr>
+<tr>
+<td><code>updated_at</code></td>
+<td><code>INTEGER</code></td>
+<td>关联最后更新时间。</td>
+</tr>
+</tbody></table>
+<p>数据库分别对以下组合建立了唯一索引：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">album_id + user_photo_id</span><br><span class="line">user_photo_id + album_id</span><br></pre></td></tr></table></figure>
+
+<p>用于防止同一张照片被重复加入同一相册。</p>
+<hr>
+<h3 id="album-condition"><a href="#album-condition" class="headerlink" title="album_condition"></a><code>album_condition</code></h3><p>条件相册或智能相册的筛选条件。</p>
+<p>一条记录可以通过目录、标签或人物定义相册内容。</p>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>类型</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>id</code></td>
+<td><code>INTEGER</code></td>
+<td>条件记录主键，自增。</td>
+</tr>
+<tr>
+<td><code>album_id</code></td>
+<td><code>INTEGER</code></td>
+<td>条件所属相册 ID。</td>
+</tr>
+<tr>
+<td><code>related_folder_path</code></td>
+<td><code>TEXT</code></td>
+<td>作为相册筛选条件的目录路径。</td>
+</tr>
+<tr>
+<td><code>related_tag_id</code></td>
+<td><code>INTEGER</code></td>
+<td>作为筛选条件的标签 ID。</td>
+</tr>
+<tr>
+<td><code>created_at</code></td>
+<td><code>INTEGER</code></td>
+<td>条件创建时间。</td>
+</tr>
+<tr>
+<td><code>related_person_id</code></td>
+<td><code>INTEGER</code></td>
+<td>作为筛选条件的人物 ID。</td>
+</tr>
+<tr>
+<td><code>add_user_id</code></td>
+<td><code>INTEGER</code></td>
+<td>添加该条件的用户 ID。</td>
+</tr>
+</tbody></table>
+<p>数据库分别限制同一相册不能重复添加相同目录、人物或标签条件。</p>
+<hr>
+<h3 id="user-album-grant"><a href="#user-album-grant" class="headerlink" title="user_album_grant"></a><code>user_album_grant</code></h3><p>相册授权和访问权限表。</p>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>类型</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>id</code></td>
+<td><code>INTEGER</code></td>
+<td>授权记录主键，自增。</td>
+</tr>
+<tr>
+<td><code>album_id</code></td>
+<td><code>INTEGER</code></td>
+<td>被授权相册的 ID。</td>
+</tr>
+<tr>
+<td><code>type</code></td>
+<td><code>TEXT</code></td>
+<td>授权目标类型，例如用户或其他对象；具体值未声明。</td>
+</tr>
+<tr>
+<td><code>permission</code></td>
+<td><code>TEXT</code></td>
+<td>授权权限文本。</td>
+</tr>
+<tr>
+<td><code>target_id</code></td>
+<td><code>INTEGER</code></td>
+<td>授权目标 ID。</td>
+</tr>
+<tr>
+<td><code>created_at</code></td>
+<td><code>INTEGER</code></td>
+<td>授权创建时间。</td>
+</tr>
+<tr>
+<td><code>updated_at</code></td>
+<td><code>INTEGER</code></td>
+<td>授权最后更新时间。</td>
+</tr>
+</tbody></table>
+<hr>
+<h3 id="user-tag"><a href="#user-tag" class="headerlink" title="user_tag"></a><code>user_tag</code></h3><p>用户标签表。</p>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>类型</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>id</code></td>
+<td><code>INTEGER</code></td>
+<td>标签主键，自增。</td>
+</tr>
+<tr>
+<td><code>user_id</code></td>
+<td><code>INTEGER</code></td>
+<td>标签所属用户。</td>
+</tr>
+<tr>
+<td><code>name</code></td>
+<td><code>TEXT</code></td>
+<td>标签名称。</td>
+</tr>
+<tr>
+<td><code>use_time</code></td>
+<td><code>INTEGER</code></td>
+<td>标签最近使用时间或累计使用信息，精确含义未声明。</td>
+</tr>
+<tr>
+<td><code>created_at</code></td>
+<td><code>INTEGER</code></td>
+<td>标签创建时间。</td>
+</tr>
+<tr>
+<td><code>updated_at</code></td>
+<td><code>INTEGER</code></td>
+<td>标签最后更新时间。</td>
+</tr>
+</tbody></table>
+<p>同一用户下的标签名称必须唯一。</p>
+<hr>
+<h3 id="user-photo-tag"><a href="#user-photo-tag" class="headerlink" title="user_photo_tag"></a><code>user_photo_tag</code></h3><p>用户照片与标签的关联表。</p>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>类型</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>id</code></td>
+<td><code>INTEGER</code></td>
+<td>关联记录主键，自增。</td>
+</tr>
+<tr>
+<td><code>user_photo_id</code></td>
+<td><code>INTEGER</code></td>
+<td>用户照片 ID。</td>
+</tr>
+<tr>
+<td><code>tag_id</code></td>
+<td><code>INTEGER</code></td>
+<td>标签 ID，通常关联 <code>user_tag.id</code>。</td>
+</tr>
+<tr>
+<td><code>created_at</code></td>
+<td><code>INTEGER</code></td>
+<td>标签关联创建时间。</td>
+</tr>
+<tr>
+<td><code>updated_at</code></td>
+<td><code>INTEGER</code></td>
+<td>标签关联最后更新时间。</td>
+</tr>
+</tbody></table>
+<hr>
+<h3 id="user-photo-category"><a href="#user-photo-category" class="headerlink" title="user_photo_category"></a><code>user_photo_category</code></h3><p>AI 图像分类结果表。</p>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>类型</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>id</code></td>
+<td><code>INTEGER</code></td>
+<td>分类记录主键，自增。</td>
+</tr>
+<tr>
+<td><code>user_photo_id</code></td>
+<td><code>INTEGER</code></td>
+<td>被分类的用户照片 ID。</td>
+</tr>
+<tr>
+<td><code>category_name</code></td>
+<td><code>TEXT</code></td>
+<td>AI 识别出的细分类名称。</td>
+</tr>
+<tr>
+<td><code>distance</code></td>
+<td><code>REAL</code></td>
+<td>分类模型计算出的距离或相似度度量。</td>
+</tr>
+<tr>
+<td><code>main_category_name</code></td>
+<td><code>TEXT</code></td>
+<td>细分类所属的主分类名称。</td>
+</tr>
+<tr>
+<td><code>user_id</code></td>
+<td><code>INTEGER</code></td>
+<td>分类结果所属用户。</td>
+</tr>
+<tr>
+<td><code>created_at</code></td>
+<td><code>INTEGER</code></td>
+<td>分类记录创建时间。</td>
+</tr>
+<tr>
+<td><code>updated_at</code></td>
+<td><code>INTEGER</code></td>
+<td>分类记录最后更新时间。</td>
+</tr>
+</tbody></table>
+<p><code>distance</code> 越大还是越小代表越相似，需要结合飞牛实际使用的模型判断。</p>
+<hr>
+<h3 id="person"><a href="#person" class="headerlink" title="person"></a><code>person</code></h3><p>人物聚类表，用于“人物”或“人脸相册”功能。</p>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>类型</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>id</code></td>
+<td><code>INTEGER</code></td>
+<td>人物主键，自增。</td>
+</tr>
+<tr>
+<td><code>user_id</code></td>
+<td><code>INTEGER</code></td>
+<td>人物所属用户。</td>
+</tr>
+<tr>
+<td><code>name</code></td>
+<td><code>VARCHAR(255)</code></td>
+<td>人物名称。</td>
+</tr>
+<tr>
+<td><code>birthday</code></td>
+<td><code>DATE</code></td>
+<td>人物生日。</td>
+</tr>
+<tr>
+<td><code>poster_face_id</code></td>
+<td><code>INTEGER</code></td>
+<td>作为人物封面的推荐人脸 ID。</td>
+</tr>
+<tr>
+<td><code>status</code></td>
+<td><code>TINYINT(1)</code></td>
+<td>人物状态：<code>0</code> 为正常，<code>1</code> 为隐藏。</td>
+</tr>
+<tr>
+<td><code>updated_at</code></td>
+<td><code>INTEGER</code></td>
+<td>人物记录最后更新时间。</td>
+</tr>
+</tbody></table>
+<hr>
+<h3 id="face"><a href="#face" class="headerlink" title="face"></a><code>face</code></h3><p>照片中的人脸检测结果。</p>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>类型</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>id</code></td>
+<td><code>INTEGER</code></td>
+<td>人脸记录主键，自增。</td>
+</tr>
+<tr>
+<td><code>user_photo_id</code></td>
+<td><code>INTEGER</code></td>
+<td>包含该人脸的用户照片 ID。</td>
+</tr>
+<tr>
+<td><code>user_id</code></td>
+<td><code>INTEGER</code></td>
+<td>人脸数据所属用户。</td>
+</tr>
+<tr>
+<td><code>bbox</code></td>
+<td><code>TEXT</code></td>
+<td>人脸边界框，使用逗号分隔的像素坐标。</td>
+</tr>
+<tr>
+<td><code>relative_bbox</code></td>
+<td><code>TEXT</code></td>
+<td>归一化后的人脸边界框，使用比例坐标。</td>
+</tr>
+<tr>
+<td><code>person_id</code></td>
+<td><code>INTEGER</code></td>
+<td>人脸聚类所属的人物 ID；默认 <code>0</code> 通常表示尚未归类。</td>
+</tr>
+<tr>
+<td><code>source</code></td>
+<td><code>INTEGER</code></td>
+<td>人脸人物归属来源：<code>0</code> 为自动，<code>1</code> 为手动。</td>
+</tr>
+</tbody></table>
+<hr>
+<h3 id="face-task-log"><a href="#face-task-log" class="headerlink" title="face_task_log"></a><code>face_task_log</code></h3><p>人脸识别或人脸检测任务记录。</p>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>类型</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>id</code></td>
+<td><code>INTEGER</code></td>
+<td>任务记录主键，自增。</td>
+</tr>
+<tr>
+<td><code>user_photo_id</code></td>
+<td><code>INTEGER</code></td>
+<td>被提交或已经处理的人脸任务照片 ID。</td>
+</tr>
+<tr>
+<td><code>user_id</code></td>
+<td><code>INTEGER</code></td>
+<td>任务所属用户。</td>
+</tr>
+</tbody></table>
+<hr>
+<h3 id="folder-cover"><a href="#folder-cover" class="headerlink" title="folder_cover"></a><code>folder_cover</code></h3><p>目录自定义封面表。</p>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>类型</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>id</code></td>
+<td><code>INTEGER</code></td>
+<td>封面记录主键，自增。</td>
+</tr>
+<tr>
+<td><code>folder_path</code></td>
+<td><code>TEXT</code></td>
+<td>目录路径。</td>
+</tr>
+<tr>
+<td><code>user_photo_id</code></td>
+<td><code>INTEGER</code></td>
+<td>被设置为目录封面的用户照片 ID。</td>
+</tr>
+</tbody></table>
+<hr>
+<h3 id="address-task"><a href="#address-task" class="headerlink" title="address_task"></a><code>address_task</code></h3><p>照片地址或地理位置解析任务表。</p>
+<p>可能用于根据 GPS 坐标进行地址反向解析，或补全照片的经纬度信息。</p>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>类型</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>id</code></td>
+<td><code>INTEGER</code></td>
+<td>地址任务主键，自增。</td>
+</tr>
+<tr>
+<td><code>photo_id</code></td>
+<td><code>INTEGER</code></td>
+<td>待处理照片资源 ID。</td>
+</tr>
+<tr>
+<td><code>latitude</code></td>
+<td><code>TEXT</code></td>
+<td>纬度。</td>
+</tr>
+<tr>
+<td><code>longitude</code></td>
+<td><code>TEXT</code></td>
+<td>经度。</td>
+</tr>
+<tr>
+<td><code>created_at</code></td>
+<td><code>INTEGER</code></td>
+<td>任务创建时间。</td>
+</tr>
+<tr>
+<td><code>updated_at</code></td>
+<td><code>INTEGER</code></td>
+<td>任务最后更新时间。</td>
+</tr>
+</tbody></table>
+<hr>
+<h3 id="repeat-photo"><a href="#repeat-photo" class="headerlink" title="repeat_photo"></a><code>repeat_photo</code></h3><p>重复照片识别结果表。</p>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>类型</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>id</code></td>
+<td><code>INTEGER</code></td>
+<td>重复照片记录主键，自增。</td>
+</tr>
+<tr>
+<td><code>user_id</code></td>
+<td><code>INTEGER</code></td>
+<td>记录所属用户。</td>
+</tr>
+<tr>
+<td><code>user_photo_id</code></td>
+<td><code>INTEGER</code></td>
+<td>重复照片对应的用户照片 ID。</td>
+</tr>
+<tr>
+<td><code>group_id</code></td>
+<td><code>INTEGER</code></td>
+<td>重复照片分组 ID。</td>
+</tr>
+<tr>
+<td><code>keeped</code></td>
+<td><code>INTEGER</code></td>
+<td>是否被选为保留项的标记，字段名为历史拼写。</td>
+</tr>
+</tbody></table>
+<p><code>user_photo_id</code> 存在唯一索引，说明一张用户照片只能属于一个重复照片记录。</p>
+<hr>
+<h3 id="recycle-bin"><a href="#recycle-bin" class="headerlink" title="recycle_bin"></a><code>recycle_bin</code></h3><p>照片回收站记录。</p>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>类型</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>id</code></td>
+<td><code>INTEGER</code></td>
+<td>回收站记录主键，自增。</td>
+</tr>
+<tr>
+<td><code>user_id</code></td>
+<td><code>INTEGER</code></td>
+<td>删除操作所属用户。</td>
+</tr>
+<tr>
+<td><code>user_photo_id</code></td>
+<td><code>INTEGER</code></td>
+<td>被删除的用户照片 ID。</td>
+</tr>
+<tr>
+<td><code>live_video_id</code></td>
+<td><code>INTEGER</code></td>
+<td>被删除照片关联的动态照片视频 ID。</td>
+</tr>
+<tr>
+<td><code>photo_id</code></td>
+<td><code>INTEGER</code></td>
+<td>被删除照片的底层资源 ID。</td>
+</tr>
+<tr>
+<td><code>recover_info</code></td>
+<td><code>TEXT</code></td>
+<td>恢复照片所需的序列化信息。</td>
+</tr>
+<tr>
+<td><code>delete_at</code></td>
+<td><code>INTEGER</code></td>
+<td>进入回收站的时间。</td>
+</tr>
+</tbody></table>
+<hr>
+<h3 id="file-task"><a href="#file-task" class="headerlink" title="file_task"></a><code>file_task</code></h3><p>文件导入、扫描、移动或整理任务表。</p>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>类型</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>id</code></td>
+<td><code>INTEGER</code></td>
+<td>文件任务主键，自增。</td>
+</tr>
+<tr>
+<td><code>user_id</code></td>
+<td><code>INTEGER</code></td>
+<td>任务所属用户。</td>
+</tr>
+<tr>
+<td><code>file_count</code></td>
+<td><code>INTEGER</code></td>
+<td>任务涉及的文件总数。</td>
+</tr>
+<tr>
+<td><code>done_count</code></td>
+<td><code>INTEGER</code></td>
+<td>已处理完成的文件数。</td>
+</tr>
+<tr>
+<td><code>err_msg</code></td>
+<td><code>TEXT</code></td>
+<td>任务级错误信息。</td>
+</tr>
+<tr>
+<td><code>action</code></td>
+<td><code>TEXT</code></td>
+<td>任务动作类型，例如导入或扫描；具体值未声明。</td>
+</tr>
+<tr>
+<td><code>target_dir</code></td>
+<td><code>TEXT</code></td>
+<td>任务目标目录。</td>
+</tr>
+<tr>
+<td><code>time_used</code></td>
+<td><code>INTEGER</code></td>
+<td>任务耗时，单位未声明。</td>
+</tr>
+<tr>
+<td><code>status</code></td>
+<td><code>INTEGER</code></td>
+<td>任务状态码，具体枚举未声明。</td>
+</tr>
+<tr>
+<td><code>created_at</code></td>
+<td><code>INTEGER</code></td>
+<td>任务创建时间。</td>
+</tr>
+<tr>
+<td><code>updated_at</code></td>
+<td><code>INTEGER</code></td>
+<td>任务最后更新时间。</td>
+</tr>
+</tbody></table>
+<hr>
+<h3 id="err-item-log"><a href="#err-item-log" class="headerlink" title="err_item_log"></a><code>err_item_log</code></h3><p>文件任务中的单项错误日志。</p>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>类型</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>id</code></td>
+<td><code>INTEGER</code></td>
+<td>错误记录主键，自增。</td>
+</tr>
+<tr>
+<td><code>task_id</code></td>
+<td><code>INTEGER</code></td>
+<td>所属文件任务 ID，通常关联 <code>file_task.id</code>。</td>
+</tr>
+<tr>
+<td><code>file_path</code></td>
+<td><code>TEXT</code></td>
+<td>发生错误的文件路径。</td>
+</tr>
+<tr>
+<td><code>err_code</code></td>
+<td><code>INTEGER</code></td>
+<td>错误代码。</td>
+</tr>
+<tr>
+<td><code>err_msg</code></td>
+<td><code>TEXT</code></td>
+<td>错误详情。</td>
+</tr>
+<tr>
+<td><code>created_at</code></td>
+<td><code>INTEGER</code></td>
+<td>错误记录创建时间。</td>
+</tr>
+</tbody></table>
+<hr>
+<h3 id="google-takeout-log"><a href="#google-takeout-log" class="headerlink" title="google_takeout_log"></a><code>google_takeout_log</code></h3><p>Google Takeout 导入任务记录。</p>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>类型</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>id</code></td>
+<td><code>INTEGER</code></td>
+<td>导入记录主键，自增。</td>
+</tr>
+<tr>
+<td><code>user_id</code></td>
+<td><code>INTEGER</code></td>
+<td>导入任务所属用户。</td>
+</tr>
+<tr>
+<td><code>task_id</code></td>
+<td><code>TEXT</code></td>
+<td>Google Takeout 导入任务唯一标识。</td>
+</tr>
+<tr>
+<td><code>staging_path</code></td>
+<td><code>TEXT</code></td>
+<td>导入过程使用的暂存目录。</td>
+</tr>
+<tr>
+<td><code>final_path</code></td>
+<td><code>TEXT</code></td>
+<td>导入完成后的最终目录。</td>
+</tr>
+<tr>
+<td><code>last_heartbeat</code></td>
+<td><code>INTEGER</code></td>
+<td>任务最近一次心跳时间。</td>
+</tr>
+<tr>
+<td><code>status</code></td>
+<td><code>TEXT</code></td>
+<td>导入任务状态。</td>
+</tr>
+<tr>
+<td><code>created_at</code></td>
+<td><code>INTEGER</code></td>
+<td>任务创建时间。</td>
+</tr>
+<tr>
+<td><code>updated_at</code></td>
+<td><code>INTEGER</code></td>
+<td>任务最后更新时间。</td>
+</tr>
+</tbody></table>
+<hr>
+<h3 id="share-link"><a href="#share-link" class="headerlink" title="share_link"></a><code>share_link</code></h3><p>相册外链分享表。</p>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>类型</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>id</code></td>
+<td><code>INTEGER</code></td>
+<td>分享记录主键，自增。</td>
+</tr>
+<tr>
+<td><code>name</code></td>
+<td><code>TEXT</code></td>
+<td>分享链接名称。</td>
+</tr>
+<tr>
+<td><code>share_id</code></td>
+<td><code>TEXT</code></td>
+<td>对外使用的分享 ID，存在唯一索引。</td>
+</tr>
+<tr>
+<td><code>owner</code></td>
+<td><code>INTEGER</code></td>
+<td>分享拥有者的用户 ID。</td>
+</tr>
+<tr>
+<td><code>album_id</code></td>
+<td><code>INTEGER</code></td>
+<td>分享所关联的相册 ID，可以为空。</td>
+</tr>
+<tr>
+<td><code>valid_to</code></td>
+<td><code>INTEGER</code></td>
+<td>过期时间戳；<code>0</code> 表示永久有效。</td>
+</tr>
+<tr>
+<td><code>create_time</code></td>
+<td><code>INTEGER</code></td>
+<td>分享创建时间，默认使用 Unix 秒级时间戳。</td>
+</tr>
+</tbody></table>
+<hr>
+<h3 id="user-config"><a href="#user-config" class="headerlink" title="user_config"></a><code>user_config</code></h3><p>用户级键值配置表。</p>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>类型</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>id</code></td>
+<td><code>INTEGER</code></td>
+<td>配置记录主键，自增。</td>
+</tr>
+<tr>
+<td><code>user_id</code></td>
+<td><code>INTEGER</code></td>
+<td>配置所属用户。</td>
+</tr>
+<tr>
+<td><code>k</code></td>
+<td><code>TEXT</code></td>
+<td>配置键。</td>
+</tr>
+<tr>
+<td><code>v</code></td>
+<td><code>TEXT</code></td>
+<td>配置值。</td>
+</tr>
+<tr>
+<td><code>created_at</code></td>
+<td><code>INTEGER</code></td>
+<td>配置创建时间。</td>
+</tr>
+<tr>
+<td><code>updated_at</code></td>
+<td><code>INTEGER</code></td>
+<td>配置最后更新时间。</td>
+</tr>
+</tbody></table>
+<p>同一用户下的配置键 <code>k</code> 必须唯一。</p>
+<hr>
+<h3 id="sys-config"><a href="#sys-config" class="headerlink" title="sys_config"></a><code>sys_config</code></h3><p>系统级键值配置表。</p>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>类型</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>id</code></td>
+<td><code>INTEGER</code></td>
+<td>配置记录主键，自增。</td>
+</tr>
+<tr>
+<td><code>key</code></td>
+<td><code>TEXT</code></td>
+<td>系统配置键，必须唯一。</td>
+</tr>
+<tr>
+<td><code>value</code></td>
+<td><code>TEXT</code></td>
+<td>系统配置值。</td>
+</tr>
+</tbody></table>
+<hr>
+<h3 id="data-version"><a href="#data-version" class="headerlink" title="data_version"></a><code>data_version</code></h3><p>业务数据版本记录。</p>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>类型</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>id</code></td>
+<td><code>INTEGER</code></td>
+<td>版本记录主键。</td>
+</tr>
+<tr>
+<td><code>version_code</code></td>
+<td><code>INTEGER</code></td>
+<td>业务数据版本号。</td>
+</tr>
+<tr>
+<td><code>created_at</code></td>
+<td><code>INTEGER</code></td>
+<td>版本记录创建时间。</td>
+</tr>
+</tbody></table>
+<hr>
+<h3 id="db-version"><a href="#db-version" class="headerlink" title="db_version"></a><code>db_version</code></h3><p>数据库结构版本记录。</p>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>类型</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>id</code></td>
+<td><code>INTEGER</code></td>
+<td>版本记录主键。</td>
+</tr>
+<tr>
+<td><code>version_code</code></td>
+<td><code>INTEGER</code></td>
+<td>数据库结构版本号。</td>
+</tr>
+<tr>
+<td><code>created_at</code></td>
+<td><code>INTEGER</code></td>
+<td>版本记录创建时间。</td>
+</tr>
+</tbody></table>
+<hr>
+<h3 id="data-licenses"><a href="#data-licenses" class="headerlink" title="data_licenses"></a><code>data_licenses</code></h3><p>内置数据或第三方数据的许可证信息。</p>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>类型</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>id</code></td>
+<td><code>INTEGER</code></td>
+<td>许可证记录主键，自增。</td>
+</tr>
+<tr>
+<td><code>name</code></td>
+<td><code>TEXT</code></td>
+<td>许可证或数据源名称，必须唯一。</td>
+</tr>
+<tr>
+<td><code>url</code></td>
+<td><code>TEXT</code></td>
+<td>许可证说明或项目网址。</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="4-SpatiaLite-空间扩展表"><a href="#4-SpatiaLite-空间扩展表" class="headerlink" title="4. SpatiaLite 空间扩展表"></a>4. SpatiaLite 空间扩展表</h2><blockquote>
+<p>以下表大多由 SpatiaLite 自动建立和维护，用于 GPS 坐标、空间参考系、地理范围查询和空间索引。除非非常了解 SpatiaLite 内部机制，否则不建议直接修改。</p>
+</blockquote>
+<h3 id="geometry-columns"><a href="#geometry-columns" class="headerlink" title="geometry_columns"></a><code>geometry_columns</code></h3><p>空间字段注册表。</p>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>类型</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>f_table_name</code></td>
+<td><code>TEXT</code></td>
+<td>包含空间字段的数据表名称。</td>
+</tr>
+<tr>
+<td><code>f_geometry_column</code></td>
+<td><code>TEXT</code></td>
+<td>几何字段名称。</td>
+</tr>
+<tr>
+<td><code>geometry_type</code></td>
+<td><code>INTEGER</code></td>
+<td>几何类型编码，例如点、线或面。</td>
+</tr>
+<tr>
+<td><code>coord_dimension</code></td>
+<td><code>INTEGER</code></td>
+<td>坐标维度，触发器限制为 <code>2</code>、<code>3</code> 或 <code>4</code>。</td>
+</tr>
+<tr>
+<td><code>srid</code></td>
+<td><code>INTEGER</code></td>
+<td>空间参考系 ID。</td>
+</tr>
+<tr>
+<td><code>spatial_index_enabled</code></td>
+<td><code>INTEGER</code></td>
+<td>空间索引状态，约束值为 <code>0</code>、<code>1</code> 或 <code>2</code>。</td>
+</tr>
+</tbody></table>
+<p>本数据库中，该表用于注册 <code>photo.geom</code> 空间字段。</p>
+<hr>
+<h3 id="geometry-columns-auth"><a href="#geometry-columns-auth" class="headerlink" title="geometry_columns_auth"></a><code>geometry_columns_auth</code></h3><p>空间字段访问控制元数据。</p>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>类型</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>f_table_name</code></td>
+<td><code>TEXT</code></td>
+<td>空间字段所属表名。</td>
+</tr>
+<tr>
+<td><code>f_geometry_column</code></td>
+<td><code>TEXT</code></td>
+<td>空间几何字段名。</td>
+</tr>
+<tr>
+<td><code>read_only</code></td>
+<td><code>INTEGER</code></td>
+<td>是否只读，取值为 <code>0</code> 或 <code>1</code>。</td>
+</tr>
+<tr>
+<td><code>hidden</code></td>
+<td><code>INTEGER</code></td>
+<td>是否隐藏，取值为 <code>0</code> 或 <code>1</code>。</td>
+</tr>
+</tbody></table>
+<hr>
+<h3 id="geometry-columns-field-infos"><a href="#geometry-columns-field-infos" class="headerlink" title="geometry_columns_field_infos"></a><code>geometry_columns_field_infos</code></h3><p>空间表普通字段的统计信息。</p>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>类型</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>f_table_name</code></td>
+<td><code>TEXT</code></td>
+<td>空间表名称。</td>
+</tr>
+<tr>
+<td><code>f_geometry_column</code></td>
+<td><code>TEXT</code></td>
+<td>几何字段名称。</td>
+</tr>
+<tr>
+<td><code>ordinal</code></td>
+<td><code>INTEGER</code></td>
+<td>被统计字段的顺序编号。</td>
+</tr>
+<tr>
+<td><code>column_name</code></td>
+<td><code>TEXT</code></td>
+<td>被统计字段的名称。</td>
+</tr>
+<tr>
+<td><code>null_values</code></td>
+<td><code>INTEGER</code></td>
+<td>NULL 值数量。</td>
+</tr>
+<tr>
+<td><code>integer_values</code></td>
+<td><code>INTEGER</code></td>
+<td>整数值数量。</td>
+</tr>
+<tr>
+<td><code>double_values</code></td>
+<td><code>INTEGER</code></td>
+<td>浮点值数量。</td>
+</tr>
+<tr>
+<td><code>text_values</code></td>
+<td><code>INTEGER</code></td>
+<td>文本值数量。</td>
+</tr>
+<tr>
+<td><code>blob_values</code></td>
+<td><code>INTEGER</code></td>
+<td>BLOB 值数量。</td>
+</tr>
+<tr>
+<td><code>max_size</code></td>
+<td><code>INTEGER</code></td>
+<td>字段值的最大长度或大小。</td>
+</tr>
+<tr>
+<td><code>integer_min</code></td>
+<td><code>INTEGER</code></td>
+<td>整数最小值。</td>
+</tr>
+<tr>
+<td><code>integer_max</code></td>
+<td><code>INTEGER</code></td>
+<td>整数最大值。</td>
+</tr>
+<tr>
+<td><code>double_min</code></td>
+<td><code>DOUBLE</code></td>
+<td>浮点最小值。</td>
+</tr>
+<tr>
+<td><code>double_max</code></td>
+<td><code>DOUBLE</code></td>
+<td>浮点最大值。</td>
+</tr>
+</tbody></table>
+<hr>
+<h3 id="geometry-columns-statistics"><a href="#geometry-columns-statistics" class="headerlink" title="geometry_columns_statistics"></a><code>geometry_columns_statistics</code></h3><p>空间表范围和行数统计。</p>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>类型</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>f_table_name</code></td>
+<td><code>TEXT</code></td>
+<td>空间表名称。</td>
+</tr>
+<tr>
+<td><code>f_geometry_column</code></td>
+<td><code>TEXT</code></td>
+<td>几何字段名称。</td>
+</tr>
+<tr>
+<td><code>last_verified</code></td>
+<td><code>TIMESTAMP</code></td>
+<td>统计信息最后校验时间。</td>
+</tr>
+<tr>
+<td><code>row_count</code></td>
+<td><code>INTEGER</code></td>
+<td>表记录数量。</td>
+</tr>
+<tr>
+<td><code>extent_min_x</code></td>
+<td><code>DOUBLE</code></td>
+<td>空间范围最小 X 坐标。</td>
+</tr>
+<tr>
+<td><code>extent_min_y</code></td>
+<td><code>DOUBLE</code></td>
+<td>空间范围最小 Y 坐标。</td>
+</tr>
+<tr>
+<td><code>extent_max_x</code></td>
+<td><code>DOUBLE</code></td>
+<td>空间范围最大 X 坐标。</td>
+</tr>
+<tr>
+<td><code>extent_max_y</code></td>
+<td><code>DOUBLE</code></td>
+<td>空间范围最大 Y 坐标。</td>
+</tr>
+</tbody></table>
+<hr>
+<h3 id="geometry-columns-time"><a href="#geometry-columns-time" class="headerlink" title="geometry_columns_time"></a><code>geometry_columns_time</code></h3><p>空间表最近数据变更时间。</p>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>类型</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>f_table_name</code></td>
+<td><code>TEXT</code></td>
+<td>空间表名称。</td>
+</tr>
+<tr>
+<td><code>f_geometry_column</code></td>
+<td><code>TEXT</code></td>
+<td>几何字段名称。</td>
+</tr>
+<tr>
+<td><code>last_insert</code></td>
+<td><code>TIMESTAMP</code></td>
+<td>最近一次插入时间。</td>
+</tr>
+<tr>
+<td><code>last_update</code></td>
+<td><code>TIMESTAMP</code></td>
+<td>最近一次更新时间。</td>
+</tr>
+<tr>
+<td><code>last_delete</code></td>
+<td><code>TIMESTAMP</code></td>
+<td>最近一次删除时间。</td>
+</tr>
+</tbody></table>
+<hr>
+<h3 id="spatial-ref-sys"><a href="#spatial-ref-sys" class="headerlink" title="spatial_ref_sys"></a><code>spatial_ref_sys</code></h3><p>空间参考坐标系定义表。</p>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>类型</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>srid</code></td>
+<td><code>INTEGER</code></td>
+<td>空间参考系主键编号。</td>
+</tr>
+<tr>
+<td><code>auth_name</code></td>
+<td><code>TEXT</code></td>
+<td>坐标系权威机构名称，例如 <code>EPSG</code>。</td>
+</tr>
+<tr>
+<td><code>auth_srid</code></td>
+<td><code>INTEGER</code></td>
+<td>权威机构定义的坐标系编号。</td>
+</tr>
+<tr>
+<td><code>ref_sys_name</code></td>
+<td><code>TEXT</code></td>
+<td>坐标参考系名称。</td>
+</tr>
+<tr>
+<td><code>proj4text</code></td>
+<td><code>TEXT</code></td>
+<td>PROJ.4 格式的坐标系定义。</td>
+</tr>
+<tr>
+<td><code>srtext</code></td>
+<td><code>TEXT</code></td>
+<td>WKT 格式的坐标系定义。</td>
+</tr>
+</tbody></table>
+<hr>
+<h3 id="spatial-ref-sys-aux"><a href="#spatial-ref-sys-aux" class="headerlink" title="spatial_ref_sys_aux"></a><code>spatial_ref_sys_aux</code></h3><p>空间参考系辅助属性。</p>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>类型</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>srid</code></td>
+<td><code>INTEGER</code></td>
+<td>对应 <code>spatial_ref_sys.srid</code>。</td>
+</tr>
+<tr>
+<td><code>is_geographic</code></td>
+<td><code>INTEGER</code></td>
+<td>是否为地理坐标系。</td>
+</tr>
+<tr>
+<td><code>has_flipped_axes</code></td>
+<td><code>INTEGER</code></td>
+<td>坐标轴顺序是否翻转。</td>
+</tr>
+<tr>
+<td><code>spheroid</code></td>
+<td><code>TEXT</code></td>
+<td>参考椭球体。</td>
+</tr>
+<tr>
+<td><code>prime_meridian</code></td>
+<td><code>TEXT</code></td>
+<td>本初子午线。</td>
+</tr>
+<tr>
+<td><code>datum</code></td>
+<td><code>TEXT</code></td>
+<td>大地基准面。</td>
+</tr>
+<tr>
+<td><code>projection</code></td>
+<td><code>TEXT</code></td>
+<td>投影方法。</td>
+</tr>
+<tr>
+<td><code>unit</code></td>
+<td><code>TEXT</code></td>
+<td>坐标单位。</td>
+</tr>
+<tr>
+<td><code>axis_1_name</code></td>
+<td><code>TEXT</code></td>
+<td>第一坐标轴名称。</td>
+</tr>
+<tr>
+<td><code>axis_1_orientation</code></td>
+<td><code>TEXT</code></td>
+<td>第一坐标轴方向。</td>
+</tr>
+<tr>
+<td><code>axis_2_name</code></td>
+<td><code>TEXT</code></td>
+<td>第二坐标轴名称。</td>
+</tr>
+<tr>
+<td><code>axis_2_orientation</code></td>
+<td><code>TEXT</code></td>
+<td>第二坐标轴方向。</td>
+</tr>
+</tbody></table>
+<hr>
+<h3 id="idx-photo-geom"><a href="#idx-photo-geom" class="headerlink" title="idx_photo_geom"></a><code>idx_photo_geom</code></h3><p><code>photo.geom</code> 的 R-Tree 空间索引虚拟表。</p>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>类型</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>pkid</code></td>
+<td>虚拟字段</td>
+<td>被索引的 <code>photo</code> 数据行 ID。</td>
+</tr>
+<tr>
+<td><code>xmin</code></td>
+<td>虚拟字段</td>
+<td>几何范围最小 X 坐标。</td>
+</tr>
+<tr>
+<td><code>xmax</code></td>
+<td>虚拟字段</td>
+<td>几何范围最大 X 坐标。</td>
+</tr>
+<tr>
+<td><code>ymin</code></td>
+<td>虚拟字段</td>
+<td>几何范围最小 Y 坐标。</td>
+</tr>
+<tr>
+<td><code>ymax</code></td>
+<td>虚拟字段</td>
+<td>几何范围最大 Y 坐标。</td>
+</tr>
+</tbody></table>
+<hr>
+<h3 id="idx-photo-geom-node"><a href="#idx-photo-geom-node" class="headerlink" title="idx_photo_geom_node"></a><code>idx_photo_geom_node</code></h3><p>R-Tree 空间索引内部节点表。</p>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>类型</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>nodeno</code></td>
+<td><code>INTEGER</code></td>
+<td>R-Tree 内部节点编号。</td>
+</tr>
+<tr>
+<td><code>data</code></td>
+<td>未声明</td>
+<td>节点保存的内部二进制数据。</td>
+</tr>
+</tbody></table>
+<hr>
+<h3 id="idx-photo-geom-parent"><a href="#idx-photo-geom-parent" class="headerlink" title="idx_photo_geom_parent"></a><code>idx_photo_geom_parent</code></h3><p>R-Tree 节点父子关系表。</p>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>类型</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>nodeno</code></td>
+<td><code>INTEGER</code></td>
+<td>当前节点编号。</td>
+</tr>
+<tr>
+<td><code>parentnode</code></td>
+<td>未声明</td>
+<td>当前节点的父节点编号。</td>
+</tr>
+</tbody></table>
+<hr>
+<h3 id="idx-photo-geom-rowid"><a href="#idx-photo-geom-rowid" class="headerlink" title="idx_photo_geom_rowid"></a><code>idx_photo_geom_rowid</code></h3><p>R-Tree 数据行与节点映射表。</p>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>类型</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>rowid</code></td>
+<td><code>INTEGER</code></td>
+<td>原始数据行号。</td>
+</tr>
+<tr>
+<td><code>nodeno</code></td>
+<td>未声明</td>
+<td>该行所在的 R-Tree 节点编号。</td>
+</tr>
+</tbody></table>
+<hr>
+<h3 id="views-geometry-columns"><a href="#views-geometry-columns" class="headerlink" title="views_geometry_columns"></a><code>views_geometry_columns</code></h3><p>空间视图的几何字段映射表。</p>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>类型</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>view_name</code></td>
+<td><code>TEXT</code></td>
+<td>空间视图名称。</td>
+</tr>
+<tr>
+<td><code>view_geometry</code></td>
+<td><code>TEXT</code></td>
+<td>视图中的几何字段名称。</td>
+</tr>
+<tr>
+<td><code>view_rowid</code></td>
+<td><code>TEXT</code></td>
+<td>视图中作为唯一行号的字段。</td>
+</tr>
+<tr>
+<td><code>f_table_name</code></td>
+<td><code>TEXT</code></td>
+<td>视图引用的原始空间表名称。</td>
+</tr>
+<tr>
+<td><code>f_geometry_column</code></td>
+<td><code>TEXT</code></td>
+<td>原始表的几何字段名称。</td>
+</tr>
+<tr>
+<td><code>read_only</code></td>
+<td><code>INTEGER</code></td>
+<td>视图是否只读，取值为 <code>0</code> 或 <code>1</code>。</td>
+</tr>
+</tbody></table>
+<hr>
+<h3 id="views-geometry-columns-auth"><a href="#views-geometry-columns-auth" class="headerlink" title="views_geometry_columns_auth"></a><code>views_geometry_columns_auth</code></h3><p>空间视图可见性设置。</p>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>类型</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>view_name</code></td>
+<td><code>TEXT</code></td>
+<td>空间视图名称。</td>
+</tr>
+<tr>
+<td><code>view_geometry</code></td>
+<td><code>TEXT</code></td>
+<td>视图中的几何字段名称。</td>
+</tr>
+<tr>
+<td><code>hidden</code></td>
+<td><code>INTEGER</code></td>
+<td>是否隐藏，取值为 <code>0</code> 或 <code>1</code>。</td>
+</tr>
+</tbody></table>
+<hr>
+<h3 id="views-geometry-columns-field-infos"><a href="#views-geometry-columns-field-infos" class="headerlink" title="views_geometry_columns_field_infos"></a><code>views_geometry_columns_field_infos</code></h3><p>空间视图字段统计信息。</p>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>类型</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>view_name</code></td>
+<td><code>TEXT</code></td>
+<td>空间视图名称。</td>
+</tr>
+<tr>
+<td><code>view_geometry</code></td>
+<td><code>TEXT</code></td>
+<td>视图中的几何字段名称。</td>
+</tr>
+<tr>
+<td><code>ordinal</code></td>
+<td><code>INTEGER</code></td>
+<td>字段顺序编号。</td>
+</tr>
+<tr>
+<td><code>column_name</code></td>
+<td><code>TEXT</code></td>
+<td>字段名称。</td>
+</tr>
+<tr>
+<td><code>null_values</code></td>
+<td><code>INTEGER</code></td>
+<td>NULL 值数量。</td>
+</tr>
+<tr>
+<td><code>integer_values</code></td>
+<td><code>INTEGER</code></td>
+<td>整数值数量。</td>
+</tr>
+<tr>
+<td><code>double_values</code></td>
+<td><code>INTEGER</code></td>
+<td>浮点值数量。</td>
+</tr>
+<tr>
+<td><code>text_values</code></td>
+<td><code>INTEGER</code></td>
+<td>文本值数量。</td>
+</tr>
+<tr>
+<td><code>blob_values</code></td>
+<td><code>INTEGER</code></td>
+<td>BLOB 值数量。</td>
+</tr>
+<tr>
+<td><code>max_size</code></td>
+<td><code>INTEGER</code></td>
+<td>最大长度或大小。</td>
+</tr>
+<tr>
+<td><code>integer_min</code></td>
+<td><code>INTEGER</code></td>
+<td>整数最小值。</td>
+</tr>
+<tr>
+<td><code>integer_max</code></td>
+<td><code>INTEGER</code></td>
+<td>整数最大值。</td>
+</tr>
+<tr>
+<td><code>double_min</code></td>
+<td><code>DOUBLE</code></td>
+<td>浮点最小值。</td>
+</tr>
+<tr>
+<td><code>double_max</code></td>
+<td><code>DOUBLE</code></td>
+<td>浮点最大值。</td>
+</tr>
+</tbody></table>
+<hr>
+<h3 id="views-geometry-columns-statistics"><a href="#views-geometry-columns-statistics" class="headerlink" title="views_geometry_columns_statistics"></a><code>views_geometry_columns_statistics</code></h3><p>空间视图范围及行数统计。</p>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>类型</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>view_name</code></td>
+<td><code>TEXT</code></td>
+<td>空间视图名称。</td>
+</tr>
+<tr>
+<td><code>view_geometry</code></td>
+<td><code>TEXT</code></td>
+<td>视图中的几何字段名称。</td>
+</tr>
+<tr>
+<td><code>last_verified</code></td>
+<td><code>TIMESTAMP</code></td>
+<td>统计信息最后校验时间。</td>
+</tr>
+<tr>
+<td><code>row_count</code></td>
+<td><code>INTEGER</code></td>
+<td>视图记录数量。</td>
+</tr>
+<tr>
+<td><code>extent_min_x</code></td>
+<td><code>DOUBLE</code></td>
+<td>空间范围最小 X 坐标。</td>
+</tr>
+<tr>
+<td><code>extent_min_y</code></td>
+<td><code>DOUBLE</code></td>
+<td>空间范围最小 Y 坐标。</td>
+</tr>
+<tr>
+<td><code>extent_max_x</code></td>
+<td><code>DOUBLE</code></td>
+<td>空间范围最大 X 坐标。</td>
+</tr>
+<tr>
+<td><code>extent_max_y</code></td>
+<td><code>DOUBLE</code></td>
+<td>空间范围最大 Y 坐标。</td>
+</tr>
+</tbody></table>
+<hr>
+<h3 id="virts-geometry-columns"><a href="#virts-geometry-columns" class="headerlink" title="virts_geometry_columns"></a><code>virts_geometry_columns</code></h3><p>虚拟空间表的几何字段注册信息。</p>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>类型</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>virt_name</code></td>
+<td><code>TEXT</code></td>
+<td>虚拟空间表名称。</td>
+</tr>
+<tr>
+<td><code>virt_geometry</code></td>
+<td><code>TEXT</code></td>
+<td>虚拟表中的几何字段名称。</td>
+</tr>
+<tr>
+<td><code>geometry_type</code></td>
+<td><code>INTEGER</code></td>
+<td>几何类型编码。</td>
+</tr>
+<tr>
+<td><code>coord_dimension</code></td>
+<td><code>INTEGER</code></td>
+<td>坐标维度。</td>
+</tr>
+<tr>
+<td><code>srid</code></td>
+<td><code>INTEGER</code></td>
+<td>空间参考系 ID。</td>
+</tr>
+</tbody></table>
+<hr>
+<h3 id="virts-geometry-columns-auth"><a href="#virts-geometry-columns-auth" class="headerlink" title="virts_geometry_columns_auth"></a><code>virts_geometry_columns_auth</code></h3><p>虚拟空间表的可见性设置。</p>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>类型</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>virt_name</code></td>
+<td><code>TEXT</code></td>
+<td>虚拟空间表名称。</td>
+</tr>
+<tr>
+<td><code>virt_geometry</code></td>
+<td><code>TEXT</code></td>
+<td>虚拟表中的几何字段名称。</td>
+</tr>
+<tr>
+<td><code>hidden</code></td>
+<td><code>INTEGER</code></td>
+<td>是否隐藏，取值为 <code>0</code> 或 <code>1</code>。</td>
+</tr>
+</tbody></table>
+<hr>
+<h3 id="virts-geometry-columns-field-infos"><a href="#virts-geometry-columns-field-infos" class="headerlink" title="virts_geometry_columns_field_infos"></a><code>virts_geometry_columns_field_infos</code></h3><p>虚拟空间表字段统计信息。</p>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>类型</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>virt_name</code></td>
+<td><code>TEXT</code></td>
+<td>虚拟空间表名称。</td>
+</tr>
+<tr>
+<td><code>virt_geometry</code></td>
+<td><code>TEXT</code></td>
+<td>几何字段名称。</td>
+</tr>
+<tr>
+<td><code>ordinal</code></td>
+<td><code>INTEGER</code></td>
+<td>字段顺序编号。</td>
+</tr>
+<tr>
+<td><code>column_name</code></td>
+<td><code>TEXT</code></td>
+<td>字段名称。</td>
+</tr>
+<tr>
+<td><code>null_values</code></td>
+<td><code>INTEGER</code></td>
+<td>NULL 值数量。</td>
+</tr>
+<tr>
+<td><code>integer_values</code></td>
+<td><code>INTEGER</code></td>
+<td>整数值数量。</td>
+</tr>
+<tr>
+<td><code>double_values</code></td>
+<td><code>INTEGER</code></td>
+<td>浮点值数量。</td>
+</tr>
+<tr>
+<td><code>text_values</code></td>
+<td><code>INTEGER</code></td>
+<td>文本值数量。</td>
+</tr>
+<tr>
+<td><code>blob_values</code></td>
+<td><code>INTEGER</code></td>
+<td>BLOB 值数量。</td>
+</tr>
+<tr>
+<td><code>max_size</code></td>
+<td><code>INTEGER</code></td>
+<td>字段最大长度或大小。</td>
+</tr>
+<tr>
+<td><code>integer_min</code></td>
+<td><code>INTEGER</code></td>
+<td>整数最小值。</td>
+</tr>
+<tr>
+<td><code>integer_max</code></td>
+<td><code>INTEGER</code></td>
+<td>整数最大值。</td>
+</tr>
+<tr>
+<td><code>double_min</code></td>
+<td><code>DOUBLE</code></td>
+<td>浮点最小值。</td>
+</tr>
+<tr>
+<td><code>double_max</code></td>
+<td><code>DOUBLE</code></td>
+<td>浮点最大值。</td>
+</tr>
+</tbody></table>
+<hr>
+<h3 id="virts-geometry-columns-statistics"><a href="#virts-geometry-columns-statistics" class="headerlink" title="virts_geometry_columns_statistics"></a><code>virts_geometry_columns_statistics</code></h3><p>虚拟空间表范围及行数统计。</p>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>类型</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>virt_name</code></td>
+<td><code>TEXT</code></td>
+<td>虚拟空间表名称。</td>
+</tr>
+<tr>
+<td><code>virt_geometry</code></td>
+<td><code>TEXT</code></td>
+<td>几何字段名称。</td>
+</tr>
+<tr>
+<td><code>last_verified</code></td>
+<td><code>TIMESTAMP</code></td>
+<td>统计信息最后校验时间。</td>
+</tr>
+<tr>
+<td><code>row_count</code></td>
+<td><code>INTEGER</code></td>
+<td>记录数量。</td>
+</tr>
+<tr>
+<td><code>extent_min_x</code></td>
+<td><code>DOUBLE</code></td>
+<td>空间范围最小 X 坐标。</td>
+</tr>
+<tr>
+<td><code>extent_min_y</code></td>
+<td><code>DOUBLE</code></td>
+<td>空间范围最小 Y 坐标。</td>
+</tr>
+<tr>
+<td><code>extent_max_x</code></td>
+<td><code>DOUBLE</code></td>
+<td>空间范围最大 X 坐标。</td>
+</tr>
+<tr>
+<td><code>extent_max_y</code></td>
+<td><code>DOUBLE</code></td>
+<td>空间范围最大 Y 坐标。</td>
+</tr>
+</tbody></table>
+<hr>
+<h3 id="ElementaryGeometries"><a href="#ElementaryGeometries" class="headerlink" title="ElementaryGeometries"></a><code>ElementaryGeometries</code></h3><p>SpatiaLite 的 <code>VirtualElementary</code> 虚拟表。</p>
+<p>该虚拟表用于把复合几何对象拆分为基本几何对象。字段由 SpatiaLite 扩展动态提供，SQL 导出文件中没有显式列定义。</p>
+<hr>
+<h3 id="KNN"><a href="#KNN" class="headerlink" title="KNN"></a><code>KNN</code></h3><p>SpatiaLite 的最近邻查询虚拟表。</p>
+<p>用于执行 K-Nearest Neighbors 空间查询。字段由扩展动态提供，SQL 中没有显式列定义。</p>
+<hr>
+<h3 id="SpatialIndex"><a href="#SpatialIndex" class="headerlink" title="SpatialIndex"></a><code>SpatialIndex</code></h3><p>SpatiaLite 通用空间索引查询虚拟表。</p>
+<p>用于访问已注册空间字段的空间索引。字段由扩展动态提供，SQL 中没有显式列定义。</p>
+<hr>
+<h3 id="spatialite-history"><a href="#spatialite-history" class="headerlink" title="spatialite_history"></a><code>spatialite_history</code></h3><p>SpatiaLite 空间元数据变更历史。</p>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>类型</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>event_id</code></td>
+<td><code>INTEGER</code></td>
+<td>事件主键，自增。</td>
+</tr>
+<tr>
+<td><code>table_name</code></td>
+<td><code>TEXT</code></td>
+<td>发生变更的表名。</td>
+</tr>
+<tr>
+<td><code>geometry_column</code></td>
+<td><code>TEXT</code></td>
+<td>涉及的几何字段名称。</td>
+</tr>
+<tr>
+<td><code>event</code></td>
+<td><code>TEXT</code></td>
+<td>空间元数据操作或事件类型。</td>
+</tr>
+<tr>
+<td><code>timestamp</code></td>
+<td><code>TEXT</code></td>
+<td>事件发生时间。</td>
+</tr>
+<tr>
+<td><code>ver_sqlite</code></td>
+<td><code>TEXT</code></td>
+<td>当时使用的 SQLite 版本。</td>
+</tr>
+<tr>
+<td><code>ver_splite</code></td>
+<td><code>TEXT</code></td>
+<td>当时使用的 SpatiaLite 版本，字段名按原 SQL 保留。</td>
+</tr>
+</tbody></table>
+<hr>
+<h3 id="sql-statements-log"><a href="#sql-statements-log" class="headerlink" title="sql_statements_log"></a><code>sql_statements_log</code></h3><p>SpatiaLite SQL 执行日志。</p>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>类型</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>id</code></td>
+<td><code>INTEGER</code></td>
+<td>日志主键，自增。</td>
+</tr>
+<tr>
+<td><code>time_start</code></td>
+<td><code>TIMESTAMP</code></td>
+<td>SQL 开始执行时间。</td>
+</tr>
+<tr>
+<td><code>time_end</code></td>
+<td><code>TIMESTAMP</code></td>
+<td>SQL 执行结束时间。</td>
+</tr>
+<tr>
+<td><code>user_agent</code></td>
+<td><code>TEXT</code></td>
+<td>发起 SQL 的客户端或调用方标识。</td>
+</tr>
+<tr>
+<td><code>sql_statement</code></td>
+<td><code>TEXT</code></td>
+<td>被执行的 SQL 语句。</td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>INTEGER</code></td>
+<td>是否执行成功，取值为 <code>0</code> 或 <code>1</code>。</td>
+</tr>
+<tr>
+<td><code>error_cause</code></td>
+<td><code>TEXT</code></td>
+<td>SQL 执行失败原因。</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="5-主要数据库视图"><a href="#5-主要数据库视图" class="headerlink" title="5. 主要数据库视图"></a>5. 主要数据库视图</h2><p>数据库还定义了若干 SpatiaLite 视图，它们不是实际存储业务数据的表。</p>
+<table>
+<thead>
+<tr>
+<th>视图</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>geom_cols_ref_sys</code></td>
+<td>联合空间字段注册表和空间参考系表。</td>
+</tr>
+<tr>
+<td><code>spatial_ref_sys_all</code></td>
+<td>合并空间参考系主表及辅助属性。</td>
+</tr>
+<tr>
+<td><code>vector_layers</code></td>
+<td>统一列出空间表、空间视图和虚拟空间图层。</td>
+</tr>
+<tr>
+<td><code>vector_layers_auth</code></td>
+<td>统一列出空间图层的只读和隐藏状态。</td>
+</tr>
+<tr>
+<td><code>vector_layers_field_infos</code></td>
+<td>统一列出各类空间图层的字段统计信息。</td>
+</tr>
+<tr>
+<td><code>vector_layers_statistics</code></td>
+<td>统一列出各类空间图层的范围和行数统计。</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="6-修改数据库时的注意事项"><a href="#6-修改数据库时的注意事项" class="headerlink" title="6. 修改数据库时的注意事项"></a>6. 修改数据库时的注意事项</h2><ol>
+<li>修改数据库前，应停止飞牛相册相关服务，并备份原数据库文件。</li>
+<li>不建议直接修改 <code>geometry_columns</code>、<code>spatial_ref_sys</code>、<code>idx_photo_geom*</code> 等空间扩展内部表。</li>
+<li><code>photo</code> 是底层文件资源，<code>user_photo</code> 是用户照片实例，删除时必须同时检查两个层级。</li>
+<li>删除 <code>user_photo</code> 前，还应检查以下关联表：<ul>
+<li><code>album_user_photo</code></li>
+<li><code>user_photo_tag</code></li>
+<li><code>user_photo_category</code></li>
+<li><code>face</code></li>
+<li><code>repeat_photo</code></li>
+<li><code>recycle_bin</code></li>
+</ul>
+</li>
+<li>修改 <code>photo.file_path</code> 后，应用层缓存、缩略图路径或文件索引不一定会自动同步。</li>
+<li>修改 GPS 坐标时，除了 <code>latitude</code> 和 <code>longitude</code>，还可能需要同步更新 <code>geom</code> 及其 R-Tree 空间索引。</li>
+<li>数据库没有完整使用外键约束，手动删除记录不会自动清理所有关联数据。</li>
+<li><code>status</code>、<code>source</code>、<code>category</code> 等枚举字段应先观察现有数据取值，再进行修改。</li>
+<li><code>file_hash</code> 和 <code>original_hash</code> 可能参与文件校验或重复照片识别，不应随意修改。</li>
+<li><code>recover_info</code> 很可能保存序列化恢复信息，编辑后可能导致回收站记录无法恢复。</li>
+</ol>
+<hr>
+<blockquote>
+<p>本文档仅描述数据库结构，且由GPT-5.6Thinking生成，并非真实实测数据。字段的实际运行逻辑、枚举值和时间单位，应以对应版本的飞牛相册程序行为为准。</p>
+</blockquote>
+</div>
+        </div>
+        
+            <div class="kratos-copyright text-center clearfix">
+                <h5 itemprop="copyrightNotice">本作品采用 <a rel="license nofollow" target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/">知识共享署名-相同方式共享 4.0 国际许可协议</a> 进行许可</h5>
+            </div>
+        
+        <footer class="kratos-entry-footer clearfix">
+            
+                <div class="post-like-donate text-center clearfix" id="post-like-donate">
+                
+                    <a class="donate" href="javascript:;"><i class="fa fa-bitcoin"></i> 打赏</a>
+                
+                
+                    <a class="share" href="javascript:;"><i class="fa fa-share-alt"></i> 分享</a>
+                    <div class="share-wrap" style="display: none;">
+    <div class="share-group">
+        <a href="javascript:;" class="share-plain qq" onclick="share('qq');" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-qq"></i>
+            </div>
+        </a>
+        <a href="javascript:;" class="share-plain qzone" onclick="share('qzone');" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-star"></i>
+            </div>
+        </a>
+        <a href="javascript:;" class="share-plain weixin pop style-plain" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-weixin"></i>
+            </div>
+            <div class="share-int">
+                <div class="qrcode" id="wechat-qr"></div>
+                <p>打开微信“扫一扫”，打开网页后点击屏幕右上角分享按钮</p>
+            </div>
+        </a>
+        <a href="javascript:;" class="share-plain weibo" onclick="share('weibo');" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-weibo"></i>
+            </div>
+        </a>
+        <a href="javascript:;" class="share-plain facebook style-plain" onclick="share('facebook');" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-facebook"></i>
+            </div>
+        </a>
+        <a href="javascript:;" class="share-plain twitter style-plain" onclick="share('twitter');" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-twitter"></i>
+            </div>
+        </a>
+    </div>
+    <script type="text/javascript">
+        $(()=>{
+            new QRCode("wechat-qr", {
+                text: "https://nav.baobodadazz.top/subweb/blog/2026/07/26/0022.%E9%A3%9E%E7%89%9BOS%E7%9B%B8%E5%86%8C%E8%BF%81%E7%A7%BB/",
+                width: 150,
+                height: 150,
+                correctLevel : QRCode.CorrectLevel.H
+            });
+        });
+        function share(dest) {
+            const qqBase        = "https://connect.qq.com/widget/shareqq/index.html?";
+            const weiboBase     = "https://service.weibo.com/share/share.php?";
+            const qzoneBase     = "https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?";
+            const facebookBase  = "https://www.facebook.com/sharer/sharer.php?";
+            const twitterBase   = "https://twitter.com/intent/tweet?";
+            const hostUrl       = "https://nav.baobodadazz.top/subweb/blog/2026/07/26/0022.%E9%A3%9E%E7%89%9BOS%E7%9B%B8%E5%86%8C%E8%BF%81%E7%A7%BB/";
+            const title         = "「【教程】飞牛OS相册数据迁移」";
+            const excerpt       = `一、背景飞牛OS是目前无需”黑“就能实现多种专业功能，好用且免费的Nas系统，但是如果需要迁移Nas，从一台换到另一台，飞牛官方暂未给出合适的解决方案。尤其是对于相册等应用的数据，相册中的AI识别数据、图像位置数据、相册分类数据等十分...`;
+            let _URL;
+            switch (dest) {
+                case "qq"       : _URL = qqBase+"url="+hostUrl+"&title="+title+"&desc=&summary="+excerpt+"&site=cxpy";     break;
+                case "weibo"    : _URL = weiboBase+"url="+hostUrl+"&title="+title+excerpt;                                 break;
+                case "qzone"    : _URL = qzoneBase+"url="+hostUrl+"&title="+title+"&desc=&summary="+excerpt+"&site=cxpy";  break;
+                case "facebook" : _URL = facebookBase+"u="+hostUrl;                                                        break;
+                case "twitter"  : _URL = twitterBase+"text="+title+excerpt+"&url="+hostUrl;                                break;
+            }
+            window.open(_URL);
+        };
+    </script>
+</div>
+                
+                </div>
+            
+            <div class="footer-tag clearfix">
+                <div class="pull-left">
+                <i class="fa fa-tags"></i>
+                    <a class="tag-none-link" href="/subweb/blog/tags/Nas/" rel="tag">Nas</a>, <a class="tag-none-link" href="/subweb/blog/tags/%E6%95%99%E7%A8%8B/" rel="tag">教程</a>, <a class="tag-none-link" href="/subweb/blog/tags/%E9%A3%9E%E7%89%9BOS/" rel="tag">飞牛OS</a>
+                </div>
+                <div class="pull-date">
+                    <time datetime="2026-07-27T04:27:08.488Z" itemprop="dateModified">最后编辑：2026-07-27</time>
+                </div>
+            </div>
+        </footer>
+    </div>
+    
+        <nav class="navigation post-navigation clearfix" role="navigation">
+            
+            <div class="nav-previous clearfix">
+                <a title=" 【教程】FRP实现内网穿透，公网轻松访问" href="/subweb/blog/2026/07/26/0023.frp内网穿透，公网轻松访问/">&lt; 上一篇</a>
+            </div>
+            
+            
+        </nav>
+    
+    
+</article>
+
+        
+
+            </section>
+
+        
+
+                
+            
+
+<section id="kratos-widget-area" class="col-md-4 hidden-xs hidden-sm">
+    <!-- 文章和页面根据splitter来分割，没有的话就从头开始设置为sticky -->
+    
+    
+                <aside id="krw-about" class="widget widget-kratos-about clearfix">
+    <div class="photo-background"></div>
+    <div class="photo-wrapper clearfix">
+        <div class="photo-wrapper-tip text-center">
+            <img class="about-photo" src="/subweb/blog/images/avatar.webp" loading="lazy" decoding="auto" />
+        </div>
+    </div>
+    <div class="textwidget">
+        <p class="text-center">爆脖大大Zz</p>
+    </div>
+    <div class="site-meta">
+        <a class="meta-item" href="/subweb/blog/archives/">
+            <span class="title">
+                文章
+            </span>
+            <span class="count">
+                23
+            </span>
+        </a>
+        <a class="meta-item" href="/subweb/blog/categories/">
+            <span class="title">
+                分类
+            </span>
+            <span class="count">
+                6
+            </span>
+        </a>
+        <a class="meta-item" href="/subweb/blog/tags/">
+            <span class="title">
+                标签
+            </span>
+            <span class="count">
+                51
+            </span>
+        </a>
+    </div>
+</aside>
+            
+                    <div class="sticky-area">
+                
+                    <aside id="krw-toc" class="widget widget-kratos-toc clearfix toc-div-class" >
+    <div class="photo-background"></div>
+    <h4 class="widget-title no-after">
+        <i class="fa fa-compass"></i>
+        文章目录
+        <span class="toc-progress-bar" role="progressbar" aria-label="阅读进度："></span>
+    </h4>
+    <div class="textwidget">
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E8%83%8C%E6%99%AF"><span class="toc-text">一、背景</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E5%87%86%E5%A4%87%E5%B7%A5%E4%BD%9C"><span class="toc-text">二、准备工作</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-SSH%E8%BF%9E%E6%8E%A5%E6%AD%A3%E5%B8%B8"><span class="toc-text">1. SSH连接正常</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E2%91%A0-%E6%89%93%E5%BC%80ssh"><span class="toc-text">① 打开ssh</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E2%91%A1%E5%B0%9D%E8%AF%95%E8%BF%9E%E6%8E%A5"><span class="toc-text">②尝试连接</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E5%81%9C%E7%94%A8%E7%9B%B8%E5%86%8C%E6%88%96%E5%8D%B8%E8%BD%BD%E7%9B%B8%E5%86%8C"><span class="toc-text">2. 停用相册或卸载相册</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E5%AE%89%E8%A3%85%E5%8F%AF%E4%BB%A5%E8%AF%BB%E5%8F%96SQLite%E7%9A%84%E5%B7%A5%E5%85%B7"><span class="toc-text">3. 安装可以读取SQLite的工具</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E7%85%A7%E7%89%87%E8%BF%81%E7%A7%BB%E4%B8%8E%E5%A4%87%E4%BB%BD"><span class="toc-text">4. 照片迁移与备份</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%89%E3%80%81%E8%BF%81%E7%A7%BB%E6%96%B9%E6%B3%95"><span class="toc-text">三、迁移方法</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E5%A4%87%E4%BB%BD%E7%9B%B8%E5%86%8C%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="toc-text">1. 备份相册数据库</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E6%95%B0%E6%8D%AE%E5%BA%93%E4%BF%AE%E6%94%B9"><span class="toc-text">2. 数据库修改</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E5%88%A0%E9%99%A4%E7%BC%93%E5%AD%98%E6%96%87%E4%BB%B6"><span class="toc-text">3. 删除缓存文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E4%B8%8A%E4%BC%A0%E5%88%B0%E6%96%B0Nas%E7%9A%84%E5%AF%B9%E5%BA%94%E7%9B%AE%E5%BD%95"><span class="toc-text">4. 上传到新Nas的对应目录</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-%E5%AE%89%E8%A3%85%E7%9B%B8%E5%86%8C"><span class="toc-text">5. 安装相册</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%9B%9B%E3%80%81%E6%95%85%E9%9A%9C%E5%9B%9E%E6%BB%9A"><span class="toc-text">四、故障回滚</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%99%84%E5%BD%95A%EF%BC%9AAI%E7%94%9F%E6%88%90%E7%9A%84%E6%95%B0%E6%8D%AE%E5%BA%93%E8%A7%A3%E9%87%8A"><span class="toc-text">附录A：AI生成的数据库解释</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E9%98%85%E8%AF%BB%E8%AF%B4%E6%98%8E"><span class="toc-text">1. 阅读说明</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-%E6%97%B6%E9%97%B4%E5%AD%97%E6%AE%B5"><span class="toc-text">1.1 时间字段</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-%E8%A1%A8%E4%B9%8B%E9%97%B4%E7%9A%84%E5%85%B3%E8%81%94"><span class="toc-text">1.2 表之间的关联</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-3-%E5%B8%83%E5%B0%94%E4%B8%8E%E6%9E%9A%E4%B8%BE%E5%AD%97%E6%AE%B5"><span class="toc-text">1.3 布尔与枚举字段</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-4-%E7%A9%BA%E9%97%B4%E6%89%A9%E5%B1%95%E8%A1%A8"><span class="toc-text">1.4 空间扩展表</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E6%A0%B8%E5%BF%83%E6%95%B0%E6%8D%AE%E5%85%B3%E7%B3%BB"><span class="toc-text">2. 核心数据关系</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E6%A0%B8%E5%BF%83%E4%B8%9A%E5%8A%A1%E8%A1%A8"><span class="toc-text">3. 核心业务表</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#user"><span class="toc-text">user</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#device"><span class="toc-text">device</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#photo"><span class="toc-text">photo</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#user-photo"><span class="toc-text">user_photo</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#user-folder"><span class="toc-text">user_folder</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#user-album"><span class="toc-text">user_album</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#album-user-photo"><span class="toc-text">album_user_photo</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#album-condition"><span class="toc-text">album_condition</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#user-album-grant"><span class="toc-text">user_album_grant</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#user-tag"><span class="toc-text">user_tag</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#user-photo-tag"><span class="toc-text">user_photo_tag</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#user-photo-category"><span class="toc-text">user_photo_category</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#person"><span class="toc-text">person</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#face"><span class="toc-text">face</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#face-task-log"><span class="toc-text">face_task_log</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#folder-cover"><span class="toc-text">folder_cover</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#address-task"><span class="toc-text">address_task</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#repeat-photo"><span class="toc-text">repeat_photo</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#recycle-bin"><span class="toc-text">recycle_bin</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#file-task"><span class="toc-text">file_task</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#err-item-log"><span class="toc-text">err_item_log</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#google-takeout-log"><span class="toc-text">google_takeout_log</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#share-link"><span class="toc-text">share_link</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#user-config"><span class="toc-text">user_config</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#sys-config"><span class="toc-text">sys_config</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#data-version"><span class="toc-text">data_version</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#db-version"><span class="toc-text">db_version</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#data-licenses"><span class="toc-text">data_licenses</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-SpatiaLite-%E7%A9%BA%E9%97%B4%E6%89%A9%E5%B1%95%E8%A1%A8"><span class="toc-text">4. SpatiaLite 空间扩展表</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#geometry-columns"><span class="toc-text">geometry_columns</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#geometry-columns-auth"><span class="toc-text">geometry_columns_auth</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#geometry-columns-field-infos"><span class="toc-text">geometry_columns_field_infos</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#geometry-columns-statistics"><span class="toc-text">geometry_columns_statistics</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#geometry-columns-time"><span class="toc-text">geometry_columns_time</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#spatial-ref-sys"><span class="toc-text">spatial_ref_sys</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#spatial-ref-sys-aux"><span class="toc-text">spatial_ref_sys_aux</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#idx-photo-geom"><span class="toc-text">idx_photo_geom</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#idx-photo-geom-node"><span class="toc-text">idx_photo_geom_node</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#idx-photo-geom-parent"><span class="toc-text">idx_photo_geom_parent</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#idx-photo-geom-rowid"><span class="toc-text">idx_photo_geom_rowid</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#views-geometry-columns"><span class="toc-text">views_geometry_columns</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#views-geometry-columns-auth"><span class="toc-text">views_geometry_columns_auth</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#views-geometry-columns-field-infos"><span class="toc-text">views_geometry_columns_field_infos</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#views-geometry-columns-statistics"><span class="toc-text">views_geometry_columns_statistics</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#virts-geometry-columns"><span class="toc-text">virts_geometry_columns</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#virts-geometry-columns-auth"><span class="toc-text">virts_geometry_columns_auth</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#virts-geometry-columns-field-infos"><span class="toc-text">virts_geometry_columns_field_infos</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#virts-geometry-columns-statistics"><span class="toc-text">virts_geometry_columns_statistics</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ElementaryGeometries"><span class="toc-text">ElementaryGeometries</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#KNN"><span class="toc-text">KNN</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#SpatialIndex"><span class="toc-text">SpatialIndex</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#spatialite-history"><span class="toc-text">spatialite_history</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#sql-statements-log"><span class="toc-text">sql_statements_log</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-%E4%B8%BB%E8%A6%81%E6%95%B0%E6%8D%AE%E5%BA%93%E8%A7%86%E5%9B%BE"><span class="toc-text">5. 主要数据库视图</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-%E4%BF%AE%E6%94%B9%E6%95%B0%E6%8D%AE%E5%BA%93%E6%97%B6%E7%9A%84%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9"><span class="toc-text">6. 修改数据库时的注意事项</span></a></li></ol></li></ol>
+    </div>
+</aside>
+                
+                
+  <aside id="krw-categories" class="widget widget-kratos-categories clearfix">
+    <h4 class="widget-title"><i class="fa fa-folder"></i>分类目录</h4>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/subweb/blog/categories/%E5%8A%A8%E6%BC%AB/">动漫</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/subweb/blog/categories/%E5%AD%A6%E4%B9%A0/">学习</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/subweb/blog/categories/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/">技术分享</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/subweb/blog/categories/%E6%95%99%E7%A8%8B/">教程</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/subweb/blog/categories/%E7%A8%8B%E5%BA%8F%E7%8C%BF%E7%AC%94%E8%AE%B0/">程序猿笔记</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/subweb/blog/categories/%E9%97%AE%E7%AD%94%E7%95%99%E6%A1%A3/">问答留档</a><span class="category-list-count">11</span></li></ul>
+  </aside>
+
+
+            
+                
+  <aside id="krw-tags" class="widget widget-kratos-tags clearfix">
+    <h4 class="widget-title"><i class="fa fa-tags"></i>标签聚合</h4>
+      <div class="tag-clouds">
+        <a href="/subweb/blog/tags/408/" style="font-size: 0.7em;">408</a> <a href="/subweb/blog/tags/AI%E7%BB%98%E7%94%BB/" style="font-size: 0.6em;">AI绘画</a> <a href="/subweb/blog/tags/Android/" style="font-size: 0.6em;">Android</a> <a href="/subweb/blog/tags/C/" style="font-size: 0.6em;">C++</a> <a href="/subweb/blog/tags/ComfyUI/" style="font-size: 0.6em;">ComfyUI</a> <a href="/subweb/blog/tags/FRP/" style="font-size: 0.6em;">FRP</a> <a href="/subweb/blog/tags/GPT/" style="font-size: 0.8em;">GPT</a> <a href="/subweb/blog/tags/IP/" style="font-size: 0.6em;">IP</a> <a href="/subweb/blog/tags/LaTeX/" style="font-size: 0.6em;">LaTeX</a> <a href="/subweb/blog/tags/Nas/" style="font-size: 0.6em;">Nas</a> <a href="/subweb/blog/tags/StableDiffusion/" style="font-size: 0.6em;">StableDiffusion</a> <a href="/subweb/blog/tags/USD/" style="font-size: 0.6em;">USD</a> <a href="/subweb/blog/tags/VScode/" style="font-size: 0.6em;">VScode</a> <a href="/subweb/blog/tags/adb/" style="font-size: 0.6em;">adb</a> <a href="/subweb/blog/tags/java/" style="font-size: 0.6em;">java</a> <a href="/subweb/blog/tags/javaweb/" style="font-size: 0.6em;">javaweb</a> <a href="/subweb/blog/tags/maven/" style="font-size: 0.6em;">maven</a> <a href="/subweb/blog/tags/openMVG/" style="font-size: 0.6em;">openMVG</a>
+      </div>
+  </aside>
+
+            
+                
+  <aside id="krw-posts" class="widget widget-kratos-posts">
+  <h4 class="widget-title"><i class="fa fa-file"></i>最新文章</h4>
+  <div class="tab-content">
+      <ul class="list-group">
+        
+        
+          
+          
+            <a class="list-group-item" href="/subweb/blog/2026/07/26/0022.%E9%A3%9E%E7%89%9BOS%E7%9B%B8%E5%86%8C%E8%BF%81%E7%A7%BB/"><i class="fa  fa-book"></i> 【教程】飞牛OS相册数据迁移</a>
+            
+          
+        
+          
+          
+            <a class="list-group-item" href="/subweb/blog/2026/07/26/0023.frp%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F%EF%BC%8C%E5%85%AC%E7%BD%91%E8%BD%BB%E6%9D%BE%E8%AE%BF%E9%97%AE/"><i class="fa  fa-book"></i> 【教程】FRP实现内网穿透，公网轻松访问</a>
+            
+          
+        
+          
+          
+            <a class="list-group-item" href="/subweb/blog/2026/07/25/0021.windows%E7%BD%91%E5%8D%A1%E4%BC%98%E5%85%88%E7%BA%A7%E8%AE%BE%E7%BD%AE/"><i class="fa  fa-book"></i> 【教程】Windows多网卡设置优先级</a>
+            
+          
+        
+          
+          
+            <a class="list-group-item" href="/subweb/blog/2026/05/18/0020.StableDiffusion-ComfyUI%E5%AE%8C%E5%85%A8%E9%83%A8%E7%BD%B2%E6%8C%87%E5%8D%97/"><i class="fa  fa-book"></i> 【教程】StableDiffusion: ComfyUI完全部署指南-以Linux为例</a>
+            
+          
+        
+          
+          
+            <a class="list-group-item" href="/subweb/blog/2025/12/07/0019.Windows%E7%B3%BB%E7%BB%9FVScode%E9%85%8D%E7%BD%AELaTeX%E7%8E%AF%E5%A2%83/"><i class="fa  fa-book"></i> 【教程】Windows系统下VScode配置LaTeX环境</a>
+            
+          
+        
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+      </ul>
+  </div>
+  </aside>
+
+            
+    </div>
+</section>
+        
+        </div>
+    </div>
+</div>
+<footer>
+    <div id="footer"  class="ap-lrc"  >
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3 footer-list text-center">
+                    <ul class="kratos-social-icons">
+                        <!-- Keep for compatibility -->
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <!-- New links -->
+                        
+                    </ul>
+                    <ul class="kratos-copyright">
+                        <div>
+                            <li>&copy; 2026 爆脖の奇妙生活 版权所有.</li>
+                            <li>导弹已飞行<span id="span_dt">Loading...</span></li>
+                        </div>
+                        <div>
+                            <li>Theme <a href="https://github.com/Candinya/Kratos-Rebirth" target="_blank">Kratos:Rebirth</a></li>
+                            <li>Site built with&nbsp;<i class="fa fa-heart throb" style="color:#d43f57"></i>&nbsp;by 爆脖大大Zz.</li>
+                        </div>
+                        <div>
+                            <li>Powered by <a href="https://hexo.io" target="_blank" rel="nofollow">Hexo</a></li>
+                            <li>Hosted on <a href="https://github.io" target="_blank">Github Pages</a></li>
+                        </div>
+                        <div>
+                            
+                            
+                        </div>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="kr-tool text-center">
+            <div class="tool">
+                
+                    <div class="box search-box">
+                        <a href="/subweb/blog/search/">
+                            <span class="fa fa-search"></span>
+                        </a>
+                    </div>
+                
+                
+                    <div class="box theme-box" id="darkmode-switch">
+                        <span class="fa fa-adjust"></span>
+                    </div>
+                
+                
+                
+            </div>
+            <div class="box gotop-box">
+                <span class="fa fa-chevron-up"></span>
+            </div>
+        </div>
+    </div>
+</footer>
+</div>
+</div>
+
+        <script defer src="/subweb/blog/vendors/bootstrap@3.3.4/dist/js/bootstrap.min.js"></script>
+<script defer src="/subweb/blog/vendors/nprogress@0.2.0/nprogress.js"></script>
+<script>
+    if (!window.kr) {
+        window.kr = {};
+    }
+    window.kr.notMobile = (!(navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i)));
+    window.kr.siteRoot = "/subweb/blog/";
+</script>
+
+
+    <script async src="/subweb/blog/js/candy.min.js"></script>
+
+
+
+    <script defer src="/subweb/blog/vendors/aplayer@1.10.1/dist/APlayer.min.js"></script>
+    
+    <script defer src="/subweb/blog/vendors/meting@2.0.1/dist/Meting.min.js"></script>
+    <meting-js
+        server="netease"
+        type="playlist"
+        id="9650496682"
+        order="random"
+        fixed="true"
+    >
+    </meting-js>
+
+
+
+    <script defer src="/subweb/blog/vendors/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+
+<script defer src="/subweb/blog/js/kratosr.min.js"></script>
+<script defer src="/subweb/blog/js/pjax.min.js"></script>
+
+    <script defer src="/subweb/blog/vendors/layui-src@2.5.5/dist/layui.all.js"></script>
+
+
+
+<!-- Extra support for third-party plguins  -->
+
+
+    </body>
+</html>

@@ -1,0 +1,901 @@
+<!DOCTYPE html>
+<html lang="zh">
+    <head>
+  <!-- 元数据 -->
+  <meta charset="utf-8">
+  
+  
+  <title>【教程】FRP实现内网穿透，公网轻松访问 | 爆脖の奇妙生活</title>
+  
+  <meta name="author" content="爆脖大大Zz" />
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="robots" content="index,follow" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <meta name="format-detection" content="telphone=no, email=no" />
+  
+    <meta name="keywords" content="FRP, 内网穿透, 教程, 网络" />
+  
+  <meta name="description" content="在日常开发、远程办公或家庭服务器搭建过程中，我们经常会遇到这样一个问题：服务部署在内网环境中，外网无法直接访问。 比如：  家里的 NAS 想在外面访问 本地开发的 Web 项目想给同事演示 实验室内网机器需要远程 SSH 摄像头、面板、管理后台只在局域网可用  如果没有公网 IP，传统方式往往比较麻烦。而 frp 就是一个非常实用的内网穿透工具，可以帮助我们把内网服务暴露到公网，实现公网轻松访问">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【教程】FRP实现内网穿透，公网轻松访问">
+<meta property="og:url" content="https://nav.baobodadazz.top/subweb/blog/2026/07/26/0023.frp%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F%EF%BC%8C%E5%85%AC%E7%BD%91%E8%BD%BB%E6%9D%BE%E8%AE%BF%E9%97%AE/index.html">
+<meta property="og:site_name" content="爆脖の奇妙生活">
+<meta property="og:description" content="在日常开发、远程办公或家庭服务器搭建过程中，我们经常会遇到这样一个问题：服务部署在内网环境中，外网无法直接访问。 比如：  家里的 NAS 想在外面访问 本地开发的 Web 项目想给同事演示 实验室内网机器需要远程 SSH 摄像头、面板、管理后台只在局域网可用  如果没有公网 IP，传统方式往往比较麻烦。而 frp 就是一个非常实用的内网穿透工具，可以帮助我们把内网服务暴露到公网，实现公网轻松访问">
+<meta property="og:locale">
+<meta property="article:published_time" content="2026-07-26T10:07:45.000Z">
+<meta property="article:modified_time" content="2026-07-27T04:34:35.015Z">
+<meta property="article:author" content="爆脖大大Zz">
+<meta property="article:tag" content="网络">
+<meta property="article:tag" content="教程">
+<meta property="article:tag" content="FRP">
+<meta property="article:tag" content="内网穿透">
+<meta name="twitter:card" content="summary">
+  
+  <!-- 站点验证相关 -->
+  
+    
+    
+    
+  
+  <!-- 样式表文件 -->
+  <link rel="stylesheet" id="kratos-css" href="/subweb/blog/css/kratosr.min.css" media="all"></script>
+  
+    <link rel="stylesheet" id="darkmode-css" href="/subweb/blog/css/kr-color-dark.min.css" media="(prefers-color-scheme: dark)"></script>
+    <script src="/subweb/blog/js/kr-dark.min.js"></script>
+  
+  
+    <link rel="stylesheet" id="highlight-css" href="/subweb/blog/css/highlight/night-bright.min.css" media="all"></script>
+  
+  <link rel="stylesheet" id="fontawe-css" href="/subweb/blog/vendors/font-awesome@4.7.0/css/font-awesome.min.css" media="all"></script>
+  <link rel="stylesheet" id="nprogress-css" href="/subweb/blog/vendors/nprogress@0.2.0/nprogress.css" media="all"></script>
+  
+  
+    <link rel="stylesheet" href="/subweb/blog/vendors/aplayer@1.10.1/dist/APlayer.min.css"></script>
+  
+  
+    <link rel="stylesheet" href="/subweb/blog/vendors/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css"></script>
+  
+  <!-- 不得不预先加载的一些JS文件 -->
+  <script src="/subweb/blog/vendors/jquery@3.6.0/dist/jquery.min.js"></script>
+  
+    <script src="/subweb/blog/vendors/qrcode_js@1.0.0/qrcode.min.js"></script>
+  
+  
+  <style>
+    
+      .kratos-cover.kratos-cover-2 {
+        background-image: url('/subweb/blog/images/banner.webp');
+      }
+    
+    
+      @media(min-width:768px) {
+        body.custom-background {
+          background-image: url('/subweb/blog/images/bg4.webp');
+        }
+      }
+    
+  </style>
+  
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.1.1"></head>
+
+
+    <body class="custom-background">
+        <div id="kratos-wrapper">
+    <div id="kratos-page">
+        <div id="kratos-header">
+            <header id="kratos-desktop-topnav" class="kratos-topnav">
+                <div class="container">
+                    <div class="nav-header">
+                        <nav id="kratos-menu-wrap">
+                            <ul id="kratos-primary-menu" class="sf-menu">
+                                
+                                    
+                                        <li>
+                                            
+                                                <a href="/subweb/blog/">
+                                            
+                                                
+                                                    <i class="fa fa-home"></i>
+                                                
+                                                首页
+                                            </a>
+                                            
+                                        </li>
+                                    
+                                        <li>
+                                            
+                                                <a href="/subweb/blog/archives/">
+                                            
+                                                
+                                                    <i class="fa fa-file"></i>
+                                                
+                                                档案馆
+                                            </a>
+                                            
+                                        </li>
+                                    
+                                        <li>
+                                            
+                                                <a href="/subweb/blog/friends/">
+                                            
+                                                
+                                                    <i class="fa fa-paw"></i>
+                                                
+                                                好伙伴
+                                            </a>
+                                            
+                                        </li>
+                                    
+                                        <li>
+                                            
+                                                <a>
+                                            
+                                                
+                                                    <i class="fa fa-link"></i>
+                                                
+                                                链接
+                                            </a>
+                                            
+                                                <ul class="sub-menu">
+                                                    
+                                                        <li>
+                                                            <a target="_blank" rel="noopener" href="https://space.bilibili.com/40750119">
+                                                                
+                                                                bilibili
+                                                            </a>
+                                                        </li>
+                                                    
+                                                        <li>
+                                                            <a target="_blank" rel="noopener" href="https://github.com/baobodadazz">
+                                                                
+                                                                github
+                                                            </a>
+                                                        </li>
+                                                    
+                                                        <li>
+                                                            <a href="https://nav.baobodadazz.top/index.html">
+                                                                
+                                                                上网导航
+                                                            </a>
+                                                        </li>
+                                                    
+                                                </ul>
+                                            
+                                        </li>
+                                    
+                                
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </header>
+            <header id="kratos-mobile-topnav" class="kratos-topnav">
+                <div class="container">
+                    <div class="color-logo"><a href="/subweb/blog/">爆脖の奇妙生活</a></div>
+                    <div class="nav-toggle">
+                        <a class="kratos-nav-toggle js-kratos-nav-toggle">
+                            <i></i>
+                        </a>
+                    </div>
+                </div>
+            </header>
+        </div>
+        <div class="kratos-start kratos-hero-2">
+            <!-- <div class="kratos-overlay"></div> -->
+            <div class="kratos-cover kratos-cover-2 text-center">
+                <div class="desc desc2 animate-box">
+                    <a href="/subweb/blog/">
+                        <h2>爆脖の奇妙生活</h2> <br />
+                        <span>さあ，私たちのデートを始めましょう</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div id="kratos-blog-post">
+            <div class="container">
+                <div id="main" class="row">
+                    
+
+        
+
+            <section class="col-md-8">
+
+        
+
+            <article itemscope itemtype="https://schema.org/Article">
+    
+    <link itemprop="mainEntityOfPage" href="https://nav.baobodadazz.top/subweb/blog/2026/07/26/0023.frp%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F%EF%BC%8C%E5%85%AC%E7%BD%91%E8%BD%BB%E6%9D%BE%E8%AE%BF%E9%97%AE/">
+    <div class="kratos-hentry kratos-post-inner clearfix">
+        <header class="kratos-entry-header">
+            
+                <h1 class="kratos-entry-title text-center" itemprop="name headline">【教程】FRP实现内网穿透，公网轻松访问</h1>
+            
+            
+            <ul class="kratos-post-meta text-center">
+                <li><time datetime="2026-07-26T10:07:45.000Z" itemprop="datePublished"><i class="fa fa-calendar"></i> 2026-07-26</time></li>
+                <li itemprop="author" itemscope itemtype="https://schema.org/Person">
+                    <i class="fa fa-user"></i> 作者 <span itemprop="name">爆脖大大Zz</span>
+                </li>
+                
+                    <li>
+                        <i class="fa fa-edit"></i> 
+                        
+                        
+                            ~4.40K
+                        
+                        字
+                    </li>
+                
+                
+            </ul>
+        </header>
+        <div class="kratos-post-content">
+            
+            <div id="expire-alert" class="alert alert-warning hidden" role="alert">
+                <div class="icon"><i class="fa fa-warning"></i></div>
+                <div class="text"><p>本文最后编辑于 <time datetime="1785126875015"></time> 前，其中的内容可能需要更新。</p></div>
+            </div>
+            
+            
+            
+                <div class="kratos-post-inner-toc toc-div-class" >
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E4%BB%80%E4%B9%88%E6%98%AF-frp%EF%BC%9F"><span class="toc-number">1.</span> <span class="toc-text">一、什么是 frp？</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BA%8C%E3%80%81frp-%E9%80%82%E5%90%88%E5%93%AA%E4%BA%9B%E5%9C%BA%E6%99%AF%EF%BC%9F"><span class="toc-number">2.</span> <span class="toc-text">二、frp 适合哪些场景？</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E8%BF%9C%E7%A8%8B%E8%AE%BF%E9%97%AE%E5%86%85%E7%BD%91-Web-%E6%9C%8D%E5%8A%A1"><span class="toc-number">2.1.</span> <span class="toc-text">1. 远程访问内网 Web 服务</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E8%BF%9C%E7%A8%8B-SSH-%E7%99%BB%E5%BD%95%E5%86%85%E7%BD%91%E6%9C%8D%E5%8A%A1%E5%99%A8"><span class="toc-number">2.2.</span> <span class="toc-text">2. 远程 SSH 登录内网服务器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E8%AE%BF%E9%97%AE%E5%AE%B6%E5%BA%AD-NAS-%E6%88%96%E8%BD%AF%E8%B7%AF%E7%94%B1%E9%9D%A2%E6%9D%BF"><span class="toc-number">2.3.</span> <span class="toc-text">3. 访问家庭 NAS 或软路由面板</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-TCP%E3%80%81UDP-%E6%9C%8D%E5%8A%A1%E8%BD%AC%E5%8F%91"><span class="toc-number">2.4.</span> <span class="toc-text">4. TCP、UDP 服务转发</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%89%E3%80%81%E5%87%86%E5%A4%87%E5%B7%A5%E4%BD%9C"><span class="toc-number">3.</span> <span class="toc-text">三、准备工作</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%9B%9B%E3%80%81%E5%AE%89%E8%A3%85-frp"><span class="toc-number">4.</span> <span class="toc-text">四、安装 frp</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BA%94%E3%80%81%E9%85%8D%E7%BD%AE-frps-%E6%9C%8D%E5%8A%A1%E7%AB%AF"><span class="toc-number">5.</span> <span class="toc-text">五、配置 frps 服务端</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%85%AD%E3%80%81%E9%85%8D%E7%BD%AE-frpc-%E5%AE%A2%E6%88%B7%E7%AB%AF"><span class="toc-number">6.</span> <span class="toc-text">六、配置 frpc 客户端</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%83%E3%80%81%E9%85%8D%E7%BD%AE-SSH-%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F"><span class="toc-number">7.</span> <span class="toc-text">七、配置 SSH 内网穿透</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%85%AB%E3%80%81%E9%85%8D%E7%BD%AE-frp-%E8%BA%AB%E4%BB%BD%E8%AE%A4%E8%AF%81"><span class="toc-number">8.</span> <span class="toc-text">八、配置 frp 身份认证</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B9%9D%E3%80%81%E4%BD%BF%E7%94%A8-systemd-%E5%90%8E%E5%8F%B0%E8%BF%90%E8%A1%8C-frps"><span class="toc-number">9.</span> <span class="toc-text">九、使用 systemd 后台运行 frps</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8D%81%E3%80%81%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E6%8E%92%E6%9F%A5"><span class="toc-number">10.</span> <span class="toc-text">十、常见问题排查</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-frpc-%E8%BF%9E%E6%8E%A5%E4%B8%8D%E4%B8%8A-frps"><span class="toc-number">10.0.1.</span> <span class="toc-text">1. frpc 连接不上 frps</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E5%85%AC%E7%BD%91%E7%AB%AF%E5%8F%A3%E6%97%A0%E6%B3%95%E8%AE%BF%E9%97%AE"><span class="toc-number">10.1.</span> <span class="toc-text">2. 公网端口无法访问</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E5%90%AF%E5%8A%A8%E6%8F%90%E7%A4%BA%E7%AB%AF%E5%8F%A3%E5%8D%A0%E7%94%A8"><span class="toc-number">10.2.</span> <span class="toc-text">3. 启动提示端口占用</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8D%81%E4%B8%80%E3%80%81%E5%AE%89%E5%85%A8%E5%BB%BA%E8%AE%AE"><span class="toc-number">11.</span> <span class="toc-text">十一、安全建议</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8D%81%E4%BA%8C%E3%80%81%E6%80%BB%E7%BB%93"><span class="toc-number">12.</span> <span class="toc-text">十二、总结</span></a></li></ol>
+                </div>
+            
+            <hr />
+            <div itemprop="articleBody"><p>在日常开发、远程办公或家庭服务器搭建过程中，我们经常会遇到这样一个问题：服务部署在内网环境中，外网无法直接访问。</p>
+<p>比如：</p>
+<ul>
+<li>家里的 NAS 想在外面访问</li>
+<li>本地开发的 Web 项目想给同事演示</li>
+<li>实验室内网机器需要远程 SSH</li>
+<li>摄像头、面板、管理后台只在局域网可用</li>
+</ul>
+<p>如果没有公网 IP，传统方式往往比较麻烦。而 <strong>frp</strong> 就是一个非常实用的内网穿透工具，可以帮助我们把内网服务暴露到公网，实现公网轻松访问。</p>
+<hr>
+<h1 id="一、什么是-frp？"><a href="#一、什么是-frp？" class="headerlink" title="一、什么是 frp？"></a>一、什么是 frp？</h1><p><strong>frp</strong> 全称是 <strong>Fast Reverse Proxy</strong>，是一个高性能的反向代理应用，主要用于内网穿透。</p>
+<p>它采用客户端和服务端的架构：</p>
+<ul>
+<li><strong>frps</strong>：服务端，部署在拥有公网 IP 的服务器上</li>
+<li><strong>frpc</strong>：客户端，部署在内网机器上</li>
+</ul>
+<p>简单来说，frpc 会主动连接公网服务器上的 frps，然后通过这条连接把内网服务映射到公网端口。</p>
+<p>这样，即使内网机器没有公网 IP，也可以通过公网服务器访问到它。</p>
+<hr>
+<h1 id="二、frp-适合哪些场景？"><a href="#二、frp-适合哪些场景？" class="headerlink" title="二、frp 适合哪些场景？"></a>二、frp 适合哪些场景？</h1><p>frp 的使用场景非常广，常见的有以下几种：</p>
+<h2 id="1-远程访问内网-Web-服务"><a href="#1-远程访问内网-Web-服务" class="headerlink" title="1. 远程访问内网 Web 服务"></a>1. 远程访问内网 Web 服务</h2><p>本地启动了一个 Web 项目，例如：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://127.0.0.1:8080</span><br></pre></td></tr></table></figure>
+
+<p>通过 frp 映射后，可以在公网通过类似下面的地址访问：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://服务器IP:公网端口</span><br></pre></td></tr></table></figure>
+
+<p>非常适合临时演示、接口联调和远程测试。</p>
+<hr>
+<h2 id="2-远程-SSH-登录内网服务器"><a href="#2-远程-SSH-登录内网服务器" class="headerlink" title="2. 远程 SSH 登录内网服务器"></a>2. 远程 SSH 登录内网服务器</h2><p>家里或公司的 Linux 机器没有公网 IP，但想在外面远程登录，可以使用 frp 映射 SSH 端口。</p>
+<p>映射后，就可以通过公网服务器连接内网机器：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -p 6000 user@公网服务器IP</span><br></pre></td></tr></table></figure>
+
+<p>当然也可以用于游戏服务器映射到公网，比如Minecraft等。</p>
+<hr>
+<h2 id="3-访问家庭-NAS-或软路由面板"><a href="#3-访问家庭-NAS-或软路由面板" class="headerlink" title="3. 访问家庭 NAS 或软路由面板"></a>3. 访问家庭 NAS 或软路由面板</h2><p>很多人会在家里部署 NAS、OpenWrt、Home Assistant 等服务。</p>
+<p>借助 frp，可以在外网访问这些管理页面，无需运营商提供公网 IP。</p>
+<hr>
+<h2 id="4-TCP、UDP-服务转发"><a href="#4-TCP、UDP-服务转发" class="headerlink" title="4. TCP、UDP 服务转发"></a>4. TCP、UDP 服务转发</h2><p>除了 HTTP 和 HTTPS，frp 也支持 TCP、UDP、STCP、XTCP 等多种代理方式，灵活性很高。</p>
+<hr>
+<h1 id="三、准备工作"><a href="#三、准备工作" class="headerlink" title="三、准备工作"></a>三、准备工作</h1><p>在开始之前，需要准备以下环境：</p>
+<table>
+<thead>
+<tr>
+<th>角色</th>
+<th>要求</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>公网服务器</td>
+<td>一台拥有公网 IP 的云服务器</td>
+</tr>
+<tr>
+<td>内网机器</td>
+<td>需要被访问的本地电脑、服务器或 NAS</td>
+</tr>
+<tr>
+<td>frp 程序</td>
+<td>下载对应系统版本的 frp</td>
+</tr>
+<tr>
+<td>防火墙端口</td>
+<td>放行 frps 监听端口和映射端口</td>
+</tr>
+</tbody></table>
+<p>这里使用的演示环境如下（公网服务器已做脱敏处理）：</p>
+<table>
+<thead>
+<tr>
+<th>项目</th>
+<th>示例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>公网服务器 IP</td>
+<td><code>1.2.3.4</code></td>
+</tr>
+<tr>
+<td>frps 监听端口</td>
+<td><code>7000</code></td>
+</tr>
+<tr>
+<td>内网 Web 服务</td>
+<td><code>127.0.0.1:8080</code></td>
+</tr>
+<tr>
+<td>映射公网端口</td>
+<td><code>8088</code></td>
+</tr>
+</tbody></table>
+<hr>
+<h1 id="四、安装-frp"><a href="#四、安装-frp" class="headerlink" title="四、安装 frp"></a>四、安装 frp</h1><p>前往 frp 的<a target="_blank" rel="noopener" href="https://github.com/fatedier/frp/releases">github release</a>页面，下载对应系统版本的压缩包。</p>
+<p>Linux 服务器一般可以使用类似下面的命令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">wget https://github.com/fatedier/frp/releases/download/v0.XX.X/frp_0.XX.X_linux_amd64.tar.gz</span><br><span class="line">tar -zxvf frp_0.XX.X_linux_amd64.tar.gz</span><br><span class="line"><span class="built_in">cd</span> frp_0.XX.X_linux_amd64</span><br></pre></td></tr></table></figure>
+
+<p>目录中通常会包含以下文件：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">frps</span><br><span class="line">frps.toml</span><br><span class="line">frpc</span><br><span class="line">frpc.toml</span><br></pre></td></tr></table></figure>
+
+<p>其中：</p>
+<ul>
+<li><code>frps</code> 是服务端程序</li>
+<li><code>frps.toml</code> 是服务端配置文件</li>
+<li><code>frpc</code> 是客户端程序</li>
+<li><code>frpc.toml</code> 是客户端配置文件</li>
+</ul>
+<hr>
+<h1 id="五、配置-frps-服务端"><a href="#五、配置-frps-服务端" class="headerlink" title="五、配置 frps 服务端"></a>五、配置 frps 服务端</h1><p>在公网服务器上编辑 <code>frps.toml</code>：</p>
+<figure class="highlight toml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">bindPort</span> = <span class="number">7000</span></span><br></pre></td></tr></table></figure>
+
+<p>这表示 frps 服务端监听 <code>7000</code> 端口，等待 frpc 客户端连接。</p>
+<p>启动 frps：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./frps -c ./frps.toml</span><br></pre></td></tr></table></figure>
+
+<p>如果看到服务正常启动，就说明服务端已经运行。</p>
+<p>为了保证外网可以连接，还需要在云服务器安全组和系统防火墙中放行端口：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">7000</span><br><span class="line">8088</span><br></pre></td></tr></table></figure>
+
+<p>其中：</p>
+<ul>
+<li><code>7000</code> 用于 frpc 连接 frps</li>
+<li><code>8088</code> 用于公网访问内网 Web 服务</li>
+</ul>
+<hr>
+<h1 id="六、配置-frpc-客户端"><a href="#六、配置-frpc-客户端" class="headerlink" title="六、配置 frpc 客户端"></a>六、配置 frpc 客户端</h1><p>在内网机器上编辑 <code>frpc.toml</code>：</p>
+<figure class="highlight toml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">serverAddr</span> = <span class="string">&quot;1.2.3.4&quot;</span></span><br><span class="line"><span class="attr">serverPort</span> = <span class="number">7000</span></span><br><span class="line"></span><br><span class="line"><span class="section">[[proxies]]</span></span><br><span class="line"><span class="attr">name</span> = <span class="string">&quot;web&quot;</span></span><br><span class="line"><span class="attr">type</span> = <span class="string">&quot;tcp&quot;</span></span><br><span class="line"><span class="attr">localIP</span> = <span class="string">&quot;127.0.0.1&quot;</span></span><br><span class="line"><span class="attr">localPort</span> = <span class="number">8080</span></span><br><span class="line"><span class="attr">remotePort</span> = <span class="number">8088</span></span><br></pre></td></tr></table></figure>
+
+<p>配置说明：</p>
+<table>
+<thead>
+<tr>
+<th>配置项</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>serverAddr</code></td>
+<td>公网服务器 IP</td>
+</tr>
+<tr>
+<td><code>serverPort</code></td>
+<td>frps 服务端端口</td>
+</tr>
+<tr>
+<td><code>name</code></td>
+<td>代理名称，自定义即可</td>
+</tr>
+<tr>
+<td><code>type</code></td>
+<td>代理类型，这里使用 TCP</td>
+</tr>
+<tr>
+<td><code>localIP</code></td>
+<td>内网服务地址</td>
+</tr>
+<tr>
+<td><code>localPort</code></td>
+<td>内网服务端口</td>
+</tr>
+<tr>
+<td><code>remotePort</code></td>
+<td>映射到公网服务器的端口</td>
+</tr>
+</tbody></table>
+<p>启动 frpc：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./frpc -c ./frpc.toml</span><br></pre></td></tr></table></figure>
+
+<p>启动成功后，访问：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://1.2.3.4:8088</span><br></pre></td></tr></table></figure>
+
+<p>就可以访问到内网机器上的 <code>127.0.0.1:8080</code> 服务。</p>
+<hr>
+<h1 id="七、配置-SSH-内网穿透"><a href="#七、配置-SSH-内网穿透" class="headerlink" title="七、配置 SSH 内网穿透"></a>七、配置 SSH 内网穿透</h1><p>如果想远程登录内网 Linux 服务器，也可以配置 SSH 转发。</p>
+<p>假设内网机器 SSH 端口是 <code>22</code>，希望映射到公网服务器的 <code>6000</code> 端口，可以在 <code>frpc.toml</code> 中增加：</p>
+<figure class="highlight toml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">[[proxies]]</span></span><br><span class="line"><span class="attr">name</span> = <span class="string">&quot;ssh&quot;</span></span><br><span class="line"><span class="attr">type</span> = <span class="string">&quot;tcp&quot;</span></span><br><span class="line"><span class="attr">localIP</span> = <span class="string">&quot;127.0.0.1&quot;</span></span><br><span class="line"><span class="attr">localPort</span> = <span class="number">22</span></span><br><span class="line"><span class="attr">remotePort</span> = <span class="number">6000</span></span><br></pre></td></tr></table></figure>
+
+<p>然后重启 frpc。</p>
+<p>在外网环境中执行：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -p 6000 user@1.2.3.4</span><br></pre></td></tr></table></figure>
+
+<p>即可连接到内网机器。</p>
+<hr>
+<h1 id="八、配置-frp-身份认证"><a href="#八、配置-frp-身份认证" class="headerlink" title="八、配置 frp 身份认证"></a>八、配置 frp 身份认证</h1><p>为了安全，不建议直接裸奔使用 frp。可以为 frps 和 frpc 配置认证 token。</p>
+<p>服务端 <code>frps.toml</code>：</p>
+<figure class="highlight toml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">bindPort</span> = <span class="number">7000</span></span><br><span class="line"></span><br><span class="line"><span class="attr">auth.method</span> = <span class="string">&quot;token&quot;</span></span><br><span class="line"><span class="attr">auth.token</span> = <span class="string">&quot;your_secure_token&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>客户端 <code>frpc.toml</code>：</p>
+<figure class="highlight toml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">serverAddr</span> = <span class="string">&quot;1.2.3.4&quot;</span></span><br><span class="line"><span class="attr">serverPort</span> = <span class="number">7000</span></span><br><span class="line"></span><br><span class="line"><span class="attr">auth.method</span> = <span class="string">&quot;token&quot;</span></span><br><span class="line"><span class="attr">auth.token</span> = <span class="string">&quot;your_secure_token&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="section">[[proxies]]</span></span><br><span class="line"><span class="attr">name</span> = <span class="string">&quot;web&quot;</span></span><br><span class="line"><span class="attr">type</span> = <span class="string">&quot;tcp&quot;</span></span><br><span class="line"><span class="attr">localIP</span> = <span class="string">&quot;127.0.0.1&quot;</span></span><br><span class="line"><span class="attr">localPort</span> = <span class="number">8080</span></span><br><span class="line"><span class="attr">remotePort</span> = <span class="number">8088</span></span><br></pre></td></tr></table></figure>
+
+<p>这样只有 token 一致的客户端才能连接到 frps。</p>
+<p>也可以在客户端配置的每一项中添加下面的配置来实现加密信道传输，保护数据安全：</p>
+<figure class="highlight toml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">transport.useEncryption</span> = <span class="literal">true</span></span><br><span class="line"><span class="attr">transport.useCompression</span> = <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<h1 id="九、使用-systemd-后台运行-frps"><a href="#九、使用-systemd-后台运行-frps" class="headerlink" title="九、使用 systemd 后台运行 frps"></a>九、使用 systemd 后台运行 frps</h1><p>在 Linux 服务器上，为了让 frps 开机自启，可以配置 systemd 服务。</p>
+<p>创建服务文件：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo vim /etc/systemd/system/frps.service</span><br></pre></td></tr></table></figure>
+
+<p>写入以下内容：</p>
+<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">[Unit]</span></span><br><span class="line"><span class="attr">Description</span>=frp server</span><br><span class="line"><span class="attr">After</span>=network.target</span><br><span class="line"></span><br><span class="line"><span class="section">[Service]</span></span><br><span class="line"><span class="attr">Type</span>=simple</span><br><span class="line"><span class="attr">ExecStart</span>=/opt/frp/frps -c /opt/frp/frps.toml</span><br><span class="line"><span class="attr">Restart</span>=always</span><br><span class="line"><span class="attr">RestartSec</span>=<span class="number">5</span>s</span><br><span class="line"></span><br><span class="line"><span class="section">[Install]</span></span><br><span class="line"><span class="attr">WantedBy</span>=multi-user.target</span><br></pre></td></tr></table></figure>
+
+<p>然后执行：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl daemon-reload</span><br><span class="line">sudo systemctl <span class="built_in">enable</span> frps</span><br><span class="line">sudo systemctl start frps</span><br><span class="line">sudo systemctl status frps</span><br></pre></td></tr></table></figure>
+
+<p>同理，内网客户端也可以配置 <code>frpc.service</code>，实现开机自动连接。</p>
+<p>注：也可以手动启动加上 nohope 和 &amp; 使frps在后台运行。</p>
+<hr>
+<h1 id="十、常见问题排查"><a href="#十、常见问题排查" class="headerlink" title="十、常见问题排查"></a>十、常见问题排查</h1><h3 id="1-frpc-连接不上-frps"><a href="#1-frpc-连接不上-frps" class="headerlink" title="1. frpc 连接不上 frps"></a>1. frpc 连接不上 frps</h3><p>可以检查以下几点：</p>
+<ul>
+<li>公网服务器 IP 是否正确</li>
+<li><code>serverPort</code> 是否和 <code>bindPort</code> 一致</li>
+<li>云服务器安全组是否放行端口</li>
+<li>Linux 防火墙是否放行端口</li>
+<li>token 是否一致</li>
+</ul>
+<hr>
+<h2 id="2-公网端口无法访问"><a href="#2-公网端口无法访问" class="headerlink" title="2. 公网端口无法访问"></a>2. 公网端口无法访问</h2><p>重点检查：</p>
+<ul>
+<li><code>remotePort</code> 是否被占用</li>
+<li>云服务器安全组是否开放该端口</li>
+<li>frpc 是否正常运行</li>
+<li>内网服务本身是否正常启动</li>
+</ul>
+<p>可以在内网机器上先测试：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl http://127.0.0.1:8080</span><br></pre></td></tr></table></figure>
+
+<p>如果本地都访问不了，说明问题不在 frp，而在内网服务本身。</p>
+<hr>
+<h2 id="3-启动提示端口占用"><a href="#3-启动提示端口占用" class="headerlink" title="3. 启动提示端口占用"></a>3. 启动提示端口占用</h2><p>可以使用以下命令查看端口占用：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo lsof -i:8088</span><br></pre></td></tr></table></figure>
+
+<p>或者：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo netstat -tunlp | grep 8088</span><br></pre></td></tr></table></figure>
+
+<p>换一个未被占用的 <code>remotePort</code> 即可。</p>
+<hr>
+<h1 id="十一、安全建议"><a href="#十一、安全建议" class="headerlink" title="十一、安全建议"></a>十一、安全建议</h1><p>frp 很方便，但公网暴露服务也意味着风险增加。建议注意以下几点：</p>
+<ol>
+<li>不要随意暴露敏感管理后台</li>
+<li>使用强 token 进行认证</li>
+<li>SSH 禁用密码登录，优先使用密钥登录</li>
+<li>给 Web 服务增加登录认证</li>
+<li>只开放必要端口</li>
+<li>定期更新 frp 版本</li>
+<li>配合防火墙限制访问来源 IP</li>
+</ol>
+<p>尤其是 SSH、NAS、数据库、管理面板这类服务，不建议直接暴露在公网，最好额外加一层认证或访问控制。</p>
+<hr>
+<h1 id="十二、总结"><a href="#十二、总结" class="headerlink" title="十二、总结"></a>十二、总结</h1><p>frp 是一个非常实用的内网穿透工具。通过在公网服务器上部署 frps，在内网机器上部署 frpc，我们就可以轻松把内网服务映射到公网。</p>
+<p>它的核心优势包括：</p>
+<ul>
+<li>配置简单</li>
+<li>支持 TCP、UDP、HTTP、HTTPS 等多种协议</li>
+<li>性能较好</li>
+<li>适合开发调试、远程访问和家庭服务暴露</li>
+<li>可配合 systemd 实现长期稳定运行</li>
+</ul>
+<p>对于没有公网 IP 的用户来说，frp 是一种成本低、灵活性高的解决方案。</p>
+<p>只要合理配置权限和安全策略，就可以实现“内网服务，公网轻松访问”。</p>
+</div>
+        </div>
+        
+            <div class="kratos-copyright text-center clearfix">
+                <h5 itemprop="copyrightNotice">本作品采用 <a rel="license nofollow" target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/">知识共享署名-相同方式共享 4.0 国际许可协议</a> 进行许可</h5>
+            </div>
+        
+        <footer class="kratos-entry-footer clearfix">
+            
+                <div class="post-like-donate text-center clearfix" id="post-like-donate">
+                
+                    <a class="donate" href="javascript:;"><i class="fa fa-bitcoin"></i> 打赏</a>
+                
+                
+                    <a class="share" href="javascript:;"><i class="fa fa-share-alt"></i> 分享</a>
+                    <div class="share-wrap" style="display: none;">
+    <div class="share-group">
+        <a href="javascript:;" class="share-plain qq" onclick="share('qq');" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-qq"></i>
+            </div>
+        </a>
+        <a href="javascript:;" class="share-plain qzone" onclick="share('qzone');" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-star"></i>
+            </div>
+        </a>
+        <a href="javascript:;" class="share-plain weixin pop style-plain" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-weixin"></i>
+            </div>
+            <div class="share-int">
+                <div class="qrcode" id="wechat-qr"></div>
+                <p>打开微信“扫一扫”，打开网页后点击屏幕右上角分享按钮</p>
+            </div>
+        </a>
+        <a href="javascript:;" class="share-plain weibo" onclick="share('weibo');" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-weibo"></i>
+            </div>
+        </a>
+        <a href="javascript:;" class="share-plain facebook style-plain" onclick="share('facebook');" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-facebook"></i>
+            </div>
+        </a>
+        <a href="javascript:;" class="share-plain twitter style-plain" onclick="share('twitter');" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-twitter"></i>
+            </div>
+        </a>
+    </div>
+    <script type="text/javascript">
+        $(()=>{
+            new QRCode("wechat-qr", {
+                text: "https://nav.baobodadazz.top/subweb/blog/2026/07/26/0023.frp%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F%EF%BC%8C%E5%85%AC%E7%BD%91%E8%BD%BB%E6%9D%BE%E8%AE%BF%E9%97%AE/",
+                width: 150,
+                height: 150,
+                correctLevel : QRCode.CorrectLevel.H
+            });
+        });
+        function share(dest) {
+            const qqBase        = "https://connect.qq.com/widget/shareqq/index.html?";
+            const weiboBase     = "https://service.weibo.com/share/share.php?";
+            const qzoneBase     = "https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?";
+            const facebookBase  = "https://www.facebook.com/sharer/sharer.php?";
+            const twitterBase   = "https://twitter.com/intent/tweet?";
+            const hostUrl       = "https://nav.baobodadazz.top/subweb/blog/2026/07/26/0023.frp%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F%EF%BC%8C%E5%85%AC%E7%BD%91%E8%BD%BB%E6%9D%BE%E8%AE%BF%E9%97%AE/";
+            const title         = "「【教程】FRP实现内网穿透，公网轻松访问」";
+            const excerpt       = `在日常开发、远程办公或家庭服务器搭建过程中，我们经常会遇到这样一个问题：服务部署在内网环境中，外网无法直接访问。
+比如：
+
+家里的 NAS 想在外面访问
+本地开发的 Web 项目想给同事演示
+实验室内网机器需要远程 SSH
+摄像头、面...`;
+            let _URL;
+            switch (dest) {
+                case "qq"       : _URL = qqBase+"url="+hostUrl+"&title="+title+"&desc=&summary="+excerpt+"&site=cxpy";     break;
+                case "weibo"    : _URL = weiboBase+"url="+hostUrl+"&title="+title+excerpt;                                 break;
+                case "qzone"    : _URL = qzoneBase+"url="+hostUrl+"&title="+title+"&desc=&summary="+excerpt+"&site=cxpy";  break;
+                case "facebook" : _URL = facebookBase+"u="+hostUrl;                                                        break;
+                case "twitter"  : _URL = twitterBase+"text="+title+excerpt+"&url="+hostUrl;                                break;
+            }
+            window.open(_URL);
+        };
+    </script>
+</div>
+                
+                </div>
+            
+            <div class="footer-tag clearfix">
+                <div class="pull-left">
+                <i class="fa fa-tags"></i>
+                    <a class="tag-none-link" href="/subweb/blog/tags/FRP/" rel="tag">FRP</a>, <a class="tag-none-link" href="/subweb/blog/tags/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/" rel="tag">内网穿透</a>, <a class="tag-none-link" href="/subweb/blog/tags/%E6%95%99%E7%A8%8B/" rel="tag">教程</a>, <a class="tag-none-link" href="/subweb/blog/tags/%E7%BD%91%E7%BB%9C/" rel="tag">网络</a>
+                </div>
+                <div class="pull-date">
+                    <time datetime="2026-07-27T04:34:35.015Z" itemprop="dateModified">最后编辑：2026-07-27</time>
+                </div>
+            </div>
+        </footer>
+    </div>
+    
+        <nav class="navigation post-navigation clearfix" role="navigation">
+            
+            <div class="nav-previous clearfix">
+                <a title=" 【教程】Windows多网卡设置优先级" href="/subweb/blog/2026/07/25/0021.windows网卡优先级设置/">&lt; 上一篇</a>
+            </div>
+            
+            
+            <div class="nav-next clearfix">
+                <a title=" 【教程】飞牛OS相册数据迁移" href="/subweb/blog/2026/07/26/0022.飞牛OS相册迁移/">下一篇 &gt;</a>
+            </div>
+            
+        </nav>
+    
+    
+</article>
+
+        
+
+            </section>
+
+        
+
+                
+            
+
+<section id="kratos-widget-area" class="col-md-4 hidden-xs hidden-sm">
+    <!-- 文章和页面根据splitter来分割，没有的话就从头开始设置为sticky -->
+    
+    
+                <aside id="krw-about" class="widget widget-kratos-about clearfix">
+    <div class="photo-background"></div>
+    <div class="photo-wrapper clearfix">
+        <div class="photo-wrapper-tip text-center">
+            <img class="about-photo" src="/subweb/blog/images/avatar.webp" loading="lazy" decoding="auto" />
+        </div>
+    </div>
+    <div class="textwidget">
+        <p class="text-center">爆脖大大Zz</p>
+    </div>
+    <div class="site-meta">
+        <a class="meta-item" href="/subweb/blog/archives/">
+            <span class="title">
+                文章
+            </span>
+            <span class="count">
+                23
+            </span>
+        </a>
+        <a class="meta-item" href="/subweb/blog/categories/">
+            <span class="title">
+                分类
+            </span>
+            <span class="count">
+                6
+            </span>
+        </a>
+        <a class="meta-item" href="/subweb/blog/tags/">
+            <span class="title">
+                标签
+            </span>
+            <span class="count">
+                51
+            </span>
+        </a>
+    </div>
+</aside>
+            
+                    <div class="sticky-area">
+                
+                    <aside id="krw-toc" class="widget widget-kratos-toc clearfix toc-div-class" >
+    <div class="photo-background"></div>
+    <h4 class="widget-title no-after">
+        <i class="fa fa-compass"></i>
+        文章目录
+        <span class="toc-progress-bar" role="progressbar" aria-label="阅读进度："></span>
+    </h4>
+    <div class="textwidget">
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E4%BB%80%E4%B9%88%E6%98%AF-frp%EF%BC%9F"><span class="toc-text">一、什么是 frp？</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BA%8C%E3%80%81frp-%E9%80%82%E5%90%88%E5%93%AA%E4%BA%9B%E5%9C%BA%E6%99%AF%EF%BC%9F"><span class="toc-text">二、frp 适合哪些场景？</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E8%BF%9C%E7%A8%8B%E8%AE%BF%E9%97%AE%E5%86%85%E7%BD%91-Web-%E6%9C%8D%E5%8A%A1"><span class="toc-text">1. 远程访问内网 Web 服务</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E8%BF%9C%E7%A8%8B-SSH-%E7%99%BB%E5%BD%95%E5%86%85%E7%BD%91%E6%9C%8D%E5%8A%A1%E5%99%A8"><span class="toc-text">2. 远程 SSH 登录内网服务器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E8%AE%BF%E9%97%AE%E5%AE%B6%E5%BA%AD-NAS-%E6%88%96%E8%BD%AF%E8%B7%AF%E7%94%B1%E9%9D%A2%E6%9D%BF"><span class="toc-text">3. 访问家庭 NAS 或软路由面板</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-TCP%E3%80%81UDP-%E6%9C%8D%E5%8A%A1%E8%BD%AC%E5%8F%91"><span class="toc-text">4. TCP、UDP 服务转发</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%89%E3%80%81%E5%87%86%E5%A4%87%E5%B7%A5%E4%BD%9C"><span class="toc-text">三、准备工作</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%9B%9B%E3%80%81%E5%AE%89%E8%A3%85-frp"><span class="toc-text">四、安装 frp</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BA%94%E3%80%81%E9%85%8D%E7%BD%AE-frps-%E6%9C%8D%E5%8A%A1%E7%AB%AF"><span class="toc-text">五、配置 frps 服务端</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%85%AD%E3%80%81%E9%85%8D%E7%BD%AE-frpc-%E5%AE%A2%E6%88%B7%E7%AB%AF"><span class="toc-text">六、配置 frpc 客户端</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%83%E3%80%81%E9%85%8D%E7%BD%AE-SSH-%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F"><span class="toc-text">七、配置 SSH 内网穿透</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%85%AB%E3%80%81%E9%85%8D%E7%BD%AE-frp-%E8%BA%AB%E4%BB%BD%E8%AE%A4%E8%AF%81"><span class="toc-text">八、配置 frp 身份认证</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B9%9D%E3%80%81%E4%BD%BF%E7%94%A8-systemd-%E5%90%8E%E5%8F%B0%E8%BF%90%E8%A1%8C-frps"><span class="toc-text">九、使用 systemd 后台运行 frps</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8D%81%E3%80%81%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E6%8E%92%E6%9F%A5"><span class="toc-text">十、常见问题排查</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-frpc-%E8%BF%9E%E6%8E%A5%E4%B8%8D%E4%B8%8A-frps"><span class="toc-text">1. frpc 连接不上 frps</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E5%85%AC%E7%BD%91%E7%AB%AF%E5%8F%A3%E6%97%A0%E6%B3%95%E8%AE%BF%E9%97%AE"><span class="toc-text">2. 公网端口无法访问</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E5%90%AF%E5%8A%A8%E6%8F%90%E7%A4%BA%E7%AB%AF%E5%8F%A3%E5%8D%A0%E7%94%A8"><span class="toc-text">3. 启动提示端口占用</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8D%81%E4%B8%80%E3%80%81%E5%AE%89%E5%85%A8%E5%BB%BA%E8%AE%AE"><span class="toc-text">十一、安全建议</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8D%81%E4%BA%8C%E3%80%81%E6%80%BB%E7%BB%93"><span class="toc-text">十二、总结</span></a></li></ol>
+    </div>
+</aside>
+                
+                
+  <aside id="krw-categories" class="widget widget-kratos-categories clearfix">
+    <h4 class="widget-title"><i class="fa fa-folder"></i>分类目录</h4>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/subweb/blog/categories/%E5%8A%A8%E6%BC%AB/">动漫</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/subweb/blog/categories/%E5%AD%A6%E4%B9%A0/">学习</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/subweb/blog/categories/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/">技术分享</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/subweb/blog/categories/%E6%95%99%E7%A8%8B/">教程</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/subweb/blog/categories/%E7%A8%8B%E5%BA%8F%E7%8C%BF%E7%AC%94%E8%AE%B0/">程序猿笔记</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/subweb/blog/categories/%E9%97%AE%E7%AD%94%E7%95%99%E6%A1%A3/">问答留档</a><span class="category-list-count">11</span></li></ul>
+  </aside>
+
+
+            
+                
+  <aside id="krw-tags" class="widget widget-kratos-tags clearfix">
+    <h4 class="widget-title"><i class="fa fa-tags"></i>标签聚合</h4>
+      <div class="tag-clouds">
+        <a href="/subweb/blog/tags/408/" style="font-size: 0.7em;">408</a> <a href="/subweb/blog/tags/AI%E7%BB%98%E7%94%BB/" style="font-size: 0.6em;">AI绘画</a> <a href="/subweb/blog/tags/Android/" style="font-size: 0.6em;">Android</a> <a href="/subweb/blog/tags/C/" style="font-size: 0.6em;">C++</a> <a href="/subweb/blog/tags/ComfyUI/" style="font-size: 0.6em;">ComfyUI</a> <a href="/subweb/blog/tags/FRP/" style="font-size: 0.6em;">FRP</a> <a href="/subweb/blog/tags/GPT/" style="font-size: 0.8em;">GPT</a> <a href="/subweb/blog/tags/IP/" style="font-size: 0.6em;">IP</a> <a href="/subweb/blog/tags/LaTeX/" style="font-size: 0.6em;">LaTeX</a> <a href="/subweb/blog/tags/Nas/" style="font-size: 0.6em;">Nas</a> <a href="/subweb/blog/tags/StableDiffusion/" style="font-size: 0.6em;">StableDiffusion</a> <a href="/subweb/blog/tags/USD/" style="font-size: 0.6em;">USD</a> <a href="/subweb/blog/tags/VScode/" style="font-size: 0.6em;">VScode</a> <a href="/subweb/blog/tags/adb/" style="font-size: 0.6em;">adb</a> <a href="/subweb/blog/tags/java/" style="font-size: 0.6em;">java</a> <a href="/subweb/blog/tags/javaweb/" style="font-size: 0.6em;">javaweb</a> <a href="/subweb/blog/tags/maven/" style="font-size: 0.6em;">maven</a> <a href="/subweb/blog/tags/openMVG/" style="font-size: 0.6em;">openMVG</a>
+      </div>
+  </aside>
+
+            
+                
+  <aside id="krw-posts" class="widget widget-kratos-posts">
+  <h4 class="widget-title"><i class="fa fa-file"></i>最新文章</h4>
+  <div class="tab-content">
+      <ul class="list-group">
+        
+        
+          
+          
+            <a class="list-group-item" href="/subweb/blog/2026/07/26/0022.%E9%A3%9E%E7%89%9BOS%E7%9B%B8%E5%86%8C%E8%BF%81%E7%A7%BB/"><i class="fa  fa-book"></i> 【教程】飞牛OS相册数据迁移</a>
+            
+          
+        
+          
+          
+            <a class="list-group-item" href="/subweb/blog/2026/07/26/0023.frp%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F%EF%BC%8C%E5%85%AC%E7%BD%91%E8%BD%BB%E6%9D%BE%E8%AE%BF%E9%97%AE/"><i class="fa  fa-book"></i> 【教程】FRP实现内网穿透，公网轻松访问</a>
+            
+          
+        
+          
+          
+            <a class="list-group-item" href="/subweb/blog/2026/07/25/0021.windows%E7%BD%91%E5%8D%A1%E4%BC%98%E5%85%88%E7%BA%A7%E8%AE%BE%E7%BD%AE/"><i class="fa  fa-book"></i> 【教程】Windows多网卡设置优先级</a>
+            
+          
+        
+          
+          
+            <a class="list-group-item" href="/subweb/blog/2026/05/18/0020.StableDiffusion-ComfyUI%E5%AE%8C%E5%85%A8%E9%83%A8%E7%BD%B2%E6%8C%87%E5%8D%97/"><i class="fa  fa-book"></i> 【教程】StableDiffusion: ComfyUI完全部署指南-以Linux为例</a>
+            
+          
+        
+          
+          
+            <a class="list-group-item" href="/subweb/blog/2025/12/07/0019.Windows%E7%B3%BB%E7%BB%9FVScode%E9%85%8D%E7%BD%AELaTeX%E7%8E%AF%E5%A2%83/"><i class="fa  fa-book"></i> 【教程】Windows系统下VScode配置LaTeX环境</a>
+            
+          
+        
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+      </ul>
+  </div>
+  </aside>
+
+            
+    </div>
+</section>
+        
+        </div>
+    </div>
+</div>
+<footer>
+    <div id="footer"  class="ap-lrc"  >
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3 footer-list text-center">
+                    <ul class="kratos-social-icons">
+                        <!-- Keep for compatibility -->
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <!-- New links -->
+                        
+                    </ul>
+                    <ul class="kratos-copyright">
+                        <div>
+                            <li>&copy; 2026 爆脖の奇妙生活 版权所有.</li>
+                            <li>导弹已飞行<span id="span_dt">Loading...</span></li>
+                        </div>
+                        <div>
+                            <li>Theme <a href="https://github.com/Candinya/Kratos-Rebirth" target="_blank">Kratos:Rebirth</a></li>
+                            <li>Site built with&nbsp;<i class="fa fa-heart throb" style="color:#d43f57"></i>&nbsp;by 爆脖大大Zz.</li>
+                        </div>
+                        <div>
+                            <li>Powered by <a href="https://hexo.io" target="_blank" rel="nofollow">Hexo</a></li>
+                            <li>Hosted on <a href="https://github.io" target="_blank">Github Pages</a></li>
+                        </div>
+                        <div>
+                            
+                            
+                        </div>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="kr-tool text-center">
+            <div class="tool">
+                
+                    <div class="box search-box">
+                        <a href="/subweb/blog/search/">
+                            <span class="fa fa-search"></span>
+                        </a>
+                    </div>
+                
+                
+                    <div class="box theme-box" id="darkmode-switch">
+                        <span class="fa fa-adjust"></span>
+                    </div>
+                
+                
+                
+            </div>
+            <div class="box gotop-box">
+                <span class="fa fa-chevron-up"></span>
+            </div>
+        </div>
+    </div>
+</footer>
+</div>
+</div>
+
+        <script defer src="/subweb/blog/vendors/bootstrap@3.3.4/dist/js/bootstrap.min.js"></script>
+<script defer src="/subweb/blog/vendors/nprogress@0.2.0/nprogress.js"></script>
+<script>
+    if (!window.kr) {
+        window.kr = {};
+    }
+    window.kr.notMobile = (!(navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i)));
+    window.kr.siteRoot = "/subweb/blog/";
+</script>
+
+
+    <script async src="/subweb/blog/js/candy.min.js"></script>
+
+
+
+    <script defer src="/subweb/blog/vendors/aplayer@1.10.1/dist/APlayer.min.js"></script>
+    
+    <script defer src="/subweb/blog/vendors/meting@2.0.1/dist/Meting.min.js"></script>
+    <meting-js
+        server="netease"
+        type="playlist"
+        id="9650496682"
+        order="random"
+        fixed="true"
+    >
+    </meting-js>
+
+
+
+    <script defer src="/subweb/blog/vendors/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+
+<script defer src="/subweb/blog/js/kratosr.min.js"></script>
+<script defer src="/subweb/blog/js/pjax.min.js"></script>
+
+    <script defer src="/subweb/blog/vendors/layui-src@2.5.5/dist/layui.all.js"></script>
+
+
+
+<!-- Extra support for third-party plguins  -->
+
+
+    </body>
+</html>
