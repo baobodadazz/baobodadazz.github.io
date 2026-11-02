@@ -1,0 +1,42 @@
+{
+  "credits": "BanG Dream! Project / Arknights collaboration. Character artwork and anime footage belong to their respective rights holders. Source links recorded for attribution.",
+  "assets": {
+    "uika-crawl.gif": {
+      "page": "https://moegirl.uk/File:初华爬行.gif",
+      "download": "https://storage.moegirl.org.cn/moegirl/commons/a/ad/初华爬行.gif",
+      "frames": 32,
+      "duration_ms": 2560,
+      "sha256": "0c0467d09d75227999cd34ccdf55ad2e663bcf23aace125dc6f8fe31ea619da6"
+    },
+    "sakiko-walk.png": {
+      "page": "https://prts.wiki/w/丰川祥子",
+      "source": "https://torappu.prts.wiki/assets/char_spine/char_4182_oblvns/meta.json",
+      "note": "Default outfit / base / Move, rendered from the original game bitmap atlas with PRTS SpineApi; transparent PNG strip, 48 frames, each 160 × 160, left to right.",
+      "duration_ms": 3333.333,
+      "frames": 48,
+      "sha256": "56e04b57341f413ddaf19b89f7492dc6c873512bdc29ea36f020c1f481224c69"
+    },
+    "sakiko-idle.png": {
+      "source": "sakiko-walk.png",
+      "note": "First frame of the same Move animation.",
+      "sha256": "e3a6a6e78f20a191ed2a8ed310a87c96737779e9717cbc12e305f35e3e9e81c0"
+    },
+    "mutsumi.png": {
+      "page": "https://prts.wiki/w/文件:头像_若叶睦.png",
+      "download": "https://media.prts.wiki/a/a0/头像_若叶睦.png",
+      "sha256": "23f83438e9732285334177cccb4bbc13491ac1f32193ac1bd4c645ca38184308"
+    },
+    "uika-crawl-transparent.png": {
+      "source": "uika-crawl.gif",
+      "processing": "Built-in image_gen background extraction of a 4 × 3 contact sheet, followed by alpha cleanup, equal-scale recentering and PNG frame packing.",
+      "frames": 12,
+      "cell_size": [
+        160,
+        160
+      ],
+      "prompt": "Edit target: the supplied 4-column by 3-row contact sheet of twelve consecutive anime crawling frames. Produce a transparent PNG SPRITE SHEET, exactly 4 equal columns × 3 equal rows, twelve frames in the SAME row-major order. Remove ALL scenery, green floor, cast shadows, borders, and background from EVERY cell, leaving ONLY the original crawling girl (Uika/Hatsune Misumi from Ave Mujica) with genuinely transparent alpha everywhere else. Preserve the original anime footage appearance, original face, blond hair with dark red tips, black jacket, red sleeve cuffs and skirt, black leggings, exact crawling poses in each corresponding frame. Do not reinterpret as chibi or vector. Reposition the cutout in each cell so the center of her torso remains at exactly the SAME cell center in every frame, and keep the SAME character scale across all twelve cells. No lateral travel. Each full body must be visible with a generous transparent margin and clean alpha edges; restore only the small clipped hair/hand edge in the final frame. The subject is crawling on all fours facing the viewer at an oblique overhead angle, NOT standing. Keep each of the twelve individual poses faithful to its source frame, only removing background and recentering to make an in-place crawl sprite. Exactly twelve cutouts, equal cells, no labels, no lines, no checkerboard pixels, no floor, no extra objects.",
+      "sha256": "6cb8d8cc7e46069450f6f7d1cbc65286b5f9b703215d1d7e43537c7d925b1744",
+      "playback": "Scroll-distance-driven PNG poses. Preserve the current pose while stationary; no idle animation timer. Each frame uses the same scale and horizontally centered alpha bounds."
+    }
+  }
+}
