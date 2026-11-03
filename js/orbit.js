@@ -1,6 +1,6 @@
 /*
  * Orbit UI, vanilla JavaScript. Original navigation content attribution:
- * 酷安@_小K同學 / https://github.com/Jackie1123/aNavigation
+ * 酷安@_小K同學 / https://github.com/Jackie1123/aNavigation  有大量修改
  * Original project: 2020-01-26, original navigation update: 2022-02-25.
  */
 (() => {

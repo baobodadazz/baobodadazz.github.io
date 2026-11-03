@@ -171,23 +171,23 @@ window.NAVIGATION = {
       "links": [
         {
           "url": "https://nav.baobodadazz.top/subweb/blog/index.html",
-          "name": "我",
+          "name": "Baobo",
           "description": "爆脖の奇妙生活"
         },
         {
           "url": "https://blog.cong.chat/",
-          "name": "翟聪",
-          "description": "翟聪的博客"
+          "name": "Cong",
+          "description": "Cong的博客"
         },
         {
           "url": "https://blog.luchichick.cn/",
-          "name": "李彦卿",
-          "description": "李彦卿的博客"
+          "name": "luchi",
+          "description": "LYQ的博客"
         },
         {
-          "url": "https://waiwai.life/",
-          "name": "雷登文",
-          "description": "啥都有|很离谱"
+          "url": "https://blog.lthero.com/",
+          "name": "lthero",
+          "description": "Wan的博客"
         }
       ]
     },
@@ -493,6 +493,11 @@ window.NAVIGATION = {
           "url": "https://cloudconvert.com/",
           "name": "FileConvert",
           "description": "文件转换器"
+        },
+        {
+          "url": "https://design.lthero.com/",
+          "name": "Lthero Design",
+          "description": "设计作品集"
         }
       ]
     }

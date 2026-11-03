@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
+
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -16,69 +17,200 @@
   <script src="js/workspace.js" defer></script>
   <script src="js/connections.js" defer></script>
 </head>
+
 <body>
   <a class="skip-link" href="#search-input">跳到搜索</a>
   <div class="space-background" aria-hidden="true">
-    <div class="anime-scene"></div><div class="nebula nebula-one"></div><div class="nebula nebula-two"></div>
-    <div class="aurora-ribbon aurora-cyan"></div><div class="aurora-ribbon aurora-violet"></div>
-    <div class="starfield"></div><div id="twinkle-field"></div><div class="code-grid"></div>
-    <div class="orbital-ring ring-one"></div><div class="orbital-ring ring-two"></div>
-    <div class="shooting-star"></div><div class="shooting-star meteor-two"></div><div class="shooting-star meteor-three"></div>
+    <div class="anime-scene"></div>
+    <div class="nebula nebula-one"></div>
+    <div class="nebula nebula-two"></div>
+    <div class="aurora-ribbon aurora-cyan"></div>
+    <div class="aurora-ribbon aurora-violet"></div>
+    <div class="starfield"></div>
+    <div id="twinkle-field"></div>
+    <div class="code-grid"></div>
+    <div class="orbital-ring ring-one"></div>
+    <div class="orbital-ring ring-two"></div>
+    <div class="shooting-star"></div>
+    <div class="shooting-star meteor-two"></div>
+    <div class="shooting-star meteor-three"></div>
     <div class="code-streams" id="code-streams"></div>
-    <div class="code-fragment code-right continuation"><span class="syntax-comment">// to be continued...</span><span class="code-kana">つづく<span>✦</span></span><span class="code-caption">&lt;/夢&gt;</span></div>
+    <div class="code-fragment code-right continuation"><span class="syntax-comment">// to be continued...</span><span
+        class="code-kana">つづく<span>✦</span></span><span class="code-caption">&lt;/夢&gt;</span></div>
     <div id="sakura-field"></div>
   </div>
-  <div class="pointer-effects" id="pointer-effects" aria-hidden="true"><div class="pointer-aura" id="pointer-aura"></div><div class="pointer-ring" id="pointer-ring"></div><div class="pointer-particles" id="pointer-particles"></div></div>
+  <div class="pointer-effects" id="pointer-effects" aria-hidden="true">
+    <div class="pointer-aura" id="pointer-aura"></div>
+    <div class="pointer-ring" id="pointer-ring"></div>
+    <div class="pointer-particles" id="pointer-particles"></div>
+  </div>
   <div class="sidebar-backdrop" id="sidebar-backdrop"></div>
   <div class="navigation-overlay" id="navigation-overlay" role="dialog" aria-modal="true" aria-label="书签与工作台" inert>
-  <aside class="sidebar" id="sidebar" aria-label="书签导航" inert>
-    <header class="sidebar-header"><span>书签 <small id="bookmark-count">90</small></span><div class="sidebar-header-actions"><button id="desk-toggle" type="button" class="desk-toggle">工具 ↗</button><button id="close-sidebar" class="icon-button" aria-label="关闭书签导航">×</button></div></header>
-    <label class="bookmark-search"><span aria-hidden="true">⌕</span><input id="bookmark-filter" type="search" placeholder="查找书签…" autocomplete="off" aria-label="查找侧边栏书签"><kbd>/</kbd></label>
-    <div class="bookmark-scroll-shell" id="bookmark-scroll-shell">
-      <div class="bookmark-groups" id="bookmark-groups"></div>
-      <div class="bookmark-scrollbar" id="bookmark-scrollbar" role="scrollbar" tabindex="0" aria-label="滚动书签" aria-controls="bookmark-groups" aria-orientation="vertical" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><span class="bookmark-scroll-thumb" id="bookmark-scroll-thumb"></span></div>
-    </div>
-    <div class="sidebar-bottom"><span><i class="dot fast"></i>流畅</span><span><i class="dot medium"></i>一般</span><span><i class="dot slow"></i>较慢</span><small>悬停测延迟</small></div>
-  </aside>
-  <aside class="sidebar-workspace" id="sidebar-workspace" aria-label="固定工作台" inert>
-    <button class="workspace-back smear-button" id="desk-back" type="button"><span>← 书签</span></button>
-    <section class="workspace-clock"><div class="terminal-clock"><div class="clock-command" aria-hidden="true"><span>❯</span> date +%T</div><div class="clock-readout"><time id="desk-clock" aria-label="当前时间"></time><span class="clock-caret" aria-hidden="true"></span></div></div><div class="workspace-date"><time id="desk-date"></time><span id="desk-weekday"></span></div></section>
-    <div class="tool-album-shell character-scroll-shell" id="tool-album-shell">
-    <div class="tool-deck tool-album" id="tool-deck" aria-label="工作台卡片相册">
-      <section class="workspace-card tool-card focus-card" id="tool-focus" data-tool-card="focus" aria-labelledby="focus-title"><div class="workspace-card-heading"><h3 id="focus-title">专注计时</h3><span id="focus-status" role="status">准备开始</span></div><time id="focus-time">25:00</time><div class="focus-ocean" id="focus-ocean"><span class="ocean-pebble pebble-one"></span><span class="ocean-pebble pebble-two"></span><span class="ocean-pebble pebble-three"></span><span class="ocean-goal" aria-hidden="true">✦</span><span id="focus-actor" class="focus-actor"></span></div><div class="focus-presets" role="group" aria-label="选择专注时长"><button type="button" data-focus-minutes="15" aria-pressed="false">15 分</button><button type="button" data-focus-minutes="25" aria-pressed="true">25 分</button><button type="button" data-focus-minutes="45" aria-pressed="false">45 分</button></div><form class="focus-custom" id="focus-custom"><label><input id="focus-custom-minutes" type="number" min="0" max="1440" step="1" value="25" aria-label="自定义专注分钟数" required> 分</label><label><input id="focus-custom-seconds" type="number" min="0" max="59" step="1" value="0" aria-label="自定义专注秒数" required> 秒</label><button type="submit" class="smear-button"><span>应用时长</span></button></form><div class="focus-actions"><button id="focus-toggle" class="smear-button" type="button"><span class="mutsumi-avatar" id="mutsumi-avatar" aria-hidden="true"></span><span id="focus-toggle-label">若叶睦说：“祥，移动”</span></button><button id="focus-reset" class="smear-button" type="button" aria-label="重置计时"><span>↺</span></button></div><div class="focus-alerts"><button id="focus-sound" type="button" aria-pressed="true">♫ 提示音开</button><button id="focus-notify" type="button">开启通知</button><button id="focus-test-sound" type="button" aria-label="试听计时结束提示音">试听 ♪</button><button id="focus-test-notify" type="button">测试通知</button></div><label class="focus-message-label" for="focus-notification-text">通知内容</label><textarea id="focus-notification-text" class="focus-notification-text" maxlength="500" rows="2" placeholder="留空时显示默认的专注完成提示"></textarea><p class="tool-feedback" id="focus-feedback" role="status"></p></section>
-      <section class="workspace-card tool-card preview-card" id="tool-preview" data-tool-card="preview" aria-labelledby="preview-title">
-        <div class="workspace-card-heading"><h3 id="preview-title">网页预览</h3><label class="setting-switch"><input id="preview-enabled" type="checkbox" role="switch" aria-label="开启悬停网页预览"><span class="switch-track" aria-hidden="true"></span></label></div>
-        <div class="connection-setting"><div><span>自动测试延迟</span><small>展开书签时分批检测，每两分钟更新</small></div><label class="setting-switch"><input id="auto-probe-enabled" type="checkbox" role="switch" aria-label="开启自动测试延迟"><span class="switch-track" aria-hidden="true"></span></label></div>
-        <p id="auto-probe-status" class="connection-status" role="status">自动测速已关闭 · 悬停仍可测速</p>
-        <div class="preview-address"><span id="preview-site-name">等待选择书签</span><a id="preview-open" target="_blank" rel="noopener noreferrer" hidden>打开原网页 ↗</a></div>
-        <div class="preview-viewport"><div class="preview-placeholder" id="preview-placeholder"><span aria-hidden="true">⌁</span><p>打开预览开关，再悬停左侧书签</p></div><iframe id="bookmark-preview" title="书签网页的桌面缩略预览" width="1280" height="800" src="about:blank" sandbox="allow-scripts allow-forms allow-same-origin allow-popups" referrerpolicy="no-referrer" hidden></iframe></div>
-        <p id="preview-status" class="preview-status" role="status">开关会自动记住；预览受目标网站的嵌入设置限制。</p>
+    <aside class="sidebar" id="sidebar" aria-label="书签导航" inert>
+      <header class="sidebar-header"><span>书签 <small id="bookmark-count">90</small></span>
+        <div class="sidebar-header-actions"><button id="desk-toggle" type="button" class="desk-toggle">工具
+            ↗</button><button id="close-sidebar" class="icon-button" aria-label="关闭书签导航">×</button></div>
+      </header>
+      <label class="bookmark-search"><span aria-hidden="true">⌕</span><input id="bookmark-filter" type="search"
+          placeholder="查找书签…" autocomplete="off" aria-label="查找侧边栏书签"><kbd>/</kbd></label>
+      <div class="bookmark-scroll-shell" id="bookmark-scroll-shell">
+        <div class="bookmark-groups" id="bookmark-groups"></div>
+        <div class="bookmark-scrollbar" id="bookmark-scrollbar" role="scrollbar" tabindex="0" aria-label="滚动书签"
+          aria-controls="bookmark-groups" aria-orientation="vertical" aria-valuemin="0" aria-valuemax="100"
+          aria-valuenow="0"><span class="bookmark-scroll-thumb" id="bookmark-scroll-thumb"></span></div>
+      </div>
+      <div class="sidebar-bottom"><span><i class="dot fast"></i>流畅</span><span><i
+            class="dot medium"></i>一般</span><span><i class="dot slow"></i>较慢</span><small>悬停测延迟</small></div>
+    </aside>
+    <aside class="sidebar-workspace" id="sidebar-workspace" aria-label="固定工作台" inert>
+      <button class="workspace-back smear-button" id="desk-back" type="button"><span>← 书签</span></button>
+      <section class="workspace-clock">
+        <div class="terminal-clock">
+          <div class="clock-command" aria-hidden="true"><span>❯</span> date +%T</div>
+          <div class="clock-readout"><time id="desk-clock" aria-label="当前时间"></time><span class="clock-caret"
+              aria-hidden="true"></span></div>
+        </div>
+        <div class="workspace-date"><time id="desk-date"></time><span id="desk-weekday"></span></div>
       </section>
-      <section class="workspace-card tool-card todo-card" id="tool-todos" data-tool-card="todos" aria-labelledby="todo-title"><div class="workspace-card-heading"><h3 id="todo-title">待办清单</h3><span id="todo-summary">0 项待办</span></div><form class="todo-form" id="todo-form"><label class="sr-only" for="todo-input">新增待办</label><input id="todo-input" maxlength="180" placeholder="接下来想做什么？" autocomplete="off" required><button class="smear-button" type="submit" aria-label="添加待办"><span>＋</span></button></form><div id="todo-list" class="todo-list"></div><div class="todo-bottom"><span id="todo-done-count">已完成 0 项</span><button type="button" id="todo-undo" hidden>撤销上次完成 ↶</button></div><p id="todo-feedback" class="tool-feedback" role="status"></p></section>
-      <section class="workspace-card tool-card calculator-card" id="tool-calculator" data-tool-card="calculator" aria-labelledby="calc-title"><div class="workspace-card-heading"><h3 id="calc-title">科学计算器</h3><button id="calc-angle" type="button" aria-label="切换弧度与角度">RAD</button></div><label class="sr-only" for="calc-expression">数学表达式</label><input id="calc-expression" class="calc-expression" placeholder="例如 sin(pi/2) + 2^3" autocomplete="off" spellcheck="false"><output id="calc-result" class="calc-result" aria-live="polite">0</output><div class="calculator-keys" id="calculator-keys"></div><p id="calc-error" class="tool-feedback" role="status"></p></section>
-      <section class="workspace-card tool-card graph-card" id="tool-graph" data-tool-card="graph" aria-labelledby="graph-title"><div class="workspace-card-heading"><h3 id="graph-title">图形计算器</h3><button type="button" id="graph-reset">复位视图 ↺</button></div><form class="graph-form" id="graph-form"><label for="graph-expression">公式</label><input id="graph-expression" placeholder="x^2+y^2=25，或 y=sin(x)" autocomplete="off" spellcheck="false"><button class="smear-button" type="submit"><span>绘制</span></button></form><div class="graph-canvas-wrap"><canvas id="graph-canvas" aria-label="函数曲线，支持拖动平移、滚轮缩放"></canvas></div><p class="graph-help">输入函数或隐式方程，例如 x²/9 + y²/4 = 1；拖动平移，滚轮缩放。</p><p id="graph-error" class="tool-feedback" role="status"></p></section>
-      <section class="workspace-card tool-card note-card" id="tool-note" data-tool-card="note" aria-labelledby="note-title"><div class="workspace-card-heading"><h3 id="note-title">本地便签</h3><span id="note-status" role="status">随手记一点</span></div><label class="sr-only" for="desk-note">便签内容</label><textarea id="desk-note" maxlength="6000" placeholder="刚才的灵感、待办，或者一句备忘…" spellcheck="false"></textarea><div class="note-footer"><span>自动保存于此浏览器</span><span id="note-count">0 / 6000</span></div></section>
-    </div>
-    <div class="album-scrollbar" id="album-scrollbar" role="scrollbar" tabindex="0" aria-label="拖动三角初华滚动工作台" aria-controls="tool-deck" aria-orientation="vertical" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><span id="album-scroll-thumb"></span></div>
-    </div>
-    <footer class="workspace-actions"><button id="desk-motion" type="button" aria-pressed="false"><span aria-hidden="true">Ⅱ</span><span id="desk-motion-label">暂停动效</span></button><button id="desk-home" type="button">回到主页 ↗</button></footer>
-  </aside>
+      <div class="tool-album-shell character-scroll-shell" id="tool-album-shell">
+        <div class="tool-deck tool-album" id="tool-deck" aria-label="工作台卡片相册">
+          <section class="workspace-card tool-card focus-card" id="tool-focus" data-tool-card="focus"
+            aria-labelledby="focus-title">
+            <div class="workspace-card-heading">
+              <h3 id="focus-title">专注计时</h3><span id="focus-status" role="status">准备开始</span>
+            </div><time id="focus-time">25:00</time>
+            <div class="focus-ocean" id="focus-ocean"><span class="ocean-pebble pebble-one"></span><span
+                class="ocean-pebble pebble-two"></span><span class="ocean-pebble pebble-three"></span><span
+                class="ocean-goal" aria-hidden="true">✦</span><span id="focus-actor" class="focus-actor"></span></div>
+            <div class="focus-presets" role="group" aria-label="选择专注时长"><button type="button" data-focus-minutes="15"
+                aria-pressed="false">15 分</button><button type="button" data-focus-minutes="25" aria-pressed="true">25
+                分</button><button type="button" data-focus-minutes="45" aria-pressed="false">45 分</button></div>
+            <form class="focus-custom" id="focus-custom"><label><input id="focus-custom-minutes" type="number" min="0"
+                  max="1440" step="1" value="25" aria-label="自定义专注分钟数" required> 分</label><label><input
+                  id="focus-custom-seconds" type="number" min="0" max="59" step="1" value="0" aria-label="自定义专注秒数"
+                  required> 秒</label><button type="submit" class="smear-button"><span>应用时长</span></button></form>
+            <div class="focus-actions"><button id="focus-toggle" class="smear-button" type="button"><span
+                  class="mutsumi-avatar" id="mutsumi-avatar" aria-hidden="true"></span><span
+                  id="focus-toggle-label">若叶睦说：“祥，移动”</span></button><button id="focus-reset" class="smear-button"
+                type="button" aria-label="重置计时"><span>↺</span></button></div>
+            <div class="focus-alerts"><button id="focus-sound" type="button" aria-pressed="true">♫ 提示音开</button><button
+                id="focus-notify" type="button">开启通知</button><button id="focus-test-sound" type="button"
+                aria-label="试听计时结束提示音">试听 ♪</button><button id="focus-test-notify" type="button">测试通知</button></div>
+            <label class="focus-message-label" for="focus-notification-text">通知内容</label><textarea
+              id="focus-notification-text" class="focus-notification-text" maxlength="500" rows="2"
+              placeholder="留空时显示默认的专注完成提示"></textarea>
+            <p class="tool-feedback" id="focus-feedback" role="status"></p>
+          </section>
+          <section class="workspace-card tool-card preview-card" id="tool-preview" data-tool-card="preview"
+            aria-labelledby="preview-title">
+            <div class="workspace-card-heading">
+              <h3 id="preview-title">网页预览</h3><label class="setting-switch"><input id="preview-enabled" type="checkbox"
+                  role="switch" aria-label="开启悬停网页预览"><span class="switch-track" aria-hidden="true"></span></label>
+            </div>
+            <div class="connection-setting">
+              <div><span>自动测试延迟</span><small>展开书签时分批检测，每两分钟更新</small></div><label class="setting-switch"><input
+                  id="auto-probe-enabled" type="checkbox" role="switch" aria-label="开启自动测试延迟"><span class="switch-track"
+                  aria-hidden="true"></span></label>
+            </div>
+            <p id="auto-probe-status" class="connection-status" role="status">自动测速已关闭 · 悬停仍可测速</p>
+            <div class="preview-address"><span id="preview-site-name">等待选择书签</span><a id="preview-open" target="_blank"
+                rel="noopener noreferrer" hidden>打开原网页 ↗</a></div>
+            <div class="preview-viewport">
+              <div class="preview-placeholder" id="preview-placeholder"><span aria-hidden="true">⌁</span>
+                <p>打开预览开关，再悬停左侧书签</p>
+              </div><iframe id="bookmark-preview" title="书签网页的桌面缩略预览" width="1280" height="800" src="about:blank"
+                sandbox="allow-scripts allow-forms allow-same-origin allow-popups" referrerpolicy="no-referrer"
+                hidden></iframe>
+            </div>
+            <p id="preview-status" class="preview-status" role="status">开关会自动记住；预览受目标网站的嵌入设置限制。</p>
+          </section>
+          <section class="workspace-card tool-card todo-card" id="tool-todos" data-tool-card="todos"
+            aria-labelledby="todo-title">
+            <div class="workspace-card-heading">
+              <h3 id="todo-title">待办清单</h3><span id="todo-summary">0 项待办</span>
+            </div>
+            <form class="todo-form" id="todo-form"><label class="sr-only" for="todo-input">新增待办</label><input
+                id="todo-input" maxlength="180" placeholder="接下来想做什么？" autocomplete="off" required><button
+                class="smear-button" type="submit" aria-label="添加待办"><span>＋</span></button></form>
+            <div id="todo-list" class="todo-list"></div>
+            <div class="todo-bottom"><span id="todo-done-count">已完成 0 项</span><button type="button" id="todo-undo"
+                hidden>撤销上次完成 ↶</button></div>
+            <p id="todo-feedback" class="tool-feedback" role="status"></p>
+          </section>
+          <section class="workspace-card tool-card calculator-card" id="tool-calculator" data-tool-card="calculator"
+            aria-labelledby="calc-title">
+            <div class="workspace-card-heading">
+              <h3 id="calc-title">科学计算器</h3><button id="calc-angle" type="button" aria-label="切换弧度与角度">RAD</button>
+            </div><label class="sr-only" for="calc-expression">数学表达式</label><input id="calc-expression"
+              class="calc-expression" placeholder="例如 sin(pi/2) + 2^3" autocomplete="off" spellcheck="false"><output
+              id="calc-result" class="calc-result" aria-live="polite">0</output>
+            <div class="calculator-keys" id="calculator-keys"></div>
+            <p id="calc-error" class="tool-feedback" role="status"></p>
+          </section>
+          <section class="workspace-card tool-card graph-card" id="tool-graph" data-tool-card="graph"
+            aria-labelledby="graph-title">
+            <div class="workspace-card-heading">
+              <h3 id="graph-title">图形计算器</h3><button type="button" id="graph-reset">复位视图 ↺</button>
+            </div>
+            <form class="graph-form" id="graph-form"><label for="graph-expression">公式</label><input
+                id="graph-expression" placeholder="x^2+y^2=25，或 y=sin(x)" autocomplete="off" spellcheck="false"><button
+                class="smear-button" type="submit"><span>绘制</span></button></form>
+            <div class="graph-canvas-wrap"><canvas id="graph-canvas" aria-label="函数曲线，支持拖动平移、滚轮缩放"></canvas></div>
+            <p class="graph-help">输入函数或隐式方程，例如 x²/9 + y²/4 = 1；拖动平移，滚轮缩放。</p>
+            <p id="graph-error" class="tool-feedback" role="status"></p>
+          </section>
+          <section class="workspace-card tool-card note-card" id="tool-note" data-tool-card="note"
+            aria-labelledby="note-title">
+            <div class="workspace-card-heading">
+              <h3 id="note-title">本地便签</h3><span id="note-status" role="status">随手记一点</span>
+            </div><label class="sr-only" for="desk-note">便签内容</label><textarea id="desk-note" maxlength="6000"
+              placeholder="刚才的灵感、待办，或者一句备忘…" spellcheck="false"></textarea>
+            <div class="note-footer"><span>自动保存于此浏览器</span><span id="note-count">0 / 6000</span></div>
+          </section>
+        </div>
+        <div class="album-scrollbar" id="album-scrollbar" role="scrollbar" tabindex="0" aria-label="拖动三角初华滚动工作台"
+          aria-controls="tool-deck" aria-orientation="vertical" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+          <span id="album-scroll-thumb"></span></div>
+      </div>
+      <footer class="workspace-actions"><button id="desk-motion" type="button" aria-pressed="false"><span
+            aria-hidden="true">Ⅱ</span><span id="desk-motion-label">暂停动效</span></button><button id="desk-home"
+          type="button">回到主页 ↗</button></footer>
+    </aside>
   </div>
   <main id="main">
-    <button class="menu-button icon-button" id="open-sidebar" aria-label="打开书签导航" aria-controls="sidebar" aria-expanded="false"><span></span><span></span><span></span></button>
-    <div class="corner-controls"><time id="clock"></time><button class="motion-toggle icon-button" id="motion-toggle" type="button" aria-label="暂停动效" aria-pressed="false"><span aria-hidden="true">◌</span></button></div>
+    <button class="menu-button icon-button" id="open-sidebar" aria-label="打开书签导航" aria-controls="sidebar"
+      aria-expanded="false"><span></span><span></span><span></span></button>
+    <div class="corner-controls"><time id="clock"></time><button class="motion-toggle icon-button" id="motion-toggle"
+        type="button" aria-label="暂停动效" aria-pressed="false"><span aria-hidden="true">◌</span></button></div>
     <div class="search-box">
-      <div id="logo"><button id="engine-logo" type="button" aria-label="切换搜索引擎" aria-controls="engine-panel" aria-expanded="false"><span class="logo-halo" aria-hidden="true"></span><img id="engine-image" src="img/bing.png" alt="Bing" width="300" height="120"></button></div>
+      <div id="logo"><button id="engine-logo" type="button" aria-label="切换搜索引擎" aria-controls="engine-panel"
+          aria-expanded="false"><span class="logo-halo" aria-hidden="true"></span><img id="engine-image"
+            src="img/bing.png" alt="Bing" width="300" height="120"></button></div>
       <form id="search-form" class="search-form" action="https://cn.bing.com/search" method="get">
-        <span class="search-icon" aria-hidden="true">⌕</span><label class="sr-only" for="search-input">搜索关键词</label><input type="search" id="search-input" name="q" placeholder="Bing一下，你就知道！" autocomplete="off" role="combobox" aria-autocomplete="list" aria-controls="search-suggestions" aria-expanded="false" required><kbd>Ctrl K</kbd><button class="search-submit" type="submit" aria-label="开始搜索">↗</button>
+        <span class="search-icon" aria-hidden="true">⌕</span><label class="sr-only"
+          for="search-input">搜索关键词</label><input type="search" id="search-input" name="q" placeholder="Bing一下，你就知道！"
+          autocomplete="off" role="combobox" aria-autocomplete="list" aria-controls="search-suggestions"
+          aria-expanded="false" required><kbd>Ctrl K</kbd><button class="search-submit" type="submit"
+          aria-label="开始搜索">↗</button>
         <ul id="search-suggestions" class="search-suggestions" role="listbox" aria-label="搜索联想词" hidden></ul>
       </form>
-      <div class="panel-switch"><span></span><button id="panel-toggle" type="button" aria-controls="engine-panel" aria-expanded="false"><span id="panel-label">书签</span><span class="switch-glyph" aria-hidden="true">⇄</span></button><span></span></div>
-      <div class="folder" id="folder"><div class="shortcut-grid" id="quick-grid" aria-label="常用书签"></div></div>
-      <div class="engine-panel" id="engine-panel" hidden><div class="shortcut-grid" id="engine-grid" role="group" aria-label="选择搜索引擎"></div></div>
+      <div class="panel-switch"><span></span><button id="panel-toggle" type="button" aria-controls="engine-panel"
+          aria-expanded="false"><span id="panel-label">书签</span><span class="switch-glyph"
+            aria-hidden="true">⇄</span></button><span></span></div>
+      <div class="folder" id="folder">
+        <div class="shortcut-grid" id="quick-grid" aria-label="常用书签"></div>
+      </div>
+      <div class="engine-panel" id="engine-panel" hidden>
+        <div class="shortcut-grid" id="engine-grid" role="group" aria-label="选择搜索引擎"></div>
+      </div>
     </div>
-    <footer class="footer"><span class="footer-line"></span><span>© <span id="year">2026</span> <a href="https://space.bilibili.com/40750119" target="_blank" rel="noopener noreferrer">爆脖工作室</a></span><span class="footer-line"></span></footer>
+    <footer class="footer"><span class="footer-line"></span><span>© <span id="year">2026</span> <a
+          href="https://space.bilibili.com/40750119" target="_blank" rel="noopener noreferrer">爆脖工作室</a></span><span
+        class="footer-line"></span></footer>
   </main>
-  <noscript><p class="noscript-note">请启用 JavaScript 以使用原有书签和搜索引擎切换。</p></noscript>
+  <noscript>
+    <p class="noscript-note">请启用 JavaScript 以使用书签和搜索引擎切换。</p>
+  </noscript>
 </body>
+
 </html>
