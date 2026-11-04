@@ -226,54 +226,61 @@ for rank, document in enumerate(best, 1):
       if (target < token.start + token.text.length) break;
       stream.token++;
     }
+    const scrollNeeded=source.slice(stream.visible,target).includes('\n')||target===source.length;
     stream.visible = target;
     stream.count.textContent = `${target} / ${source.length}`;
     // Follow newly emitted lines inside the decorative card, never the page.
-    stream.pre.scrollTop = stream.pre.scrollHeight;
+    if(scrollNeeded)stream.pre.scrollTop = stream.pre.scrollHeight;
   }
-  let frame = 0;
-  function paused() { return document.hidden || document.body.classList.contains('motion-reduced') || matchMedia('(prefers-reduced-motion: reduce)').matches; }
-  function tick(now) {
-    frame = 0;
-    if (paused()) return;
-    streams.forEach(stream => {
-      if (!stream.card.getClientRects().length) return;
-      const source = snippets[stream.snippet].source;
-      if (stream.visible >= source.length) {
-        if (!stream.holdUntil) { stream.holdUntil = now + 4200; stream.status.textContent = '输出完成'; stream.card.dataset.state = 'complete'; }
-        if (now >= stream.holdUntil) load(stream, (stream.snippet + 1 + Math.floor(Math.random() * (snippets.length - 1))) % snippets.length, now);
+  let timer=0;
+  const systemMotion=matchMedia('(prefers-reduced-motion: reduce)');
+  const motionOff=()=>document.body.classList.contains('motion-reduced')||systemMotion.matches;
+  function paused(){return document.hidden||motionOff()||document.body.classList.contains('effects-paused')||document.body.classList.contains('sidebar-open');}
+  function tick(now){
+    timer=0;if(paused())return;
+    let nextWake=Infinity;
+    streams.forEach(stream=>{
+      if(!stream.card.getClientRects().length)return;
+      const source=snippets[stream.snippet].source;
+      if(stream.visible>=source.length){
+        if(!stream.holdUntil){stream.holdUntil=now+4200;stream.status.textContent='输出完成';stream.card.dataset.state='complete';}
+        if(now>=stream.holdUntil){load(stream,(stream.snippet+1+Math.floor(Math.random()*(snippets.length-1)))%snippets.length,now);nextWake=Math.min(nextWake,stream.next);}
+        else nextWake=Math.min(nextWake,stream.holdUntil);
         return;
       }
-      if (now < stream.next) return;
-      // Advance one character at a time; punctuation introduces a brief breath.
-      let emitted = 0;
-      while (now >= stream.next && stream.visible < source.length && emitted++ < 3) {
-        const character = source[stream.visible];
-        showCharacters(stream, stream.visible + 1);
-        stream.next += character === '\n' ? 75 : /[;:}]/.test(character) ? 35 : 9;
+      if(now>=stream.next){
+        let target=stream.visible,emitted=0;
+        while(now>=stream.next&&target<source.length&&emitted++<3){
+          const character=source[target++];
+          stream.next+=character==='\n'?75:/[;:}]/.test(character)?35:9;
+        }
+        // One DOM batch per tick, rather than a layout read for every character.
+        if(target!==stream.visible)showCharacters(stream,target);
+        if(stream.next<now-80)stream.next=now+9;
       }
-      if (stream.next < now - 80) stream.next = now + 9;
+      nextWake=Math.min(nextWake,stream.next);
     });
-    frame = requestAnimationFrame(tick);
+    // No frame polling while holding finished code. Typing wakes at most ~30 Hz.
+    if(Number.isFinite(nextWake))timer=setTimeout(()=>tick(performance.now()),Math.max(32,nextWake-performance.now()));
   }
-  function sync() {
-    cancelAnimationFrame(frame); frame = 0;
-    const now = performance.now();
-    streams.forEach(stream => {
-      if (paused()) {
-        if (!stream.visible) showCharacters(stream, snippets[stream.snippet].source.length);
-        stream.status.textContent = '已暂停'; stream.card.dataset.state = 'paused';
-      } else {
-        stream.next = now + 30; stream.holdUntil = 0;
-        stream.status.textContent = stream.visible < snippets[stream.snippet].source.length ? '输出中' : '输出完成';
-        stream.card.dataset.state = stream.visible < snippets[stream.snippet].source.length ? 'streaming' : 'complete';
+  function sync(){
+    clearTimeout(timer);timer=0;
+    const now=performance.now();
+    streams.forEach(stream=>{
+      if(paused()){
+        if(motionOff()&&!stream.visible)showCharacters(stream,snippets[stream.snippet].source.length);
+        stream.status.textContent='已暂停';stream.card.dataset.state='paused';
+      }else{
+        stream.next=now+30;stream.holdUntil=0;
+        stream.status.textContent=stream.visible<snippets[stream.snippet].source.length?'输出中':'输出完成';
+        stream.card.dataset.state=stream.visible<snippets[stream.snippet].source.length?'streaming':'complete';
       }
     });
-    if (!paused()) frame = requestAnimationFrame(tick);
+    if(!paused())timer=setTimeout(()=>tick(performance.now()),32);
   }
-  streams.forEach(stream => load(stream, Math.floor(Math.random() * snippets.length), performance.now()));
-  window.addEventListener('orbit:motionchange', sync);
-  document.addEventListener('visibilitychange', sync);
-  matchMedia('(prefers-reduced-motion: reduce)').addEventListener('change', sync);
+  streams.forEach(stream=>load(stream,Math.floor(Math.random()*snippets.length),performance.now()));
+  for(const event of ['orbit:motionchange','orbit:activitychange','orbit:workspace','resize'])window.addEventListener(event,sync);
+  document.addEventListener('visibilitychange',sync);
+  systemMotion.addEventListener('change',sync);
   sync();
 })();

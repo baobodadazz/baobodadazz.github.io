@@ -17,13 +17,14 @@
   function updateMotion() {
     document.body.classList.toggle('motion-reduced', motionReduced);
     if (motionReduced) activeAnimations.forEach(animation => animation.finish());
+    const motionLabel = motionReduced ? '开启特效' : '暂停特效';
     $('#motion-toggle').setAttribute('aria-pressed', String(motionReduced));
-    $('#motion-toggle').setAttribute('aria-label', motionReduced ? '开启动效' : '暂停动效');
-    $('#motion-toggle').title = motionReduced ? '开启动效' : '暂停动效';
+    $('#motion-toggle').setAttribute('aria-label', motionLabel);
+    $('#motion-toggle').title = motionReduced ? '开启持续特效' : '暂停持续特效，保留开合和悬停动画';
     $('#motion-toggle span').textContent = motionReduced ? '▷' : 'Ⅱ';
     $('#desk-motion').setAttribute('aria-pressed', String(motionReduced));
     $('#desk-motion span').textContent = motionReduced ? '▷' : 'Ⅱ';
-    $('#desk-motion-label').textContent = motionReduced ? '开启动效' : '暂停动效';
+    $('#desk-motion-label').textContent = motionLabel;
     document.documentElement.style.scrollBehavior = motionReduced ? 'auto' : '';
     window.dispatchEvent(new Event('orbit:motionchange'));
   }
@@ -34,6 +35,16 @@
   });
   reducedMotion.addEventListener('change', event => { motionReduced = event.matches; updateMotion(); });
   updateMotion();
+
+  // Blur/hidden tabs keep deadlines, but do not keep decorative GPU work alive.
+  function syncActivity(){
+    document.body.classList.toggle('effects-paused',document.hidden||!document.hasFocus());
+    window.dispatchEvent(new Event('orbit:activitychange'));
+  }
+  window.addEventListener('focus',syncActivity);
+  window.addEventListener('blur',syncActivity);
+  document.addEventListener('visibilitychange',syncActivity);
+  syncActivity();
 
   // Preserve all 24 original time-based greetings verbatim.
   const hourlyTitles = [
@@ -65,9 +76,11 @@
   let titleHour = -1;
   function updateClock() {
     const now = new Date();
-    $('#clock').textContent = now.toLocaleTimeString('zh-CN', { hour12: false });
-    $('#clock').dateTime = now.toISOString();
-    $('#year').textContent = now.getFullYear();
+    if(!document.hidden){
+      $('#clock').textContent = now.toLocaleTimeString('zh-CN', { hour12: false });
+      $('#clock').dateTime = now.toISOString();
+      const year=String(now.getFullYear());if($('#year').textContent!==year)$('#year').textContent=year;
+    }
     window.dispatchEvent(new CustomEvent('orbit:clock', { detail: now.getTime() }));
     if (titleHour !== now.getHours()) {
       titleHour = now.getHours();
@@ -79,7 +92,7 @@
   document.addEventListener('visibilitychange', () => { if (!document.hidden) updateClock(); });
 
   const sakuraField = $('#sakura-field');
-  for (let index = 0; index < 16; index++) {
+  for (let index = 0; index < 8; index++) {
     const petal = document.createElement('span'); petal.className = 'sakura-petal';
     petal.style.setProperty('--petal-x', `${(index * 37 + 3) % 100}%`);
     petal.style.setProperty('--petal-size', `${7 + index % 4 * 2}px`);
@@ -90,7 +103,7 @@
     sakuraField.append(petal);
   }
   const twinkleField = $('#twinkle-field');
-  for (let index = 0; index < 22; index++) {
+  for (let index = 0; index < 12; index++) {
     const star = document.createElement('span'); star.className = 'scene-star';
     star.style.left = `${(index * 41 + 7) % 100}%`;
     star.style.top = `${(index * 23 + 11) % 97}%`;
@@ -589,7 +602,6 @@
   $('#desk-toggle').addEventListener('click', () => setWorkspaceMobile(true));
   $('#desk-back').addEventListener('click', () => setWorkspaceMobile(false));
   $('#desk-motion').addEventListener('click', () => { motionReduced = !motionReduced; storage.set('motion', motionReduced ? 'reduced' : 'full'); updateMotion(); });
-  $('#sidebar').addEventListener('click', event => { if (event.target.closest('a') && !event.target.closest('[aria-disabled=true]')) setSidebar(false); });
   compactWorkspace.addEventListener('change', () => {
     syncWorkspace();
     if (document.body.classList.contains('sidebar-open') && document.activeElement.closest('[inert]')) $('#close-sidebar').focus({ preventScroll: true });
@@ -634,25 +646,28 @@
       else if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first.focus(); }
     }
   });
-  document.addEventListener('pointermove', event => {
-    if (motionReduced || event.pointerType === 'touch') return;
-    const shortcut = event.target.closest('.shortcut');
-    if (!shortcut) return;
-    const rect = shortcut.getBoundingClientRect();
-    shortcut.style.setProperty('--mouse-x', `${event.clientX - rect.left}px`);
-    shortcut.style.setProperty('--mouse-y', `${event.clientY - rect.top}px`);
-    const x = Math.max(-.5, Math.min(.5, (event.clientX - rect.left) / rect.width - .5));
-    const y = Math.max(-.5, Math.min(.5, (event.clientY - rect.top) / rect.height - .5));
-    const icon = shortcut.querySelector('.shortcut-icon');
-    icon.style.setProperty('--glass-rx', `${-y * 19}deg`);
-    icon.style.setProperty('--glass-ry', `${x * 19}deg`);
-    icon.style.setProperty('--glass-x', `${(x + .5) * 100}%`);
-    icon.style.setProperty('--glass-y', `${(y + .5) * 100}%`);
-    icon.style.setProperty('--shine-x', `${x * 12}px`);
-    icon.style.setProperty('--shine-y', `${y * 12}px`);
-    icon.style.setProperty('--image-x', `${x * 2.5}px`);
-    icon.style.setProperty('--image-y', `${y * 2.5}px`);
-  }, { passive: true });
+  // Coalesce pointer events: read geometry and write glass styles once per frame.
+  let glassFrame=0,glassTarget=null,glassX=0,glassY=0;
+  function updateGlass(){
+    glassFrame=0;
+    if(!glassTarget||motionReduced||document.body.classList.contains('effects-paused'))return;
+    const shortcut=glassTarget,rect=shortcut.getBoundingClientRect();
+    shortcut.style.setProperty('--mouse-x',`${glassX-rect.left}px`);
+    shortcut.style.setProperty('--mouse-y',`${glassY-rect.top}px`);
+    const x=Math.max(-.5,Math.min(.5,(glassX-rect.left)/rect.width-.5));
+    const y=Math.max(-.5,Math.min(.5,(glassY-rect.top)/rect.height-.5));
+    const icon=shortcut.querySelector('.shortcut-icon');
+    icon.style.setProperty('--glass-rx',`${-y*19}deg`);icon.style.setProperty('--glass-ry',`${x*19}deg`);
+    icon.style.setProperty('--glass-x',`${(x+.5)*100}%`);icon.style.setProperty('--glass-y',`${(y+.5)*100}%`);
+    icon.style.setProperty('--shine-x',`${x*12}px`);icon.style.setProperty('--shine-y',`${y*12}px`);
+    icon.style.setProperty('--image-x',`${x*2.5}px`);icon.style.setProperty('--image-y',`${y*2.5}px`);
+  }
+  document.addEventListener('pointermove',event=>{
+    if(motionReduced||event.pointerType==='touch')return;
+    const shortcut=event.target.closest('.shortcut');if(!shortcut)return;
+    glassTarget=shortcut;glassX=event.clientX;glassY=event.clientY;
+    if(!glassFrame)glassFrame=requestAnimationFrame(updateGlass);
+  },{passive:true});
   const shortcuts = [...document.querySelectorAll('.shortcut')];
   let pressedShortcut;
   function releaseGlass() {
@@ -660,6 +675,7 @@
     pressedShortcut = null;
   }
   function resetGlass(shortcut) {
+    if(glassTarget===shortcut){cancelAnimationFrame(glassFrame);glassFrame=0;glassTarget=null;}
     shortcut.classList.remove('is-pressed');
     const icon = shortcut.querySelector('.shortcut-icon');
     ['--glass-rx', '--glass-ry', '--glass-x', '--glass-y', '--shine-x', '--shine-y', '--image-x', '--image-y'].forEach(property => icon.style.removeProperty(property));
@@ -699,7 +715,7 @@
     pointerEffects.classList.remove('is-active', 'is-hovering');
     particleLayer.replaceChildren();
   }
-  function pointerEnabled() { return !motionReduced && finePointer.matches && !document.hidden && !document.body.classList.contains('sidebar-open'); }
+  function pointerEnabled() { return !motionReduced && finePointer.matches && !document.hidden && !document.body.classList.contains('effects-paused') && !document.body.classList.contains('sidebar-open'); }
   function followPointer() {
     pointerFrame = 0;
     if (!pointerEnabled()) { clearPointerEffects(); return; }
@@ -710,7 +726,7 @@
     if (Math.abs(targetX - followX) + Math.abs(targetY - followY) > .3) pointerFrame = requestAnimationFrame(followPointer);
   }
   function particle(className, x, y, driftX = 0, driftY = 0) {
-    if (particleLayer.childElementCount >= 60) return;
+    if (particleLayer.childElementCount >= 24) return;
     const node = document.createElement('span'); node.className = className;
     node.style.left = `${x}px`; node.style.top = `${y}px`;
     node.style.setProperty('--drift-x', `${driftX}px`); node.style.setProperty('--drift-y', `${driftY}px`);
@@ -728,7 +744,7 @@
     pointerEffects.classList.toggle('is-hovering', overControl);
     if (!pointerFrame) pointerFrame = requestAnimationFrame(followPointer);
     const now = performance.now();
-    if (now - lastSparkTime > 30 && Math.hypot(targetX - lastSparkX, targetY - lastSparkY) > 9 && !event.target.closest('input,.search-suggestions')) {
+    if (now - lastSparkTime > 55 && Math.hypot(targetX - lastSparkX, targetY - lastSparkY) > 9 && !event.target.closest('input,.search-suggestions')) {
       particle(`pointer-spark${sparkSequence % 5 === 0 ? ' star' : ''}`, targetX, targetY, (Math.random() - .5) * 28, 12 + Math.random() * 25);
       lastSparkTime = now; lastSparkX = targetX; lastSparkY = targetY;
     }
@@ -737,8 +753,8 @@
     if (event.button !== 0 || !pointerEnabled() || event.target.closest('input,.search-suggestions')) return;
     particle('pointer-ripple', event.clientX, event.clientY);
     particle('pointer-ripple echo', event.clientX, event.clientY);
-    for (let index = 0; index < 8; index++) {
-      const angle = index * Math.PI / 4;
+    for (let index = 0; index < 6; index++) {
+      const angle = index * Math.PI / 3;
       particle('pointer-spark star', event.clientX, event.clientY, Math.cos(angle) * 45, Math.sin(angle) * 45);
     }
   }, { passive: true });
@@ -747,4 +763,6 @@
   window.addEventListener('blur', clearPointerEffects);
   window.addEventListener('orbit:motionchange', clearPointerEffects);
   finePointer.addEventListener('change', clearPointerEffects);
+  window.addEventListener('orbit:workspace',clearPointerEffects);
+  window.addEventListener('orbit:activitychange',()=>{if(document.body.classList.contains('effects-paused')){clearPointerEffects();shortcuts.forEach(resetGlass);}});
 })();

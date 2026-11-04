@@ -14,9 +14,9 @@
   const clockLine=$('#desk-clock'),clockPrimary=document.createElement('span'),clockSeconds=document.createElement('span');
   clockPrimary.className='clock-primary';clockSeconds.className='clock-seconds';clockLine.replaceChildren(clockPrimary,clockSeconds);
   let clockTarget='',clockValue='',clockTyping=0;
-  const clockVisible=()=>!document.hidden&&document.body.classList.contains('sidebar-open');
+  const clockVisible=()=>!document.hidden&&!$('#sidebar-workspace').inert&&!document.body.classList.contains('effects-paused');
   function paintClock(value){clockValue=value;clockPrimary.textContent=value.slice(0,5);clockSeconds.textContent=value.slice(5);}
-  function stopClock(){clearTimeout(clockTyping);clockTyping=0;clockLine.dataset.phase='idle';}
+  function stopClock(){clearTimeout(clockTyping);clockTyping=0;if(clockLine.dataset.phase!=='idle')clockLine.dataset.phase='idle';}
   function animateClock(){
     clockTyping=0;
     if(reduced()||!clockVisible()){paintClock(clockTarget);stopClock();return;}
@@ -27,15 +27,19 @@
     clockTyping=setTimeout(animateClock,erasing?26:42);
   }
   function clock(now = new Date(), force = false) {
+    if(!clockVisible()){stopClock();return;}
     const next=now.toLocaleTimeString('zh-CN',{hour12:false,hour:'2-digit',minute:'2-digit',second:'2-digit'});
     clockLine.dateTime=now.toISOString();clockLine.setAttribute('aria-label',`当前时间 ${next}`);
-    if(next!==clockTarget||force){
+    if(next!==clockTarget||force||clockValue!==next){
       clockTarget=next;
       if(reduced()||!clockVisible()){stopClock();paintClock(next);}
       else if(!clockTyping){if(force)paintClock('');animateClock();}
     }
-    $('#desk-date').textContent=now.toLocaleDateString('zh-CN',{year:'numeric',month:'2-digit',day:'2-digit'});
-    $('#desk-date').dateTime=now.toISOString();$('#desk-weekday').textContent=now.toLocaleDateString('zh-CN',{weekday:'long'});
+    const date=now.toLocaleDateString('zh-CN',{year:'numeric',month:'2-digit',day:'2-digit'});
+    if($('#desk-date').textContent!==date){
+      $('#desk-date').textContent=date;$('#desk-date').dateTime=now.toISOString();
+      $('#desk-weekday').textContent=now.toLocaleDateString('zh-CN',{weekday:'long'});
+    }
   }
   clock();
   window.addEventListener('orbit:workspace',()=>{if(clockVisible())clock(new Date(),true);else{stopClock();paintClock(clockTarget);}});
@@ -111,8 +115,12 @@
     if(notifications&&'Notification'in window&&Notification.permission==='granted')sendNotification();
     $('#focus-ocean').classList.add('is-complete');
   }
+  let focusPaint='';
   function renderFocus(now=Date.now()){
     if(focus.running){focus.remaining=Math.max(0,Math.ceil((focus.deadline-now)/1000));if(!focus.remaining){focus.running=false;focus.completed=true;completed();}}
+    if($('#sidebar-workspace').inert||document.hidden||document.body.classList.contains('effects-paused'))return;
+    const paint=`${focus.total}:${focus.remaining}:${focus.running}:${focus.completed}`;
+    if(paint===focusPaint)return;focusPaint=paint;
     const minutes=Math.floor(focus.remaining/60),seconds=focus.remaining%60;
     $('#focus-time').textContent=`${String(minutes).padStart(2,'0')}:${String(seconds).padStart(2,'0')}`;
     const percent=(1-focus.remaining/focus.total)*100;
@@ -139,7 +147,10 @@
   $('#focus-reset').addEventListener('click',()=>resetFocus());
   document.querySelectorAll('[data-focus-minutes]').forEach(button=>button.addEventListener('click',()=>resetFocus(Number(button.dataset.focusMinutes))));
   window.addEventListener('orbit:clock',event=>{clock(new Date(event.detail));renderFocus(event.detail);});
-  document.addEventListener('visibilitychange',()=>{if(!document.hidden){clock();renderFocus();}});renderFocus();
+  document.addEventListener('visibilitychange',()=>{if(!document.hidden){clock();renderFocus();}});
+  window.addEventListener('orbit:workspace',()=>renderFocus());
+  window.addEventListener('orbit:activitychange',()=>{if(clockVisible()){clock();renderFocus();}else stopClock();});
+  renderFocus();
 
   let tasks=storage.get('todos',[]);
   if(!Array.isArray(tasks))tasks=[];
@@ -190,7 +201,7 @@
   function resetGraphView(){const rect=canvas.getBoundingClientRect(),aspect=rect.width/Math.max(1,rect.height);lastAspect=aspect;const sx=20*Math.max(1,aspect),sy=20*Math.max(1,1/aspect);view={xmin:-sx/2,xmax:sx/2,ymin:-sy/2,ymax:sy/2};}
   function niceStep(span){const raw=span/8,power=10**Math.floor(Math.log10(raw)),ratio=raw/power;return(ratio<2?1:ratio<5?2:5)*power;}
   function drawGraph(){
-    graphFrame=0;const rect=canvas.getBoundingClientRect();if(rect.width<1||rect.height<1)return;
+    graphFrame=0;if($('#sidebar-workspace').inert||document.hidden)return;const rect=canvas.getBoundingClientRect();if(rect.width<1||rect.height<1)return;
     const width=rect.width,height=rect.height,aspect=width/height,dpr=Math.min(devicePixelRatio||1,2);
     if(!lastAspect)resetGraphView();
     else if(Math.abs(aspect-lastAspect)>.001){const cy=(view.ymin+view.ymax)/2,span=(view.xmax-view.xmin)/aspect;view.ymin=cy-span/2;view.ymax=cy+span/2;lastAspect=aspect;}
